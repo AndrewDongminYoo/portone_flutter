@@ -1,5 +1,5 @@
 /// {@template portone_flutter_v2}
-/// A Very Good Project created by Very Good CLI.
+/// A module for integrating PortOne V2 payment service in Flutter App.
 /// {@endtemplate}
 class PortoneFlutterV2 {
   /// {@macro portone_flutter_v2}

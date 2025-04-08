@@ -1,5 +1,5 @@
 name: portone_flutter_v2
-description: A Very Good Project created by Very Good CLI.
+description: A module for integrating PortOne V2 payment service in Flutter App.
 version: 0.1.0+1
 publish_to: none
 
