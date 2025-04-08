@@ -39,7 +39,7 @@ class PaymentRequest {
     this.phoneNumber,
     this.email,
     this.address,
-    this.mobile,
+    this.windowType,
     this.redirectUrl,
     this.noticeUrls,
     this.confirmUrl,
@@ -113,8 +113,12 @@ class PaymentRequest {
   /// 구매자 주소 (선택)
   final Address? address;
 
-  /// 모바일 환경 결제창 타입
-  final WindowType? mobile;
+  /// 환경 별 제공되는 결제/본인인증 창 유형
+  ///
+  /// PG사에 따라 가능한 창 유형이 다릅니다.
+  /// 전달되지 않았을 때 결정되는 기본 창이 다릅니다.
+  /// 미입력 시, 해당 PG사의 기본 창 방식을 따릅니다.
+  final WindowTypes? windowType;
 
   /// 리디렉션 방식 결제 시 고객사 URL (선택)
   final String? redirectUrl;
