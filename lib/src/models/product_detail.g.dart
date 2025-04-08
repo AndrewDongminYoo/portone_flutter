@@ -6,8 +6,7 @@ part of 'product_detail.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ProductDetail _$ProductDetailFromJson(Map<String, dynamic> json) =>
-    $checkedCreate(
+ProductDetail _$ProductDetailFromJson(Map<String, dynamic> json) => $checkedCreate(
       'ProductDetail',
       json,
       ($checkedConvert) {
@@ -19,15 +18,13 @@ ProductDetail _$ProductDetailFromJson(Map<String, dynamic> json) =>
           code: $checkedConvert('code', (v) => v as String?),
           tag: $checkedConvert('tag', (v) => v as String?),
           link: $checkedConvert('link', (v) => v as String?),
-          isCulturalExpense:
-              $checkedConvert('isCulturalExpense', (v) => v as bool?),
+          isCulturalExpense: $checkedConvert('isCulturalExpense', (v) => v as bool?),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$ProductDetailToJson(ProductDetail instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$ProductDetailToJson(ProductDetail instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       if (instance.code case final value?) 'code': value,
@@ -35,6 +32,5 @@ Map<String, dynamic> _$ProductDetailToJson(ProductDetail instance) =>
       'quantity': instance.quantity,
       if (instance.tag case final value?) 'tag': value,
       if (instance.link case final value?) 'link': value,
-      if (instance.isCulturalExpense case final value?)
-        'isCulturalExpense': value,
+      if (instance.isCulturalExpense case final value?) 'isCulturalExpense': value,
     };

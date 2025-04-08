@@ -6,8 +6,7 @@ part of 'payment_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-PaymentRequest _$PaymentRequestFromJson(Map<String, dynamic> json) =>
-    $checkedCreate(
+PaymentRequest _$PaymentRequestFromJson(Map<String, dynamic> json) => $checkedCreate(
       'PaymentRequest',
       json,
       ($checkedConvert) {
@@ -15,8 +14,7 @@ PaymentRequest _$PaymentRequestFromJson(Map<String, dynamic> json) =>
           storeId: $checkedConvert('storeId', (v) => v! as String),
           paymentId: $checkedConvert('paymentId', (v) => v! as String),
           orderName: $checkedConvert('orderName', (v) => v! as String),
-          totalAmount:
-              $checkedConvert('totalAmount', (v) => (v! as num).toInt()),
+          totalAmount: $checkedConvert('totalAmount', (v) => (v! as num).toInt()),
           currency: $checkedConvert(
             'currency',
             (v) => $enumDecode(_$PaymentCurrencyEnumMap, v),
@@ -26,15 +24,12 @@ PaymentRequest _$PaymentRequestFromJson(Map<String, dynamic> json) =>
             (v) => $enumDecode(_$PaymentPayMethodEnumMap, v),
           ),
           channelKey: $checkedConvert('channelKey', (v) => v as String?),
-          channelGroupId:
-              $checkedConvert('channelGroupId', (v) => v as String?),
-          taxFreeAmount:
-              $checkedConvert('taxFreeAmount', (v) => (v as num?)?.toInt()),
+          channelGroupId: $checkedConvert('channelGroupId', (v) => v as String?),
+          taxFreeAmount: $checkedConvert('taxFreeAmount', (v) => (v as num?)?.toInt()),
           vatAmount: $checkedConvert('vatAmount', (v) => (v as num?)?.toInt()),
           customer: $checkedConvert(
             'customer',
-            (v) =>
-                v == null ? null : Customer.fromJson(v as Map<String, dynamic>),
+            (v) => v == null ? null : Customer.fromJson(v as Map<String, dynamic>),
           ),
           customerId: $checkedConvert('customerId', (v) => v as String?),
           fullName: $checkedConvert('fullName', (v) => v as String?),
@@ -44,8 +39,7 @@ PaymentRequest _$PaymentRequestFromJson(Map<String, dynamic> json) =>
           email: $checkedConvert('email', (v) => v as String?),
           address: $checkedConvert(
             'address',
-            (v) =>
-                v == null ? null : Address.fromJson(v as Map<String, dynamic>),
+            (v) => v == null ? null : Address.fromJson(v as Map<String, dynamic>),
           ),
           mobile: $checkedConvert(
             'mobile',
@@ -71,8 +65,7 @@ PaymentRequest _$PaymentRequestFromJson(Map<String, dynamic> json) =>
             'locale',
             (v) => $enumDecodeNullable(_$PaymentLocaleEnumMap, v),
           ),
-          customData:
-              $checkedConvert('customData', (v) => v as Map<String, dynamic>?),
+          customData: $checkedConvert('customData', (v) => v as Map<String, dynamic>?),
           expiredTime: $checkedConvert('expiredTime', (v) => v as String?),
           cashReceiptTradeOption: $checkedConvert(
             'cashReceiptTradeOption',
@@ -80,15 +73,11 @@ PaymentRequest _$PaymentRequestFromJson(Map<String, dynamic> json) =>
           ),
           offerPeriod: $checkedConvert(
             'offerPeriod',
-            (v) => v == null
-                ? null
-                : OfferPeriod.fromJson(v as Map<String, dynamic>),
+            (v) => v == null ? null : OfferPeriod.fromJson(v as Map<String, dynamic>),
           ),
           kakaopay: $checkedConvert(
             'kakaopay',
-            (v) => v == null
-                ? null
-                : KakaopayPaymentBypass.fromJson(v as Map<String, dynamic>),
+            (v) => v == null ? null : KakaopayPaymentBypass.fromJson(v as Map<String, dynamic>),
           ),
           tosspayments: $checkedConvert(
             'tosspayments',
@@ -100,9 +89,7 @@ PaymentRequest _$PaymentRequestFromJson(Map<String, dynamic> json) =>
           ),
           tosspayV2: $checkedConvert(
             'tosspay_v2',
-            (v) => v == null
-                ? null
-                : TosspayV2PaymentBypass.fromJson(v as Map<String, dynamic>),
+            (v) => v == null ? null : TosspayV2PaymentBypass.fromJson(v as Map<String, dynamic>),
           ),
         );
         return val;
@@ -110,8 +97,7 @@ PaymentRequest _$PaymentRequestFromJson(Map<String, dynamic> json) =>
       fieldKeyMap: const {'tosspayV2': 'tosspay_v2'},
     );
 
-Map<String, dynamic> _$PaymentRequestToJson(PaymentRequest instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$PaymentRequestToJson(PaymentRequest instance) => <String, dynamic>{
       'storeId': instance.storeId,
       'paymentId': instance.paymentId,
       'orderName': instance.orderName,
@@ -130,27 +116,21 @@ Map<String, dynamic> _$PaymentRequestToJson(PaymentRequest instance) =>
       if (instance.phoneNumber case final value?) 'phoneNumber': value,
       if (instance.email case final value?) 'email': value,
       if (instance.address?.toJson() case final value?) 'address': value,
-      if (_$WindowTypeEnumMap[instance.mobile] case final value?)
-        'mobile': value,
+      if (_$WindowTypeEnumMap[instance.mobile] case final value?) 'mobile': value,
       if (instance.redirectUrl case final value?) 'redirectUrl': value,
       if (instance.noticeUrls case final value?) 'noticeUrls': value,
       if (instance.confirmUrl case final value?) 'confirmUrl': value,
       if (instance.appScheme case final value?) 'appScheme': value,
       'isEscrow': instance.isEscrow,
-      if (instance.products?.map((e) => e.toJson()).toList() case final value?)
-        'products': value,
-      if (_$PaymentLocaleEnumMap[instance.locale] case final value?)
-        'locale': value,
+      if (instance.products?.map((e) => e.toJson()).toList() case final value?) 'products': value,
+      if (_$PaymentLocaleEnumMap[instance.locale] case final value?) 'locale': value,
       if (instance.customData case final value?) 'customData': value,
       if (instance.expiredTime case final value?) 'expiredTime': value,
-      if (_$CashReceiptTradeOptionEnumMap[instance.cashReceiptTradeOption]
-          case final value?)
+      if (_$CashReceiptTradeOptionEnumMap[instance.cashReceiptTradeOption] case final value?)
         'cashReceiptTradeOption': value,
-      if (instance.offerPeriod?.toJson() case final value?)
-        'offerPeriod': value,
+      if (instance.offerPeriod?.toJson() case final value?) 'offerPeriod': value,
       if (instance.kakaopay?.toJson() case final value?) 'kakaopay': value,
-      if (instance.tosspayments?.toJson() case final value?)
-        'tosspayments': value,
+      if (instance.tosspayments?.toJson() case final value?) 'tosspayments': value,
       if (instance.tosspayV2?.toJson() case final value?) 'tosspay_v2': value,
     };
 

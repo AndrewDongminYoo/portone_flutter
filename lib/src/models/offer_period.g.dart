@@ -12,18 +12,16 @@ OfferPeriod _$OfferPeriodFromJson(Map<String, dynamic> json) => $checkedCreate(
       ($checkedConvert) {
         final val = OfferPeriod(
           range: $checkedConvert(
-              'range',
-              (v) => v == null
-                  ? null
-                  : OfferRange.fromJson(v as Map<String, dynamic>),),
+            'range',
+            (v) => v == null ? null : OfferRange.fromJson(v as Map<String, dynamic>),
+          ),
           interval: $checkedConvert('interval', (v) => v as String?),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$OfferPeriodToJson(OfferPeriod instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$OfferPeriodToJson(OfferPeriod instance) => <String, dynamic>{
       if (instance.range?.toJson() case final value?) 'range': value,
       if (instance.interval case final value?) 'interval': value,
     };
@@ -40,8 +38,7 @@ OfferRange _$OfferRangeFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$OfferRangeToJson(OfferRange instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$OfferRangeToJson(OfferRange instance) => <String, dynamic>{
       if (instance.from case final value?) 'from': value,
       if (instance.to case final value?) 'to': value,
     };

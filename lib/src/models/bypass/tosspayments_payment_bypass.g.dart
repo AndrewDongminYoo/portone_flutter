@@ -7,24 +7,24 @@ part of 'tosspayments_payment_bypass.dart';
 // **************************************************************************
 
 TosspaymentsPaymentBypass _$TosspaymentsPaymentBypassFromJson(
-        Map<String, dynamic> json,) =>
+  Map<String, dynamic> json,
+) =>
     $checkedCreate(
       'TosspaymentsPaymentBypass',
       json,
       ($checkedConvert) {
         final val = TosspaymentsPaymentBypass(
           discountCode: $checkedConvert('discountCode', (v) => v as String?),
-          useInternationalCardOnly:
-              $checkedConvert('useInternationalCardOnly', (v) => v as bool?),
+          useInternationalCardOnly: $checkedConvert('useInternationalCardOnly', (v) => v as bool?),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$TosspaymentsPaymentBypassToJson(
-        TosspaymentsPaymentBypass instance,) =>
+  TosspaymentsPaymentBypass instance,
+) =>
     <String, dynamic>{
       if (instance.discountCode case final value?) 'discountCode': value,
-      if (instance.useInternationalCardOnly case final value?)
-        'useInternationalCardOnly': value,
+      if (instance.useInternationalCardOnly case final value?) 'useInternationalCardOnly': value,
     };

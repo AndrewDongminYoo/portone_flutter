@@ -18,10 +18,9 @@ Customer _$CustomerFromJson(Map<String, dynamic> json) => $checkedCreate(
           phoneNumber: $checkedConvert('phoneNumber', (v) => v as String?),
           email: $checkedConvert('email', (v) => v as String?),
           address: $checkedConvert(
-              'address',
-              (v) => v == null
-                  ? null
-                  : Address.fromJson(v as Map<String, dynamic>),),
+            'address',
+            (v) => v == null ? null : Address.fromJson(v as Map<String, dynamic>),
+          ),
           gender: $checkedConvert('gender', (v) => v as String?),
           birthYear: $checkedConvert('birthYear', (v) => v as String?),
           birthMonth: $checkedConvert('birthMonth', (v) => v as String?),

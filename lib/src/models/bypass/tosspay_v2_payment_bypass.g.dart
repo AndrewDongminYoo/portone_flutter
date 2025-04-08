@@ -7,7 +7,8 @@ part of 'tosspay_v2_payment_bypass.dart';
 // **************************************************************************
 
 TosspayV2PaymentBypass _$TosspayV2PaymentBypassFromJson(
-        Map<String, dynamic> json,) =>
+  Map<String, dynamic> json,
+) =>
     $checkedCreate(
       'TosspayV2PaymentBypass',
       json,
@@ -20,7 +21,8 @@ TosspayV2PaymentBypass _$TosspayV2PaymentBypassFromJson(
     );
 
 Map<String, dynamic> _$TosspayV2PaymentBypassToJson(
-        TosspayV2PaymentBypass instance,) =>
+  TosspayV2PaymentBypass instance,
+) =>
     <String, dynamic>{
       if (instance.discountCode case final value?) 'discountCode': value,
     };

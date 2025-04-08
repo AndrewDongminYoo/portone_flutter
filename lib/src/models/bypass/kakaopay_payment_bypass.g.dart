@@ -7,7 +7,8 @@ part of 'kakaopay_payment_bypass.dart';
 // **************************************************************************
 
 KakaopayPaymentBypass _$KakaopayPaymentBypassFromJson(
-        Map<String, dynamic> json,) =>
+  Map<String, dynamic> json,
+) =>
     $checkedCreate(
       'KakaopayPaymentBypass',
       json,
@@ -21,7 +22,8 @@ KakaopayPaymentBypass _$KakaopayPaymentBypassFromJson(
     );
 
 Map<String, dynamic> _$KakaopayPaymentBypassToJson(
-        KakaopayPaymentBypass instance,) =>
+  KakaopayPaymentBypass instance,
+) =>
     <String, dynamic>{
       if (instance.customMessage case final value?) 'custom_message': value,
     };
