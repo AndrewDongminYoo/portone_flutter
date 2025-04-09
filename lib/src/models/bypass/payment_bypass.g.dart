@@ -17,11 +17,7 @@ PaymentBypass _$PaymentBypassFromJson(Map<String, dynamic> json) => $checkedCrea
           ),
           tosspayments: $checkedConvert(
             'tosspayments',
-            (v) => v == null
-                ? null
-                : TosspaymentsPaymentBypass.fromJson(
-                    v as Map<String, dynamic>,
-                  ),
+            (v) => v == null ? null : TosspaymentsPaymentBypass.fromJson(v as Map<String, dynamic>),
           ),
           tosspayV2: $checkedConvert(
             'tosspay_v2',

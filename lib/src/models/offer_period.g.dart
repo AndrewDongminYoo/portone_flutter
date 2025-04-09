@@ -11,10 +11,7 @@ OfferPeriod _$OfferPeriodFromJson(Map<String, dynamic> json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = OfferPeriod(
-          range: $checkedConvert(
-            'range',
-            (v) => v == null ? null : OfferRange.fromJson(v as Map<String, dynamic>),
-          ),
+          range: $checkedConvert('range', (v) => v == null ? null : OfferRange.fromJson(v as Map<String, dynamic>)),
           interval: $checkedConvert('interval', (v) => v as String?),
         );
         return val;
