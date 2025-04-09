@@ -4,1001 +4,756 @@ import 'package:json_annotation/json_annotation.dart';
 /// 국가 (ISO 3166-1 alpha-2 코드)
 ///
 /// See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
-@JsonEnum()
+@JsonEnum(fieldRename: FieldRename.screamingSnake, valueField: 'value')
 enum Country {
   /// Afghanistan
-  @JsonValue('COUNTRY_AF')
-  AF,
+  AF('COUNTRY_AF'),
 
   /// Åland Islands
-  @JsonValue('COUNTRY_AX')
-  AX,
+  AX('COUNTRY_AX'),
 
   /// Albania
-  @JsonValue('COUNTRY_AL')
-  AL,
+  AL('COUNTRY_AL'),
 
   /// Algeria
-  @JsonValue('COUNTRY_DZ')
-  DZ,
+  DZ('COUNTRY_DZ'),
 
   /// American Samoa
-  @JsonValue('COUNTRY_AS')
-  AS,
+  AS('COUNTRY_AS'),
 
   /// Andorra
-  @JsonValue('COUNTRY_AD')
-  AD,
+  AD('COUNTRY_AD'),
 
   /// Angola
-  @JsonValue('COUNTRY_AO')
-  AO,
+  AO('COUNTRY_AO'),
 
   /// Anguilla
-  @JsonValue('COUNTRY_AI')
-  AI,
+  AI('COUNTRY_AI'),
 
   /// Antarctica
-  @JsonValue('COUNTRY_AQ')
-  AQ,
+  AQ('COUNTRY_AQ'),
 
   /// Antigua and Barbuda
-  @JsonValue('COUNTRY_AG')
-  AG,
+  AG('COUNTRY_AG'),
 
   /// Argentina
-  @JsonValue('COUNTRY_AR')
-  AR,
+  AR('COUNTRY_AR'),
 
   /// Armenia
-  @JsonValue('COUNTRY_AM')
-  AM,
+  AM('COUNTRY_AM'),
 
   /// Aruba
-  @JsonValue('COUNTRY_AW')
-  AW,
+  AW('COUNTRY_AW'),
 
   /// Australia
-  @JsonValue('COUNTRY_AU')
-  AU,
+  AU('COUNTRY_AU'),
 
   /// Austria
-  @JsonValue('COUNTRY_AT')
-  AT,
+  AT('COUNTRY_AT'),
 
   /// Azerbaijan
-  @JsonValue('COUNTRY_AZ')
-  AZ,
+  AZ('COUNTRY_AZ'),
 
   /// Bahrain
-  @JsonValue('COUNTRY_BH')
-  BH,
+  BH('COUNTRY_BH'),
 
   /// Bahamas
-  @JsonValue('COUNTRY_BS')
-  BS,
+  BS('COUNTRY_BS'),
 
   /// Bangladesh
-  @JsonValue('COUNTRY_BD')
-  BD,
+  BD('COUNTRY_BD'),
 
   /// Barbados
-  @JsonValue('COUNTRY_BB')
-  BB,
+  BB('COUNTRY_BB'),
 
   /// Belarus
-  @JsonValue('COUNTRY_BY')
-  BY,
+  BY('COUNTRY_BY'),
 
   /// Belgium
-  @JsonValue('COUNTRY_BE')
-  BE,
+  BE('COUNTRY_BE'),
 
   /// Belize
-  @JsonValue('COUNTRY_BZ')
-  BZ,
+  BZ('COUNTRY_BZ'),
 
   /// Benin
-  @JsonValue('COUNTRY_BJ')
-  BJ,
+  BJ('COUNTRY_BJ'),
 
   /// Bermuda
-  @JsonValue('COUNTRY_BM')
-  BM,
+  BM('COUNTRY_BM'),
 
   /// Bhutan
-  @JsonValue('COUNTRY_BT')
-  BT,
+  BT('COUNTRY_BT'),
 
   /// Bolivia, Plurinational State of
-  @JsonValue('COUNTRY_BO')
-  BO,
+  BO('COUNTRY_BO'),
 
   /// Bonaire, Sint Eustatius and Saba
-  @JsonValue('COUNTRY_BQ')
-  BQ,
+  BQ('COUNTRY_BQ'),
 
   /// Bosnia and Herzegovina
-  @JsonValue('COUNTRY_BA')
-  BA,
+  BA('COUNTRY_BA'),
 
   /// Botswana
-  @JsonValue('COUNTRY_BW')
-  BW,
+  BW('COUNTRY_BW'),
 
   /// Bouvet Island
-  @JsonValue('COUNTRY_BV')
-  BV,
+  BV('COUNTRY_BV'),
 
   /// Brazil
-  @JsonValue('COUNTRY_BR')
-  BR,
+  BR('COUNTRY_BR'),
 
   /// British Indian Ocean Territory
-  @JsonValue('COUNTRY_IO')
-  IO,
+  IO('COUNTRY_IO'),
 
   /// Brunei Darussalam
-  @JsonValue('COUNTRY_BN')
-  BN,
+  BN('COUNTRY_BN'),
 
   /// Bulgaria
-  @JsonValue('COUNTRY_BG')
-  BG,
+  BG('COUNTRY_BG'),
 
   /// Burkina Faso
-  @JsonValue('COUNTRY_BF')
-  BF,
+  BF('COUNTRY_BF'),
 
   /// Burundi
-  @JsonValue('COUNTRY_BI')
-  BI,
+  BI('COUNTRY_BI'),
 
   /// Cambodia
-  @JsonValue('COUNTRY_KH')
-  KH,
+  KH('COUNTRY_KH'),
 
   /// Cameroon
-  @JsonValue('COUNTRY_CM')
-  CM,
+  CM('COUNTRY_CM'),
 
   /// Canada
-  @JsonValue('COUNTRY_CA')
-  CA,
+  CA('COUNTRY_CA'),
 
   /// Cape Verde
-  @JsonValue('COUNTRY_CV')
-  CV,
+  CV('COUNTRY_CV'),
 
   /// Cayman Islands
-  @JsonValue('COUNTRY_KY')
-  KY,
+  KY('COUNTRY_KY'),
 
   /// Central African Republic
-  @JsonValue('COUNTRY_CF')
-  CF,
+  CF('COUNTRY_CF'),
 
   /// Chad
-  @JsonValue('COUNTRY_TD')
-  TD,
+  TD('COUNTRY_TD'),
 
   /// Chile
-  @JsonValue('COUNTRY_CL')
-  CL,
+  CL('COUNTRY_CL'),
 
   /// China
-  @JsonValue('COUNTRY_CN')
-  CN,
+  CN('COUNTRY_CN'),
 
   /// Christmas Island
-  @JsonValue('COUNTRY_CX')
-  CX,
+  CX('COUNTRY_CX'),
 
   /// Cocos (Keeling) Islands
-  @JsonValue('COUNTRY_CC')
-  CC,
+  CC('COUNTRY_CC'),
 
   /// Colombia
-  @JsonValue('COUNTRY_CO')
-  CO,
+  CO('COUNTRY_CO'),
 
   /// Comoros
-  @JsonValue('COUNTRY_KM')
-  KM,
+  KM('COUNTRY_KM'),
 
   /// Congo
-  @JsonValue('COUNTRY_CG')
-  CG,
+  CG('COUNTRY_CG'),
 
   /// Congo, the Democratic Republic of the
-  @JsonValue('COUNTRY_CD')
-  CD,
+  CD('COUNTRY_CD'),
 
   /// Cook Islands
-  @JsonValue('COUNTRY_CK')
-  CK,
+  CK('COUNTRY_CK'),
 
   /// Costa Rica
-  @JsonValue('COUNTRY_CR')
-  CR,
+  CR('COUNTRY_CR'),
 
   /// Côte d'Ivoire
-  @JsonValue('COUNTRY_CI')
-  CI,
+  CI('COUNTRY_CI'),
 
   /// Croatia
-  @JsonValue('COUNTRY_HR')
-  HR,
+  HR('COUNTRY_HR'),
 
   /// Cuba
-  @JsonValue('COUNTRY_CU')
-  CU,
+  CU('COUNTRY_CU'),
 
   /// Curaçao
-  @JsonValue('COUNTRY_CW')
-  CW,
+  CW('COUNTRY_CW'),
 
   /// Cyprus
-  @JsonValue('COUNTRY_CY')
-  CY,
+  CY('COUNTRY_CY'),
 
   /// Czech Republic
-  @JsonValue('COUNTRY_CZ')
-  CZ,
+  CZ('COUNTRY_CZ'),
 
   /// Denmark
-  @JsonValue('COUNTRY_DK')
-  DK,
+  DK('COUNTRY_DK'),
 
   /// Djibouti
-  @JsonValue('COUNTRY_DJ')
-  DJ,
+  DJ('COUNTRY_DJ'),
 
   /// Dominica
-  @JsonValue('COUNTRY_DM')
-  DM,
+  DM('COUNTRY_DM'),
 
   /// Dominican Republic
-  @JsonValue('COUNTRY_DO')
-  DO,
+  DO('COUNTRY_DO'),
 
   /// Ecuador
-  @JsonValue('COUNTRY_EC')
-  EC,
+  EC('COUNTRY_EC'),
 
   /// Egypt
-  @JsonValue('COUNTRY_EG')
-  EG,
+  EG('COUNTRY_EG'),
 
   /// El Salvador
-  @JsonValue('COUNTRY_SV')
-  SV,
+  SV('COUNTRY_SV'),
 
   /// Equatorial Guinea
-  @JsonValue('COUNTRY_GQ')
-  GQ,
+  GQ('COUNTRY_GQ'),
 
   /// Eritrea
-  @JsonValue('COUNTRY_ER')
-  ER,
+  ER('COUNTRY_ER'),
 
   /// Estonia
-  @JsonValue('COUNTRY_EE')
-  EE,
+  EE('COUNTRY_EE'),
 
   /// Ethiopia
-  @JsonValue('COUNTRY_ET')
-  ET,
+  ET('COUNTRY_ET'),
 
   /// Falkland Islands (Malvinas)
-  @JsonValue('COUNTRY_FK')
-  FK,
+  FK('COUNTRY_FK'),
 
   /// Faroe Islands
-  @JsonValue('COUNTRY_FO')
-  FO,
+  FO('COUNTRY_FO'),
 
   /// Fiji
-  @JsonValue('COUNTRY_FJ')
-  FJ,
+  FJ('COUNTRY_FJ'),
 
   /// Finland
-  @JsonValue('COUNTRY_FI')
-  FI,
+  FI('COUNTRY_FI'),
 
   /// France
-  @JsonValue('COUNTRY_FR')
-  FR,
+  FR('COUNTRY_FR'),
 
   /// French Guiana
-  @JsonValue('COUNTRY_GF')
-  GF,
+  GF('COUNTRY_GF'),
 
   /// French Polynesia
-  @JsonValue('COUNTRY_PF')
-  PF,
+  PF('COUNTRY_PF'),
 
   /// French Southern Territories
-  @JsonValue('COUNTRY_TF')
-  TF,
+  TF('COUNTRY_TF'),
 
   /// Gabon
-  @JsonValue('COUNTRY_GA')
-  GA,
+  GA('COUNTRY_GA'),
 
   /// Gambia
-  @JsonValue('COUNTRY_GM')
-  GM,
+  GM('COUNTRY_GM'),
 
   /// Georgia
-  @JsonValue('COUNTRY_GE')
-  GE,
+  GE('COUNTRY_GE'),
 
   /// Germany
-  @JsonValue('COUNTRY_DE')
-  DE,
+  DE('COUNTRY_DE'),
 
   /// Ghana
-  @JsonValue('COUNTRY_GH')
-  GH,
+  GH('COUNTRY_GH'),
 
   /// Gibraltar
-  @JsonValue('COUNTRY_GI')
-  GI,
+  GI('COUNTRY_GI'),
 
   /// Greece
-  @JsonValue('COUNTRY_GR')
-  GR,
+  GR('COUNTRY_GR'),
 
   /// Greenland
-  @JsonValue('COUNTRY_GL')
-  GL,
+  GL('COUNTRY_GL'),
 
   /// Grenada
-  @JsonValue('COUNTRY_GD')
-  GD,
+  GD('COUNTRY_GD'),
 
   /// Guadeloupe
-  @JsonValue('COUNTRY_GP')
-  GP,
+  GP('COUNTRY_GP'),
 
   /// Guam
-  @JsonValue('COUNTRY_GU')
-  GU,
+  GU('COUNTRY_GU'),
 
   /// Guatemala
-  @JsonValue('COUNTRY_GT')
-  GT,
+  GT('COUNTRY_GT'),
 
   /// Guernsey
-  @JsonValue('COUNTRY_GG')
-  GG,
+  GG('COUNTRY_GG'),
 
   /// Guinea
-  @JsonValue('COUNTRY_GN')
-  GN,
+  GN('COUNTRY_GN'),
 
   /// Guinea-Bissau
-  @JsonValue('COUNTRY_GW')
-  GW,
+  GW('COUNTRY_GW'),
 
   /// Guyana
-  @JsonValue('COUNTRY_GY')
-  GY,
+  GY('COUNTRY_GY'),
 
   /// Haiti
-  @JsonValue('COUNTRY_HT')
-  HT,
+  HT('COUNTRY_HT'),
 
   /// Heard Island and McDonald Islands
-  @JsonValue('COUNTRY_HM')
-  HM,
+  HM('COUNTRY_HM'),
 
   /// Holy See (Vatican City State)
-  @JsonValue('COUNTRY_VA')
-  VA,
+  VA('COUNTRY_VA'),
 
   /// Honduras
-  @JsonValue('COUNTRY_HN')
-  HN,
+  HN('COUNTRY_HN'),
 
   /// Hong Kong
-  @JsonValue('COUNTRY_HK')
-  HK,
+  HK('COUNTRY_HK'),
 
   /// Hungary
-  @JsonValue('COUNTRY_HU')
-  HU,
+  HU('COUNTRY_HU'),
 
   /// Iceland
-  @JsonValue('COUNTRY_IS')
-  IS,
+  IS('COUNTRY_IS'),
 
   /// India
-  @JsonValue('COUNTRY_IN')
-  IN,
+  IN('COUNTRY_IN'),
 
   /// Indonesia
-  @JsonValue('COUNTRY_ID')
-  ID,
+  ID('COUNTRY_ID'),
 
   /// Iran, Islamic Republic of
-  @JsonValue('COUNTRY_IR')
-  IR,
+  IR('COUNTRY_IR'),
 
   /// Iraq
-  @JsonValue('COUNTRY_IQ')
-  IQ,
+  IQ('COUNTRY_IQ'),
 
   /// Ireland
-  @JsonValue('COUNTRY_IE')
-  IE,
+  IE('COUNTRY_IE'),
 
   /// Isle of Man
-  @JsonValue('COUNTRY_IM')
-  IM,
+  IM('COUNTRY_IM'),
 
   /// Israel
-  @JsonValue('COUNTRY_IL')
-  IL,
+  IL('COUNTRY_IL'),
 
   /// Italy
-  @JsonValue('COUNTRY_IT')
-  IT,
+  IT('COUNTRY_IT'),
 
   /// Jamaica
-  @JsonValue('COUNTRY_JM')
-  JM,
+  JM('COUNTRY_JM'),
 
   /// Japan
-  @JsonValue('COUNTRY_JP')
-  JP,
+  JP('COUNTRY_JP'),
 
   /// Jersey
-  @JsonValue('COUNTRY_JE')
-  JE,
+  JE('COUNTRY_JE'),
 
   /// Jordan
-  @JsonValue('COUNTRY_JO')
-  JO,
+  JO('COUNTRY_JO'),
 
   /// Kazakhstan
-  @JsonValue('COUNTRY_KZ')
-  KZ,
+  KZ('COUNTRY_KZ'),
 
   /// Kenya
-  @JsonValue('COUNTRY_KE')
-  KE,
+  KE('COUNTRY_KE'),
 
   /// Kiribati
-  @JsonValue('COUNTRY_KI')
-  KI,
+  KI('COUNTRY_KI'),
 
   /// Korea, Democratic People's Republic of
-  @JsonValue('COUNTRY_KP')
-  KP,
+  KP('COUNTRY_KP'),
 
   /// Korea, Republic of
-  @JsonValue('COUNTRY_KR')
-  KR,
+  KR('COUNTRY_KR'),
 
   /// Kuwait
-  @JsonValue('COUNTRY_KW')
-  KW,
+  KW('COUNTRY_KW'),
 
   /// Kyrgyzstan
-  @JsonValue('COUNTRY_KG')
-  KG,
+  KG('COUNTRY_KG'),
 
   /// Lao People's Democratic Republic
-  @JsonValue('COUNTRY_LA')
-  LA,
+  LA('COUNTRY_LA'),
 
   /// Latvia
-  @JsonValue('COUNTRY_LV')
-  LV,
+  LV('COUNTRY_LV'),
 
   /// Lebanon
-  @JsonValue('COUNTRY_LB')
-  LB,
+  LB('COUNTRY_LB'),
 
   /// Lesotho
-  @JsonValue('COUNTRY_LS')
-  LS,
+  LS('COUNTRY_LS'),
 
   /// Liberia
-  @JsonValue('COUNTRY_LR')
-  LR,
+  LR('COUNTRY_LR'),
 
   /// Libya
-  @JsonValue('COUNTRY_LY')
-  LY,
+  LY('COUNTRY_LY'),
 
   /// Liechtenstein
-  @JsonValue('COUNTRY_LI')
-  LI,
+  LI('COUNTRY_LI'),
 
   /// Lithuania
-  @JsonValue('COUNTRY_LT')
-  LT,
+  LT('COUNTRY_LT'),
 
   /// Luxembourg
-  @JsonValue('COUNTRY_LU')
-  LU,
+  LU('COUNTRY_LU'),
 
   /// Macao
-  @JsonValue('COUNTRY_MO')
-  MO,
+  MO('COUNTRY_MO'),
 
   /// Macedonia, the Former Yugoslav Republic of
-  @JsonValue('COUNTRY_MK')
-  MK,
+  MK('COUNTRY_MK'),
 
   /// Madagascar
-  @JsonValue('COUNTRY_MG')
-  MG,
+  MG('COUNTRY_MG'),
 
   /// Malawi
-  @JsonValue('COUNTRY_MW')
-  MW,
+  MW('COUNTRY_MW'),
 
   /// Malaysia
-  @JsonValue('COUNTRY_MY')
-  MY,
+  MY('COUNTRY_MY'),
 
   /// Maldives
-  @JsonValue('COUNTRY_MV')
-  MV,
+  MV('COUNTRY_MV'),
 
   /// Mali
-  @JsonValue('COUNTRY_ML')
-  ML,
+  ML('COUNTRY_ML'),
 
   /// Malta
-  @JsonValue('COUNTRY_MT')
-  MT,
+  MT('COUNTRY_MT'),
 
   /// Marshall Islands
-  @JsonValue('COUNTRY_MH')
-  MH,
+  MH('COUNTRY_MH'),
 
   /// Martinique
-  @JsonValue('COUNTRY_MQ')
-  MQ,
+  MQ('COUNTRY_MQ'),
 
   /// Mauritania
-  @JsonValue('COUNTRY_MR')
-  MR,
+  MR('COUNTRY_MR'),
 
   /// Mauritius
-  @JsonValue('COUNTRY_MU')
-  MU,
+  MU('COUNTRY_MU'),
 
   /// Mayotte
-  @JsonValue('COUNTRY_YT')
-  YT,
+  YT('COUNTRY_YT'),
 
   /// Mexico
-  @JsonValue('COUNTRY_MX')
-  MX,
+  MX('COUNTRY_MX'),
 
   /// Micronesia, Federated States of
-  @JsonValue('COUNTRY_FM')
-  FM,
+  FM('COUNTRY_FM'),
 
   /// Moldova, Republic of
-  @JsonValue('COUNTRY_MD')
-  MD,
+  MD('COUNTRY_MD'),
 
   /// Monaco
-  @JsonValue('COUNTRY_MC')
-  MC,
+  MC('COUNTRY_MC'),
 
   /// Mongolia
-  @JsonValue('COUNTRY_MN')
-  MN,
+  MN('COUNTRY_MN'),
 
   /// Montenegro
-  @JsonValue('COUNTRY_ME')
-  ME,
+  ME('COUNTRY_ME'),
 
   /// Montserrat
-  @JsonValue('COUNTRY_MS')
-  MS,
+  MS('COUNTRY_MS'),
 
   /// Morocco
-  @JsonValue('COUNTRY_MA')
-  MA,
+  MA('COUNTRY_MA'),
 
   /// Mozambique
-  @JsonValue('COUNTRY_MZ')
-  MZ,
+  MZ('COUNTRY_MZ'),
 
   /// Myanmar
-  @JsonValue('COUNTRY_MM')
-  MM,
+  MM('COUNTRY_MM'),
 
   /// Namibia
-  @JsonValue('COUNTRY_NA')
-  NA,
+  NA('COUNTRY_NA'),
 
   /// Nauru
-  @JsonValue('COUNTRY_NR')
-  NR,
+  NR('COUNTRY_NR'),
 
   /// Nepal
-  @JsonValue('COUNTRY_NP')
-  NP,
+  NP('COUNTRY_NP'),
 
   /// Netherlands
-  @JsonValue('COUNTRY_NL')
-  NL,
+  NL('COUNTRY_NL'),
 
   /// New Caledonia
-  @JsonValue('COUNTRY_NC')
-  NC,
+  NC('COUNTRY_NC'),
 
   /// New Zealand
-  @JsonValue('COUNTRY_NZ')
-  NZ,
+  NZ('COUNTRY_NZ'),
 
   /// Nicaragua
-  @JsonValue('COUNTRY_NI')
-  NI,
+  NI('COUNTRY_NI'),
 
   /// Niger
-  @JsonValue('COUNTRY_NE')
-  NE,
+  NE('COUNTRY_NE'),
 
   /// Nigeria
-  @JsonValue('COUNTRY_NG')
-  NG,
+  NG('COUNTRY_NG'),
 
   /// Niue
-  @JsonValue('COUNTRY_NU')
-  NU,
+  NU('COUNTRY_NU'),
 
   /// Norfolk Island
-  @JsonValue('COUNTRY_NF')
-  NF,
+  NF('COUNTRY_NF'),
 
   /// Northern Mariana Islands
-  @JsonValue('COUNTRY_MP')
-  MP,
+  MP('COUNTRY_MP'),
 
   /// Norway
-  @JsonValue('COUNTRY_NO')
-  NO,
+  NO('COUNTRY_NO'),
 
   /// Oman
-  @JsonValue('COUNTRY_OM')
-  OM,
+  OM('COUNTRY_OM'),
 
   /// Pakistan
-  @JsonValue('COUNTRY_PK')
-  PK,
+  PK('COUNTRY_PK'),
 
   /// Palau
-  @JsonValue('COUNTRY_PW')
-  PW,
+  PW('COUNTRY_PW'),
 
   /// Palestine, State of
-  @JsonValue('COUNTRY_PS')
-  PS,
+  PS('COUNTRY_PS'),
 
   /// Panama
-  @JsonValue('COUNTRY_PA')
-  PA,
+  PA('COUNTRY_PA'),
 
   /// Papua New Guinea
-  @JsonValue('COUNTRY_PG')
-  PG,
+  PG('COUNTRY_PG'),
 
   /// Paraguay
-  @JsonValue('COUNTRY_PY')
-  PY,
+  PY('COUNTRY_PY'),
 
   /// Peru
-  @JsonValue('COUNTRY_PE')
-  PE,
+  PE('COUNTRY_PE'),
 
   /// Philippines
-  @JsonValue('COUNTRY_PH')
-  PH,
+  PH('COUNTRY_PH'),
 
   /// Pitcairn
-  @JsonValue('COUNTRY_PN')
-  PN,
+  PN('COUNTRY_PN'),
 
   /// Poland
-  @JsonValue('COUNTRY_PL')
-  PL,
+  PL('COUNTRY_PL'),
 
   /// Portugal
-  @JsonValue('COUNTRY_PT')
-  PT,
+  PT('COUNTRY_PT'),
 
   /// Puerto Rico
-  @JsonValue('COUNTRY_PR')
-  PR,
+  PR('COUNTRY_PR'),
 
   /// Qatar
-  @JsonValue('COUNTRY_QA')
-  QA,
+  QA('COUNTRY_QA'),
 
   /// Réunion
-  @JsonValue('COUNTRY_RE')
-  RE,
+  RE('COUNTRY_RE'),
 
   /// Romania
-  @JsonValue('COUNTRY_RO')
-  RO,
+  RO('COUNTRY_RO'),
 
   /// Russian Federation
-  @JsonValue('COUNTRY_RU')
-  RU,
+  RU('COUNTRY_RU'),
 
   /// Rwanda
-  @JsonValue('COUNTRY_RW')
-  RW,
+  RW('COUNTRY_RW'),
 
   /// Saint Barthélemy
-  @JsonValue('COUNTRY_BL')
-  BL,
+  BL('COUNTRY_BL'),
 
   /// Saint Helena, Ascension and Tristan da Cunha
-  @JsonValue('COUNTRY_SH')
-  SH,
+  SH('COUNTRY_SH'),
 
   /// Saint Kitts and Nevis
-  @JsonValue('COUNTRY_KN')
-  KN,
+  KN('COUNTRY_KN'),
 
   /// Saint Lucia
-  @JsonValue('COUNTRY_LC')
-  LC,
+  LC('COUNTRY_LC'),
 
   /// Saint Martin (French part)
-  @JsonValue('COUNTRY_MF')
-  MF,
+  MF('COUNTRY_MF'),
 
   /// Saint Pierre and Miquelon
-  @JsonValue('COUNTRY_PM')
-  PM,
+  PM('COUNTRY_PM'),
 
   /// Saint Vincent and the Grenadines
-  @JsonValue('COUNTRY_VC')
-  VC,
+  VC('COUNTRY_VC'),
 
   /// Samoa
-  @JsonValue('COUNTRY_WS')
-  WS,
+  WS('COUNTRY_WS'),
 
   /// San Marino
-  @JsonValue('COUNTRY_SM')
-  SM,
+  SM('COUNTRY_SM'),
 
   /// Sao Tome and Principe
-  @JsonValue('COUNTRY_ST')
-  ST,
+  ST('COUNTRY_ST'),
 
   /// Saudi Arabia
-  @JsonValue('COUNTRY_SA')
-  SA,
+  SA('COUNTRY_SA'),
 
   /// Senegal
-  @JsonValue('COUNTRY_SN')
-  SN,
+  SN('COUNTRY_SN'),
 
   /// Serbia
-  @JsonValue('COUNTRY_RS')
-  RS,
+  RS('COUNTRY_RS'),
 
   /// Seychelles
-  @JsonValue('COUNTRY_SC')
-  SC,
+  SC('COUNTRY_SC'),
 
   /// Sierra Leone
-  @JsonValue('COUNTRY_SL')
-  SL,
+  SL('COUNTRY_SL'),
 
   /// Singapore
-  @JsonValue('COUNTRY_SG')
-  SG,
+  SG('COUNTRY_SG'),
 
   /// Sint Maarten (Dutch part)
-  @JsonValue('COUNTRY_SX')
-  SX,
+  SX('COUNTRY_SX'),
 
   /// Slovakia
-  @JsonValue('COUNTRY_SK')
-  SK,
+  SK('COUNTRY_SK'),
 
   /// Slovenia
-  @JsonValue('COUNTRY_SI')
-  SI,
+  SI('COUNTRY_SI'),
 
   /// Solomon Islands
-  @JsonValue('COUNTRY_SB')
-  SB,
+  SB('COUNTRY_SB'),
 
   /// Somalia
-  @JsonValue('COUNTRY_SO')
-  SO,
+  SO('COUNTRY_SO'),
 
   /// South Africa
-  @JsonValue('COUNTRY_ZA')
-  ZA,
+  ZA('COUNTRY_ZA'),
 
   /// South Georgia and the South Sandwich Islands
-  @JsonValue('COUNTRY_GS')
-  GS,
+  GS('COUNTRY_GS'),
 
   /// South Sudan
-  @JsonValue('COUNTRY_SS')
-  SS,
+  SS('COUNTRY_SS'),
 
   /// Spain
-  @JsonValue('COUNTRY_ES')
-  ES,
+  ES('COUNTRY_ES'),
 
   /// Sri Lanka
-  @JsonValue('COUNTRY_LK')
-  LK,
+  LK('COUNTRY_LK'),
 
   /// Sudan
-  @JsonValue('COUNTRY_SD')
-  SD,
+  SD('COUNTRY_SD'),
 
   /// Suriname
-  @JsonValue('COUNTRY_SR')
-  SR,
+  SR('COUNTRY_SR'),
 
   /// Svalbard and Jan Mayen
-  @JsonValue('COUNTRY_SJ')
-  SJ,
+  SJ('COUNTRY_SJ'),
 
   /// Swaziland
-  @JsonValue('COUNTRY_SZ')
-  SZ,
+  SZ('COUNTRY_SZ'),
 
   /// Sweden
-  @JsonValue('COUNTRY_SE')
-  SE,
+  SE('COUNTRY_SE'),
 
   /// Switzerland
-  @JsonValue('COUNTRY_CH')
-  CH,
+  CH('COUNTRY_CH'),
 
   /// Syrian Arab Republic
-  @JsonValue('COUNTRY_SY')
-  SY,
+  SY('COUNTRY_SY'),
 
   /// Taiwan, Province of China
-  @JsonValue('COUNTRY_TW')
-  TW,
+  TW('COUNTRY_TW'),
 
   /// Tajikistan
-  @JsonValue('COUNTRY_TJ')
-  TJ,
+  TJ('COUNTRY_TJ'),
 
   /// Tanzania, United Republic of
-  @JsonValue('COUNTRY_TZ')
-  TZ,
+  TZ('COUNTRY_TZ'),
 
   /// Thailand
-  @JsonValue('COUNTRY_TH')
-  TH,
+  TH('COUNTRY_TH'),
 
   /// Timor-Leste
-  @JsonValue('COUNTRY_TL')
-  TL,
+  TL('COUNTRY_TL'),
 
   /// Togo
-  @JsonValue('COUNTRY_TG')
-  TG,
+  TG('COUNTRY_TG'),
 
   /// Tokelau
-  @JsonValue('COUNTRY_TK')
-  TK,
+  TK('COUNTRY_TK'),
 
   /// Tonga
-  @JsonValue('COUNTRY_TO')
-  TO,
+  TO('COUNTRY_TO'),
 
   /// Trinidad and Tobago
-  @JsonValue('COUNTRY_TT')
-  TT,
+  TT('COUNTRY_TT'),
 
   /// Tunisia
-  @JsonValue('COUNTRY_TN')
-  TN,
+  TN('COUNTRY_TN'),
 
   /// Turkey
-  @JsonValue('COUNTRY_TR')
-  TR,
+  TR('COUNTRY_TR'),
 
   /// Turkmenistan
-  @JsonValue('COUNTRY_TM')
-  TM,
+  TM('COUNTRY_TM'),
 
   /// Turks and Caicos Islands
-  @JsonValue('COUNTRY_TC')
-  TC,
+  TC('COUNTRY_TC'),
 
   /// Tuvalu
-  @JsonValue('COUNTRY_TV')
-  TV,
+  TV('COUNTRY_TV'),
 
   /// Uganda
-  @JsonValue('COUNTRY_UG')
-  UG,
+  UG('COUNTRY_UG'),
 
   /// Ukraine
-  @JsonValue('COUNTRY_UA')
-  UA,
+  UA('COUNTRY_UA'),
 
   /// United Arab Emirates
-  @JsonValue('COUNTRY_AE')
-  AE,
+  AE('COUNTRY_AE'),
 
   /// United Kingdom
-  @JsonValue('COUNTRY_GB')
-  GB,
+  GB('COUNTRY_GB'),
 
   /// United States
-  @JsonValue('COUNTRY_US')
-  US,
+  US('COUNTRY_US'),
 
   /// United States Minor Outlying Islands
-  @JsonValue('COUNTRY_UM')
-  UM,
+  UM('COUNTRY_UM'),
 
   /// Uruguay
-  @JsonValue('COUNTRY_UY')
-  UY,
+  UY('COUNTRY_UY'),
 
   /// Uzbekistan
-  @JsonValue('COUNTRY_UZ')
-  UZ,
+  UZ('COUNTRY_UZ'),
 
   /// Vanuatu
-  @JsonValue('COUNTRY_VU')
-  VU,
+  VU('COUNTRY_VU'),
 
   /// Venezuela, Bolivarian Republic of
-  @JsonValue('COUNTRY_VE')
-  VE,
+  VE('COUNTRY_VE'),
 
   /// Viet Nam
-  @JsonValue('COUNTRY_VN')
-  VN,
+  VN('COUNTRY_VN'),
 
   /// Virgin Islands, British
-  @JsonValue('COUNTRY_VG')
-  VG,
+  VG('COUNTRY_VG'),
 
   /// Virgin Islands, U.S.
-  @JsonValue('COUNTRY_VI')
-  VI,
+  VI('COUNTRY_VI'),
 
   /// Wallis and Futuna
-  @JsonValue('COUNTRY_WF')
-  WF,
+  WF('COUNTRY_WF'),
 
   /// Western Sahara
-  @JsonValue('COUNTRY_EH')
-  EH,
+  EH('COUNTRY_EH'),
 
   /// Yemen
-  @JsonValue('COUNTRY_YE')
-  YE,
+  YE('COUNTRY_YE'),
 
   /// Zambia
-  @JsonValue('COUNTRY_ZM')
-  ZM,
+  ZM('COUNTRY_ZM'),
 
   /// Zimbabwe
-  @JsonValue('COUNTRY_ZW')
-  ZW,
+  ZW('COUNTRY_ZW'),
+  ;
+
+  const Country(this.value);
+  final String value;
 }
