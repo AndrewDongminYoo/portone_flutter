@@ -37,10 +37,10 @@ class PortOnePayment extends StatefulWidget {
   /// The [initialChild] is an optional widget that is displayed while the web view is loading.
   const PortOnePayment({
     required this.data,
+    required this.callback,
+    required this.onError,
     super.key,
     this.appBar,
-    this.onError,
-    this.callback,
     this.logger,
     this.initialChild,
   });
@@ -51,11 +51,11 @@ class PortOnePayment extends StatefulWidget {
   /// Payment information used to start the payment process.
   final PaymentRequest data;
 
-  /// Optional error callback which is invoked when a JavaScript error occurs.
-  final void Function(Object? error)? onError;
+  /// Error callback which is invoked when a JavaScript error occurs.
+  final void Function(Object? error) onError;
 
-  /// Optional callback invoked with the payment result parameters.
-  final void Function(PaymentResponse result)? callback;
+  /// Callback invoked with the payment result parameters.
+  final void Function(PaymentResponse result) callback;
 
   /// Optional logger for debugging.
   final Logger? logger;
@@ -68,7 +68,8 @@ class PortOnePayment extends StatefulWidget {
 }
 
 class _PortOnePaymentState extends State<PortOnePayment> {
-  static const handlerName = 'portoneError';
+  final handlerName = 'portoneError';
+  final contentType = 'text/html';
 
   late InAppWebViewController? controller;
 
@@ -84,18 +85,20 @@ class _PortOnePaymentState extends State<PortOnePayment> {
     final html = '''
 <!doctype html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
-<script>
-  window.addEventListener("flutterInAppWebViewPlatformReady", () => {
-    PortOne.requestPayment(${jsonEncode(widget.data.toJson())})
-      .catch((err) => window.flutter_inappwebview.callHandler("$handlerName", err.message));
-  });
-</script>
-</head>
-<body></body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
+    <script>
+      window.addEventListener("flutterInAppWebViewPlatformReady", () => {
+        PortOne.requestPayment(${jsonEncode(widget.data.toJson())}).catch((err) =>
+          window.flutter_inappwebview.callHandler("$handlerName", err.message),
+        );
+      });
+    </script>
+  </head>
+  <body></body>
 </html>
+
 ''';
 
     return Scaffold(
@@ -133,20 +136,21 @@ class _PortOnePaymentState extends State<PortOnePayment> {
                     callback: (List<dynamic> data) async {
                       widget.logger?.e(data.first.runtimeType);
                       try {
-                        widget.onError?.call(data.first as Object?);
+                        widget.onError(data.first as Object?);
                       } catch (error) {
                         widget.logger?.e('Error Occurred', error: error);
-                        widget.onError?.call(error);
+                        widget.onError(error);
                       }
                     },
                   );
                   await controller!.loadData(
+                    mimeType: contentType,
                     data: html,
                     baseUrl: WebUri('https://flutter-sdk-content.portone.io/'),
                   );
                 },
                 onLoadResourceWithCustomScheme: (InAppWebViewController controller, WebResourceRequest resource) async {
-                  return CustomSchemeResponse(contentType: 'text/html', data: Uint8List(0));
+                  return CustomSchemeResponse(contentType: contentType, data: Uint8List(0));
                 },
                 onLoadStop: (controller, Uri? url) async {
                   if (mounted) {
@@ -165,10 +169,10 @@ class _PortOnePaymentState extends State<PortOnePayment> {
                     case 'portone':
                       try {
                         final paymentResponse = PaymentResponse.fromJson(url.queryParameters);
-                        widget.callback?.call(paymentResponse);
+                        widget.callback(paymentResponse);
                       } catch (exception) {
                         widget.logger?.e('Error Occurred', error: exception);
-                        widget.onError?.call(exception);
+                        widget.onError(exception);
                       }
                       return NavigationActionPolicy.CANCEL;
                     case 'intent':
