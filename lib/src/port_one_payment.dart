@@ -1,8 +1,9 @@
 // 🎯 Dart imports:
 import 'dart:convert';
-import 'dart:typed_data';
 
 // 🐦 Flutter imports:
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
@@ -28,6 +29,9 @@ import 'package:portone_flutter_v2/src/models/payment_response.dart';
 /// will be invoked with query parameters when a payment result is received. A [Logger] may be
 /// passed for debugging purposes.
 ///
+/// The [gestureRecognizers] parameter allows customization of how touch gestures are handled
+/// within the web view, especially when this widget is nested in scrollable widgets.
+///
 /// See also:
 ///  - [InAppWebView] from flutter_inappwebview
 class PortOnePayment extends StatefulWidget {
@@ -43,6 +47,7 @@ class PortOnePayment extends StatefulWidget {
     this.appBar,
     this.logger,
     this.initialChild,
+    this.gestureRecognizers,
   });
 
   /// Optional app bar to be displayed on top of the widget.
@@ -62,6 +67,22 @@ class PortOnePayment extends StatefulWidget {
 
   /// An optional widget to display while the web content is loading.
   final Widget? initialChild;
+
+  /// Set of gesture recognizers that determine which gestures are forwarded
+  /// to the web view.
+  ///
+  /// This can be useful when embedding the web view in other gesture-sensitive
+  /// widgets such as [ListView], [PageView], or custom gesture detectors.
+  ///
+  /// For example, if you want the web view to respond to vertical scroll gestures
+  /// inside a [ListView], you can add a [VerticalDragGestureRecognizer] to this set.
+  ///
+  /// By default (if null or empty), the web view only receives pointer events
+  /// for gestures that are not claimed by any other widgets.
+  ///
+  /// This is a standard Flutter mechanism for managing gesture competition
+  /// between embedded views and parent widgets.
+  final Set<Factory<OneSequenceGestureRecognizer>>? gestureRecognizers;
 
   @override
   State<PortOnePayment> createState() => _PortOnePaymentState();
@@ -125,6 +146,7 @@ class _PortOnePaymentState extends State<PortOnePayment> {
             children: [
               widget.initialChild ?? Container(),
               InAppWebView(
+                gestureRecognizers: widget.gestureRecognizers,
                 initialSettings: InAppWebViewSettings(
                   useShouldOverrideUrlLoading: true,
                   resourceCustomSchemes: ['intent'],
