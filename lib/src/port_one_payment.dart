@@ -1,5 +1,6 @@
 // 🎯 Dart imports:
 import 'dart:convert';
+import 'dart:developer' show log;
 
 // 🐦 Flutter imports:
 import 'package:flutter/foundation.dart';
@@ -9,12 +10,16 @@ import 'package:flutter/scheduler.dart';
 
 // 📦 Package imports:
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'package:logger/logger.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // 🌎 Project imports:
 import 'package:portone_flutter_v2/src/models/payment_request.dart';
 import 'package:portone_flutter_v2/src/models/payment_response.dart';
+
+/// Default logger function using [log].
+void _defaultLog(String message, {Object? error, StackTrace? stackTrace}) {
+  log(message, error: error, stackTrace: stackTrace, name: 'portone');
+}
 
 /// A widget that implements the PortOne v2 payment process using an [InAppWebView].
 ///
@@ -24,8 +29,7 @@ import 'package:portone_flutter_v2/src/models/payment_response.dart';
 ///
 /// The widget requires a [PaymentRequest] ([data]) to initialize the payment process using
 /// PortOne's browser SDK. Optionally, [onError] can be provided for error handling, and [callback]
-/// will be invoked with query parameters when a payment result is received. A [Logger] may be
-/// passed for debugging purposes.
+/// will be invoked with query parameters when a payment result is received.
 ///
 /// The [gestureRecognizers] parameter allows customization of which gestures are forwarded
 /// to the web view, which is especially useful when the widget is nested in scrollable containers.
@@ -43,7 +47,7 @@ class PortOnePayment extends StatefulWidget {
     required this.onError,
     super.key,
     this.appBar,
-    this.logger,
+    this.logger = _defaultLog,
     this.initialChild,
     this.gestureRecognizers,
   });
@@ -60,8 +64,9 @@ class PortOnePayment extends StatefulWidget {
   /// Callback invoked with the payment result parameters.
   final void Function(PaymentResponse result) callback;
 
-  /// Optional logger for debugging purposes.
-  final Logger? logger;
+  /// Logger function for debugging purposes.
+  /// Defaults to printing messages to the console.
+  final void Function(String message, {Object? error, StackTrace? stackTrace}) logger;
 
   /// An optional widget displayed while the web content is loading.
   final Widget? initialChild;
@@ -151,11 +156,11 @@ class _PortOnePaymentState extends State<PortOnePayment> {
                   controller!.addJavaScriptHandler(
                     handlerName: handlerName,
                     callback: (List<dynamic> data) async {
-                      widget.logger?.e(data.first.runtimeType);
+                      widget.logger('PortOne SDK Error type: ${data.first.runtimeType}');
                       try {
                         widget.onError(data.first as Object?);
-                      } catch (error) {
-                        widget.logger?.e('Error Occurred', error: error);
+                      } catch (error, stackTrace) {
+                        widget.logger('Error Occurred', error: error, stackTrace: stackTrace);
                         widget.onError(error);
                       }
                     },
@@ -178,8 +183,8 @@ class _PortOnePaymentState extends State<PortOnePayment> {
                 },
                 shouldOverrideUrlLoading: (InAppWebViewController controller, NavigationAction navigateAction) async {
                   final url = navigateAction.request.url;
-                  widget.logger?.i('navigation action request uri: ${url!.uriValue}');
-                  switch (url!.uriValue.scheme) {
+                  widget.logger('Navigation action request uri: ${url!.uriValue}');
+                  switch (url.uriValue.scheme) {
                     case 'http':
                     case 'https':
                       return NavigationActionPolicy.ALLOW;
@@ -187,8 +192,8 @@ class _PortOnePaymentState extends State<PortOnePayment> {
                       try {
                         final paymentResponse = PaymentResponse.fromJson(url.queryParameters);
                         widget.callback(paymentResponse);
-                      } catch (exception) {
-                        widget.logger?.e('Error Occurred', error: exception);
+                      } catch (exception, stackTrace) {
+                        widget.logger('Error Occurred', error: exception, stackTrace: stackTrace);
                         widget.onError(exception);
                       }
                       return NavigationActionPolicy.CANCEL;
@@ -196,7 +201,7 @@ class _PortOnePaymentState extends State<PortOnePayment> {
                       try {
                         // Retrieve the raw URL string.
                         final rawUri = url.rawValue;
-                        // Split the URL using '#' as delimiter (e.g., "intent://..." and "Intent;scheme=...;end").
+                        // Split the URL using '#' as the delimiter (e.g., "intent://..." and "Intent;scheme=...;end").
                         final parts = rawUri.split('#');
                         if (parts.length != 2) {
                           throw const FormatException('Invalid intent URL format: missing fragment');
@@ -211,7 +216,7 @@ class _PortOnePaymentState extends State<PortOnePayment> {
                           fragmentContent = fragmentContent.substring(intentPrefix.length);
                         }
 
-                        // Split each parameter using ';' as the delimiter and form key-value pairs.
+                        // Split each parameter using ';' as delimiter and create key-value pairs.
                         final paramsList = fragmentContent.split(';');
                         final params = <String, String>{};
                         for (final param in paramsList) {
@@ -231,12 +236,12 @@ class _PortOnePaymentState extends State<PortOnePayment> {
                         final baseUri = Uri.parse(baseUriStr);
                         final redirectUri = baseUri.replace(scheme: redirectScheme);
 
-                        // Before launching the redirection URI, validate its availability.
+                        // Validate and launch the redirection URI.
                         if (await canLaunchUrl(redirectUri)) {
                           await launchUrl(redirectUri);
                         }
-                      } catch (error) {
-                        widget.logger?.e('Intent URL parsing error', error: error);
+                      } catch (error, stackTrace) {
+                        widget.logger('Intent URL parsing error', error: error, stackTrace: stackTrace);
                         widget.onError(error);
                       }
                       return NavigationActionPolicy.CANCEL;
