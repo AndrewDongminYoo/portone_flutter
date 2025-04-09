@@ -8,7 +8,7 @@ part 'payment_response.g.dart';
 @JsonSerializable()
 class PaymentResponse {
   /// PaymentResponse 생성자
-  const PaymentResponse({
+  PaymentResponse({
     required this.transactionType,
     required this.transactionId,
     required this.paymentId,

@@ -12,7 +12,7 @@ part 'store_details.g.dart';
 @JsonSerializable()
 class StoreDetails {
   /// 기본 생성자
-  const StoreDetails({
+  StoreDetails({
     this.ceoFullName,
     this.phoneNumber,
     this.address,
@@ -78,7 +78,7 @@ class StoreDetails {
 @JsonSerializable()
 class OpeningHours {
   /// 기본 생성자
-  const OpeningHours({
+  OpeningHours({
     this.open,
     this.close,
   });
