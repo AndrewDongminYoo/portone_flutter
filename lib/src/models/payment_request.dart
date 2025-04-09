@@ -13,6 +13,7 @@ import 'package:portone_flutter_v2/src/models/address.dart';
 import 'package:portone_flutter_v2/src/models/bypass/payment_bypass.dart';
 import 'package:portone_flutter_v2/src/models/customer.dart';
 import 'package:portone_flutter_v2/src/models/offer_period.dart';
+import 'package:portone_flutter_v2/src/models/popup.dart';
 import 'package:portone_flutter_v2/src/models/product_detail.dart';
 import 'package:portone_flutter_v2/src/models/store_details.dart';
 
@@ -58,6 +59,8 @@ class PaymentRequest {
     this.offerPeriod,
     this.storeDetails,
     this.shippingAddress,
+    this.promotionId,
+    this.popup,
   });
 
   factory PaymentRequest.fromJson(Map<String, dynamic> json) => _$PaymentRequestFromJson(json);
@@ -238,6 +241,12 @@ class PaymentRequest {
 
   /// 주소 정보
   final Address? shippingAddress;
+
+  /// 프로모션 아이디
+  final String? promotionId;
+
+  /// 결제창이 팝업 방식일 경우 결제창에 적용할 속성
+  final Popup? popup;
 
   Map<String, dynamic> toJson() => _$PaymentRequestToJson(this);
 }

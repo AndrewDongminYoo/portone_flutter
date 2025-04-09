@@ -63,6 +63,8 @@ PaymentRequest _$PaymentRequestFromJson(Map<String, dynamic> json) => $checkedCr
           ),
           shippingAddress:
               $checkedConvert('shippingAddress', (v) => v == null ? null : Address.fromJson(v as Map<String, dynamic>)),
+          promotionId: $checkedConvert('promotionId', (v) => v as String?),
+          popup: $checkedConvert('popup', (v) => v == null ? null : Popup.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -106,6 +108,8 @@ Map<String, dynamic> _$PaymentRequestToJson(PaymentRequest instance) => <String,
       if (instance.offerPeriod?.toJson() case final value?) 'offerPeriod': value,
       if (instance.storeDetails?.toJson() case final value?) 'storeDetails': value,
       if (instance.shippingAddress?.toJson() case final value?) 'shippingAddress': value,
+      if (instance.promotionId case final value?) 'promotionId': value,
+      if (instance.popup?.toJson() case final value?) 'popup': value,
     };
 
 const _$PaymentCurrencyEnumMap = {
