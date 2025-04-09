@@ -14,6 +14,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 // 🌎 Project imports:
 import 'package:portone_flutter_v2/src/models/payment_request.dart';
+import 'package:portone_flutter_v2/src/models/payment_response.dart';
 
 /// A widget that implements the PortOne v2 payment process using a [InAppWebView].
 ///
@@ -51,10 +52,10 @@ class PortOnePayment extends StatefulWidget {
   final PaymentRequest data;
 
   /// Optional error callback which is invoked when a JavaScript error occurs.
-  final void Function(dynamic error)? onError;
+  final void Function(Object? error)? onError;
 
   /// Optional callback invoked with the payment result parameters.
-  final void Function(Map<String, String> result)? callback;
+  final void Function(PaymentResponse result)? callback;
 
   /// Optional logger for debugging.
   final Logger? logger;
@@ -131,7 +132,12 @@ class _PortOnePaymentState extends State<PortOnePayment> {
                     handlerName: handlerName,
                     callback: (List<dynamic> data) async {
                       widget.logger?.e(data.first.runtimeType);
-                      widget.onError?.call(data.first);
+                      try {
+                        widget.onError?.call(data.first as Object?);
+                      } catch (error) {
+                        widget.logger?.e('Error Occurred', error: error);
+                        widget.onError?.call(error);
+                      }
                     },
                   );
                   await controller!.loadData(
@@ -157,7 +163,13 @@ class _PortOnePaymentState extends State<PortOnePayment> {
                     case 'https':
                       return NavigationActionPolicy.ALLOW;
                     case 'portone':
-                      widget.callback?.call(url.queryParameters);
+                      try {
+                        final paymentResponse = PaymentResponse.fromJson(url.queryParameters);
+                        widget.callback?.call(paymentResponse);
+                      } catch (exception) {
+                        widget.logger?.e('Error Occurred', error: exception);
+                        widget.onError?.call(exception);
+                      }
                       return NavigationActionPolicy.CANCEL;
                     case 'intent':
                       final uri = url.rawValue;
