@@ -41,7 +41,12 @@ PaymentRequest _$PaymentRequestFromJson(Map<String, dynamic> json) => $checkedCr
             (v) => (v as List<dynamic>?)?.map((e) => ProductDetail.fromJson(e as Map<String, dynamic>)).toList(),
           ),
           locale: $checkedConvert('locale', (v) => $enumDecodeNullable(_$PaymentLocaleEnumMap, v)),
-          customData: $checkedConvert('customData', (v) => v as Map<String, dynamic>?),
+          customData: $checkedConvert(
+            'customData',
+            (v) => (v as Map<String, dynamic>?)?.map(
+              (k, e) => MapEntry(k, e as String),
+            ),
+          ),
           isCulturalExpense: $checkedConvert('isCulturalExpense', (v) => v as bool?),
           bypass:
               $checkedConvert('bypass', (v) => v == null ? null : PaymentBypass.fromJson(v as Map<String, dynamic>)),
@@ -52,6 +57,12 @@ PaymentRequest _$PaymentRequestFromJson(Map<String, dynamic> json) => $checkedCr
               $checkedConvert('cashReceiptTradeOption', (v) => $enumDecodeNullable(_$CashReceiptTradeOptionEnumMap, v)),
           offerPeriod:
               $checkedConvert('offerPeriod', (v) => v == null ? null : OfferPeriod.fromJson(v as Map<String, dynamic>)),
+          storeDetails: $checkedConvert(
+            'storeDetails',
+            (v) => v == null ? null : StoreDetails.fromJson(v as Map<String, dynamic>),
+          ),
+          shippingAddress:
+              $checkedConvert('shippingAddress', (v) => v == null ? null : Address.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -93,6 +104,8 @@ Map<String, dynamic> _$PaymentRequestToJson(PaymentRequest instance) => <String,
       if (_$CashReceiptTradeOptionEnumMap[instance.cashReceiptTradeOption] case final value?)
         'cashReceiptTradeOption': value,
       if (instance.offerPeriod?.toJson() case final value?) 'offerPeriod': value,
+      if (instance.storeDetails?.toJson() case final value?) 'storeDetails': value,
+      if (instance.shippingAddress?.toJson() case final value?) 'shippingAddress': value,
     };
 
 const _$PaymentCurrencyEnumMap = {

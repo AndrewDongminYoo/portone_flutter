@@ -14,6 +14,7 @@ import 'package:portone_flutter_v2/src/models/bypass/payment_bypass.dart';
 import 'package:portone_flutter_v2/src/models/customer.dart';
 import 'package:portone_flutter_v2/src/models/offer_period.dart';
 import 'package:portone_flutter_v2/src/models/product_detail.dart';
+import 'package:portone_flutter_v2/src/models/store_details.dart';
 
 part 'payment_request.g.dart';
 
@@ -55,6 +56,8 @@ class PaymentRequest {
     this.expiredTime,
     this.cashReceiptTradeOption,
     this.offerPeriod,
+    this.storeDetails,
+    this.shippingAddress,
   });
 
   factory PaymentRequest.fromJson(Map<String, dynamic> json) => _$PaymentRequestFromJson(json);
@@ -201,7 +204,7 @@ class PaymentRequest {
   final PaymentLocale? locale;
 
   /// 결제 정보와 함께 관리하고 싶은 고객사 커스텀 JSON 데이터
-  final Map<String, dynamic>? customData;
+  final Map<String, String>? customData;
 
   /// 결제 만료 기한 (선택, "yyyy-MM-dd HH:mm:ss" 형식)
   final String? expiredTime;
@@ -225,6 +228,16 @@ class PaymentRequest {
   /// range: 제공 기간 범위
   /// interval: 제공 기간 주기
   final OfferPeriod? offerPeriod;
+
+  /// 상점 정보
+  ///
+  /// KSNET 카카오페이의 경우 필수 입력
+  /// (신)나이스페이의 경우 매출 전표에 표기 할 용도로 선택 입력
+  /// 이니시스 일본결제의 경우 JPPG(gmoPayment) 결제의 상점정보로 사용되거나 편의점 결제 시 영수증 표시 정보로 사용됨.
+  final StoreDetails? storeDetails;
+
+  /// 주소 정보
+  final Address? shippingAddress;
 
   Map<String, dynamic> toJson() => _$PaymentRequestToJson(this);
 }
