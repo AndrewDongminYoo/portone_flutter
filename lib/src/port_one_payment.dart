@@ -11,34 +11,32 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:logger/logger.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 // 🌎 Project imports:
 import 'package:portone_flutter_v2/src/models/payment_request.dart';
 import 'package:portone_flutter_v2/src/models/payment_response.dart';
 
-/// A widget that implements the PortOne v2 payment process using a [InAppWebView].
+/// A widget that implements the PortOne v2 payment process using an [InAppWebView].
 ///
-/// This widget uses an [IndexedStack] to initially show a placeholder widget ([initialChild])
-/// instead of a blank white screen. Once the web page has been fully loaded (as indicated
-/// by the [InAppWebView]'s `onLoadStop` callback), the [IndexedStack] switches its view
-/// to display the actual web view.
+/// This widget uses an [IndexedStack] to initially display a placeholder widget ([initialChild])
+/// instead of a blank white screen. Once the webpage is fully loaded (as indicated by the
+/// [InAppWebView]'s `onLoadStop` callback), the [IndexedStack] displays the actual web view.
 ///
 /// The widget requires a [PaymentRequest] ([data]) to initialize the payment process using
-/// PortOne's browser SDK. Optionally, [onError] can be provided to handle errors, and [callback]
+/// PortOne's browser SDK. Optionally, [onError] can be provided for error handling, and [callback]
 /// will be invoked with query parameters when a payment result is received. A [Logger] may be
 /// passed for debugging purposes.
 ///
-/// The [gestureRecognizers] parameter allows customization of how touch gestures are handled
-/// within the web view, especially when this widget is nested in scrollable widgets.
+/// The [gestureRecognizers] parameter allows customization of which gestures are forwarded
+/// to the web view, which is especially useful when the widget is nested in scrollable containers.
 ///
 /// See also:
 ///  - [InAppWebView] from flutter_inappwebview
 class PortOnePayment extends StatefulWidget {
   /// Creates a [PortOnePayment] widget.
   ///
-  /// The [data] parameter must be provided with the necessary payment information.
-  /// The [initialChild] is an optional widget that is displayed while the web view is loading.
+  /// The [data] parameter must provide the necessary payment information.
+  /// The [initialChild] is an optional widget displayed while the web view is loading.
   const PortOnePayment({
     required this.data,
     required this.callback,
@@ -50,38 +48,34 @@ class PortOnePayment extends StatefulWidget {
     this.gestureRecognizers,
   });
 
-  /// Optional app bar to be displayed on top of the widget.
+  /// Optional app bar to be displayed at the top of the widget.
   final PreferredSizeWidget? appBar;
 
-  /// Payment information used to start the payment process.
+  /// Payment information used to initiate the payment process.
   final PaymentRequest data;
 
-  /// Error callback which is invoked when a JavaScript error occurs.
+  /// Error callback that is invoked when a JavaScript error occurs.
   final void Function(Object? error) onError;
 
   /// Callback invoked with the payment result parameters.
   final void Function(PaymentResponse result) callback;
 
-  /// Optional logger for debugging.
+  /// Optional logger for debugging purposes.
   final Logger? logger;
 
-  /// An optional widget to display while the web content is loading.
+  /// An optional widget displayed while the web content is loading.
   final Widget? initialChild;
 
-  /// Set of gesture recognizers that determine which gestures are forwarded
-  /// to the web view.
+  /// Set of gesture recognizers that determine which gestures are forwarded to the web view.
   ///
-  /// This can be useful when embedding the web view in other gesture-sensitive
-  /// widgets such as [ListView], [PageView], or custom gesture detectors.
+  /// This is useful when embedding the web view in other gesture-sensitive widgets such as
+  /// [ListView], [PageView], or custom gesture detectors.
   ///
-  /// For example, if you want the web view to respond to vertical scroll gestures
-  /// inside a [ListView], you can add a [VerticalDragGestureRecognizer] to this set.
+  /// For example, if vertical drag gestures inside a [ListView] should be recognized by the web
+  /// view, you can add a [VerticalDragGestureRecognizer] to this set.
   ///
-  /// By default (if null or empty), the web view only receives pointer events
-  /// for gestures that are not claimed by any other widgets.
-  ///
-  /// This is a standard Flutter mechanism for managing gesture competition
-  /// between embedded views and parent widgets.
+  /// By default (if null or empty), the web view will only receive pointer events for gestures
+  /// that are not claimed by any other widgets.
   final Set<Factory<OneSequenceGestureRecognizer>>? gestureRecognizers;
 
   @override
@@ -98,6 +92,7 @@ class _PortOnePaymentState extends State<PortOnePayment> {
 
   @override
   void dispose() {
+    controller?.dispose();
     super.dispose();
   }
 
@@ -198,20 +193,51 @@ class _PortOnePaymentState extends State<PortOnePayment> {
                       }
                       return NavigationActionPolicy.CANCEL;
                     case 'intent':
-                      final uri = url.rawValue;
-                      final firstColon = uri.indexOf(':');
-                      final firstHash = uri.indexOf('#');
-                      final hashParams = uri.substring(firstHash + 1).split(';');
-                      String? scheme;
-                      for (final param in hashParams) {
-                        final keyValue = param.split('=');
-                        if (keyValue.elementAtOrNull(0) == 'scheme') {
-                          scheme = keyValue[1];
+                      try {
+                        // Retrieve the raw URL string.
+                        final rawUri = url.rawValue;
+                        // Split the URL using '#' as delimiter (e.g., "intent://..." and "Intent;scheme=...;end").
+                        final parts = rawUri.split('#');
+                        if (parts.length != 2) {
+                          throw const FormatException('Invalid intent URL format: missing fragment');
                         }
-                      }
-                      final redirect = '$scheme${uri.substring(firstColon, firstHash)}';
-                      if (await canLaunchUrlString(redirect)) {
-                        await launchUrlString(redirect);
+                        final baseUriStr = parts[0]; // e.g., "intent://some_path"
+                        final fragment = parts[1]; // e.g., "Intent;scheme=https;package=com.example;end"
+
+                        // Remove the "Intent;" prefix if present.
+                        var fragmentContent = fragment;
+                        const intentPrefix = 'Intent;';
+                        if (fragmentContent.startsWith(intentPrefix)) {
+                          fragmentContent = fragmentContent.substring(intentPrefix.length);
+                        }
+
+                        // Split each parameter using ';' as the delimiter and form key-value pairs.
+                        final paramsList = fragmentContent.split(';');
+                        final params = <String, String>{};
+                        for (final param in paramsList) {
+                          if (param.isNotEmpty && param.contains('=')) {
+                            final keyValue = param.split('=');
+                            params[keyValue[0]] = keyValue[1];
+                          }
+                        }
+
+                        // Extract the required 'scheme' parameter.
+                        final redirectScheme = params['scheme'];
+                        if (redirectScheme == null) {
+                          throw const FormatException('Scheme parameter not found in intent URL');
+                        }
+
+                        // Safely parse the base URI and replace its scheme.
+                        final baseUri = Uri.parse(baseUriStr);
+                        final redirectUri = baseUri.replace(scheme: redirectScheme);
+
+                        // Before launching the redirection URI, validate its availability.
+                        if (await canLaunchUrl(redirectUri)) {
+                          await launchUrl(redirectUri);
+                        }
+                      } catch (error) {
+                        widget.logger?.e('Intent URL parsing error', error: error);
+                        widget.onError(error);
                       }
                       return NavigationActionPolicy.CANCEL;
                     default:
