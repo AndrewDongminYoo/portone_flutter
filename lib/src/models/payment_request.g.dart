@@ -306,8 +306,14 @@ const _$PaymentPayMethodEnumMap = {
 };
 
 const _$PaymentLocaleEnumMap = {
-  PaymentLocale.KO_KR: 'KO_KR',
-  PaymentLocale.EN_US: 'EN_US',
+  PaymentLocale.koKr: 'KO_KR',
+  PaymentLocale.enUs: 'EN_US',
+  PaymentLocale.zhCn: 'ZH_CN',
+  PaymentLocale.zhTw: 'ZH_TW',
+  PaymentLocale.jaJp: 'JA_JP',
+  PaymentLocale.ruRu: 'RU_RU',
+  PaymentLocale.thTh: 'TH_TH',
+  PaymentLocale.viVn: 'VI_VN',
 };
 
 const _$CountryEnumMap = {
