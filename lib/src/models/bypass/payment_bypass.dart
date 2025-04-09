@@ -2,12 +2,11 @@
 import 'package:json_annotation/json_annotation.dart';
 
 // 🌎 Project imports:
-import 'package:portone_flutter_v2/src/models/bypass/kakaopay_payment_bypass.dart';
-import 'package:portone_flutter_v2/src/models/bypass/tosspay_v2_payment_bypass.dart';
-import 'package:portone_flutter_v2/src/models/bypass/tosspayments_payment_bypass.dart';
+import 'package:portone_flutter_v2/src/models/bypass/bypass.dart';
 
 part 'payment_bypass.g.dart';
 
+/// PG사 결제창 호출 시 PG사로 그대로 bypass할 값들의 모음
 @JsonSerializable()
 class PaymentBypass {
   PaymentBypass({

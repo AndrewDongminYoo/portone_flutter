@@ -12,6 +12,7 @@ TosspayV2PaymentBypass _$TosspayV2PaymentBypassFromJson(Map<String, dynamic> jso
       ($checkedConvert) {
         final val = TosspayV2PaymentBypass(
           discountCode: $checkedConvert('discountCode', (v) => v as String?),
+          useInternationalCardOnly: $checkedConvert('useInternationalCardOnly', (v) => v as bool?),
         );
         return val;
       },
@@ -19,4 +20,5 @@ TosspayV2PaymentBypass _$TosspayV2PaymentBypassFromJson(Map<String, dynamic> jso
 
 Map<String, dynamic> _$TosspayV2PaymentBypassToJson(TosspayV2PaymentBypass instance) => <String, dynamic>{
       if (instance.discountCode case final value?) 'discountCode': value,
+      if (instance.useInternationalCardOnly case final value?) 'useInternationalCardOnly': value,
     };
