@@ -23,7 +23,9 @@ StoreDetails _$StoreDetailsFromJson(Map<String, dynamic> json) => $checkedCreate
           storeNameEn: $checkedConvert('storeNameEn', (v) => v as String?),
           storeNameKana: $checkedConvert('storeNameKana', (v) => v as String?),
           openingHours: $checkedConvert(
-              'openingHours', (v) => v == null ? null : OpeningHours.fromJson(v as Map<String, dynamic>)),
+            'openingHours',
+            (v) => v == null ? null : OpeningHours.fromJson(v as Map<String, dynamic>),
+          ),
           contactName: $checkedConvert('contactName', (v) => v as String?),
         );
         return val;
