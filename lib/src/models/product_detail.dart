@@ -17,8 +17,7 @@ class ProductDetail {
     this.isCulturalExpense,
   });
 
-  factory ProductDetail.fromJson(Map<String, dynamic> json) =>
-      _$ProductDetailFromJson(json);
+  factory ProductDetail.fromJson(Map<String, dynamic> json) => _$ProductDetailFromJson(json);
 
   /// 상품 ID
   final String id;
@@ -35,13 +34,13 @@ class ProductDetail {
   /// 상품 수량
   final int quantity;
 
-  /// 상품 태그 (선택)
+  /// 상품 태그
   final String? tag;
 
-  /// 상품 판매 URL (선택)
+  /// 상품 판매 URL
   final String? link;
 
-  /// 문화비 지출 여부 (선택)
+  /// 문화비 지출 여부
   final bool? isCulturalExpense;
 
   Map<String, dynamic> toJson() => _$ProductDetailToJson(this);

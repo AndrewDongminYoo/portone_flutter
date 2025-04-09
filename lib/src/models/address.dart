@@ -18,10 +18,11 @@ class Address {
     this.zipcode,
   });
 
-  factory Address.fromJson(Map<String, dynamic> json) =>
-      _$AddressFromJson(json);
+  factory Address.fromJson(Map<String, dynamic> json) => _$AddressFromJson(json);
 
   /// ISO 3166-1 alpha-2 국가 코드
+  ///
+  /// See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
   final Country? country;
 
   /// 일반 주소
@@ -30,13 +31,13 @@ class Address {
   /// 상세 주소
   final String? addressLine2;
 
-  /// 도시 (선택)
+  /// 도시
   final String? city;
 
-  /// 주/도/시 (선택)
+  /// 주/도/시
   final String? province;
 
-  /// 우편번호 (선택)
+  /// 우편번호
   final String? zipcode;
 
   Map<String, dynamic> toJson() => _$AddressToJson(this);
