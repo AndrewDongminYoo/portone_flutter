@@ -16,6 +16,12 @@ runtimes:
     - python@3.10.8
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
+  ignore:
+    - linters:
+        - markdownlint
+      paths:
+        - .github/ISSUE_TEMPLATE
+        - .github/PULL_REQUEST_TEMPLATE.md
   enabled:
     - actionlint@1.7.7
     - checkov@3.2.399
