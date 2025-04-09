@@ -11,13 +11,12 @@ class TosspaymentsPaymentBypass {
     this.useInternationalCardOnly,
   });
 
-  factory TosspaymentsPaymentBypass.fromJson(Map<String, dynamic> json) =>
-      _$TosspaymentsPaymentBypassFromJson(json);
+  factory TosspaymentsPaymentBypass.fromJson(Map<String, dynamic> json) => _$TosspaymentsPaymentBypassFromJson(json);
 
-  /// 프로모션 적용 코드 (선택)
+  /// 프로모션 적용 코드
   final String? discountCode;
 
-  /// 해외 카드만 결제 여부 (선택)
+  /// 해외 카드만 결제 여부
   final bool? useInternationalCardOnly;
 
   Map<String, dynamic> toJson() => _$TosspaymentsPaymentBypassToJson(this);

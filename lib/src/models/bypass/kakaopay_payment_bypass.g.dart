@@ -6,10 +6,7 @@ part of 'kakaopay_payment_bypass.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-KakaopayPaymentBypass _$KakaopayPaymentBypassFromJson(
-  Map<String, dynamic> json,
-) =>
-    $checkedCreate(
+KakaopayPaymentBypass _$KakaopayPaymentBypassFromJson(Map<String, dynamic> json) => $checkedCreate(
       'KakaopayPaymentBypass',
       json,
       ($checkedConvert) {
@@ -21,9 +18,6 @@ KakaopayPaymentBypass _$KakaopayPaymentBypassFromJson(
       fieldKeyMap: const {'customMessage': 'custom_message'},
     );
 
-Map<String, dynamic> _$KakaopayPaymentBypassToJson(
-  KakaopayPaymentBypass instance,
-) =>
-    <String, dynamic>{
+Map<String, dynamic> _$KakaopayPaymentBypassToJson(KakaopayPaymentBypass instance) => <String, dynamic>{
       if (instance.customMessage case final value?) 'custom_message': value,
     };
