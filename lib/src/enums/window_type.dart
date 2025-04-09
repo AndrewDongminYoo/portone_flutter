@@ -16,14 +16,14 @@ class WindowTypes {
 }
 
 /// 창 타입 enum
-@JsonEnum()
+@JsonEnum(fieldRename: FieldRename.screamingSnake, valueField: 'value')
 enum WindowType {
-  @JsonValue('IFRAME')
-  IFRAME,
-  @JsonValue('POPUP')
-  POPUP,
-  @JsonValue('REDIRECTION')
-  REDIRECTION,
-  @JsonValue('UI')
-  UI,
+  iframe('IFRAME'),
+  popup('POPUP'),
+  redirection('REDIRECTION'),
+  ui('UI'),
+  ;
+
+  const WindowType(this.value);
+  final String value;
 }
