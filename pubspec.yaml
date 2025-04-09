@@ -24,3 +24,29 @@ dev_dependencies:
   mockito: ^5.4.5
   mocktail: ^1.0.4
   very_good_analysis: ^7.0.0
+
+scripts:
+  bootstrap:
+    (description): Initializes the project by generating necessary code, sorting imports, applying fixes, and formatting.
+    (scripts):
+      - $generate
+      - $format
+
+  generate:
+    (description): Runs code generation builders and sorts imports to set up project files.
+    (scripts):
+      - dart run build_runner build --delete-conflicting-outputs
+
+  format:
+    (description): Applies automated fixes, sorts imports, and formats the codebase to ensure consistent code quality.
+    (scripts):
+      - dart fix --apply
+      - dart format --line-length 120 .
+      - dart run import_sorter:main -e
+
+  hard:
+    (description): Forces an upgrade of Flutter and its packages to their latest versions and updates CocoaPods dependencies for iOS.
+    (scripts):
+      - flutter upgrade --force
+      - flutter packages upgrade
+      - (cd ios && pod update)
