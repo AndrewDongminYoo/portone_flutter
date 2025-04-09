@@ -12,6 +12,7 @@ plugins:
 # Many linters and tools depend on runtimes - configure them here. (https://docs.trunk.io/runtimes)
 runtimes:
   enabled:
+    - java@13.0.11
     - node@18.20.5
     - python@3.10.8
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
@@ -23,6 +24,8 @@ lint:
         - .github/ISSUE_TEMPLATE
         - .github/PULL_REQUEST_TEMPLATE.md
   enabled:
+    - ktlint@1.5.0
+    - oxipng@9.1.4
     - actionlint@1.7.7
     - checkov@3.2.399
     - git-diff-check
