@@ -10,7 +10,7 @@ class PaymentResponse {
   /// PaymentResponse 생성자
   const PaymentResponse({
     required this.transactionType,
-    required this.txId,
+    required this.transactionId,
     required this.paymentId,
     this.code,
     this.message,
@@ -23,11 +23,13 @@ class PaymentResponse {
 
   /// 트랜잭션 유형
   /// 일반결제의 경우 무조건 "PAYMENT"로 전달됩니다.
+  @JsonKey(defaultValue: 'PAYMENT')
   final String transactionType;
 
   /// 결제 시도 고유 번호
   /// 포트원에서 채번하는 결제 시도 고유 번호입니다.
-  final String txId;
+  @JsonKey(name: 'txId')
+  final String transactionId;
 
   /// 결제 ID
   /// 결제 요청에 전달된 결제 ID입니다.

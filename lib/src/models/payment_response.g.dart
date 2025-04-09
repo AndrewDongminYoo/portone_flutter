@@ -11,8 +11,8 @@ PaymentResponse _$PaymentResponseFromJson(Map<String, dynamic> json) => $checked
       json,
       ($checkedConvert) {
         final val = PaymentResponse(
-          transactionType: $checkedConvert('transactionType', (v) => v! as String),
-          txId: $checkedConvert('txId', (v) => v! as String),
+          transactionType: $checkedConvert('transactionType', (v) => v as String? ?? 'PAYMENT'),
+          transactionId: $checkedConvert('txId', (v) => v! as String),
           paymentId: $checkedConvert('paymentId', (v) => v! as String),
           code: $checkedConvert('code', (v) => v as String?),
           message: $checkedConvert('message', (v) => v as String?),
@@ -21,11 +21,12 @@ PaymentResponse _$PaymentResponseFromJson(Map<String, dynamic> json) => $checked
         );
         return val;
       },
+      fieldKeyMap: const {'transactionId': 'txId'},
     );
 
 Map<String, dynamic> _$PaymentResponseToJson(PaymentResponse instance) => <String, dynamic>{
       'transactionType': instance.transactionType,
-      'txId': instance.txId,
+      'txId': instance.transactionId,
       'paymentId': instance.paymentId,
       if (instance.code case final value?) 'code': value,
       if (instance.message case final value?) 'message': value,
