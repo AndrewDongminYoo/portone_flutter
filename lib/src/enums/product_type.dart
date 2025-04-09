@@ -1,13 +1,15 @@
 // 📦 Package imports:
 import 'package:json_annotation/json_annotation.dart';
 
-@JsonEnum()
+@JsonEnum(fieldRename: FieldRename.screamingSnake, valueField: 'value')
 enum ProductType {
   /// 디지털
-  @JsonValue('PRODUCT_TYPE_DIGITAL')
-  DIGITAL,
+  digital('PRODUCT_TYPE_DIGITAL'),
 
   /// 실물
-  @JsonValue('PRODUCT_TYPE_REAL')
-  REAL,
+  real('PRODUCT_TYPE_REAL'),
+  ;
+
+  const ProductType(this.value);
+  final String value;
 }

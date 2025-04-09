@@ -296,13 +296,13 @@ const _$PaymentCurrencyEnumMap = {
 };
 
 const _$PaymentPayMethodEnumMap = {
-  PaymentPayMethod.CARD: 'CARD',
-  PaymentPayMethod.VIRTUAL_ACCOUNT: 'VIRTUAL_ACCOUNT',
-  PaymentPayMethod.TRANSFER: 'TRANSFER',
-  PaymentPayMethod.MOBILE: 'MOBILE',
-  PaymentPayMethod.GIFT_CERTIFICATE: 'GIFT_CERTIFICATE',
-  PaymentPayMethod.EASY_PAY: 'EASY_PAY',
-  PaymentPayMethod.PAYPAL: 'PAYPAL',
+  PaymentPayMethod.card: 'CARD',
+  PaymentPayMethod.virtualAccount: 'VIRTUAL_ACCOUNT',
+  PaymentPayMethod.transfer: 'TRANSFER',
+  PaymentPayMethod.mobile: 'MOBILE',
+  PaymentPayMethod.giftCertificate: 'GIFT_CERTIFICATE',
+  PaymentPayMethod.easyPay: 'EASY_PAY',
+  PaymentPayMethod.paypal: 'PAYPAL',
 };
 
 const _$PaymentLocaleEnumMap = {
@@ -563,8 +563,8 @@ const _$CountryEnumMap = {
 };
 
 const _$ProductTypeEnumMap = {
-  ProductType.DIGITAL: 'PRODUCT_TYPE_DIGITAL',
-  ProductType.REAL: 'PRODUCT_TYPE_REAL',
+  ProductType.digital: 'PRODUCT_TYPE_DIGITAL',
+  ProductType.real: 'PRODUCT_TYPE_REAL',
 };
 
 const _$CashReceiptTradeOptionEnumMap = {
