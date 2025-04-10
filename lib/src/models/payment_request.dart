@@ -29,6 +29,7 @@ class PaymentRequest {
     required this.totalAmount,
     required this.currency,
     required this.payMethod,
+    required this.appScheme,
     this.channelKey,
     this.channelGroupId,
     this.taxFreeAmount,
@@ -38,7 +39,6 @@ class PaymentRequest {
     this.redirectUrl,
     this.noticeUrls,
     this.confirmUrl,
-    this.appScheme,
     this.isEscrow,
     this.products,
     this.locale,
@@ -150,7 +150,7 @@ class PaymentRequest {
   ///
   /// WebView 환경 결제시 필수설정 항목 입니다.
   /// ISP/앱카드 앱에서 결제정보인증 후 기존 앱으로 복귀할 때 사용합니다.
-  final String? appScheme;
+  final String appScheme;
 
   /// 에스크로 결제 여부
   ///
