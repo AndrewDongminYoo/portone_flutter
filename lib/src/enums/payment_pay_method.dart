@@ -22,8 +22,8 @@ enum PaymentPayMethod {
   /// 간편 결제
   easyPay('EASY_PAY'),
 
-  /// 페이팔(SPB)
-  paypal('PAYPAL'),
+  /// 편의점
+  convenienceStore('CONVENIENCE_STORE'),
   ;
 
   const PaymentPayMethod(this.value);

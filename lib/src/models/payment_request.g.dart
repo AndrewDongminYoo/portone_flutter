@@ -288,7 +288,7 @@ const _$PaymentPayMethodEnumMap = {
   PaymentPayMethod.mobile: 'MOBILE',
   PaymentPayMethod.giftCertificate: 'GIFT_CERTIFICATE',
   PaymentPayMethod.easyPay: 'EASY_PAY',
-  PaymentPayMethod.paypal: 'PAYPAL',
+  PaymentPayMethod.convenienceStore: 'CONVENIENCE_STORE',
 };
 
 const _$PaymentLocaleEnumMap = {
