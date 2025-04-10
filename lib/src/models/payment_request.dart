@@ -39,7 +39,7 @@ class PaymentRequest {
     this.noticeUrls,
     this.confirmUrl,
     this.appScheme,
-    this.isEscrow = false,
+    this.isEscrow,
     this.products,
     this.locale,
     this.customData,
@@ -156,7 +156,7 @@ class PaymentRequest {
   ///
   /// 미입력 시 기본값: false
   /// 에스크로 설정은 PG사와 협의 이후 진행되어야 합니다.
-  final bool isEscrow;
+  final bool? isEscrow;
 
   /// 구매 상품 상세 정보
   final List<ProductDetail>? products;
