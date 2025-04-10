@@ -2,20 +2,8 @@
 import 'package:json_annotation/json_annotation.dart';
 
 // 🌎 Project imports:
-import 'package:portone_flutter_v2/src/enums/cash_receipt_trade_option.dart';
-import 'package:portone_flutter_v2/src/enums/country.dart';
-import 'package:portone_flutter_v2/src/enums/payment_currency.dart';
-import 'package:portone_flutter_v2/src/enums/payment_locale.dart';
-import 'package:portone_flutter_v2/src/enums/payment_pay_method.dart';
-import 'package:portone_flutter_v2/src/enums/product_type.dart';
-import 'package:portone_flutter_v2/src/enums/window_type.dart';
-import 'package:portone_flutter_v2/src/models/address.dart';
-import 'package:portone_flutter_v2/src/models/bypass/payment_bypass.dart';
-import 'package:portone_flutter_v2/src/models/customer.dart';
-import 'package:portone_flutter_v2/src/models/offer_period.dart';
-import 'package:portone_flutter_v2/src/models/popup.dart';
-import 'package:portone_flutter_v2/src/models/product_detail.dart';
-import 'package:portone_flutter_v2/src/models/store_details.dart';
+import 'package:portone_flutter_v2/src/enums/enums.dart';
+import 'package:portone_flutter_v2/src/models/models.dart';
 
 part 'payment_request.g.dart';
 
@@ -130,6 +118,8 @@ class PaymentRequest {
   /// 결제/본인인증 창이 새로운 창으로 리다이렉트 되어 프로세스가 진행되는 방식인 경우 필수 설정 항목 입니다.
   /// 대부분의 모바일 환경에서 창 호출시 필수 항목입니다.
   /// 리다이렉트 환경에서 해당 필드 누락시 에러가 발생합니다.
+  ///
+  /// [PaymentResponse] 값이 쿼리 파라미터에 추가되어 리다이렉트될 URL
   final String? redirectUrl;
 
   /// 웹훅(Webhook) 수신 주소

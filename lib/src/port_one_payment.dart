@@ -1,4 +1,5 @@
 // 🎯 Dart imports:
+import 'dart:async';
 import 'dart:convert';
 import 'dart:developer' show log;
 
@@ -9,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 // 📦 Package imports:
+import 'package:app_links/app_links.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -65,7 +67,6 @@ class PortOnePayment extends StatefulWidget {
   final void Function(PaymentResponse result) callback;
 
   /// Logger function for debugging purposes.
-  /// Defaults to printing messages to the console.
   final void Function(String message, {Object? error, StackTrace? stackTrace}) logger;
 
   /// An optional widget displayed while the web content is loading.
@@ -91,12 +92,42 @@ class _PortOnePaymentState extends State<PortOnePayment> {
   final handlerName = 'portoneError';
   final contentType = 'text/html';
 
-  late InAppWebViewController? controller;
+  InAppWebViewController? controller;
 
   int _stackIndex = 0;
 
+  late final AppLinks _appLinks;
+  StreamSubscription<Uri>? _appLinkSub;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.data.redirectUrl == null) {
+      _appLinks = AppLinks();
+      _appLinkSub = _appLinks.uriLinkStream.listen(
+        (Uri? uri) {
+          if (uri != null && uri.scheme == widget.data.appScheme) {
+            try {
+              final paymentResponse = PaymentResponse.fromJson(uri.queryParameters);
+              widget.logger('AppLinks callback received: $uri');
+              widget.callback(paymentResponse);
+            } catch (error, stackTrace) {
+              widget.logger('Error processing app link', error: error, stackTrace: stackTrace);
+              widget.onError(error);
+            }
+          }
+        },
+        onError: (Object? err) {
+          widget.logger('AppLinks subscription error: $err');
+          widget.onError(err);
+        },
+      );
+    }
+  }
+
   @override
   void dispose() {
+    _appLinkSub?.cancel();
     controller?.dispose();
     super.dispose();
   }
@@ -105,6 +136,10 @@ class _PortOnePaymentState extends State<PortOnePayment> {
   Widget build(BuildContext context) {
     widget.logger(jsonEncode(widget.data.toJson()));
     final appScheme = widget.data.appScheme;
+    final paymentData = widget.data.toJson();
+    if (paymentData['redirectUrl'] == null) {
+      paymentData['redirectUrl'] = '$appScheme://portone';
+    }
 
     final html = '''
 <!doctype html>
@@ -114,7 +149,7 @@ class _PortOnePaymentState extends State<PortOnePayment> {
     <script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
     <script>
       window.addEventListener("flutterInAppWebViewPlatformReady", () => {
-        PortOne.requestPayment(${jsonEncode(widget.data.toJson())}).catch((err) =>
+        PortOne.requestPayment(${jsonEncode(paymentData)}).catch((err) =>
           window.flutter_inappwebview.callHandler("$handlerName", err.message),
         );
       });
