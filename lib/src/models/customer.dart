@@ -52,7 +52,7 @@ class Customer {
   /// 유효한 이메일 주소를 입력해주세요.
   final String? email;
 
-  /// 구매자 주소
+  /// 구매자 주소 정보
   final Address? address;
 
   /// 구매자 성별

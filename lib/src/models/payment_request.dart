@@ -34,13 +34,6 @@ class PaymentRequest {
     this.taxFreeAmount,
     this.vatAmount,
     this.customer,
-    this.customerId,
-    this.fullName,
-    this.firstName,
-    this.lastName,
-    this.phoneNumber,
-    this.email,
-    this.address,
     this.windowType,
     this.redirectUrl,
     this.noticeUrls,
@@ -124,36 +117,6 @@ class PaymentRequest {
   /// 구매자 정보
   ///
   final Customer? customer;
-
-  /// 구매자 고유 ID
-  ///
-  final String? customerId;
-
-  /// 구매자 전체 이름
-  ///
-  /// fullName과 firstName / lastName이 모두 입력된 경우 fullName으로 기록됩니다.
-  final String? fullName;
-
-  /// 구매자 이름
-  ///
-  /// firstName을 입력하는 경우 lastName도 필수로 입력해야 합니다. fullName이 없고, firstName과 lastName이 존재하는 경우 {firstName} {lastName}으로 저장됩니다.
-  final String? firstName;
-
-  /// 구매자 성
-  ///
-  /// lastName을 입력하는 경우 firstName도 필수로 입력해야 합니다.
-  final String? lastName;
-
-  /// 구매자 연락처
-  final String? phoneNumber;
-
-  /// 구매자 이메일 주소
-  ///
-  /// 유효한 이메일 주소를 입력해주세요.
-  final String? email;
-
-  /// 구매자 주소 정보
-  final Address? address;
 
   /// 환경 별 제공되는 결제/본인인증 창 유형
   ///
