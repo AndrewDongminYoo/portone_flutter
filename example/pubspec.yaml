@@ -33,6 +33,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
+  go_router: ^14.8.1
   portone_flutter_v2:
     path: ../
 
