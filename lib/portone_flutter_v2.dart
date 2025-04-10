@@ -5,4 +5,4 @@ export 'src/enums/enums.dart';
 export 'src/helpers/helpers.dart';
 export 'src/l10n/l10n.dart';
 export 'src/models/models.dart';
-export 'src/port_one_payment.dart';
+export 'src/portone_payment.dart';

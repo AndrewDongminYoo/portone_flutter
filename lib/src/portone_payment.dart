@@ -38,12 +38,12 @@ void _defaultLog(String message, {Object? error, StackTrace? stackTrace}) {
 ///
 /// See also:
 ///  - [InAppWebView] from flutter_inappwebview
-class PortOnePayment extends StatefulWidget {
-  /// Creates a [PortOnePayment] widget.
+class PortonePayment extends StatefulWidget {
+  /// Creates a [PortonePayment] widget.
   ///
   /// The [data] parameter must provide the necessary payment information.
   /// The [initialChild] is an optional widget displayed while the web view is loading.
-  const PortOnePayment({
+  const PortonePayment({
     required this.data,
     required this.callback,
     required this.onError,
@@ -85,10 +85,10 @@ class PortOnePayment extends StatefulWidget {
   final Set<Factory<OneSequenceGestureRecognizer>>? gestureRecognizers;
 
   @override
-  State<PortOnePayment> createState() => _PortOnePaymentState();
+  State<PortonePayment> createState() => _PortonePaymentState();
 }
 
-class _PortOnePaymentState extends State<PortOnePayment> {
+class _PortonePaymentState extends State<PortonePayment> {
   final handlerName = 'portoneError';
   final contentType = 'text/html';
 
