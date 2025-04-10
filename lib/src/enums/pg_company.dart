@@ -17,7 +17,7 @@ enum PGCompany {
   inicisV2('inicis_v2'),
 
   /// 카카오페이
-  kakaopayPayment('kakaopay_payment'),
+  kakaopay('kakaopay_payment'),
 
   /// NHN KCP
   kcpV2('kcp_v2'),
@@ -26,31 +26,31 @@ enum PGCompany {
   kpn('kpn'),
 
   /// KSNET
-  ksnetPayment('ksnet_payment'),
+  ksnet('ksnet_payment'),
 
   /// 네이버페이
-  naverpayPayment('naverpay_payment'),
+  naverpay('naverpay_payment'),
 
   /// 나이스페이먼츠
-  niceV2Payment('nice_v2_payment'),
+  niceV2('nice_v2_payment'),
 
   /// 페이레터
   payletterGlobal('payletter_global'),
 
   /// 스마트로
-  smartroV2Payment('smartro_v2_payment'),
+  smartroV2('smartro_v2_payment'),
 
   /// 토스 브랜드페이
-  tossBrandpayPayment('toss_brandpay_payment'),
+  tossBrandpay('toss_brandpay_payment'),
 
   /// 토스페이
-  tosspayV2Payment('tosspay_v2_payment'),
+  tosspayV2('tosspay_v2_payment'),
 
   /// 토스페이먼츠
-  tosspaymentsPayment('tosspayments_payment'),
+  tosspayments('tosspayments_payment'),
 
   /// 웰컴페이먼츠
-  welcomePayment('welcome_payment'),
+  welcome('welcome_payment'),
   ;
 
   const PGCompany(this.value);
