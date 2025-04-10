@@ -103,6 +103,9 @@ class _PortOnePaymentState extends State<PortOnePayment> {
 
   @override
   Widget build(BuildContext context) {
+    widget.logger(jsonEncode(widget.data.toJson()));
+    final appScheme = widget.data.appScheme;
+
     final html = '''
 <!doctype html>
 <html>
@@ -185,72 +188,71 @@ class _PortOnePaymentState extends State<PortOnePayment> {
                 shouldOverrideUrlLoading: (InAppWebViewController controller, NavigationAction navigateAction) async {
                   final url = navigateAction.request.url;
                   widget.logger('Navigation action request uri: ${url!.uriValue}');
-                  switch (url.uriValue.scheme) {
-                    case 'http':
-                    case 'https':
-                      return NavigationActionPolicy.ALLOW;
-                    case 'portone':
-                      try {
-                        final paymentResponse = PaymentResponse.fromJson(url.queryParameters);
-                        widget.callback(paymentResponse);
-                      } catch (exception, stackTrace) {
-                        widget.logger('Error Occurred', error: exception, stackTrace: stackTrace);
-                        widget.onError(exception);
+
+                  if (url.uriValue.scheme == 'http' || url.uriValue.scheme == 'https') {
+                    return NavigationActionPolicy.ALLOW;
+                  } else if (url.uriValue.scheme == appScheme) {
+                    try {
+                      final paymentResponse = PaymentResponse.fromJson(url.queryParameters);
+                      widget.callback(paymentResponse);
+                    } catch (exception, stackTrace) {
+                      widget.logger('Error Occurred', error: exception, stackTrace: stackTrace);
+                      widget.onError(exception);
+                    }
+                    return NavigationActionPolicy.CANCEL;
+                  } else if (url.uriValue.scheme == 'intent') {
+                    try {
+                      // Retrieve the raw URL string.
+                      final rawUri = url.rawValue;
+                      // Split the URL using '#' as the delimiter (e.g., "intent://..." and "Intent;scheme=...;end").
+                      final parts = rawUri.split('#');
+                      if (parts.length != 2) {
+                        throw const FormatException('Invalid intent URL format: missing fragment');
                       }
-                      return NavigationActionPolicy.CANCEL;
-                    case 'intent':
-                      try {
-                        // Retrieve the raw URL string.
-                        final rawUri = url.rawValue;
-                        // Split the URL using '#' as the delimiter (e.g., "intent://..." and "Intent;scheme=...;end").
-                        final parts = rawUri.split('#');
-                        if (parts.length != 2) {
-                          throw const FormatException('Invalid intent URL format: missing fragment');
-                        }
-                        final baseUriStr = parts[0]; // e.g., "intent://some_path"
-                        final fragment = parts[1]; // e.g., "Intent;scheme=https;package=com.example;end"
+                      final baseUriStr = parts[0]; // e.g., "intent://some_path"
+                      final fragment = parts[1]; // e.g., "Intent;scheme=https;package=com.example;end"
 
-                        // Remove the "Intent;" prefix if present.
-                        var fragmentContent = fragment;
-                        const intentPrefix = 'Intent;';
-                        if (fragmentContent.startsWith(intentPrefix)) {
-                          fragmentContent = fragmentContent.substring(intentPrefix.length);
-                        }
-
-                        // Split each parameter using ';' as delimiter and create key-value pairs.
-                        final paramsList = fragmentContent.split(';');
-                        final params = <String, String>{};
-                        for (final param in paramsList) {
-                          if (param.isNotEmpty && param.contains('=')) {
-                            final keyValue = param.split('=');
-                            params[keyValue[0]] = keyValue[1];
-                          }
-                        }
-
-                        // Extract the required 'scheme' parameter.
-                        final redirectScheme = params['scheme'];
-                        if (redirectScheme == null) {
-                          throw const FormatException('Scheme parameter not found in intent URL');
-                        }
-
-                        // Safely parse the base URI and replace its scheme.
-                        final baseUri = Uri.parse(baseUriStr);
-                        final redirectUri = baseUri.replace(scheme: redirectScheme);
-
-                        // Validate and launch the redirection URI.
-                        if (await canLaunchUrl(redirectUri)) {
-                          await launchUrl(redirectUri);
-                        }
-                      } catch (error, stackTrace) {
-                        widget.logger('Intent URL parsing error', error: error, stackTrace: stackTrace);
-                        widget.onError(error);
+                      // Remove the "Intent;" prefix if present.
+                      var fragmentContent = fragment;
+                      const intentPrefix = 'Intent;';
+                      if (fragmentContent.startsWith(intentPrefix)) {
+                        fragmentContent = fragmentContent.substring(intentPrefix.length);
                       }
-                      return NavigationActionPolicy.CANCEL;
-                    default:
-                      if (await canLaunchUrl(url.uriValue)) {
-                        await launchUrl(url.uriValue);
+
+                      // Split each parameter using ';' as delimiter and create key-value pairs.
+                      final paramsList = fragmentContent.split(';');
+                      final params = <String, String>{};
+                      for (final param in paramsList) {
+                        if (param.isNotEmpty && param.contains('=')) {
+                          final keyValue = param.split('=');
+                          params[keyValue[0]] = keyValue[1];
+                        }
                       }
-                      return NavigationActionPolicy.CANCEL;
+
+                      // Extract the required 'scheme' parameter.
+                      final redirectScheme = params['scheme'];
+                      if (redirectScheme == null) {
+                        throw const FormatException('Scheme parameter not found in intent URL');
+                      }
+
+                      // Safely parse the base URI and replace its scheme.
+                      final baseUri = Uri.parse(baseUriStr);
+                      final redirectUri = baseUri.replace(scheme: redirectScheme);
+
+                      // Validate and launch the redirection URI.
+                      if (await canLaunchUrl(redirectUri)) {
+                        await launchUrl(redirectUri);
+                      }
+                    } catch (error, stackTrace) {
+                      widget.logger('Intent URL parsing error', error: error, stackTrace: stackTrace);
+                      widget.onError(error);
+                    }
+                    return NavigationActionPolicy.CANCEL;
+                  } else {
+                    if (await canLaunchUrl(url.uriValue)) {
+                      await launchUrl(url.uriValue);
+                    }
+                    return NavigationActionPolicy.CANCEL;
                   }
                 },
               ),
