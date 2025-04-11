@@ -5,7 +5,10 @@ part 'window_type.g.dart';
 
 @JsonSerializable()
 class WindowTypes {
-  WindowTypes({this.mobile, this.pc});
+  WindowTypes({
+    this.mobile,
+    this.pc,
+  });
 
   factory WindowTypes.fromJson(Map<String, dynamic> json) => _$WindowTypesFromJson(json);
 
