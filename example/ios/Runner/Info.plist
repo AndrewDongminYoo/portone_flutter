@@ -35,42 +35,71 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		<string>kftc-bankpay</string>
-		<string>ispmobile</string>
-		<string>itms-apps</string>
-		<string>hdcardappcardansimclick</string>
-		<string>smhyundaiansimclick</string>
-		<string>shinhan-sr-ansimclick</string>
-		<string>smshinhanansimclick</string>
-		<string>kb-acp</string>
-		<string>mpocket.online.ansimclick</string>
-		<string>ansimclickscard</string>
+		<string>alipays</string>
 		<string>ansimclickipcollect</string>
-		<string>vguardstart</string>
-		<string>samsungpay</string>
-		<string>scardcertiapp</string>
-		<string>lottesmartpay</string>
-		<string>lotteappcard</string>
-		<string>cloudpay</string>
-		<string>nhappcardansimclick</string>
-		<string>nonghyupcardansimclick</string>
-		<string>citispay</string>
+		<string>ansimclickscard</string>
+		<string>chaipayment</string>
 		<string>citicardappkr</string>
 		<string>citimobileapp</string>
-		<string>kakaotalk</string>
-		<string>payco</string>
-		<string>lpayapp</string>
+		<string>citispay</string>
+		<string>cloudpay</string>
+		<string>com.wooricard.wcard</string>
 		<string>hanamopmoasign</string>
-		<string>wooripay</string>
-		<string>nhallonepayansimclick</string>
 		<string>hanawalletmembers</string>
-		<string>liivbank</string>
-		<string>supertoss</string>
-		<string>newsmartpib</string>
-		<string>v3mobileplusweb</string>
+		<string>hdcardappcardansimclick</string>
+		<string>hyundaicardappcardid</string>
+		<string>ispmobile</string>
+		<string>itms-apps</string>
+		<string>kakaobank</string>
+		<string>kakaokompassauth</string>
+		<string>kakaolink</string>
+		<string>kakaoplus</string>
+		<string>kakaotalk</string>
+		<string>kb-acp</string>
+		<string>kb-auth</string>
+		<string>kb-screen</string>
 		<string>kbbank</string>
-		<string>newliiv</string>
+		<string>kftc-bankpay</string>
+		<string>ktauthexternalcall</string>
+		<string>lguthepay-xpay</string>
+		<string>liivbank</string>
+		<string>line</string>
+		<string>lmslpay</string>
+		<string>lotteappcard</string>
+		<string>lottesmartpay</string>
+		<string>lpayapp</string>
+		<string>mailto</string>
+		<string>monimopay</string>
+		<string>monimopayauth</string>
+		<string>mpocket.online.ansimclick</string>
 		<string>naversearchthirdlogin</string>
+		<string>newliiv</string>
+		<string>newsmartpib</string>
+		<string>NewSmartPib</string>
+		<string>nhallonepayansimclick</string>
+		<string>nhappcardansimclick</string>
+		<string>nonghyupcardansimclick</string>
+		<string>payco</string>
+		<string>samsungpay</string>
+		<string>scardcertiapp</string>
+		<string>shinhan-sr-ansimclick-lpay</string>
+		<string>shinhan-sr-ansimclick-mola</string>
+		<string>shinhan-sr-ansimclick-naverpay</string>
+		<string>shinhan-sr-ansimclick-payco</string>
+		<string>shinhan-sr-ansimclick</string>
+		<string>shinsegaeeasypayment</string>
+		<string>smailapp</string>
+		<string>smhyundaiansimclick</string>
+		<string>sms</string>
+		<string>smshinhanansimclick</string>
+		<string>supertoss</string>
+		<string>tauthlink</string>
+		<string>ukbanksmartbanknonloginpay</string>
+		<string>upluscorporation</string>
+		<string>v3mobileplusweb</string>
+		<string>vguardstart</string>
+		<string>weixin</string>
+		<string>wooripay</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
