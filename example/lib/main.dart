@@ -9,17 +9,25 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portone_flutter_v2/portone_flutter_v2.dart';
 
-/// This sample app shows an app with two screens.
+/// This sample app demonstrates how to integrate the PortOne V2 payment process
+/// using the [PortonePayment] widget provided in the package.
 ///
-/// The first route '/' is mapped to [PayNowScreen], and the second route
-/// '/payment' is mapped to [PaymentScreen].
-///
-/// The buttons use context.go() to navigate to each destination. On mobile
-/// devices, each destination is deep-linkable and on the web, can be navigated
-/// to using the address bar.
+/// Note:
+/// - This package is a wrapper around PortOne's browser SDK function `PortOne.requestPayment`,
+///   and is not directly affiliated with PortOne.
+/// - The example shows a simple two-screen flow:
+///   1. A home screen ([PayNowScreen]) that initiates a payment request.
+///   2. A payment screen ([PaymentScreen]) that displays the payment process in a WebView.
+///   3. A result screen ([ResultScreen]) that shows the outcome of the payment process.
+/// - Navigation is handled using [GoRouter], allowing for deep linking and route management.
 void main() => runApp(const MyApp());
 
-/// The route configuration.
+/// Global router configuration for the sample application.
+///
+/// The route structure is defined as follows:
+/// - '/' maps to [PayNowScreen] (the home screen).
+/// - '/payment' maps to [PaymentScreen] and expects a [PaymentRequest] passed via extra data.
+/// - '/result' maps to [ResultScreen] and expects a [PaymentResponse] passed via extra data.
 final GoRouter _router = GoRouter(
   routes: <RouteBase>[
     GoRoute(
@@ -49,20 +57,29 @@ final GoRouter _router = GoRouter(
   ],
 );
 
-/// The main app.
+/// The root widget of the application.
+///
+/// Uses [MaterialApp.router] to wire up the router configuration.
 class MyApp extends StatelessWidget {
-  /// Constructs a [MyApp]
+  /// Constructs a [MyApp] instance.
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(routerConfig: _router);
+    return MaterialApp.router(
+      routerConfig: _router,
+      title: 'PortOne Payment Sample',
+      theme: ThemeData(primarySwatch: Colors.blue),
+    );
   }
 }
 
-/// The home screen
+/// The home screen that provides a button to initiate a payment.
+///
+/// This screen creates a [PaymentRequest] object and navigates to the
+/// [PaymentScreen] when the "Go to the Payment screen" button is pressed.
 class PayNowScreen extends StatelessWidget {
-  /// Constructs a [PayNowScreen]
+  /// Constructs a [PayNowScreen] instance.
   const PayNowScreen({super.key});
 
   @override
@@ -72,7 +89,9 @@ class PayNowScreen extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () async {
+            // Generate a unique payment ID using the current timestamp.
             final paymentId = 'payment_${DateTime.now().millisecondsSinceEpoch}';
+            // Create a PaymentRequest with example data.
             final payment = PaymentRequest(
               storeId: 'store-00000000-0000-0000-0000-000000000000',
               paymentId: paymentId,
@@ -83,7 +102,7 @@ class PayNowScreen extends StatelessWidget {
               payMethod: PaymentPayMethod.card,
               appScheme: 'portone',
             );
-
+            // Navigate to the PaymentScreen, passing the PaymentRequest as extra data.
             context.push('/payment', extra: payment);
           },
           child: const Text('Go to the Payment screen'),
@@ -93,11 +112,17 @@ class PayNowScreen extends StatelessWidget {
   }
 }
 
-/// The payment screen
+/// The payment screen that embeds the [PortonePayment] widget.
+///
+/// This screen displays the payment process inside a WebView.
+/// Upon receiving the payment result callback, it navigates to the [ResultScreen].
 class PaymentScreen extends StatelessWidget {
-  /// Constructs a [PaymentScreen]
+  /// Constructs a [PaymentScreen] instance.
+  ///
+  /// The [paymentRequest] parameter is required to initiate the payment.
   const PaymentScreen({super.key, required this.paymentRequest});
 
+  /// The payment request data to be used in the payment process.
   final PaymentRequest paymentRequest;
 
   @override
@@ -108,14 +133,18 @@ class PaymentScreen extends StatelessWidget {
       initialChild: Center(
         child: ElevatedButton(
           onPressed: () {
+            // Allow users to cancel the payment process and go back to the home screen.
             context.go('/');
           },
           child: const Text('Go Back'),
         ),
       ),
+      // The callback is invoked when a payment result is received.
       callback: (PaymentResponse response) async {
+        // Navigate to the result screen with the payment response.
         context.push('/result', extra: response);
       },
+      // Error handling: display a SnackBar in case of an error.
       onError: (Object? error) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error.toString())));
       },
@@ -123,9 +152,17 @@ class PaymentScreen extends StatelessWidget {
   }
 }
 
+/// The result screen that displays the outcome of the payment process.
+///
+/// It converts the [PaymentResponse] into a readable JSON format and displays
+/// each key-value pair in a list format.
 class ResultScreen extends StatelessWidget {
+  /// Constructs a [ResultScreen] instance.
+  ///
+  /// The [paymentResponse] parameter contains the result of the payment.
   const ResultScreen({super.key, required this.paymentResponse});
 
+  /// The payment response data received after the payment process.
   final PaymentResponse paymentResponse;
 
   @override
@@ -139,6 +176,7 @@ class ResultScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
+        // Display all key-value pairs from the payment response.
         child: ListView.builder(
           itemCount: resultData.length,
           itemBuilder: (context, index) {
