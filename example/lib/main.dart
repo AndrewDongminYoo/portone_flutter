@@ -12,7 +12,7 @@ import 'package:portone_flutter_v2/portone_flutter_v2.dart';
 /// This sample app shows an app with two screens.
 ///
 /// The first route '/' is mapped to [PayNowScreen], and the second route
-/// '/details' is mapped to [PaymentScreen].
+/// '/payment' is mapped to [PaymentScreen].
 ///
 /// The buttons use context.go() to navigate to each destination. On mobile
 /// devices, each destination is deep-linkable and on the web, can be navigated
@@ -130,9 +130,33 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final resultData = paymentResponse.toJson();
     return Scaffold(
-      appBar: AppBar(title: const Text('Payment Result')),
-      body: Center(child: Text(paymentResponse.toJson().toString())),
+      appBar: AppBar(
+        title: const Text('Payment Result'),
+        automaticallyImplyLeading: false,
+        leading: IconButton(icon: const Icon(Icons.home), onPressed: () => context.go('/')),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView.builder(
+          itemCount: resultData.length,
+          itemBuilder: (context, index) {
+            final key = resultData.keys.elementAt(index);
+            return Padding(
+              key: ValueKey(key),
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('$key: ', style: const TextStyle(fontWeight: FontWeight.bold)),
+                  Expanded(child: Text(resultData[key].toString(), softWrap: true)),
+                ],
+              ),
+            );
+          },
+        ),
+      ),
     );
   }
 }
