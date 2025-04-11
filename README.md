@@ -24,7 +24,7 @@ Add to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  portone_flutter_v2: ^0.1.0
+  portone_flutter_v2: ^1.0.0
 ```
 
 Or install via command line:
