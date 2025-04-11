@@ -21,7 +21,59 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    always_use_package_imports: true
+    avoid_dynamic_calls: true
+    avoid_final_parameters: true
+    avoid_print: true
+    comment_references: true
+    discarded_futures: true
+    empty_constructor_bodies: true
+    no_default_cases: true
+    no_leading_underscores_for_local_identifiers: true
+    omit_local_variable_types: true
+    prefer_asserts_with_message: true
+    prefer_const_constructors_in_immutables: true
+    prefer_final_locals: true
+    prefer_mixin: true
+    prefer_single_quotes: true
+    require_trailing_commas: true
+    sort_pub_dependencies: true
+
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
+analyzer:
+  language:
+    # Do not cast nullable values to non-nullable types.
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+  errors:
+    #########################
+    # Enhanced Error Levels #
+    #########################
+    # Triggered when declared elements like classes, methods, or fields are not used in the code.
+    unused_element: error
+    # Triggered when fields are declared but not used in the code.
+    unused_field: error
+    # Triggered when local variables declared within a function or method are not used.
+    unused_local_variable: error
+    # Triggered when a name declared in the import show clause is not actually used.
+    unused_shown_name: error
+    # Triggered when imported elements are not used in the file.
+    unused_import: error
+    # Triggered when a function or method returns a value that is not used.
+    unused_result: error
+    # Enables a warning for unnecessary null checks.
+    unnecessary_null_checks: warning
+    # Triggered when constructor parameters are declared but not used within the constructor.
+    avoid_unused_constructor_parameters: error
+    # Triggered when an exception is caught but not used in the catch block.
+    unused_catch_clause: error
+    # Triggered when operations on primitive types have no actual effect.
+    noop_primitive_operations: error
+
+# Formatter settings
+formatter:
+  # Specifies the line width for auto-formatting the code.
+  # https://codewithandrea.com/articles/new-formatting-style-dart-3-7
+  page_width: 120
