@@ -24,10 +24,11 @@ lint:
         - .github/ISSUE_TEMPLATE
         - .github/PULL_REQUEST_TEMPLATE.md
   enabled:
+    - osv-scanner@2.0.1
     - ktlint@1.5.0
     - oxipng@9.1.4
     - actionlint@1.7.7
-    - checkov@3.2.399
+    - checkov@3.2.403
     - git-diff-check
     - markdownlint@0.44.0
     - prettier@3.5.3
