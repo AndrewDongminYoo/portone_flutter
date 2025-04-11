@@ -1,0 +1,31 @@
+{
+  "git": {
+    "commitMessage": "chore: 🔖 release v${version}",
+    "tagAnnotation": "Release v${version}",
+    "tagName": "v${version}",
+    "push": true,
+    "commit": true,
+    "tag": true,
+    "requireCommits": false,
+    "requireCleanWorkingDir": false
+  },
+  "plugins": {
+    "@release-it/bumper": {
+      "in": {
+        "file": "pubspec.yaml",
+        "type": "text/yaml"
+      },
+      "out": {
+        "file": "pubspec.yaml",
+        "type": "text/yaml"
+      }
+    },
+    "@release-it/keep-a-changelog": {
+      "filename": "CHANGELOG.md",
+      "addVersionUrl": true,
+      "versionUrlFormats": {
+        "repositoryUrl": "https://github.com/AndrewDongminYoo/portone_flutter"
+      }
+    }
+  }
+}

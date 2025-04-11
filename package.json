@@ -1,0 +1,29 @@
+{
+  "name": "portone_flutter_v2",
+  "version": "1.0.0",
+  "description": "A module for integrating PortOne V2 payment service in Flutter App.",
+  "directories": {
+    "example": "example",
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "release": "npx release-it patch"
+  },
+  "keywords": [
+    "dart",
+    "flutter",
+    "payment",
+    "portone",
+    "v2"
+  ],
+  "authors": [
+    "<andrew@cami.kr | cami-andrew>",
+    "<ydm2790@gmail.com | AndrewDongminYoo>"
+  ],
+  "license": "BSD",
+  "devDependencies": {
+    "@release-it/bumper": "^7.0.2",
+    "@release-it/keep-a-changelog": "^6.0.0"
+  }
+}
