@@ -5,7 +5,7 @@ repository: https://github.com/AndrewDongminYoo/portone_flutter
 
 environment:
   sdk: ^3.5.0
-  flutter: ^3.24.0
+  flutter: ">=3.24.0"
 
 dependencies:
   app_links: ^6.4.0
