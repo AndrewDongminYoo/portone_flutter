@@ -23,6 +23,10 @@ lint:
       paths:
         - .github/ISSUE_TEMPLATE
         - .github/PULL_REQUEST_TEMPLATE.md
+    - linters:
+        - osv-scanner
+      paths:
+        - "**/Podfile.lock"
   enabled:
     - osv-scanner@2.0.1
     - ktlint@1.5.0
