@@ -1,0 +1,27 @@
+{
+  "allowCompoundWords": true,
+  "dictionaries": ["vgv_allowed", "country_names", "payments"],
+  "dictionaryDefinitions": [
+    {
+      "description": "Allowed VGV Spellings",
+      "name": "vgv_allowed",
+      "path": "https://raw.githubusercontent.com/verygoodopensource/very_good_dictionaries/main/allowed.txt"
+    },
+    {
+      "addWords": false,
+      "name": "payments",
+      "path": ".cspell/payments.txt",
+      "scope": "workspace"
+    },
+    {
+      "addWords": false,
+      "name": "country_names",
+      "path": ".cspell/country_names.txt",
+      "scope": "workspace"
+    }
+  ],
+  "ignorePaths": [],
+  "useGitignore": true,
+  "version": "0.2",
+  "words": []
+}
