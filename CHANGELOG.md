@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- Added `PaymentCurrency` enum with support for a wide range of currencies based on ISO 4217.
+
 ### Changed
 
 - Translated the CHANGELOG from Korean to English.
