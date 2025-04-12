@@ -30,4 +30,7 @@ enum PaymentPayMethod {
 
   /// 직렬화에 사용될 값
   final String value;
+
+  @override
+  String toString() => value;
 }

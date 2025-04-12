@@ -52,6 +52,9 @@ enum SmartroV2SkinColor {
 
   /// 직렬화에 사용될 값
   final String value;
+
+  @override
+  String toString() => value;
 }
 
 /// 해외 카드만 결제를 허용할지 여부
@@ -68,4 +71,7 @@ enum SmartroV2OpenType {
 
   /// 직렬화에 사용될 값
   final String value;
+
+  @override
+  String toString() => value;
 }
