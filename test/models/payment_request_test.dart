@@ -144,5 +144,22 @@ void main() {
       expect(resultJson['payMethod'], json['payMethod']);
       expect(resultJson['appScheme'], json['appScheme']);
     });
+
+    test('expiredTime should follow yyyy-MM-dd HH:mm:ss format', () {
+      final paymentRequest = PaymentRequest(
+        storeId: 'store-00000000-0000-0000-0000-000000000000',
+        paymentId: 'payment-00000000-0000-0000-0000-000000000000',
+        orderName: 'Test Order',
+        totalAmount: 1000,
+        currency: PaymentCurrency.USD,
+        payMethod: PaymentPayMethod.card,
+        appScheme: 'portoneTest',
+        expiredTime: '2025-04-12 18:18:17',
+      );
+
+      // yyyy-MM-dd HH:mm:ss 형태 검사: 단순 정규식 활용
+      final regex = RegExp(r'^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$');
+      expect(regex.hasMatch(paymentRequest.expiredTime!), isTrue);
+    });
   });
 }
