@@ -11,6 +11,7 @@ class SmartroV2PaymentBypass {
     this.openType = SmartroV2OpenType.kr,
   });
 
+  /// JSON에서 [SmartroV2PaymentBypass] 객체로 변환하는 팩토리 메서드
   factory SmartroV2PaymentBypass.fromJson(Map<String, dynamic> json) => _$SmartroV2PaymentBypassFromJson(json);
 
   @JsonKey(name: 'GoodsCnt')
@@ -22,6 +23,7 @@ class SmartroV2PaymentBypass {
   @JsonKey(name: 'OpenType')
   SmartroV2OpenType openType;
 
+  /// [SmartroV2PaymentBypass] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$SmartroV2PaymentBypassToJson(this);
 }
 
@@ -34,6 +36,8 @@ enum SmartroV2SkinColor {
   ;
 
   const SmartroV2SkinColor(this.value);
+
+  /// 직렬화에 사용될 값
   final String value;
 }
 
@@ -44,5 +48,7 @@ enum SmartroV2OpenType {
   ;
 
   const SmartroV2OpenType(this.value);
+
+  /// 직렬화에 사용될 값
   final String value;
 }

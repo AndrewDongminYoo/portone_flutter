@@ -18,6 +18,7 @@ class Address {
     this.zipcode,
   });
 
+  /// JSON에서 [Address] 객체로 변환하는 팩토리 메서드
   factory Address.fromJson(Map<String, dynamic> json) => _$AddressFromJson(json);
 
   /// ISO 3166-1 alpha-2 국가 코드
@@ -40,5 +41,6 @@ class Address {
   /// 우편번호
   final String? zipcode;
 
+  /// [Address] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$AddressToJson(this);
 }

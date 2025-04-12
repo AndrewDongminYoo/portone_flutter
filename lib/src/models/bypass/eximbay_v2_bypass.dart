@@ -16,6 +16,7 @@ class EximbayV2Bypass {
     this.settings,
   });
 
+  /// JSON에서 [EximbayV2Bypass] 객체로 변환하는 팩토리 메서드
   factory EximbayV2Bypass.fromJson(Map<String, dynamic> json) => _$EximbayV2BypassFromJson(json);
 
   /// 결제 정보
@@ -41,6 +42,7 @@ class EximbayV2Bypass {
   /// 설정 정보
   final SettingsInfo? settings;
 
+  /// [EximbayV2Bypass] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$EximbayV2BypassToJson(this);
 }
 
@@ -52,6 +54,7 @@ class PaymentInfo {
     this.multiPaymentMethod,
   });
 
+  /// JSON에서 [PaymentInfo] 객체로 변환하는 팩토리 메서드
   factory PaymentInfo.fromJson(Map<String, dynamic> json) => _$PaymentInfoFromJson(json);
 
   /// 결제수단 다이렉트
@@ -62,6 +65,7 @@ class PaymentInfo {
   @JsonKey(name: 'multi_payment_method')
   final List<String>? multiPaymentMethod;
 
+  /// [PaymentInfo] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$PaymentInfoToJson(this);
 }
 
@@ -73,6 +77,7 @@ class MerchantInfo {
     this.partnerCode,
   });
 
+  /// JSON에서 [MerchantInfo] 객체로 변환하는 팩토리 메서드
   factory MerchantInfo.fromJson(Map<String, dynamic> json) => _$MerchantInfoFromJson(json);
 
   /// 상점명
@@ -82,6 +87,7 @@ class MerchantInfo {
   @JsonKey(name: 'partner_code')
   final String? partnerCode;
 
+  /// [MerchantInfo] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$MerchantInfoToJson(this);
 }
 
@@ -92,12 +98,14 @@ class TaxInfo {
     this.receiptStatus,
   });
 
+  /// JSON에서 [TaxInfo] 객체로 변환하는 팩토리 메서드
   factory TaxInfo.fromJson(Map<String, dynamic> json) => _$TaxInfoFromJson(json);
 
   /// 현금영수증 발급 여부 ("Y" 또는 "N")
   @JsonKey(name: 'receipt_status')
   final String? receiptStatus;
 
+  /// [TaxInfo] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$TaxInfoToJson(this);
 }
 
@@ -110,6 +118,7 @@ class Surcharge {
     this.unitPrice,
   });
 
+  /// JSON에서 [Surcharge] 객체로 변환하는 팩토리 메서드
   factory Surcharge.fromJson(Map<String, dynamic> json) => _$SurchargeFromJson(json);
 
   /// 항목명
@@ -122,6 +131,7 @@ class Surcharge {
   @JsonKey(name: 'unit_price')
   final String? unitPrice;
 
+  /// [Surcharge] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$SurchargeToJson(this);
 }
 
@@ -139,6 +149,7 @@ class AddressInfo {
     this.street1,
   });
 
+  /// JSON에서 [AddressInfo] 객체로 변환하는 팩토리 메서드
   factory AddressInfo.fromJson(Map<String, dynamic> json) => _$AddressInfoFromJson(json);
 
   /// 도시
@@ -169,6 +180,7 @@ class AddressInfo {
   /// 상세 주소
   final String? street1;
 
+  /// [AddressInfo] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$AddressInfoToJson(this);
 }
 
@@ -181,6 +193,7 @@ class SettingsInfo {
     this.virtualaccountExpiryDate,
   });
 
+  /// JSON에서 [SettingsInfo] 객체로 변환하는 팩토리 메서드
   factory SettingsInfo.fromJson(Map<String, dynamic> json) => _$SettingsInfoFromJson(json);
 
   /// 인앱 웹뷰 여부 ("Y" 또는 "N")
@@ -195,5 +208,6 @@ class SettingsInfo {
   @JsonKey(name: 'virtualaccount_expiry_date')
   final String? virtualaccountExpiryDate;
 
+  /// [SettingsInfo] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$SettingsInfoToJson(this);
 }

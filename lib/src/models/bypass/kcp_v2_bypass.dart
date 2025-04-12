@@ -18,6 +18,7 @@ class KcpV2Bypass {
     this.deliTerm,
   });
 
+  /// JSON에서 [KcpV2Bypass] 객체로 변환하는 팩토리 메서드
   factory KcpV2Bypass.fromJson(Map<String, dynamic> json) => _$KcpV2BypassFromJson(json);
 
   /// 카드 결제 시 skin index
@@ -52,5 +53,6 @@ class KcpV2Bypass {
   /// 에스크로 배송 예상 소요일
   final String? deliTerm;
 
+  /// [KcpV2Bypass] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$KcpV2BypassToJson(this);
 }

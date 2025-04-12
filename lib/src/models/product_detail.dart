@@ -17,6 +17,7 @@ class ProductDetail {
     this.isCulturalExpense,
   });
 
+  /// JSON에서 [ProductDetail] 객체로 변환하는 팩토리 메서드
   factory ProductDetail.fromJson(Map<String, dynamic> json) => _$ProductDetailFromJson(json);
 
   /// 상품 ID
@@ -43,5 +44,6 @@ class ProductDetail {
   /// 문화비 지출 여부
   final bool? isCulturalExpense;
 
+  /// [ProductDetail] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$ProductDetailToJson(this);
 }

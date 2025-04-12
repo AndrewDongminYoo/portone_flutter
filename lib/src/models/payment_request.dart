@@ -44,6 +44,7 @@ class PaymentRequest {
     this.popup,
   });
 
+  /// JSON에서 [PaymentRequest] 객체로 변환하는 팩토리 메서드
   factory PaymentRequest.fromJson(Map<String, dynamic> json) => _$PaymentRequestFromJson(json);
 
   /// 상점 아이디
@@ -165,7 +166,7 @@ class PaymentRequest {
   /// 결제 만료 기한 (선택, "yyyy-MM-dd HH:mm:ss" 형식)
   final String? expiredTime;
 
-  // PG사 결제창 호출 시 PG사로 그대로 bypass할 값들의 모음
+  /// PG사 결제창 호출 시 PG사로 그대로 bypass할 값들의 모음
   final PaymentBypass? bypass;
 
   /// ISO 3166-1 alpha-2 국가 코드
@@ -173,6 +174,7 @@ class PaymentRequest {
   /// See: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
   final Country? country;
 
+  /// 상품 유형
   final ProductType? productType;
 
   /// 현금영수증 발급 타입 (예: CULTURE, GENERAL, PUBLIC_TP)
@@ -201,5 +203,6 @@ class PaymentRequest {
   /// 결제창이 팝업 방식일 경우 결제창에 적용할 속성
   final Popup? popup;
 
+  /// [PaymentRequest] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$PaymentRequestToJson(this);
 }

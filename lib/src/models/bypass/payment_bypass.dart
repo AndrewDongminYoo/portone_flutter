@@ -28,6 +28,7 @@ class PaymentBypass {
     this.payletterGlobal,
   });
 
+  /// JSON에서 [PaymentBypass] 객체로 변환하는 팩토리 메서드
   factory PaymentBypass.fromJson(Map<String, dynamic> json) => _$PaymentBypassFromJson(json);
 
   /// 토스페이먼츠 bypass 파라미터
@@ -96,5 +97,6 @@ class PaymentBypass {
   @JsonKey(name: 'payletter_global')
   final PayletterGlobalBypass? payletterGlobal;
 
+  /// [PaymentBypass] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$PaymentBypassToJson(this);
 }

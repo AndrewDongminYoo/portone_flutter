@@ -20,6 +20,7 @@ class NiceV2PaymentBypass {
     this.samPayMallType,
   });
 
+  /// JSON에서 [NiceV2PaymentBypass] 객체로 변환하는 팩토리 메서드
   factory NiceV2PaymentBypass.fromJson(Map<String, dynamic> json) => _$NiceV2PaymentBypassFromJson(json);
 
   /// 결제창 로고 이미지 URL
@@ -58,6 +59,7 @@ class NiceV2PaymentBypass {
   /// 삼성페이 고객사 유형 ("99" 또는 "01")
   final String? samPayMallType;
 
+  /// [NiceV2PaymentBypass] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$NiceV2PaymentBypassToJson(this);
 }
 
@@ -70,5 +72,7 @@ enum NiceV2SkinType {
   dark('dark');
 
   const NiceV2SkinType(this.value);
+
+  /// 직렬화에 사용될 값
   final String value;
 }

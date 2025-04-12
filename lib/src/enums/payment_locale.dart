@@ -30,5 +30,7 @@ enum PaymentLocale {
   ;
 
   const PaymentLocale(this.value);
+
+  /// 직렬화에 사용될 값
   final String value;
 }

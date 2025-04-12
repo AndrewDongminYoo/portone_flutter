@@ -11,6 +11,7 @@ class OfferPeriod {
     this.interval,
   });
 
+  /// JSON에서 [OfferPeriod] 객체로 변환하는 팩토리 메서드
   factory OfferPeriod.fromJson(Map<String, dynamic> json) => _$OfferPeriodFromJson(json);
 
   /// 기간 범위 (from/to 방식)
@@ -24,6 +25,7 @@ class OfferPeriod {
   /// 예) 1년 주기 interval: '1y'
   final String? interval;
 
+  /// [OfferPeriod] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$OfferPeriodToJson(this);
 }
 
@@ -35,9 +37,11 @@ class OfferRange {
     this.to,
   });
 
+  /// JSON에서 [OfferRange] 객체로 변환하는 팩토리 메서드
   factory OfferRange.fromJson(Map<String, dynamic> json) => _$OfferRangeFromJson(json);
   final String? from;
   final String? to;
 
+  /// [OfferRange] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$OfferRangeToJson(this);
 }

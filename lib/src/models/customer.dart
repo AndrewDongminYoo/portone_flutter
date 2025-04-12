@@ -23,6 +23,7 @@ class Customer {
     this.birthDay,
   });
 
+  /// JSON에서 [Customer] 객체로 변환하는 팩토리 메서드
   factory Customer.fromJson(Map<String, dynamic> json) => _$CustomerFromJson(json);
 
   /// 구매자 고유 ID
@@ -67,5 +68,6 @@ class Customer {
   /// 구매자 출생일 (예: "25")
   final String? birthDay;
 
+  /// [Customer] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$CustomerToJson(this);
 }

@@ -11,6 +11,7 @@ class TosspaymentsPaymentBypass {
     this.useInternationalCardOnly,
   });
 
+  /// JSON에서 [TosspaymentsPaymentBypass] 객체로 변환하는 팩토리 메서드
   factory TosspaymentsPaymentBypass.fromJson(Map<String, dynamic> json) => _$TosspaymentsPaymentBypassFromJson(json);
 
   /// 프로모션 적용 코드
@@ -19,5 +20,6 @@ class TosspaymentsPaymentBypass {
   /// 해외 카드만 결제 여부
   final bool? useInternationalCardOnly;
 
+  /// [TosspaymentsPaymentBypass] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$TosspaymentsPaymentBypassToJson(this);
 }

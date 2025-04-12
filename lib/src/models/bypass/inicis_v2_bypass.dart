@@ -17,6 +17,7 @@ class InicisV2Bypass {
     this.pReserved,
   });
 
+  /// JSON에서 [InicisV2Bypass] 객체로 변환하는 팩토리 메서드
   factory InicisV2Bypass.fromJson(Map<String, dynamic> json) => _$InicisV2BypassFromJson(json);
 
   /// PC용: 결제창에 삽입할 메인 로고 URL
@@ -49,5 +50,6 @@ class InicisV2Bypass {
   @JsonKey(name: 'P_RESERVED')
   final List<String>? pReserved;
 
+  /// [InicisV2Bypass] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$InicisV2BypassToJson(this);
 }

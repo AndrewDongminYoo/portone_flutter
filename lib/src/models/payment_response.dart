@@ -19,6 +19,7 @@ class PaymentResponse {
   });
 
   /// JSON에서 PaymentResponse 객체로 변환하는 팩토리 메서드
+  /// JSON에서 [PaymentResponse] 객체로 변환하는 팩토리 메서드
   factory PaymentResponse.fromJson(Map<String, dynamic> json) => _$PaymentResponseFromJson(json);
 
   /// 트랜잭션 유형
@@ -52,5 +53,6 @@ class PaymentResponse {
   final String? pgMessage;
 
   /// PaymentResponse 객체를 JSON으로 변환하는 메서드
+  /// [PaymentResponse] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$PaymentResponseToJson(this);
 }

@@ -15,6 +15,7 @@ class WelcomePaymentBypass {
     this.pReserved,
   });
 
+  /// JSON에서 [WelcomePaymentBypass] 객체로 변환하는 팩토리 메서드
   factory WelcomePaymentBypass.fromJson(Map<String, dynamic> json) => _$WelcomePaymentBypassFromJson(json);
 
   /// 메인 로고 URL (크기: 89x19)
@@ -40,5 +41,6 @@ class WelcomePaymentBypass {
   @JsonKey(name: 'P_RESERVED')
   final List<String>? pReserved;
 
+  /// [WelcomePaymentBypass] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$WelcomePaymentBypassToJson(this);
 }

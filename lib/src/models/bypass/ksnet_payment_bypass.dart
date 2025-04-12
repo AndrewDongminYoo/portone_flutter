@@ -10,6 +10,7 @@ class KsnetPaymentBypass {
     this.sndQpayType,
   });
 
+  /// JSON에서 [KsnetPaymentBypass] 객체로 변환하는 팩토리 메서드
   factory KsnetPaymentBypass.fromJson(Map<String, dynamic> json) => _$KsnetPaymentBypassFromJson(json);
 
   /// KSNET 간편결제 다이렉트 여부
@@ -18,6 +19,7 @@ class KsnetPaymentBypass {
   /// 간편 결제 표시 구분
   SndQpayType? sndQpayType;
 
+  /// [KsnetPaymentBypass] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$KsnetPaymentBypassToJson(this);
 }
 
@@ -31,5 +33,7 @@ enum SndQpayType {
   ;
 
   const SndQpayType(this.value);
+
+  /// 직렬화에 사용될 값
   final String value;
 }

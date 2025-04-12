@@ -1,6 +1,7 @@
 // 📦 Package imports:
 import 'package:json_annotation/json_annotation.dart';
 
+/// 상품 유형
 @JsonEnum(fieldRename: FieldRename.screamingSnake, valueField: 'value')
 enum ProductType {
   /// 디지털
@@ -11,5 +12,7 @@ enum ProductType {
   ;
 
   const ProductType(this.value);
+
+  /// 직렬화에 사용될 값
   final String value;
 }
