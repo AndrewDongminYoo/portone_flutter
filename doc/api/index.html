@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1, user-scalable=no"
+    />
+    <meta
+      name="description"
+      content="portone_flutter_v2 API docs, for the Dart programming language."
+    />
+    <title>portone_flutter_v2 - Dart API docs</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="static-assets/github.css?v1" />
+    <link rel="stylesheet" href="static-assets/styles.css?v1" />
+    <link rel="icon" href="static-assets/favicon.png?v1" />
+  </head>
+
+  <body data-base-href="" data-using-base-href="false" class="light-theme">
+    <div id="overlay-under-drawer"></div>
+    <header id="title">
+      <span
+        id="sidenav-left-toggle"
+        class="material-symbols-outlined"
+        role="button"
+        tabindex="0"
+        >menu</span
+      >
+      <ol class="breadcrumbs gt-separated dark hidden-xs">
+        <li class="self-crumb">portone_flutter_v2 package</li>
+      </ol>
+      <div class="self-name">portone_flutter_v2</div>
+      <form class="search navbar-right" role="search">
+        <input
+          type="text"
+          id="search-box"
+          autocomplete="off"
+          disabled
+          class="form-control typeahead"
+          placeholder="Loading search..."
+        />
+      </form>
+      <div class="toggle" id="theme-button" title="Toggle brightness">
+        <label for="theme">
+          <input type="checkbox" id="theme" value="light-theme" />
+          <span id="dark-theme-button" class="material-symbols-outlined">
+            dark_mode
+          </span>
+          <span id="light-theme-button" class="material-symbols-outlined">
+            light_mode
+          </span>
+        </label>
+      </div>
+    </header>
+    <main>
+      <div id="dartdoc-main-content" class="main-content">
+        <section class="desc markdown">
+          <h1 id="portone-flutter-v2">PortOne Flutter V2</h1>
+          <p>
+            <a href="https://pub.dev/packages/very_good_analysis"
+              ><img
+                src="https://img.shields.io/badge/style-very_good_analysis-B22C89.svg"
+                alt="style: very good analysis"
+            /></a>
+            <a href="https://opensource.org/licenses/MIT"
+              ><img
+                src="https://img.shields.io/badge/license-MIT-blue.svg"
+                alt="License: MIT"
+            /></a>
+            <a href="https://github.com/felangel/mason"
+              ><img
+                src="https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge"
+                alt="Powered by Mason"
+            /></a>
+          </p>
+          <p>
+            A Flutter package for integrating PortOne V2 payment service in your
+            app.
+          </p>
+          <blockquote>
+            <p>
+              <strong>Important Note:</strong> This is an independent
+              open-source project and is not officially affiliated with PortOne.
+              This package is maintained by the community for the community.
+            </p>
+          </blockquote>
+          <h2 id="features">Features</h2>
+          <ul>
+            <li>Easy integration with PortOne V2 payment gateway</li>
+            <li>
+              Support for various payment methods via PortOne's browser SDK
+            </li>
+            <li>AppScheme handling for payment callbacks</li>
+            <li>Customizable UI with support for initial loading widget</li>
+            <li>Comprehensive error handling</li>
+          </ul>
+          <h2 id="installation-">Installation 💻</h2>
+          <p>
+            <strong
+              >❗ Requirements:
+              <a href="https://docs.flutter.dev/get-started/install"
+                >Flutter SDK</a
+              >
+              installed on your machine.</strong
+            >
+          </p>
+          <p>Add to your <code>pubspec.yaml</code>:</p>
+          <pre class="language-yaml"><code class="language-yaml">dependencies:
+  portone_flutter_v2: ^1.0.0
+</code></pre>
+          <p>Or install via command line:</p>
+          <pre
+            class="language-sh"
+          ><code class="language-sh">flutter pub add portone_flutter_v2
+</code></pre>
+          <h2 id="usage">Usage</h2>
+          <h3 id="basic-implementation">Basic Implementation</h3>
+          <pre
+            class="language-dart"
+          ><code class="language-dart">import 'package:flutter/material.dart';
+import 'package:portone_flutter_v2/portone_flutter_v2.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class PaymentScreen extends StatelessWidget {
+  const PaymentScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // Create payment request
+    final paymentRequest = PaymentRequest(
+      storeId: 'your_store_id',  // PortOne store ID
+      paymentId: 'order_12345',  // Your unique order ID
+      orderName: 'Premium Subscription',
+      totalAmount: 10000,
+      currency: PaymentCurrency.krw,
+      payMethod: PaymentPayMethod.card,
+      appScheme: 'yourappscheme',  // Your app's URL scheme
+    );
+
+    return Scaffold(
+      appBar: AppBar(title: const Text('Payment')),
+      body: PortonePayment(
+        data: paymentRequest,
+        initialChild: const Center(child: CircularProgressIndicator()),
+        callback: (result) {
+          // Handle successful payment
+          print('Payment successful: ${result.toJson()}');
+          Navigator.pop(context, result);
+        },
+        onError: (error) {
+          // Handle payment error
+          print('Payment error: $error');
+          Navigator.pop(context, null);
+        },
+      ),
+    );
+  }
+}
+
+</code></pre>
+          <h3 id="handling-payment-response">Handling Payment Response</h3>
+          <pre
+            class="language-dart"
+          ><code class="language-dart">// Navigate to payment screen and wait for result
+final result = await Navigator.push(
+  context,
+  MaterialPageRoute(builder: (context) =&gt; const PaymentScreen()),
+);
+
+if (result != null) {
+  // Payment was successful
+  final response = result as PaymentResponse;
+  // Process successful payment
+} else {
+  // Payment failed or was cancelled
+}
+
+</code></pre>
+          <h2 id="supported-payment-methods">Supported Payment Methods</h2>
+          <p>
+            This package supports various payment methods available through
+            PortOne, including:
+          </p>
+          <ul>
+            <li>Credit/Debit Cards</li>
+            <li>Virtual Accounts</li>
+            <li>Mobile Payments</li>
+            <li>And more depending on your PortOne configuration</li>
+          </ul>
+          <p>
+            Check the <code>PaymentPayMethod</code> enum for all supported
+            methods.
+          </p>
+          <h2 id="example-project">Example Project</h2>
+          <p>
+            See the <code>/example</code> folder for a complete implementation.
+          </p>
+          <h2 id="contributing-">Contributing 🤝</h2>
+          <p>
+            We welcome contributions from the community! This is an independent
+            open-source project and we're looking for developers interested in
+            making online payments in Flutter apps easier.
+          </p>
+          <p>Ways to contribute:</p>
+          <ul>
+            <li>Report bugs and suggest features</li>
+            <li>Improve documentation</li>
+            <li>Submit pull requests for bug fixes and new features</li>
+            <li>Spread the word and help others use this package</li>
+          </ul>
+          <p>Please read our contributing guidelines before submitting a PR.</p>
+          <h2 id="license">License</h2>
+          <p>
+            This project is licensed under the MIT License - see the
+            <a href="https://opensource.org/licenses/MIT">LICENSE</a> file for
+            details.
+          </p>
+          <hr />
+          <h2 id="running-tests-">Running Tests 🧪</h2>
+          <pre class="language-sh"><code class="language-sh">flutter test
+</code></pre>
+          <p>For code coverage:</p>
+          <pre
+            class="language-sh"
+          ><code class="language-sh">flutter test --coverage
+genhtml coverage/lcov.info -o coverage/
+open coverage/index.html
+</code></pre>
+        </section>
+
+        <section class="summary">
+          <h2>Libraries</h2>
+          <dl>
+            <dt id="portone_flutter_v2">
+              <span class="name"
+                ><a href="portone_flutter_v2">portone_flutter_v2</a></span
+              >
+            </dt>
+            <dd>
+              A module for integrating PortOne V2 payment service in Flutter
+              App.
+            </dd>
+          </dl>
+        </section>
+      </div>
+      <!-- /.main-content -->
+      <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+        <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+        <header id="header-search-sidebar" class="hidden-l">
+          <form class="search-sidebar" role="search">
+            <input
+              type="text"
+              id="search-sidebar"
+              autocomplete="off"
+              disabled
+              class="form-control typeahead"
+              placeholder="Loading search..."
+            />
+          </form>
+        </header>
+        <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+          <li class="self-crumb">portone_flutter_v2 package</li>
+        </ol>
+
+        <h5 class="hidden-xs">
+          <span class="package-name">portone_flutter_v2</span>
+          <span class="package-kind">package</span>
+        </h5>
+        <ol>
+          <li class="section-title">Libraries</li>
+          <li><a href="portone_flutter_v2">portone_flutter_v2</a></li>
+        </ol>
+      </div>
+      <div
+        id="dartdoc-sidebar-right"
+        class="sidebar sidebar-offcanvas-right"
+      ></div>
+    </main>
+    <footer>
+      <span class="no-break"> portone_flutter_v2 1.0.1 </span>
+    </footer>
+
+    <script src="static-assets/highlight.pack.js?v1"></script>
+    <script src="static-assets/docs.dart.js"></script>
+  </body>
+</html>
