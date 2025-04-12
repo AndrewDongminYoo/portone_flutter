@@ -3,6 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'ksnet_payment_bypass.g.dart';
 
+/// KSNET bypass 파라미터
 @JsonSerializable()
 class KsnetPaymentBypass {
   /// [KsnetPaymentBypass] 생성자
@@ -24,6 +25,7 @@ class KsnetPaymentBypass {
   Map<String, dynamic> toJson() => _$KsnetPaymentBypassToJson(this);
 }
 
+/// 간편 결제 표시 구분
 @JsonEnum(valueField: 'value')
 enum SndQpayType {
   /// 간편 결제 미표시

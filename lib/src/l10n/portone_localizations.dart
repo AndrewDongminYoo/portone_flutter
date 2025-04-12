@@ -23,8 +23,10 @@ import 'package:portone_flutter_v2/src/l10n/portone_localizations_ko.dart';
 ///    - [lookupPortOneLocalizations] 함수에 새로운 로케일에 대한 케이스를 추가해,
 ///      해당 언어를 지원하는 [PortoneLocalizations] 인스턴스를 반환하도록 구현해야 합니다.
 abstract class PortoneLocalizations {
+  /// [PortoneLocalizations] 생성자
   PortoneLocalizations(this.localeName);
 
+  /// 로케일 이름
   final String localeName;
 
   /// 주어진 [BuildContext]에서 [PortoneLocalizations] 인스턴스를 가져옵니다.

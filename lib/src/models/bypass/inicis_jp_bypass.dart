@@ -21,6 +21,7 @@ class InicisJpBypass {
   Map<String, dynamic> toJson() => _$InicisJpBypassToJson(this);
 }
 
+/// 결제창 UI 설정
 @JsonSerializable()
 class InicisJpPaymentUI {
   /// [InicisJpPaymentUI] 생성자

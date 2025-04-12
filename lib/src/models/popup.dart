@@ -3,6 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'popup.g.dart';
 
+/// 결제창이 팝업 방식일 경우 결제창에 적용할 속성
 @JsonSerializable()
 class Popup {
   /// [Popup] 생성자

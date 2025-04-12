@@ -65,11 +65,22 @@ class NiceV2PaymentBypass {
 }
 
 @JsonEnum(valueField: 'value')
+
+/// 결제창 스킨 색상 설정 (기본값: "red")
 enum NiceV2SkinType {
+  /// 빨간색
   red('red'),
+
+  /// 초록색
   green('green'),
+
+  /// 보라색
   purple('purple'),
+
+  /// 회색
   gray('gray'),
+
+  /// 다크모드
   dark('dark');
 
   const NiceV2SkinType(this.value);

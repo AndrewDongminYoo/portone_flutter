@@ -30,6 +30,8 @@ class NaverpayPaymentBypass {
 }
 
 @JsonSerializable()
+
+/// 네이버페이 결제 상품 항목
 class NaverpayProductItem {
   /// [NaverpayProductItem] 생성자
   NaverpayProductItem({
@@ -82,6 +84,7 @@ class NaverpayProductItem {
   Map<String, dynamic> toJson() => _$NaverpayProductItemToJson(this);
 }
 
+/// 하부 가맹점 정보
 @JsonSerializable()
 class NaverpaySubMerchantInfo {
   /// [NaverpaySubMerchantInfo] 생성자

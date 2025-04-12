@@ -29,6 +29,7 @@ class TossBrandpayPaymentBypass {
   Map<String, dynamic> toJson() => _$TossBrandpayPaymentBypassToJson(this);
 }
 
+/// loadBrandpay 호출시 전달하는 옵션 객체
 @JsonSerializable()
 class TossBrandpayOptions {
   /// [TossBrandpayOptions] 생성자
@@ -46,6 +47,7 @@ class TossBrandpayOptions {
   Map<String, dynamic> toJson() => _$TossBrandpayOptionsToJson(this);
 }
 
+/// UI 옵션 객체
 @JsonSerializable()
 class TossBrandpayUIOptions {
   /// [TossBrandpayUIOptions] 생성자
@@ -80,13 +82,18 @@ class TossBrandpayUIOptions {
   Map<String, dynamic> toJson() => _$TossBrandpayUIOptionsToJson(this);
 }
 
+/// 버튼 스타일 ("default" 또는 "full")
 enum TossBrandpayButtonStyle {
+  /// 기본 버튼 스타일
   @JsonValue('default')
   $default,
+
+  /// 꽉 차는 버튼 스타일
   @JsonValue('full')
   full,
 }
 
+/// 텍스트 등 라벨 옵션
 @JsonSerializable()
 class TossBrandpayLabels {
   /// [TossBrandpayLabels] 생성자
@@ -102,6 +109,7 @@ class TossBrandpayLabels {
   Map<String, dynamic> toJson() => _$TossBrandpayLabelsToJson(this);
 }
 
+/// 내비게이션 바 옵션
 @JsonSerializable()
 class TossBrandpayNavigationBar {
   /// [TossBrandpayNavigationBar] 생성자
@@ -123,6 +131,7 @@ class TossBrandpayNavigationBar {
   Map<String, dynamic> toJson() => _$TossBrandpayNavigationBarToJson(this);
 }
 
+/// 브랜드페이 위젯 옵션
 @JsonSerializable()
 class TossBrandpayWidgetOptions {
   /// [TossBrandpayWidgetOptions] 생성자
@@ -148,13 +157,18 @@ class TossBrandpayWidgetOptions {
   Map<String, dynamic> toJson() => _$TossBrandpayWidgetOptionsToJson(this);
 }
 
+/// 위젯에 보여줄 결제 수단 ("카드" 또는 "계좌")
 enum TossBrandpayMethodType {
+  /// 카드
   @JsonValue('카드')
   card,
+
+  /// 계좌
   @JsonValue('계좌')
   account,
 }
 
+/// 위젯 UI 옵션
 @JsonSerializable()
 class TossBrandpayWidgetUIOptions {
   /// [TossBrandpayWidgetUIOptions] 생성자
@@ -173,6 +187,7 @@ class TossBrandpayWidgetUIOptions {
   Map<String, dynamic> toJson() => _$TossBrandpayWidgetUIOptionsToJson(this);
 }
 
+/// 프로모션 섹션 옵션
 @JsonSerializable()
 class TossBrandpayPromotionSection {
   /// [TossBrandpayPromotionSection] 생성자
@@ -195,6 +210,7 @@ class TossBrandpayPromotionSection {
   Map<String, dynamic> toJson() => _$TossBrandpayPromotionSectionToJson(this);
 }
 
+/// 혜택 배지 영역 옵션
 @JsonSerializable()
 class TossBrandpayPromotionSummary {
   /// [TossBrandpayPromotionSummary] 생성자
@@ -213,6 +229,7 @@ class TossBrandpayPromotionSummary {
   Map<String, dynamic> toJson() => _$TossBrandpayPromotionSummaryToJson(this);
 }
 
+/// 결제 혜택 상세 설명 옵션
 @JsonSerializable()
 class TossBrandpayPromotionDescription {
   /// [TossBrandpayPromotionDescription] 생성자

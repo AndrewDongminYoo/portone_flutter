@@ -41,7 +41,11 @@ class OfferRange {
 
   /// JSON에서 [OfferRange] 객체로 변환하는 팩토리 메서드
   factory OfferRange.fromJson(Map<String, dynamic> json) => _$OfferRangeFromJson(json);
+
+  /// 시작 시점
   final String? from;
+
+  /// 종료 시점
   final String? to;
 
   /// [OfferRange] 객체를 JSON으로 변환하는 메서드

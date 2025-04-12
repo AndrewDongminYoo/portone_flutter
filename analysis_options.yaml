@@ -4,7 +4,6 @@ analyzer:
     constant_identifier_names: ignore
     directives_ordering: ignore
     lines_longer_than_80_chars: ignore
-    public_member_api_docs: ignore
 
 formatter:
   page_width: 120

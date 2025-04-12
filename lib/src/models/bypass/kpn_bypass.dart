@@ -21,14 +21,22 @@ class KpnBypass {
   Map<String, dynamic> toJson() => _$KpnBypassToJson(this);
 }
 
+/// 카드 선택 옵션
 @JsonEnum(valueField: 'value')
 enum KpnCardSelect {
+  /// 해외카드 (VISA + MASTER + JCB)
   @JsonValue('GLOBAL')
   global,
+
+  /// 11Pay (SKPay)
   @JsonValue('11PAY')
   elevenPay,
+
+  /// 구인증
   @JsonValue('LEGACY_AUTH')
   legacyAuth,
+
+  /// 키인
   @JsonValue('KEY_IN')
   keyIn,
 }

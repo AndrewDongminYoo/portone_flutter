@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added `PaymentCurrency` enum with support for a wide range of currencies based on ISO 4217.
+- Added Missing documentation for all public members to improve code readability and maintainability.
 
 ### Changed
 

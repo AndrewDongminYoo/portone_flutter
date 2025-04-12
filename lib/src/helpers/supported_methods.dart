@@ -1,7 +1,10 @@
 // 🌎 Project imports:
 import 'package:portone_flutter_v2/src/enums/enums.dart';
 
+/// PG사별 지원되는 결제수단이 모두 상이합니다.
+/// [각 PG사별 결제 연동 가이드](https://developers.portone.io/opi/ko/integration/pg/v2/readme?v=v2)를 참고하세요
 extension PaymentSupportedMethods on PGCompany? {
+  /// PG사별 지원되는 결제수단
   List<PaymentPayMethod> get methods {
     return switch (this) {
       // https://developers.portone.io/opi/ko/integration/pg/v2/nice-v2?v=v2
