@@ -6,6 +6,7 @@ part 'payletter_global_bypass.g.dart';
 /// 페이레터 해외결제 bypass 파라미터 객체
 @JsonSerializable()
 class PayletterGlobalBypass {
+  /// [PayletterGlobalBypass] 생성자
   PayletterGlobalBypass({
     this.pginfo,
     this.servicename,

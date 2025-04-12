@@ -6,6 +6,7 @@ part 'eximbay_v2_bypass.g.dart';
 /// 엑심베이 V2 bypass 파라미터 객체 (추가 필드 포함)
 @JsonSerializable()
 class EximbayV2Bypass {
+  /// [EximbayV2Bypass] 생성자
   EximbayV2Bypass({
     this.payment,
     this.merchant,
@@ -49,6 +50,7 @@ class EximbayV2Bypass {
 /// 결제 정보 클래스
 @JsonSerializable()
 class PaymentInfo {
+  /// [PaymentInfo] 생성자
   PaymentInfo({
     this.paymentMethod,
     this.multiPaymentMethod,
@@ -72,6 +74,7 @@ class PaymentInfo {
 /// 상점 정보 클래스
 @JsonSerializable()
 class MerchantInfo {
+  /// [MerchantInfo] 생성자
   MerchantInfo({
     this.shop,
     this.partnerCode,
@@ -94,6 +97,7 @@ class MerchantInfo {
 /// 세금 정보 클래스
 @JsonSerializable()
 class TaxInfo {
+  /// [TaxInfo] 생성자
   TaxInfo({
     this.receiptStatus,
   });
@@ -112,6 +116,7 @@ class TaxInfo {
 /// 추가 비용 목록 클래스 (최대 3개)
 @JsonSerializable()
 class Surcharge {
+  /// [Surcharge] 생성자
   Surcharge({
     this.name,
     this.quantity,
@@ -138,6 +143,7 @@ class Surcharge {
 /// 배송지 및 청구지 공통 정보 클래스
 @JsonSerializable()
 class AddressInfo {
+  /// [AddressInfo] 생성자
   AddressInfo({
     this.city,
     this.country,
@@ -187,6 +193,7 @@ class AddressInfo {
 /// 설정 정보 클래스
 @JsonSerializable()
 class SettingsInfo {
+  /// [SettingsInfo] 생성자
   SettingsInfo({
     this.callFromApp,
     this.issuerCountry,

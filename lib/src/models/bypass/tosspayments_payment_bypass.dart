@@ -6,6 +6,7 @@ part 'tosspayments_payment_bypass.g.dart';
 /// 토스페이먼츠 bypass 파라미터 객체
 @JsonSerializable()
 class TosspaymentsPaymentBypass {
+  /// [TosspaymentsPaymentBypass] 생성자
   TosspaymentsPaymentBypass({
     this.discountCode,
     this.useInternationalCardOnly,

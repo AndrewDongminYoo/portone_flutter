@@ -6,6 +6,7 @@ part 'product_detail.g.dart';
 /// 상품 상세 정보 객체
 @JsonSerializable()
 class ProductDetail {
+  /// [ProductDetail] 생성자
   ProductDetail({
     required this.id,
     required this.name,

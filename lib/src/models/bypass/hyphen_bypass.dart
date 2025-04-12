@@ -6,6 +6,7 @@ part 'hyphen_bypass.g.dart';
 /// 하이픈 bypass 파라미터 객체
 @JsonSerializable()
 class HyphenBypass {
+  /// [HyphenBypass] 생성자
   HyphenBypass({
     this.designCd,
   });

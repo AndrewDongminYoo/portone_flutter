@@ -6,6 +6,7 @@ part 'kcp_v2_bypass.g.dart';
 /// NHN KCP bypass 파라미터 객체
 @JsonSerializable()
 class KcpV2Bypass {
+  /// [KcpV2Bypass] 생성자
   KcpV2Bypass({
     required this.shopUserId,
     this.skinIndx,

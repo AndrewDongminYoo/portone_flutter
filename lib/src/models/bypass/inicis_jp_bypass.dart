@@ -6,6 +6,7 @@ part 'inicis_jp_bypass.g.dart';
 /// 이니시스 일본 bypass 파라미터 객체
 @JsonSerializable()
 class InicisJpBypass {
+  /// [InicisJpBypass] 생성자
   InicisJpBypass({
     this.paymentUI,
   });
@@ -22,6 +23,7 @@ class InicisJpBypass {
 
 @JsonSerializable()
 class InicisJpPaymentUI {
+  /// [InicisJpPaymentUI] 생성자
   InicisJpPaymentUI({
     this.colorTheme,
     this.logoUrl,

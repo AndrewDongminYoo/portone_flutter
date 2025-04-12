@@ -6,6 +6,7 @@ part 'inicis_v2_bypass.g.dart';
 /// KG이니시스 (PC/모바일) bypass 파라미터 객체
 @JsonSerializable()
 class InicisV2Bypass {
+  /// [InicisV2Bypass] 생성자
   InicisV2Bypass({
     this.logoUrl,
     this.logo2nd,

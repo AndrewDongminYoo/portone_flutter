@@ -6,6 +6,7 @@ part 'nice_v2_payment_bypass.g.dart';
 /// (신)나이스페이먼츠 bypass 파라미터 객체
 @JsonSerializable()
 class NiceV2PaymentBypass {
+  /// [NiceV2PaymentBypass] 생성자
   NiceV2PaymentBypass({
     this.logoImage,
     this.npDisableScroll,

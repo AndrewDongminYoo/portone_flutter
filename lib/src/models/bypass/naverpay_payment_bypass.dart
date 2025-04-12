@@ -6,6 +6,7 @@ part 'naverpay_payment_bypass.g.dart';
 /// 네이버페이 bypass 파라미터 객체
 @JsonSerializable()
 class NaverpayPaymentBypass {
+  /// [NaverpayPaymentBypass] 생성자
   NaverpayPaymentBypass({
     this.useCfmYmdt,
     this.productItems,
@@ -30,6 +31,7 @@ class NaverpayPaymentBypass {
 
 @JsonSerializable()
 class NaverpayProductItem {
+  /// [NaverpayProductItem] 생성자
   NaverpayProductItem({
     required this.categoryType,
     required this.categoryId,
@@ -82,6 +84,7 @@ class NaverpayProductItem {
 
 @JsonSerializable()
 class NaverpaySubMerchantInfo {
+  /// [NaverpaySubMerchantInfo] 생성자
   NaverpaySubMerchantInfo({
     required this.subMerchantName,
     required this.subMerchantId,

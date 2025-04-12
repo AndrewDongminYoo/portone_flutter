@@ -5,6 +5,7 @@ part 'ksnet_payment_bypass.g.dart';
 
 @JsonSerializable()
 class KsnetPaymentBypass {
+  /// [KsnetPaymentBypass] 생성자
   KsnetPaymentBypass({
     this.easyPayDirect,
     this.sndQpayType,

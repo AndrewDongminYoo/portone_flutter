@@ -9,6 +9,7 @@ part 'customer.g.dart';
 /// 구매자 정보 객체
 @JsonSerializable()
 class Customer {
+  /// [Customer] 생성자
   Customer({
     this.customerId,
     this.fullName,

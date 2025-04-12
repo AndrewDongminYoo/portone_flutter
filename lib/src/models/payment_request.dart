@@ -10,6 +10,7 @@ part 'payment_request.g.dart';
 /// 결제 요청 데이터 객체
 @JsonSerializable()
 class PaymentRequest {
+  /// [PaymentRequest] 생성자
   PaymentRequest({
     required this.storeId,
     required this.paymentId,

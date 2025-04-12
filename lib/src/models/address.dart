@@ -9,6 +9,7 @@ part 'address.g.dart';
 /// 주소 정보 객체
 @JsonSerializable()
 class Address {
+  /// [Address] 생성자
   Address({
     this.country,
     this.addressLine1,

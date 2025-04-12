@@ -6,6 +6,7 @@ part 'tosspay_v2_payment_bypass.g.dart';
 /// 토스페이 (V2) bypass 파라미터 객체
 @JsonSerializable()
 class TosspayV2PaymentBypass {
+  /// 토스페이 (V2) bypass 파라미터 객체
   TosspayV2PaymentBypass({
     this.discountCode,
     this.useInternationalCardOnly,

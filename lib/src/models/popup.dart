@@ -5,6 +5,7 @@ part 'popup.g.dart';
 
 @JsonSerializable()
 class Popup {
+  /// [Popup] 생성자
   Popup({
     this.center,
   });

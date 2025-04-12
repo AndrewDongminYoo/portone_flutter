@@ -9,6 +9,7 @@ part 'payment_bypass.g.dart';
 /// PG사 결제창 호출 시 PG사로 그대로 bypass할 값들의 모음
 @JsonSerializable()
 class PaymentBypass {
+  /// [PaymentBypass] 생성자
   PaymentBypass({
     this.tosspayments,
     this.ksnet,

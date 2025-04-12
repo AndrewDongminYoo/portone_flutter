@@ -6,6 +6,7 @@ part 'toss_brandpay_payment_bypass.g.dart';
 /// 토스 브랜드페이 bypass 파라미터 객체
 @JsonSerializable()
 class TossBrandpayPaymentBypass {
+  /// [TossBrandpayPaymentBypass] 생성자
   TossBrandpayPaymentBypass({
     this.brandpayOptions,
     this.discountCode,
@@ -30,6 +31,7 @@ class TossBrandpayPaymentBypass {
 
 @JsonSerializable()
 class TossBrandpayOptions {
+  /// [TossBrandpayOptions] 생성자
   TossBrandpayOptions({
     this.ui,
   });
@@ -46,6 +48,7 @@ class TossBrandpayOptions {
 
 @JsonSerializable()
 class TossBrandpayUIOptions {
+  /// [TossBrandpayUIOptions] 생성자
   TossBrandpayUIOptions({
     this.highlightColor = '#3182f6',
     this.buttonStyle = TossBrandpayButtonStyle.$default,
@@ -86,6 +89,7 @@ enum TossBrandpayButtonStyle {
 
 @JsonSerializable()
 class TossBrandpayLabels {
+  /// [TossBrandpayLabels] 생성자
   TossBrandpayLabels({this.oneTouchPay = '원터치 결제'});
 
   /// JSON에서 [TossBrandpayLabels] 객체로 변환하는 팩토리 메서드
@@ -100,6 +104,7 @@ class TossBrandpayLabels {
 
 @JsonSerializable()
 class TossBrandpayNavigationBar {
+  /// [TossBrandpayNavigationBar] 생성자
   TossBrandpayNavigationBar({
     this.visible = true,
     this.paddingTop,
@@ -120,6 +125,7 @@ class TossBrandpayNavigationBar {
 
 @JsonSerializable()
 class TossBrandpayWidgetOptions {
+  /// [TossBrandpayWidgetOptions] 생성자
   TossBrandpayWidgetOptions({
     this.methodType,
     this.methodId,
@@ -151,6 +157,7 @@ enum TossBrandpayMethodType {
 
 @JsonSerializable()
 class TossBrandpayWidgetUIOptions {
+  /// [TossBrandpayWidgetUIOptions] 생성자
   TossBrandpayWidgetUIOptions({
     this.promotionSection,
   });
@@ -168,6 +175,7 @@ class TossBrandpayWidgetUIOptions {
 
 @JsonSerializable()
 class TossBrandpayPromotionSection {
+  /// [TossBrandpayPromotionSection] 생성자
   TossBrandpayPromotionSection({
     this.summary,
     this.description,
@@ -189,6 +197,7 @@ class TossBrandpayPromotionSection {
 
 @JsonSerializable()
 class TossBrandpayPromotionSummary {
+  /// [TossBrandpayPromotionSummary] 생성자
   TossBrandpayPromotionSummary({
     this.visible = true,
   });
@@ -206,6 +215,7 @@ class TossBrandpayPromotionSummary {
 
 @JsonSerializable()
 class TossBrandpayPromotionDescription {
+  /// [TossBrandpayPromotionDescription] 생성자
   TossBrandpayPromotionDescription({
     this.visible = true,
     this.defaultOpen = false,

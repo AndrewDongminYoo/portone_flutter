@@ -6,6 +6,7 @@ part 'kpn_bypass.g.dart';
 /// KPN bypass 파라미터 객체
 @JsonSerializable()
 class KpnBypass {
+  /// [KpnBypass] 생성자
   KpnBypass({
     this.cardSelect,
   });

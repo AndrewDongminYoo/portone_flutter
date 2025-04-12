@@ -6,6 +6,7 @@ part 'kakaopay_payment_bypass.g.dart';
 /// 카카오페이 bypass 파라미터 객체
 @JsonSerializable()
 class KakaopayPaymentBypass {
+  /// [KakaopayPaymentBypass] 생성자
   KakaopayPaymentBypass({
     this.customMessage,
   });

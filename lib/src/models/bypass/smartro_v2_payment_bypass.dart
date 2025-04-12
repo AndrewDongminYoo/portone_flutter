@@ -5,6 +5,7 @@ part 'smartro_v2_payment_bypass.g.dart';
 
 @JsonSerializable()
 class SmartroV2PaymentBypass {
+  /// [SmartroV2PaymentBypass] 생성자
   SmartroV2PaymentBypass({
     this.goodsCnt,
     this.skinColor = SmartroV2SkinColor.red,

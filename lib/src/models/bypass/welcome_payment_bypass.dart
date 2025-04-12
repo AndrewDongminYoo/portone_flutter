@@ -6,6 +6,7 @@ part 'welcome_payment_bypass.g.dart';
 /// 웰컴페이먼츠 bypass 파라미터 객체
 @JsonSerializable()
 class WelcomePaymentBypass {
+  /// [WelcomePaymentBypass] 생성자
   WelcomePaymentBypass({
     this.logoUrl,
     this.logo2nd,
