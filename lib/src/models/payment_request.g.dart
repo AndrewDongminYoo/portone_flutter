@@ -560,7 +560,7 @@ const _$ProductTypeEnumMap = {
 };
 
 const _$CashReceiptTradeOptionEnumMap = {
-  CashReceiptTradeOption.culture: 'culture',
-  CashReceiptTradeOption.general: 'general',
-  CashReceiptTradeOption.publicTp: 'publicTp',
+  CashReceiptTradeOption.culture: 'CULTURE',
+  CashReceiptTradeOption.general: 'GENERAL',
+  CashReceiptTradeOption.publicTp: 'PUBLIC_TP',
 };
