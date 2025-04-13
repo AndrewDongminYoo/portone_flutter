@@ -29,9 +29,8 @@ class NaverpayPaymentBypass {
   Map<String, dynamic> toJson() => _$NaverpayPaymentBypassToJson(this);
 }
 
-@JsonSerializable()
-
 /// 네이버페이 결제 상품 항목
+@JsonSerializable()
 class NaverpayProductItem {
   /// [NaverpayProductItem] 생성자
   NaverpayProductItem({

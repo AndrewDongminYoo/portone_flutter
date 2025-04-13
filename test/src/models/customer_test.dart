@@ -98,8 +98,8 @@ void main() {
       expect(json['customerId'], equals('cust_123'));
       expect(json['fullName'], equals('John Doe'));
       expect(json['email'], equals('john@example.com'));
-      expect(json['address']['country'], equals('COUNTRY_KR'));
-      expect(json['address']['city'], equals('Seoul'));
+      expect((json['address'] as Map<String, dynamic>)['country'], equals('COUNTRY_KR'));
+      expect((json['address'] as Map<String, dynamic>)['city'], equals('Seoul'));
     });
 
     test('should handle partial customer information', () {
