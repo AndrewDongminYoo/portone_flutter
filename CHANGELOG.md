@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Added unit tests for most of model classes
 
+### Changed
+
+- Exposes the `PortonePaymentState` class as public and adds comprehensive documentation to facilitate testing and improve understanding of the payment process.
+
 ## [1.0.1] - 2025-04-12
 
 ### Added

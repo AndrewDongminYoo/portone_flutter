@@ -85,13 +85,40 @@ class PortonePayment extends StatefulWidget {
   final Set<Factory<OneSequenceGestureRecognizer>>? gestureRecognizers;
 
   @override
-  State<PortonePayment> createState() => _PortonePaymentState();
+  PortonePaymentState createState() => PortonePaymentState();
 }
 
-class _PortonePaymentState extends State<PortonePayment> {
+/// State class for the [PortonePayment] widget that manages the payment process flow.
+///
+/// This public state class encapsulates the core logic required to initiate and handle the
+/// PortOne v2 payment process using an embedded [InAppWebView]. It is designed to facilitate
+/// testing by exposing internal behaviors while remaining responsible for:
+///
+/// - Generating and loading HTML that invokes PortOne’s browser SDK for processing the payment.
+/// - Managing the [InAppWebView] lifecycle including loading events, JavaScript handlers,
+///   and navigation actions.
+/// - Handling deep link callbacks using [AppLinks] when no explicit [PaymentRequest.redirectUrl] is provided.
+/// - Intercepting and processing URL navigations to capture payment responses or errors:
+///   - Allowing normal HTTP/HTTPS navigations.
+///   - Capturing the custom app scheme redirections to extract payment result parameters.
+///   - Parsing and launching intent URLs according to the provided scheme information.
+/// - Propagating errors encountered during the payment flow via the provided [PortonePayment.onError] callback.
+///
+/// **Note:** This class is declared public primarily to support more granular testing of internal
+/// logic and web view interactions without compromising encapsulation in production builds.
+///
+/// See also:
+///  - [PortonePayment]
+///  - [InAppWebView] from the flutter_inappwebview package.
+@visibleForTesting
+class PortonePaymentState extends State<PortonePayment> {
+  /// Callback function name for JavaScript error handling.
   final handlerName = 'portoneError';
+
+  /// MIME type for the HTML content loaded into the web view.
   final contentType = 'text/html';
 
+  /// Controller for managing the embedded [InAppWebView].
   InAppWebViewController? controller;
 
   int _stackIndex = 0;
@@ -165,9 +192,7 @@ class _PortonePaymentState extends State<PortonePayment> {
       body: PopScope(
         canPop: false,
         onPopInvokedWithResult: (bool didPop, Object? result) async {
-          if (!mounted) {
-            return;
-          }
+          if (!mounted) return;
           if (controller != null && await controller!.canGoBack()) {
             await controller!.goBack();
           } else {
