@@ -57,6 +57,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+import_sorter:
+  emojis: true
+
 scripts:
   format:
     (description): Applies automated fixes, sorts imports, and formats the codebase to ensure consistent code quality.

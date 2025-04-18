@@ -25,6 +25,9 @@ dev_dependencies:
   mocktail: ^1.0.4
   very_good_analysis: ^7.0.0
 
+import_sorter:
+  emojis: true
+
 scripts:
   bootstrap:
     (description): Initializes the project by generating necessary code, sorting imports, applying fixes, and formatting.
