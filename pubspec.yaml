@@ -20,7 +20,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   import_sorter: ^4.6.0
-  json_serializable: ^6.9.4
+  json_serializable: ^6.9.5
   mockito: ^5.4.5
   mocktail: ^1.0.4
   very_good_analysis: ^7.0.0
@@ -48,8 +48,7 @@ scripts:
     (description): Forces an upgrade of Flutter and its packages to their latest versions and updates CocoaPods dependencies for iOS.
     (scripts):
       - flutter upgrade --force
-      - flutter packages upgrade
-      - (cd ios && pod update)
+      - flutter packages upgrade --major-versions --tighten
 
 cider:
   link_template:
