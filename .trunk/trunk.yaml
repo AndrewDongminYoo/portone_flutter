@@ -28,6 +28,7 @@ lint:
       paths:
         - "**/Podfile.lock"
   enabled:
+    - dart@3.2.6
     - osv-scanner@2.0.1
     - ktlint@1.5.0
     - oxipng@9.1.4
@@ -40,7 +41,16 @@ lint:
     - trufflehog@3.88.23
     - yamllint@1.37.0
 actions:
+  definitions:
+    - id: dart-actions
+      description: Run 'dart run import_sorter:main' whenever you run 'git commit'
+      display_name: Dart Import Sorter Pre-Commit Hook
+      run: source ./dart_import_sorter.sh
+      packages_file: pubspec.yaml
+      triggers:
+        - git_hooks: [pre-commit]
   enabled:
+    - dart-actions
     - trunk-announce
     - trunk-check-pre-push
     - trunk-fmt-pre-commit
