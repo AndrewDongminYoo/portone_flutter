@@ -7,14 +7,15 @@ part 'eximbay_v2_bypass.g.dart';
 @JsonSerializable()
 class EximbayV2Bypass {
   /// [EximbayV2Bypass] 생성자
-  EximbayV2Bypass(
-      {this.payment,
-      this.merchant,
-      this.tax,
-      this.surcharge,
-      this.shipTo,
-      this.billTo,
-      this.settings});
+  EximbayV2Bypass({
+    this.payment,
+    this.merchant,
+    this.tax,
+    this.surcharge,
+    this.shipTo,
+    this.billTo,
+    this.settings,
+  });
 
   /// JSON에서 [EximbayV2Bypass] 객체로 변환하는 팩토리 메서드
   factory EximbayV2Bypass.fromJson(Map<String, dynamic> json) =>
@@ -187,8 +188,11 @@ class AddressInfo {
 @JsonSerializable()
 class SettingsInfo {
   /// [SettingsInfo] 생성자
-  SettingsInfo(
-      {this.callFromApp, this.issuerCountry, this.virtualaccountExpiryDate});
+  SettingsInfo({
+    this.callFromApp,
+    this.issuerCountry,
+    this.virtualaccountExpiryDate,
+  });
 
   /// JSON에서 [SettingsInfo] 객체로 변환하는 팩토리 메서드
   factory SettingsInfo.fromJson(Map<String, dynamic> json) =>

@@ -44,7 +44,7 @@ extension PaymentSupportedMethods on PGCompany? {
       // https://developers.portone.io/opi/ko/integration/pg/v2/inicis-v2?v=v2
       PGCompany.inicisV2 => <PaymentPayMethod>[
           PaymentPayMethod.card,
-          PaymentPayMethod.mobile
+          PaymentPayMethod.mobile,
         ],
       // https://developers.portone.io/opi/ko/integration/pg/v2/inicis-jp?v=v2
       PGCompany.inicisJp => <PaymentPayMethod>[

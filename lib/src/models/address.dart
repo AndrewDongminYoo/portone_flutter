@@ -10,13 +10,14 @@ part 'address.g.dart';
 @JsonSerializable()
 class Address {
   /// [Address] 생성자
-  Address(
-      {this.country,
-      this.addressLine1,
-      this.addressLine2,
-      this.city,
-      this.province,
-      this.zipcode});
+  Address({
+    this.country,
+    this.addressLine1,
+    this.addressLine2,
+    this.city,
+    this.province,
+    this.zipcode,
+  });
 
   /// JSON에서 [Address] 객체로 변환하는 팩토리 메서드
   factory Address.fromJson(Map<String, dynamic> json) =>

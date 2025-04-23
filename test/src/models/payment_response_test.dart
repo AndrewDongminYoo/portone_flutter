@@ -8,9 +8,10 @@ void main() {
   group('PaymentResponse', () {
     test('should create PaymentResponse instance with required fields', () {
       final response = PaymentResponse(
-          transactionType: 'PAYMENT',
-          transactionId: 'tx_123',
-          paymentId: 'pay_456');
+        transactionType: 'PAYMENT',
+        transactionId: 'tx_123',
+        paymentId: 'pay_456',
+      );
 
       expect(response.transactionType, 'PAYMENT');
       expect(response.transactionId, 'tx_123');

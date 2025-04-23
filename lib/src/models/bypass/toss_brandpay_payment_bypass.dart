@@ -7,8 +7,11 @@ part 'toss_brandpay_payment_bypass.g.dart';
 @JsonSerializable()
 class TossBrandpayPaymentBypass {
   /// [TossBrandpayPaymentBypass] 생성자
-  TossBrandpayPaymentBypass(
-      {this.brandpayOptions, this.discountCode, this.methodId});
+  TossBrandpayPaymentBypass({
+    this.brandpayOptions,
+    this.discountCode,
+    this.methodId,
+  });
 
   /// JSON에서 [TossBrandpayPaymentBypass] 객체로 변환하는 팩토리 메서드
   factory TossBrandpayPaymentBypass.fromJson(Map<String, dynamic> json) =>
@@ -220,12 +223,15 @@ class TossBrandpayPromotionSummary {
 @JsonSerializable()
 class TossBrandpayPromotionDescription {
   /// [TossBrandpayPromotionDescription] 생성자
-  TossBrandpayPromotionDescription(
-      {this.visible = true, this.defaultOpen = false});
+  TossBrandpayPromotionDescription({
+    this.visible = true,
+    this.defaultOpen = false,
+  });
 
   /// JSON에서 [TossBrandpayPromotionDescription] 객체로 변환하는 팩토리 메서드
   factory TossBrandpayPromotionDescription.fromJson(
-          Map<String, dynamic> json) =>
+    Map<String, dynamic> json,
+  ) =>
       _$TossBrandpayPromotionDescriptionFromJson(json);
 
   /// 결제 혜택 영역 표시 여부 (기본값: true)
