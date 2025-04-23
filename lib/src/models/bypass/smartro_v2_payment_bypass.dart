@@ -14,7 +14,8 @@ class SmartroV2PaymentBypass {
   });
 
   /// JSON에서 [SmartroV2PaymentBypass] 객체로 변환하는 팩토리 메서드
-  factory SmartroV2PaymentBypass.fromJson(Map<String, dynamic> json) => _$SmartroV2PaymentBypassFromJson(json);
+  factory SmartroV2PaymentBypass.fromJson(Map<String, dynamic> json) =>
+      _$SmartroV2PaymentBypassFromJson(json);
 
   /// 결제 상품 품목 개수
   @JsonKey(name: 'GoodsCnt')
@@ -45,8 +46,7 @@ enum SmartroV2SkinColor {
   blue('BLUE'),
 
   /// 보라색
-  purple('PURPLE'),
-  ;
+  purple('PURPLE');
 
   const SmartroV2SkinColor(this.value);
 
@@ -64,8 +64,7 @@ enum SmartroV2OpenType {
   kr('KR'),
 
   /// 해외 카드 결제 가능
-  en('EN'),
-  ;
+  en('EN');
 
   const SmartroV2OpenType(this.value);
 

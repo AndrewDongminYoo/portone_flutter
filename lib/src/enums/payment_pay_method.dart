@@ -23,8 +23,7 @@ enum PaymentPayMethod {
   easyPay('EASY_PAY'),
 
   /// 편의점
-  convenienceStore('CONVENIENCE_STORE'),
-  ;
+  convenienceStore('CONVENIENCE_STORE');
 
   const PaymentPayMethod(this.value);
 

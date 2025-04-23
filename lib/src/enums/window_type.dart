@@ -11,13 +11,11 @@ part 'window_type.g.dart';
 @JsonSerializable()
 class WindowTypes {
   /// [WindowTypes] 생성자
-  WindowTypes({
-    this.mobile,
-    this.pc,
-  });
+  WindowTypes({this.mobile, this.pc});
 
   /// JSON에서 [WindowTypes] 객체로 변환하는 팩토리 메서드
-  factory WindowTypes.fromJson(Map<String, dynamic> json) => _$WindowTypesFromJson(json);
+  factory WindowTypes.fromJson(Map<String, dynamic> json) =>
+      _$WindowTypesFromJson(json);
 
   /// 모바일 환경에서 사용할 창 타입
   final WindowType? mobile;
@@ -42,8 +40,7 @@ enum WindowType {
   redirection('REDIRECTION'),
 
   /// UI 방식
-  ui('UI'),
-  ;
+  ui('UI');
 
   const WindowType(this.value);
 

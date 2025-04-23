@@ -549,8 +549,7 @@ enum PaymentCurrency {
   ZMW('CURRENCY_ZMW'),
 
   /// 짐바브웨 달러 (Zimbabwean Dollar)
-  ZWL('CURRENCY_ZWL'),
-  ;
+  ZWL('CURRENCY_ZWL');
 
   /// [PaymentCurrency] 생성자입니다.
   const PaymentCurrency(this.value);

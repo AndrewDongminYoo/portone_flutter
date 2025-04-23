@@ -7,13 +7,11 @@ part 'ksnet_payment_bypass.g.dart';
 @JsonSerializable()
 class KsnetPaymentBypass {
   /// [KsnetPaymentBypass] 생성자
-  KsnetPaymentBypass({
-    this.easyPayDirect,
-    this.sndQpayType,
-  });
+  KsnetPaymentBypass({this.easyPayDirect, this.sndQpayType});
 
   /// JSON에서 [KsnetPaymentBypass] 객체로 변환하는 팩토리 메서드
-  factory KsnetPaymentBypass.fromJson(Map<String, dynamic> json) => _$KsnetPaymentBypassFromJson(json);
+  factory KsnetPaymentBypass.fromJson(Map<String, dynamic> json) =>
+      _$KsnetPaymentBypassFromJson(json);
 
   /// KSNET 간편결제 다이렉트 여부
   bool? easyPayDirect;
@@ -32,8 +30,7 @@ enum SndQpayType {
   none('0'),
 
   /// 간편 결제 표시
-  show('1'),
-  ;
+  show('1');
 
   const SndQpayType(this.value);
 

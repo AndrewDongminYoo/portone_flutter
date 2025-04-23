@@ -44,7 +44,7 @@ extension PaymentSupportedMethods on PGCompany? {
       // https://developers.portone.io/opi/ko/integration/pg/v2/inicis-v2?v=v2
       PGCompany.inicisV2 => <PaymentPayMethod>[
           PaymentPayMethod.card,
-          PaymentPayMethod.mobile,
+          PaymentPayMethod.mobile
         ],
       // https://developers.portone.io/opi/ko/integration/pg/v2/inicis-jp?v=v2
       PGCompany.inicisJp => <PaymentPayMethod>[
@@ -69,26 +69,16 @@ extension PaymentSupportedMethods on PGCompany? {
           PaymentPayMethod.easyPay,
         ],
       // https://developers.portone.io/opi/ko/integration/pg/v2/kakaopay?v=v2
-      PGCompany.kakaopay => <PaymentPayMethod>[
-          PaymentPayMethod.easyPay,
-        ],
+      PGCompany.kakaopay => <PaymentPayMethod>[PaymentPayMethod.easyPay],
       // https://developers.portone.io/opi/ko/integration/pg/v2/naverpay?v=v2
-      PGCompany.naverpay => <PaymentPayMethod>[
-          PaymentPayMethod.easyPay,
-        ],
+      PGCompany.naverpay => <PaymentPayMethod>[PaymentPayMethod.easyPay],
       // https://developers.portone.io/opi/ko/integration/pg/v2/tosspay-v2?v=v2
-      PGCompany.tosspayV2 => <PaymentPayMethod>[
-          PaymentPayMethod.easyPay,
-        ],
+      PGCompany.tosspayV2 => <PaymentPayMethod>[PaymentPayMethod.easyPay],
       // https://developers.portone.io/opi/ko/integration/pg/v2/hyphen?v=v2
-      PGCompany.hyphen => <PaymentPayMethod>[
-          PaymentPayMethod.easyPay,
-        ],
+      PGCompany.hyphen => <PaymentPayMethod>[PaymentPayMethod.easyPay],
       // https://developers.portone.io/opi/ko/integration/pg/v2/eximbay-v2?v=v2
-      PGCompany.eximbayV2 => <PaymentPayMethod>[
-          PaymentPayMethod.card,
-        ],
-      _ => PaymentPayMethod.values
+      PGCompany.eximbayV2 => <PaymentPayMethod>[PaymentPayMethod.card],
+      _ => PaymentPayMethod.values,
     };
   }
 }

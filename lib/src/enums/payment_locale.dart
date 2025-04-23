@@ -26,8 +26,7 @@ enum PaymentLocale {
   thTh('TH_TH'),
 
   /// 베트남어
-  viVn('VI_VN'),
-  ;
+  viVn('VI_VN');
 
   const PaymentLocale(this.value);
 

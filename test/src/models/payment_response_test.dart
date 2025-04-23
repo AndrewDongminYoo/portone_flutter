@@ -8,10 +8,9 @@ void main() {
   group('PaymentResponse', () {
     test('should create PaymentResponse instance with required fields', () {
       final response = PaymentResponse(
-        transactionType: 'PAYMENT',
-        transactionId: 'tx_123',
-        paymentId: 'pay_456',
-      );
+          transactionType: 'PAYMENT',
+          transactionId: 'tx_123',
+          paymentId: 'pay_456');
 
       expect(response.transactionType, 'PAYMENT');
       expect(response.transactionId, 'tx_123');
@@ -86,11 +85,10 @@ void main() {
       expect(json['pgMessage'], 'PG error occurred');
     });
 
-    test('should use default value for transactionType when not provided in JSON', () {
-      final json = {
-        'txId': 'tx_123',
-        'paymentId': 'pay_456',
-      };
+    test(
+        'should use default value for transactionType when not provided in JSON',
+        () {
+      final json = {'txId': 'tx_123', 'paymentId': 'pay_456'};
 
       final response = PaymentResponse.fromJson(json);
       expect(response.transactionType, 'PAYMENT');

@@ -18,10 +18,7 @@ void main() {
     });
 
     test('should create Address with partial fields', () {
-      final address = Address(
-        country: Country.US,
-        city: 'New York',
-      );
+      final address = Address(country: Country.US, city: 'New York');
 
       expect(address.country, equals(Country.US));
       expect(address.city, equals('New York'));
@@ -42,7 +39,8 @@ void main() {
     });
 
     test('toJson should output valid json with partial data', () {
-      final address = Address(country: Country.JP, city: 'Tokyo', zipcode: '100-0001');
+      final address =
+          Address(country: Country.JP, city: 'Tokyo', zipcode: '100-0001');
 
       final json = address.toJson();
 

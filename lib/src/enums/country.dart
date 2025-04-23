@@ -751,8 +751,7 @@ enum Country {
   ZM('COUNTRY_ZM'),
 
   /// Zimbabwe
-  ZW('COUNTRY_ZW'),
-  ;
+  ZW('COUNTRY_ZW');
 
   const Country(this.value);
 

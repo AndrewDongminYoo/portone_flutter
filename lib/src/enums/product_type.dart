@@ -8,8 +8,7 @@ enum ProductType {
   digital('PRODUCT_TYPE_DIGITAL'),
 
   /// 실물
-  real('PRODUCT_TYPE_REAL'),
-  ;
+  real('PRODUCT_TYPE_REAL');
 
   const ProductType(this.value);
 

@@ -8,11 +8,7 @@ void main() {
   group('ProductDetail', () {
     test('should create ProductDetail with required fields', () {
       final productDetail = ProductDetail(
-        id: 'product-001',
-        name: 'Test Product',
-        amount: 1000,
-        quantity: 1,
-      );
+          id: 'product-001', name: 'Test Product', amount: 1000, quantity: 1);
 
       expect(productDetail.id, equals('product-001'));
       expect(productDetail.name, equals('Test Product'));
@@ -41,7 +37,7 @@ void main() {
         'id': 'product-001',
         'name': 'Test Product',
         'amount': 1000,
-        'quantity': 1,
+        'quantity': 1
       };
 
       final productDetail = ProductDetail.fromJson(json);
@@ -52,11 +48,7 @@ void main() {
 
     test('toJson should include all non-null fields', () {
       final productDetail = ProductDetail(
-        id: 'product-001',
-        name: 'Test Product',
-        amount: 1000,
-        quantity: 1,
-      );
+          id: 'product-001', name: 'Test Product', amount: 1000, quantity: 1);
 
       final json = productDetail.toJson();
 

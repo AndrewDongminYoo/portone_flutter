@@ -50,8 +50,7 @@ enum PGCompany {
   tosspayments('tosspayments_payment'),
 
   /// 웰컴페이먼츠
-  welcome('welcome_payment'),
-  ;
+  welcome('welcome_payment');
 
   const PGCompany(this.value);
 

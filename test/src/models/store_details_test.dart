@@ -36,10 +36,7 @@ void main() {
         'storeNameShort': 'TS',
         'storeNameEn': 'Test Store EN',
         'storeNameKana': 'テストストア',
-        'openingHours': {
-          'open': '09:00',
-          'close': '18:00',
-        },
+        'openingHours': {'open': '09:00', 'close': '18:00'},
         'contactName': 'Support Desk',
       };
 
@@ -73,10 +70,7 @@ void main() {
         storeNameShort: 'TS',
         storeNameEn: 'Test Store EN',
         storeNameKana: 'テストストア',
-        openingHours: OpeningHours(
-          open: '09:00',
-          close: '18:00',
-        ),
+        openingHours: OpeningHours(open: '09:00', close: '18:00'),
         contactName: 'Support Desk',
       );
 
@@ -106,10 +100,7 @@ void main() {
     });
 
     test('creates instance from JSON', () {
-      final json = {
-        'open': '09:00',
-        'close': '18:00',
-      };
+      final json = {'open': '09:00', 'close': '18:00'};
 
       final hours = OpeningHours.fromJson(json);
       expect(hours.open, '09:00');
@@ -117,10 +108,7 @@ void main() {
     });
 
     test('converts to JSON', () {
-      final hours = OpeningHours(
-        open: '09:00',
-        close: '18:00',
-      );
+      final hours = OpeningHours(open: '09:00', close: '18:00');
 
       final json = hours.toJson();
       expect(json['open'], '09:00');

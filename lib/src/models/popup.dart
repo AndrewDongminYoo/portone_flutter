@@ -7,9 +7,7 @@ part 'popup.g.dart';
 @JsonSerializable()
 class Popup {
   /// [Popup] 생성자
-  Popup({
-    this.center,
-  });
+  Popup({this.center});
 
   /// JSON에서 [Popup] 객체로 변환하는 팩토리 메서드
   factory Popup.fromJson(Map<String, dynamic> json) => _$PopupFromJson(json);

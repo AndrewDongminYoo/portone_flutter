@@ -7,12 +7,11 @@ part 'hyphen_bypass.g.dart';
 @JsonSerializable()
 class HyphenBypass {
   /// [HyphenBypass] 생성자
-  HyphenBypass({
-    this.designCd,
-  });
+  HyphenBypass({this.designCd});
 
   /// JSON에서 [HyphenBypass] 객체로 변환하는 팩토리 메서드
-  factory HyphenBypass.fromJson(Map<String, dynamic> json) => _$HyphenBypassFromJson(json);
+  factory HyphenBypass.fromJson(Map<String, dynamic> json) =>
+      _$HyphenBypassFromJson(json);
 
   /// 디자인 코드
   final String? designCd;

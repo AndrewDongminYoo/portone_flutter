@@ -11,8 +11,7 @@ enum CashReceiptTradeOption {
   general('GENERAL'),
 
   /// 교통비
-  publicTp('PUBLIC_TP'),
-  ;
+  publicTp('PUBLIC_TP');
 
   const CashReceiptTradeOption(this.value);
 

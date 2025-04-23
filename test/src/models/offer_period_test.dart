@@ -13,10 +13,7 @@ void main() {
     });
 
     test('should create OfferPeriod with range', () {
-      final range = OfferRange(
-        from: '2024-01-01',
-        to: '2024-12-31',
-      );
+      final range = OfferRange(from: '2024-01-01', to: '2024-12-31');
       final offerPeriod = OfferPeriod(range: range);
 
       expect(offerPeriod.range?.from, equals('2024-01-01'));
@@ -24,7 +21,8 @@ void main() {
       expect(offerPeriod.interval, isNull);
     });
 
-    test('should correctly serialize and deserialize OfferPeriod with interval', () {
+    test('should correctly serialize and deserialize OfferPeriod with interval',
+        () {
       final original = OfferPeriod(interval: '6m');
       final json = original.toJson();
       final deserialized = OfferPeriod.fromJson(json);
@@ -33,7 +31,8 @@ void main() {
       expect(deserialized.range, isNull);
     });
 
-    test('should correctly serialize and deserialize OfferPeriod with range', () {
+    test('should correctly serialize and deserialize OfferPeriod with range',
+        () {
       final range = OfferRange(from: '2024-01-01', to: '2024-12-31');
       final original = OfferPeriod(range: range);
       final json = original.toJson();
@@ -58,10 +57,7 @@ void main() {
     });
 
     test('should correctly serialize and deserialize OfferRange', () {
-      final original = OfferRange(
-        from: '2024-01-01',
-        to: '2024-12-31',
-      );
+      final original = OfferRange(from: '2024-01-01', to: '2024-12-31');
       final json = original.toJson();
       final deserialized = OfferRange.fromJson(json);
 
