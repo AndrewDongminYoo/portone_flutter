@@ -4,7 +4,7 @@ version: 1.0.1
 repository: https://github.com/AndrewDongminYoo/portone_flutter
 
 environment:
-  sdk: ^3.5.0
+  sdk: ^3.6.0
   flutter: ">=3.24.0"
 
 dependencies:
@@ -21,7 +21,7 @@ dev_dependencies:
     sdk: flutter
   import_sorter: ^4.6.0
   json_serializable: ^6.9.5
-  mockito: ^5.4.5
+  mockito: ^5.4.6
   mocktail: ^1.0.4
   very_good_analysis: ^7.0.0
 
