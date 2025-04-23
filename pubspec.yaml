@@ -52,6 +52,15 @@ scripts:
     (scripts):
       - flutter upgrade --force
       - flutter packages upgrade --major-versions --tighten
+      - flutter packages upgrade --major-versions --tighten --directory example
+
+  reinstall:
+    (description): Cleans and reinstalls the Flutter project by removing old builds, fetching dependencies, running code generators, and formatting the code.
+    (scripts):
+      - flutter clean
+      - flutter pub get
+      - flutter pub get --directory example
+      - $bootstrap
 
 cider:
   link_template:
