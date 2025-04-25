@@ -164,9 +164,14 @@ class PortonePaymentState extends State<PortonePayment> {
     widget.logger(jsonEncode(widget.data.toJson()));
     final appScheme = widget.data.appScheme;
     final paymentData = widget.data.toJson();
+
+    // redirectUrl 이 비어있으면 기본값 설정
     if (paymentData['redirectUrl'] == null) {
       paymentData['redirectUrl'] = '$appScheme://portone';
     }
+
+    // Tosspayments를 통한 TossPay에서만 발생하는 오류 (https://docs-pay.toss.im/reference/billing/create#요청-파라미터)
+    paymentData['retAppScheme'] = '$appScheme://portone';
 
     final html = '''
 <!doctype html>
