@@ -18,6 +18,19 @@ runtimes:
     - python@3.10.8
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
+  definitions:
+    - name: dart
+      affects_cache:
+        - analysis_options.yaml
+        - pubspec.yaml
+      commands:
+        - name: format
+          output: rewrite
+          run: dart format --line-length 120 ${target}
+          batch: true
+          in_place: true
+          formatter: true
+          success_codes: [0]
   ignore:
     - linters:
         - markdownlint
