@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.2] - 2025-04-25
 
 ### Added
 
@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Exposes the `PortonePaymentState` class as public and adds comprehensive documentation to facilitate testing and improve understanding of the payment process.
+- Sets a default `redirectUrl` in the `paymentData` if it is null.
+- Adds `retAppScheme` to the `paymentData` for compatibility with Tosspayments' TossPay, as it requires this parameter.
 
 ## [1.0.1] - 2025-04-12
 
@@ -59,6 +61,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Modified field type in PaymentRequest model (changed `isEscrow` to nullable)
 - Changed `paypal` to `convenienceStore` in the `PaymentPayMethod` enumeration
 
-[Unreleased]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.1...HEAD
+[1.0.2]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/AndrewDongminYoo/portone_flutter/releases/tag/v1.0.0
