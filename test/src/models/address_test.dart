@@ -39,8 +39,7 @@ void main() {
     });
 
     test('toJson should output valid json with partial data', () {
-      final address =
-          Address(country: Country.JP, city: 'Tokyo', zipcode: '100-0001');
+      final address = Address(country: Country.JP, city: 'Tokyo', zipcode: '100-0001');
 
       final json = address.toJson();
 

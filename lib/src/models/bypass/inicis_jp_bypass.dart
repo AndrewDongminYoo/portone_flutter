@@ -10,8 +10,7 @@ class InicisJpBypass {
   InicisJpBypass({this.paymentUI});
 
   /// JSON에서 [InicisJpBypass] 객체로 변환하는 팩토리 메서드
-  factory InicisJpBypass.fromJson(Map<String, dynamic> json) =>
-      _$InicisJpBypassFromJson(json);
+  factory InicisJpBypass.fromJson(Map<String, dynamic> json) => _$InicisJpBypassFromJson(json);
 
   /// 결제창 UI 설정
   final InicisJpPaymentUI? paymentUI;
@@ -27,8 +26,7 @@ class InicisJpPaymentUI {
   InicisJpPaymentUI({this.colorTheme, this.logoUrl});
 
   /// JSON에서 [InicisJpPaymentUI] 객체로 변환하는 팩토리 메서드
-  factory InicisJpPaymentUI.fromJson(Map<String, dynamic> json) =>
-      _$InicisJpPaymentUIFromJson(json);
+  factory InicisJpPaymentUI.fromJson(Map<String, dynamic> json) => _$InicisJpPaymentUIFromJson(json);
 
   /// 결제창 색상 (예: red1, red2, ..., blue6)
   final String? colorTheme;

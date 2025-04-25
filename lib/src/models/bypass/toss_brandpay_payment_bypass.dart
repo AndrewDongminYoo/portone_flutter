@@ -14,8 +14,7 @@ class TossBrandpayPaymentBypass {
   });
 
   /// JSON에서 [TossBrandpayPaymentBypass] 객체로 변환하는 팩토리 메서드
-  factory TossBrandpayPaymentBypass.fromJson(Map<String, dynamic> json) =>
-      _$TossBrandpayPaymentBypassFromJson(json);
+  factory TossBrandpayPaymentBypass.fromJson(Map<String, dynamic> json) => _$TossBrandpayPaymentBypassFromJson(json);
 
   /// loadBrandpay 호출시 전달하는 옵션 객체
   final TossBrandpayOptions? brandpayOptions;
@@ -37,8 +36,7 @@ class TossBrandpayOptions {
   TossBrandpayOptions({this.ui});
 
   /// JSON에서 [TossBrandpayOptions] 객체로 변환하는 팩토리 메서드
-  factory TossBrandpayOptions.fromJson(Map<String, dynamic> json) =>
-      _$TossBrandpayOptionsFromJson(json);
+  factory TossBrandpayOptions.fromJson(Map<String, dynamic> json) => _$TossBrandpayOptionsFromJson(json);
 
   /// UI 옵션 객체
   final TossBrandpayUIOptions? ui;
@@ -60,8 +58,7 @@ class TossBrandpayUIOptions {
   });
 
   /// JSON에서 [TossBrandpayUIOptions] 객체로 변환하는 팩토리 메서드
-  factory TossBrandpayUIOptions.fromJson(Map<String, dynamic> json) =>
-      _$TossBrandpayUIOptionsFromJson(json);
+  factory TossBrandpayUIOptions.fromJson(Map<String, dynamic> json) => _$TossBrandpayUIOptionsFromJson(json);
 
   /// UI의 메인 색상 (기본값: "#3182f6")
   final String highlightColor;
@@ -101,8 +98,7 @@ class TossBrandpayLabels {
   TossBrandpayLabels({this.oneTouchPay = '원터치 결제'});
 
   /// JSON에서 [TossBrandpayLabels] 객체로 변환하는 팩토리 메서드
-  factory TossBrandpayLabels.fromJson(Map<String, dynamic> json) =>
-      _$TossBrandpayLabelsFromJson(json);
+  factory TossBrandpayLabels.fromJson(Map<String, dynamic> json) => _$TossBrandpayLabelsFromJson(json);
 
   /// 원터치 결제 대신 노출할 텍스트 (기본값: "원터치 결제")
   final String oneTouchPay;
@@ -118,8 +114,7 @@ class TossBrandpayNavigationBar {
   TossBrandpayNavigationBar({this.visible = true, this.paddingTop});
 
   /// JSON에서 [TossBrandpayNavigationBar] 객체로 변환하는 팩토리 메서드
-  factory TossBrandpayNavigationBar.fromJson(Map<String, dynamic> json) =>
-      _$TossBrandpayNavigationBarFromJson(json);
+  factory TossBrandpayNavigationBar.fromJson(Map<String, dynamic> json) => _$TossBrandpayNavigationBarFromJson(json);
 
   /// 내비게이션 바 사용 여부 (기본값: true)
   final bool visible;
@@ -138,8 +133,7 @@ class TossBrandpayWidgetOptions {
   TossBrandpayWidgetOptions({this.methodType, this.methodId, this.ui});
 
   /// JSON에서 [TossBrandpayWidgetOptions] 객체로 변환하는 팩토리 메서드
-  factory TossBrandpayWidgetOptions.fromJson(Map<String, dynamic> json) =>
-      _$TossBrandpayWidgetOptionsFromJson(json);
+  factory TossBrandpayWidgetOptions.fromJson(Map<String, dynamic> json) => _$TossBrandpayWidgetOptionsFromJson(json);
 
   /// 위젯에 보여줄 결제 수단 ("카드" 또는 "계좌")
   final TossBrandpayMethodType? methodType;
@@ -241,6 +235,5 @@ class TossBrandpayPromotionDescription {
   final bool defaultOpen;
 
   /// [TossBrandpayPromotionDescription] 객체를 JSON으로 변환하는 메서드
-  Map<String, dynamic> toJson() =>
-      _$TossBrandpayPromotionDescriptionToJson(this);
+  Map<String, dynamic> toJson() => _$TossBrandpayPromotionDescriptionToJson(this);
 }

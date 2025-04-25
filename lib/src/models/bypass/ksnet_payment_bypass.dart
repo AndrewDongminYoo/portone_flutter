@@ -10,8 +10,7 @@ class KsnetPaymentBypass {
   KsnetPaymentBypass({this.easyPayDirect, this.sndQpayType});
 
   /// JSON에서 [KsnetPaymentBypass] 객체로 변환하는 팩토리 메서드
-  factory KsnetPaymentBypass.fromJson(Map<String, dynamic> json) =>
-      _$KsnetPaymentBypassFromJson(json);
+  factory KsnetPaymentBypass.fromJson(Map<String, dynamic> json) => _$KsnetPaymentBypassFromJson(json);
 
   /// KSNET 간편결제 다이렉트 여부
   bool? easyPayDirect;

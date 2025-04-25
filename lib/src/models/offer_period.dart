@@ -10,8 +10,7 @@ class OfferPeriod {
   OfferPeriod({this.range, this.interval});
 
   /// JSON에서 [OfferPeriod] 객체로 변환하는 팩토리 메서드
-  factory OfferPeriod.fromJson(Map<String, dynamic> json) =>
-      _$OfferPeriodFromJson(json);
+  factory OfferPeriod.fromJson(Map<String, dynamic> json) => _$OfferPeriodFromJson(json);
 
   /// 기간 범위 (from/to 방식)
   final OfferRange? range;
@@ -35,8 +34,7 @@ class OfferRange {
   OfferRange({this.from, this.to});
 
   /// JSON에서 [OfferRange] 객체로 변환하는 팩토리 메서드
-  factory OfferRange.fromJson(Map<String, dynamic> json) =>
-      _$OfferRangeFromJson(json);
+  factory OfferRange.fromJson(Map<String, dynamic> json) => _$OfferRangeFromJson(json);
 
   /// 시작 시점
   final String? from;
