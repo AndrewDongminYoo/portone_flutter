@@ -53,45 +53,4 @@
             <data android:scheme="https" />
         </intent>
     </queries>
-    <queries>
-        <package android:name="com.ahnlab.v3mobileplus" />
-        <package android:name="com.eg.android.AlipayGphone" />
-        <package android:name="com.hanaskcard.paycla" />
-        <package android:name="com.hyundaicard.appcard" />
-        <package android:name="com.kakao.talk" />
-        <package android:name="com.kakaobank.channel" />
-        <package android:name="com.kbcard.cxh.appcard" />
-        <package android:name="com.kbstar.kbbank" />
-        <package android:name="com.kbstar.reboot" />
-        <package android:name="com.kftc.bankpay.android" />
-        <package android:name="com.kt.ktauth" />
-        <package android:name="com.lcacApp" />
-        <package android:name="com.lguplus.smartotp" />
-        <package android:name="com.lottemembers.android" />
-        <package android:name="com.nhn.android.search" />
-        <package android:name="com.nhnent.payapp" />
-        <package android:name="com.samsung.android.spay" />
-        <package android:name="com.shcard.smartpay" />
-        <package android:name="com.shinhan.sbanking" />
-        <package android:name="com.shinhan.smartcaremgr" />
-        <package android:name="com.sktelecom.tauth" />
-        <package android:name="com.tencent.mm" />
-        <package android:name="com.wooribank.smart.npib" />
-        <package android:name="com.wooricard.smartapp" />
-        <package android:name="jp.naver.line.android" />
-        <package android:name="kr.co.citibank.citimobile" />
-        <package android:name="kr.co.samsungcard.mpocket" />
-        <package android:name="kr.co.shiftworks.vguardweb" />
-        <package android:name="kvp.jjy.MispAndroid320" />
-        <package android:name="net.ib.android.smcard" />
-        <package android:name="nh.smart.card" />
-        <package android:name="nh.smart.nhallonepay" />
-        <package android:name="viva.republica.toss" />
-
-        <intent>
-            <action android:name="android.intent.action.VIEW" />
-            <category android:name="android.intent.category.BROWSABLE" />
-            <data android:scheme="https" />
-        </intent>
-    </queries>
 </manifest>

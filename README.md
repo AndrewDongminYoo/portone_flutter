@@ -50,48 +50,79 @@ flutter pub add portone_flutter_v2
 
 #### Android (`AndroidManifest.xml`):
 
+> From version 1.1.0 onwards, the manifest-merger plugin for the Flutter plugin is used, so you don't need to add it manually.
+
+<details>
+<summary>Android (<code>AndroidManifest.xml</code>)</summary>
+
 Ensure your app requests internet permission and declares package visibility for payment-related apps:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
 
 <queries>
-  <!-- Include other required payment apps -->
-  <package android:name="com.ahnlab.v3mobileplus" />
-  <package android:name="com.eg.android.AlipayGphone" />
-  <package android:name="com.hanaskcard.paycla" />
-  <package android:name="com.hyundaicard.appcard" />
-  <package android:name="com.kakao.talk" />
-  <package android:name="com.kakaobank.channel" />
-  <package android:name="com.kbcard.cxh.appcard" />
-  <package android:name="com.kbstar.kbbank" />
-  <package android:name="com.kbstar.reboot" />
-  <package android:name="com.kftc.bankpay.android" />
-  <package android:name="com.kt.ktauth" />
-  <package android:name="com.lcacApp" />
-  <package android:name="com.lguplus.smartotp" />
-  <package android:name="com.lottemembers.android" />
-  <package android:name="com.nhn.android.search" />
-  <package android:name="com.nhnent.payapp" />
-  <package android:name="com.samsung.android.spay" />
-  <package android:name="com.shcard.smartpay" />
-  <package android:name="com.shinhan.sbanking" />
-  <package android:name="com.shinhan.smartcaremgr" />
-  <package android:name="com.sktelecom.tauth" />
-  <package android:name="com.tencent.mm" />
-  <package android:name="com.wooribank.smart.npib" />
-  <package android:name="com.wooricard.smartapp" />
-  <package android:name="jp.naver.line.android" />
-  <package android:name="kr.co.citibank.citimobile" />
-  <package android:name="kr.co.samsungcard.mpocket" />
-  <package android:name="kr.co.shiftworks.vguardweb" />
-  <package android:name="kvp.jjy.MispAndroid320" />
-  <package android:name="net.ib.android.smcard" />
-  <package android:name="nh.smart.card" />
-  <package android:name="nh.smart.nhallonepay" />
-  <package android:name="viva.republica.toss" />
+  <!-- EASY_PAY -->
+  <package android:name="com.kftc.bankpay.android" /> <!-- 뱅크페이 -->
+  <package android:name="com.nhnent.payapp" /> <!-- 페이코 -->
+  <package android:name="com.lottemembers.android" /> <!-- LPAY -->
+  <package android:name="com.ssg.serviceapp.android.egiftcertificate" /> <!-- SSGPAY -->
+  <package android:name="com.inicis.kpay" /> <!-- KPAY -->
+  <package android:name="com.tmoney.tmpay" /> <!-- 티머니페이 -->
+  <package android:name="viva.republica.toss" /> <!-- 토스페이 -->
+  <package android:name="com.samsung.android.spay" /> <!-- 삼성페이 -->
+  <package android:name="com.kakao.talk" /> <!-- 카카오페이 -->
+  <package android:name="com.nhn.android.search" /> <!-- 네이버 -->
+  <package android:name="com.mysmilepay.app" /> <!-- 스마일페이 -->
+  <!-- CARD -->
+  <package android:name="kvp.jjy.MispAndroid320" /> <!-- ISP페이북 -->
+  <package android:name="com.kbcard.cxh.appcard" /> <!-- KBPay -->
+  <package android:name="com.kbstar.reboot" /> <!-- liiv -->
+  <package android:name="com.kbstar.kbbank" /> <!-- liiv -->
+  <package android:name="com.samsung.android.spaylite" /> <!-- 삼성페이니 -->
+  <package android:name="com.nhnent.payapp" /> <!-- 페이코 -->
+  <package android:name="com.lge.lgpay" /> <!-- 엘지페이 -->
+  <package android:name="com.hanaskcard.paycla" /> <!-- 하나 -->
+  <package android:name="kr.co.hanamembers.hmscustomer" /> <!-- 하나멤버스 -->
+  <package android:name="com.hanaskcard.rocomo.potal" /> <!-- 하나공인인증 -->
+  <package android:name="kr.co.citibank.citimobile" /> <!-- 씨티모바일 -->
+  <package android:name="com.lcacApp" /> <!-- 롯데 -->
+  <package android:name="kr.co.samsungcard.mpocket" /> <!-- 삼성 -->
+  <package android:name="com.shcard.smartpay" /> <!-- 신한 -->
+  <package android:name="com.shinhancard.smartshinhan" /> <!-- 신한(ARS/일반/smart) -->
+  <package android:name="com.shinhan.smartcaremgr" /> <!-- 신한 SOL -->
+  <package android:name="com.hyundaicard.appcard" /> <!-- 현대 -->
+  <package android:name="nh.smart.nhallonepay" /> <!-- 농협 -->
+  <package android:name="nh.smart.card" /> <!-- 농협 -->
+  <package android:name="net.ib.android.smcard" /> <!-- 삼성 모니모 -->
+  <package android:name="kr.co.citibank.citimobile" /> <!-- 씨티 -->
+  <package android:name="com.wooricard.smartapp" /> <!-- 우리WON카드 -->
+  <package android:name="com.wooribank.smart.npib" /> <!-- 우리WON뱅킹 -->
+  <!-- SECURITY -->
+  <package android:name="com.TouchEn.mVaccine.webs" /> <!-- TouchEn -->
+  <package android:name="com.ahnlab.v3mobileplus" /> <!-- V3 -->
+  <package android:name="kr.co.shiftworks.vguardweb" /> <!-- vguard -->
+  <!-- CERTIFICATE -->
+  <package android:name="com.hanaskcard.rocomo.potal" /> <!-- 하나 -->
+  <package android:name="com.lumensoft.touchenappfree" /> <!-- 현대 -->
+  <!-- TRANSFER -->
+  <package android:name="com.kftc.bankpay.android" /> <!-- 뱅크페이 -->
+  <package android:name="kr.co.kfcc.mobilebank" /> <!-- MG 새마을금고 -->
+  <package android:name="com.nh.cashcardapp" /> <!-- 뱅크페이 -->
+  <package android:name="com.knb.psb" /> <!-- BNK경남은행 -->
+  <package android:name="com.lguplus.paynow" /> <!-- 페이나우 -->
+  <package android:name="com.kbankwith.smartbank" /> <!-- 케이뱅크 -->
+  <!-- GLOBAL -->
+  <package android:name="com.eg.android.AlipayGphone" /> <!-- 페이나우 -->
+  <!-- ETC -->
+  <package android:name="com.sktelecom.tauth" /> <!-- SKT PASS -->
+  <package android:name="com.lguplus.smartotp" /> <!-- LGU PASS -->
+  <package android:name="com.kt.ktauth" /> <!-- KT PASS -->
+  <package android:name="kr.danal.app.damoum" /> <!-- 다날 다모음 -->
+  <package android:name="com.shinhan.sbanking" /> <!-- 신한 SOL뱅크 -->
 </queries>
 ```
+
+</details>
 
 #### iOS (`Info.plist`):
 
