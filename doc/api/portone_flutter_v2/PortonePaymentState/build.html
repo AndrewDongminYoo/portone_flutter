@@ -531,11 +531,12 @@ Widget build(BuildContext context) {
                 controller = created;
                 controller!.addJavaScriptHandler(
                   handlerName: handlerName,
-                  callback: (List&lt;dynamic&gt; data) async {
-                    widget.logger(&#39;PortOne SDK ERROR: $data&#39;);
-                    widget.logger(&#39;PortOne SDK Error type: ${data.first.runtimeType}&#39;);
+                  callback: (List&lt;dynamic&gt; arguments) async {
                     try {
-                      widget.onError(data.first as Object?);
+                      widget.logger(&#39;PortOne SDK ERROR: $arguments&#39;);
+                      final portoneError = arguments.first;
+                      widget.logger(&#39;PortOne SDK Error type: ${portoneError.runtimeType}&#39;);
+                      widget.onError(portoneError as Object?);
                     } catch (error, stackTrace) {
                       widget.logger(&#39;Error Occurred&#39;, error: error, stackTrace: stackTrace);
                       widget.onError(error);
@@ -674,7 +675,7 @@ Widget build(BuildContext context) {
       <!--/.sidebar-offcanvas-->
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.0.3 </span>
+      <span class="no-break"> portone_flutter_v2 1.0.4 </span>
     </footer>
 
     <script src="../../static-assets/highlight.pack.js?v1"></script>

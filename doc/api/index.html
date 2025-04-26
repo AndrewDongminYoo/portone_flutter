@@ -104,9 +104,17 @@
             </li>
             <li>
               <p>
-                <strong>Flexible Payment Methods:</strong> Supports all major
-                payment methods provided by PortOne (credit/debit cards, virtual
-                accounts, mobile payments, etc.).
+                <strong>Flexible Payment Gateway Selection:</strong> Choose your
+                payment gateway (<code>PGCompany</code>) when constructing the
+                <code>PaymentRequest</code> to tailor behavior and supported
+                methods.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>PayMethod Validation:</strong> Ensures that the selected
+                <code>payMethod</code> is supported by the chosen
+                <code>PGCompany</code>, throwing a clear error if not.
               </p>
             </li>
             <li>
@@ -143,7 +151,7 @@
           </p>
           <p>Add the dependency to your <code>pubspec.yaml</code>:</p>
           <pre class="language-yaml"><code class="language-yaml">dependencies:
-  portone_flutter_v2: ^1.0.3
+  portone_flutter_v2: ^1.0.4
 </code></pre>
           <p>Or via command line:</p>
           <pre
@@ -154,53 +162,86 @@
           <h4 id="android-androidmanifestxml">
             Android (<code>AndroidManifest.xml</code>):
           </h4>
-          <p>
-            Ensure your app requests internet permission and declares package
-            visibility for payment-related apps:
-          </p>
-          <pre
-            class="language-xml"
-          ><code class="language-xml">&lt;uses-permission android:name="android.permission.INTERNET" /&gt;
+          <blockquote>
+            <p>
+              From version 1.1.0 onwards, the manifest-merger plugin for the
+              Flutter plugin is used, so you don't need to add it manually.
+            </p>
+          </blockquote>
+          <details>
+            <summary>Android (<code>AndroidManifest.xml</code>)</summary>
+            <p>
+              Ensure your app requests internet permission and declares package
+              visibility for payment-related apps:
+            </p>
+            <pre
+              class="language-xml"
+            ><code class="language-xml">&lt;uses-permission android:name="android.permission.INTERNET" /&gt;
 
 &lt;queries&gt;
-  &lt;!-- Include other required payment apps --&gt;
-  &lt;package android:name="com.ahnlab.v3mobileplus" /&gt;
-  &lt;package android:name="com.eg.android.AlipayGphone" /&gt;
-  &lt;package android:name="com.hanaskcard.paycla" /&gt;
-  &lt;package android:name="com.hyundaicard.appcard" /&gt;
-  &lt;package android:name="com.kakao.talk" /&gt;
-  &lt;package android:name="com.kakaobank.channel" /&gt;
-  &lt;package android:name="com.kbcard.cxh.appcard" /&gt;
-  &lt;package android:name="com.kbstar.kbbank" /&gt;
-  &lt;package android:name="com.kbstar.reboot" /&gt;
-  &lt;package android:name="com.kftc.bankpay.android" /&gt;
-  &lt;package android:name="com.kt.ktauth" /&gt;
-  &lt;package android:name="com.lcacApp" /&gt;
-  &lt;package android:name="com.lguplus.smartotp" /&gt;
-  &lt;package android:name="com.lottemembers.android" /&gt;
-  &lt;package android:name="com.nhn.android.search" /&gt;
-  &lt;package android:name="com.nhnent.payapp" /&gt;
-  &lt;package android:name="com.samsung.android.spay" /&gt;
-  &lt;package android:name="com.shcard.smartpay" /&gt;
-  &lt;package android:name="com.shinhan.sbanking" /&gt;
-  &lt;package android:name="com.shinhan.smartcaremgr" /&gt;
-  &lt;package android:name="com.sktelecom.tauth" /&gt;
-  &lt;package android:name="com.tencent.mm" /&gt;
-  &lt;package android:name="com.wooribank.smart.npib" /&gt;
-  &lt;package android:name="com.wooricard.smartapp" /&gt;
-  &lt;package android:name="jp.naver.line.android" /&gt;
-  &lt;package android:name="kr.co.citibank.citimobile" /&gt;
-  &lt;package android:name="kr.co.samsungcard.mpocket" /&gt;
-  &lt;package android:name="kr.co.shiftworks.vguardweb" /&gt;
-  &lt;package android:name="kvp.jjy.MispAndroid320" /&gt;
-  &lt;package android:name="net.ib.android.smcard" /&gt;
-  &lt;package android:name="nh.smart.card" /&gt;
-  &lt;package android:name="nh.smart.nhallonepay" /&gt;
-  &lt;package android:name="viva.republica.toss" /&gt;
+  &lt;!-- EASY_PAY --&gt;
+  &lt;package android:name="com.kftc.bankpay.android" /&gt; &lt;!-- 뱅크페이 --&gt;
+  &lt;package android:name="com.nhnent.payapp" /&gt; &lt;!-- 페이코 --&gt;
+  &lt;package android:name="com.lottemembers.android" /&gt; &lt;!-- LPAY --&gt;
+  &lt;package android:name="com.ssg.serviceapp.android.egiftcertificate" /&gt; &lt;!-- SSGPAY --&gt;
+  &lt;package android:name="com.inicis.kpay" /&gt; &lt;!-- KPAY --&gt;
+  &lt;package android:name="com.tmoney.tmpay" /&gt; &lt;!-- 티머니페이 --&gt;
+  &lt;package android:name="viva.republica.toss" /&gt; &lt;!-- 토스페이 --&gt;
+  &lt;package android:name="com.samsung.android.spay" /&gt; &lt;!-- 삼성페이 --&gt;
+  &lt;package android:name="com.kakao.talk" /&gt; &lt;!-- 카카오페이 --&gt;
+  &lt;package android:name="com.nhn.android.search" /&gt; &lt;!-- 네이버 --&gt;
+  &lt;package android:name="com.mysmilepay.app" /&gt; &lt;!-- 스마일페이 --&gt;
+  &lt;!-- CARD --&gt;
+  &lt;package android:name="kvp.jjy.MispAndroid320" /&gt; &lt;!-- ISP페이북 --&gt;
+  &lt;package android:name="com.kbcard.cxh.appcard" /&gt; &lt;!-- KBPay --&gt;
+  &lt;package android:name="com.kbstar.reboot" /&gt; &lt;!-- liiv --&gt;
+  &lt;package android:name="com.kbstar.kbbank" /&gt; &lt;!-- liiv --&gt;
+  &lt;package android:name="com.samsung.android.spaylite" /&gt; &lt;!-- 삼성페이니 --&gt;
+  &lt;package android:name="com.nhnent.payapp" /&gt; &lt;!-- 페이코 --&gt;
+  &lt;package android:name="com.lge.lgpay" /&gt; &lt;!-- 엘지페이 --&gt;
+  &lt;package android:name="com.hanaskcard.paycla" /&gt; &lt;!-- 하나 --&gt;
+  &lt;package android:name="kr.co.hanamembers.hmscustomer" /&gt; &lt;!-- 하나멤버스 --&gt;
+  &lt;package android:name="com.hanaskcard.rocomo.potal" /&gt; &lt;!-- 하나공인인증 --&gt;
+  &lt;package android:name="kr.co.citibank.citimobile" /&gt; &lt;!-- 씨티모바일 --&gt;
+  &lt;package android:name="com.lcacApp" /&gt; &lt;!-- 롯데 --&gt;
+  &lt;package android:name="kr.co.samsungcard.mpocket" /&gt; &lt;!-- 삼성 --&gt;
+  &lt;package android:name="com.shcard.smartpay" /&gt; &lt;!-- 신한 --&gt;
+  &lt;package android:name="com.shinhancard.smartshinhan" /&gt; &lt;!-- 신한(ARS/일반/smart) --&gt;
+  &lt;package android:name="com.shinhan.smartcaremgr" /&gt; &lt;!-- 신한 SOL --&gt;
+  &lt;package android:name="com.hyundaicard.appcard" /&gt; &lt;!-- 현대 --&gt;
+  &lt;package android:name="nh.smart.nhallonepay" /&gt; &lt;!-- 농협 --&gt;
+  &lt;package android:name="nh.smart.card" /&gt; &lt;!-- 농협 --&gt;
+  &lt;package android:name="net.ib.android.smcard" /&gt; &lt;!-- 삼성 모니모 --&gt;
+  &lt;package android:name="kr.co.citibank.citimobile" /&gt; &lt;!-- 씨티 --&gt;
+  &lt;package android:name="com.wooricard.smartapp" /&gt; &lt;!-- 우리WON카드 --&gt;
+  &lt;package android:name="com.wooribank.smart.npib" /&gt; &lt;!-- 우리WON뱅킹 --&gt;
+  &lt;!-- SECURITY --&gt;
+  &lt;package android:name="com.TouchEn.mVaccine.webs" /&gt; &lt;!-- TouchEn --&gt;
+  &lt;package android:name="com.ahnlab.v3mobileplus" /&gt; &lt;!-- V3 --&gt;
+  &lt;package android:name="kr.co.shiftworks.vguardweb" /&gt; &lt;!-- vguard --&gt;
+  &lt;!-- CERTIFICATE --&gt;
+  &lt;package android:name="com.hanaskcard.rocomo.potal" /&gt; &lt;!-- 하나 --&gt;
+  &lt;package android:name="com.lumensoft.touchenappfree" /&gt; &lt;!-- 현대 --&gt;
+  &lt;!-- TRANSFER --&gt;
+  &lt;package android:name="com.kftc.bankpay.android" /&gt; &lt;!-- 뱅크페이 --&gt;
+  &lt;package android:name="kr.co.kfcc.mobilebank" /&gt; &lt;!-- MG 새마을금고 --&gt;
+  &lt;package android:name="com.nh.cashcardapp" /&gt; &lt;!-- 뱅크페이 --&gt;
+  &lt;package android:name="com.knb.psb" /&gt; &lt;!-- BNK경남은행 --&gt;
+  &lt;package android:name="com.lguplus.paynow" /&gt; &lt;!-- 페이나우 --&gt;
+  &lt;package android:name="com.kbankwith.smartbank" /&gt; &lt;!-- 케이뱅크 --&gt;
+  &lt;!-- GLOBAL --&gt;
+  &lt;package android:name="com.eg.android.AlipayGphone" /&gt; &lt;!-- 페이나우 --&gt;
+  &lt;!-- ETC --&gt;
+  &lt;package android:name="com.sktelecom.tauth" /&gt; &lt;!-- SKT PASS --&gt;
+  &lt;package android:name="com.lguplus.smartotp" /&gt; &lt;!-- LGU PASS --&gt;
+  &lt;package android:name="com.kt.ktauth" /&gt; &lt;!-- KT PASS --&gt;
+  &lt;package android:name="kr.danal.app.damoum" /&gt; &lt;!-- 다날 다모음 --&gt;
+  &lt;package android:name="com.shinhan.sbanking" /&gt; &lt;!-- 신한 SOL뱅크 --&gt;
 &lt;/queries&gt;
 </code></pre>
+          </details>
           <h4 id="ios-infoplist">iOS (<code>Info.plist</code>):</h4>
-          <p>Add required URL schemes for payments and deep linking:</p>
+          <p>Declare URL schemes for deep linking and payment apps:</p>
           <pre
             class="language-xml"
           ><code class="language-xml">&lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
@@ -292,8 +333,8 @@
           </p>
           <h2 id="-usage-example">🔧 Usage Example</h2>
           <p>
-            Here’s a concise example demonstrating how to implement the payment
-            flow:
+            Here’s how to create a <code>PaymentRequest</code> with a specific
+            PG company and pay method:
           </p>
           <pre
             class="language-dart"
@@ -310,12 +351,13 @@ class PaymentScreen extends StatelessWidget {
     final paymentRequest = PaymentRequest(
       storeId: 'store-00000000-0000-0000-0000-000000000000',
       paymentId: paymentId,
-      orderName: 'Product Name',
-      totalAmount: 10000,
+      orderName: 'Flutter Course',
+      totalAmount: 15000,
       currency: PaymentCurrency.KRW,
       channelKey: 'channel-key-00000000-0000-0000-0000-000000000000',
       payMethod: PaymentPayMethod.card,
       appScheme: 'yourappscheme',  // Your app's URL scheme
+      pg: PGCompany.niceV2, // specify PG company (Optional)
     );
 
     return Scaffold(
@@ -379,26 +421,69 @@ if (result != null) {
               experience.
             </li>
           </ul>
-          <h2 id="-supported-payment-methods">🧩 Supported Payment Methods</h2>
+          <h2 id="-supported-payment-methods-per-pg-company">
+            🧩 Supported Payment Methods per PG Company
+          </h2>
           <p>
-            The package supports multiple payment methods via PortOne's V2 SDK:
+            If you try an unsupported combination, e.g.,
+            <code>PGCompany.niceV2</code> with
+            <code>PaymentPayMethod.convenienceStore</code>, the constructor will
+            throw an <code>ArgumentError</code>:
           </p>
-          <ul>
-            <li>✅ Credit/Debit Cards</li>
-            <li>✅ Virtual Account Transfers</li>
-            <li>
-              ✅ Mobile Payment Platforms (e.g., Samsung Pay, KakaoPay, Toss,
-              etc.)
-            </li>
-          </ul>
+          <pre
+            class="language-dart"
+          ><code class="language-dart">test('throws ArgumentError when pg does not support given payMethod', () {
+  expect(
+    () =&gt; PaymentRequest(
+      storeId: 'store-00000000-0000-0000-0000-000000000000',
+      paymentId: 'payment-unsupported',
+      orderName: 'Unsupported Method',
+      totalAmount: 500,
+      currency: PaymentCurrency.KRW,
+      payMethod: PaymentPayMethod.convenienceStore, // niceV2 에는 없음
+      appScheme: 'portoneTest',
+      pg: PGCompany.niceV2, // niceV2 의 methods 에 convenienceStore 가 없음
+    ),
+    throwsA(
+      isA&lt;ArgumentError&gt;()
+          .having(
+            (e) =&gt; e.name,
+            'error name',
+            'payMethod',
+          )
+          .having(
+            (e) =&gt; e.message,
+            'error message',
+            contains('지원되지 않는 결제수단입니다'),
+          ),
+    ),
+  );
+});
+</code></pre>
           <p>
-            Check <code>PaymentPayMethod</code> enum in the package for detailed
-            options.
+            See
+            <a href="./lib/src/helpers/supported_methods.dart"
+              ><code>PaymentSupportedMethods</code></a
+            >
+            extension for details. Example for `niceV2
           </p>
-          <h2 id="-example-app">📂 Example App</h2>
+          <pre class="language-dart"><code class="language-dart">...
+  List&lt;PaymentPayMethod&gt; get methods {
+    return switch (this) {
+      // https://developers.portone.io/opi/ko/integration/pg/v2/nice-v2?v=v2
+      PGCompany.niceV2 =&gt; &lt;PaymentPayMethod&gt;[
+          PaymentPayMethod.card,
+          PaymentPayMethod.transfer,
+          PaymentPayMethod.virtualAccount,
+          PaymentPayMethod.mobile,
+          PaymentPayMethod.easyPay,
+          PaymentPayMethod.giftCertificate,
+        ],
+...
+</code></pre>
           <p>
-            Check the <code>/example</code> directory for a fully-functional
-            integration demo with detailed implementation steps.
+            Use this list to verify supported methods before creating a request,
+            or rely on built-in validation.
           </p>
           <h2 id="-contributing">🤝 Contributing</h2>
           <p>
@@ -483,7 +568,7 @@ open coverage/index.html
       ></div>
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.0.3 </span>
+      <span class="no-break"> portone_flutter_v2 1.0.4 </span>
     </footer>
 
     <script src="static-assets/highlight.pack.js?v1"></script>
