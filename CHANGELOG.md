@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.5] - 2025-04-26
+
+- Added `portone_flutter_v2.podspec` for CocoaPods integration.
+- Created `PrivacyInfo.xcprivacy` to declare the app's privacy practices.
+- Added `ios/Runner.xcodeproj/project.pbxproj` to unmanaged files in `.metadata` to prevent template overwrites.
+
 ## [1.0.4] - 2025-04-26
 
 ### Added
@@ -84,6 +90,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Modified field type in PaymentRequest model (changed `isEscrow` to nullable)
 - Changed `paypal` to `convenienceStore` in the `PaymentPayMethod` enumeration
 
+[1.0.5]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.4...1.0.5
 [1.0.4]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.3...1.0.4
 [1.0.3]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.2...1.0.3
 [1.0.2]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.1...1.0.2
