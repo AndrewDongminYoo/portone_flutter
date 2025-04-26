@@ -1,10 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 output=$(dart run import_sorter:main -e)
 
-# 정렬된 파일 수를 파싱합니다.
-sorted=$(echo "${output}" | grep -Eo "Sorted [0-9]+ files" | grep -Eo "[0-9]+")
-if [[ ${sorted} -gt 0 ]]; then
+# 출력에서 숫자만 추출하고, 0보다 크면 exit 1
+if [[ ${output} =~ Sorted\ ([0-9]+)\ files ]] && ((BASH_REMATCH[1] > 0)); then
 	exit 1
 else
 	exit 0
