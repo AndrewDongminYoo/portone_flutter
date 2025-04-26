@@ -226,10 +226,10 @@ class PortonePaymentState extends State<PortonePayment> {
                   controller = created;
                   controller!.addJavaScriptHandler(
                     handlerName: handlerName,
-                    callback: (List<dynamic> data) async {
+                    callback: (List<dynamic> arguments) async {
                       try {
-                        widget.logger('PortOne SDK ERROR: $data');
-                        final portoneError = data.first;
+                        widget.logger('PortOne SDK ERROR: $arguments');
+                        final portoneError = arguments.first;
                         widget.logger('PortOne SDK Error type: ${portoneError.runtimeType}');
                         widget.onError(portoneError as Object?);
                       } catch (error, stackTrace) {
