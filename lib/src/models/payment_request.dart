@@ -3,6 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 // 🌎 Project imports:
 import 'package:portone_flutter_v2/src/enums/enums.dart';
+import 'package:portone_flutter_v2/src/helpers/helpers.dart';
 import 'package:portone_flutter_v2/src/models/models.dart';
 
 part 'payment_request.g.dart';
@@ -44,7 +45,17 @@ class PaymentRequest {
     this.shippingAddress,
     this.promotionId,
     this.popup,
-  });
+  }) {
+    // PG사가 지정되어 있으면, 해당 PG가 이 payMethod를 지원하는지 확인
+    if (pg != null && !pg!.methods.contains(payMethod)) {
+      throw ArgumentError.value(
+        payMethod,
+        'payMethod',
+        'PG사 "$pg"에서 지원되지 않는 결제수단입니다. '
+            '지원 목록: ${pg!.methods.join(", ")}',
+      );
+    }
+  }
 
   /// JSON에서 [PaymentRequest] 객체로 변환하는 팩토리 메서드
   factory PaymentRequest.fromJson(Map<String, dynamic> json) => _$PaymentRequestFromJson(json);
@@ -52,7 +63,7 @@ class PaymentRequest {
   /// PG사 구분 코드
   ///
   /// PG사별 결제 처리 방식이 다르기 때문에 필요합니다.
-  @JsonKey(name: 'pg', includeToJson: false)
+  @JsonKey(includeToJson: false)
   final PGCompany? pg;
 
   /// 상점 아이디

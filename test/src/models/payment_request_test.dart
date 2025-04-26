@@ -161,5 +161,50 @@ void main() {
       final regex = RegExp(r'^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$');
       expect(regex.hasMatch(paymentRequest.expiredTime!), isTrue);
     });
+
+    test('throws ArgumentError when pg does not support given payMethod', () {
+      expect(
+        () => PaymentRequest(
+          storeId: 'store-00000000-0000-0000-0000-000000000000',
+          paymentId: 'payment-unsupported',
+          orderName: 'Unsupported Method',
+          totalAmount: 500,
+          currency: PaymentCurrency.KRW,
+          payMethod: PaymentPayMethod.convenienceStore, // niceV2 에는 없음
+          appScheme: 'portoneTest',
+          pg: PGCompany.niceV2, // niceV2 의 methods 에 convenienceStore 가 없음
+        ),
+        throwsA(
+          isA<ArgumentError>()
+              .having(
+                (e) => e.name,
+                'error name',
+                'payMethod',
+              )
+              .having(
+                (e) => e.message,
+                'error message',
+                contains('지원되지 않는 결제수단입니다'),
+              ),
+        ),
+      );
+    });
+
+    test('creates PaymentRequest when pg supports given payMethod', () {
+      // niceV2 는 card 를 지원
+      expect(
+        () => PaymentRequest(
+          storeId: 'store-00000000-0000-0000-0000-000000000000',
+          paymentId: 'payment-supported',
+          orderName: 'Supported Method',
+          totalAmount: 500,
+          currency: PaymentCurrency.KRW,
+          payMethod: PaymentPayMethod.card,
+          appScheme: 'portoneTest',
+          pg: PGCompany.niceV2,
+        ),
+        returnsNormally,
+      );
+    });
   });
 }
