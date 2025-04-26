@@ -34,7 +34,7 @@ Add the dependency to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  portone_flutter_v2: ^1.0.2
+  portone_flutter_v2: ^1.0.3
 ```
 
 Or via command line:
