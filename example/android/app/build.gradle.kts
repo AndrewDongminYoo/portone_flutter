@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.portone_v2_example"
+    namespace = "cami.kr.portone_flutter_v2_example"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = "27.0.12077973"
 
@@ -20,7 +20,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.portone_v2_example"
+        applicationId = "cami.kr.portone_flutter_v2_example"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
