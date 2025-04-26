@@ -9,19 +9,19 @@ A robust Flutter package enabling seamless integration of the PortOne V2 payment
 
 ## 📦 Key Features
 
-- **Integrated Payment Flow:**  
+- **Integrated Payment Flow:**
   Simplified embedding of PortOne's payment gateway via a customizable WebView interface.
 
-- **Flexible Payment Methods:**  
+- **Flexible Payment Methods:**
   Supports all major payment methods provided by PortOne (credit/debit cards, virtual accounts, mobile payments, etc.).
 
-- **Deep-Link Handling:**  
+- **Deep-Link Handling:**
   Automatic deep-link handling for payment completion callbacks using custom app schemes.
 
-- **Customizable UI:**  
+- **Customizable UI:**
   Easily configure your loading state UI and customize the payment experience.
 
-- **Comprehensive Error Management:**  
+- **Comprehensive Error Management:**
   Provides clear error handling through callbacks for debugging and user feedback.
 
 ## 🚀 Getting Started
@@ -34,7 +34,7 @@ Add the dependency to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  portone_flutter_v2: ^1.0.1
+  portone_flutter_v2: ^1.0.2
 ```
 
 Or via command line:

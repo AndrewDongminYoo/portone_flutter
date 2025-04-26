@@ -79,34 +79,59 @@
                 src="https://img.shields.io/badge/license-MIT-blue.svg"
                 alt="License: MIT"
             /></a>
-            <a href="https://github.com/felangel/mason"
-              ><img
-                src="https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge"
-                alt="Powered by Mason"
-            /></a>
           </p>
           <p>
-            A Flutter package for integrating PortOne V2 payment service in your
-            app.
+            A robust Flutter package enabling seamless integration of the
+            PortOne V2 payment gateway into Flutter applications. Designed for
+            simplicity and flexibility, it leverages PortOne's browser SDK,
+            providing an intuitive payment workflow directly within your app
+            using Flutter's InAppWebView.
           </p>
           <blockquote>
             <p>
-              <strong>Important Note:</strong> This is an independent
-              open-source project and is not officially affiliated with PortOne.
-              This package is maintained by the community for the community.
+              <strong>Important Note:</strong> This is a community-maintained
+              package and is not officially affiliated with PortOne.
             </p>
           </blockquote>
-          <h2 id="features">Features</h2>
+          <h2 id="-key-features">📦 Key Features</h2>
           <ul>
-            <li>Easy integration with PortOne V2 payment gateway</li>
             <li>
-              Support for various payment methods via PortOne's browser SDK
+              <p>
+                <strong>Integrated Payment Flow:</strong> Simplified embedding
+                of PortOne's payment gateway via a customizable WebView
+                interface.
+              </p>
             </li>
-            <li>AppScheme handling for payment callbacks</li>
-            <li>Customizable UI with support for initial loading widget</li>
-            <li>Comprehensive error handling</li>
+            <li>
+              <p>
+                <strong>Flexible Payment Methods:</strong> Supports all major
+                payment methods provided by PortOne (credit/debit cards, virtual
+                accounts, mobile payments, etc.).
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Deep-Link Handling:</strong> Automatic deep-link
+                handling for payment completion callbacks using custom app
+                schemes.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Customizable UI:</strong> Easily configure your loading
+                state UI and customize the payment experience.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Comprehensive Error Management:</strong> Provides clear
+                error handling through callbacks for debugging and user
+                feedback.
+              </p>
+            </li>
           </ul>
-          <h2 id="installation-">Installation 💻</h2>
+          <h2 id="-getting-started">🚀 Getting Started</h2>
+          <h3 id="installation-">Installation 💻</h3>
           <p>
             <strong
               >❗ Requirements:
@@ -116,55 +141,196 @@
               installed on your machine.</strong
             >
           </p>
-          <p>Add to your <code>pubspec.yaml</code>:</p>
+          <p>Add the dependency to your <code>pubspec.yaml</code>:</p>
           <pre class="language-yaml"><code class="language-yaml">dependencies:
-  portone_flutter_v2: ^1.0.0
+  portone_flutter_v2: ^1.0.2
 </code></pre>
-          <p>Or install via command line:</p>
+          <p>Or via command line:</p>
           <pre
-            class="language-sh"
-          ><code class="language-sh">flutter pub add portone_flutter_v2
+            class="language-bash"
+          ><code class="language-bash">flutter pub add portone_flutter_v2
 </code></pre>
-          <h2 id="usage">Usage</h2>
-          <h3 id="basic-implementation">Basic Implementation</h3>
+          <h3 id="platform-configuration">Platform Configuration</h3>
+          <h4 id="android-androidmanifestxml">
+            Android (<code>AndroidManifest.xml</code>):
+          </h4>
+          <p>
+            Ensure your app requests internet permission and declares package
+            visibility for payment-related apps:
+          </p>
+          <pre
+            class="language-xml"
+          ><code class="language-xml">&lt;uses-permission android:name="android.permission.INTERNET" /&gt;
+
+&lt;queries&gt;
+  &lt;!-- Include other required payment apps --&gt;
+  &lt;package android:name="com.ahnlab.v3mobileplus" /&gt;
+  &lt;package android:name="com.eg.android.AlipayGphone" /&gt;
+  &lt;package android:name="com.hanaskcard.paycla" /&gt;
+  &lt;package android:name="com.hyundaicard.appcard" /&gt;
+  &lt;package android:name="com.kakao.talk" /&gt;
+  &lt;package android:name="com.kakaobank.channel" /&gt;
+  &lt;package android:name="com.kbcard.cxh.appcard" /&gt;
+  &lt;package android:name="com.kbstar.kbbank" /&gt;
+  &lt;package android:name="com.kbstar.reboot" /&gt;
+  &lt;package android:name="com.kftc.bankpay.android" /&gt;
+  &lt;package android:name="com.kt.ktauth" /&gt;
+  &lt;package android:name="com.lcacApp" /&gt;
+  &lt;package android:name="com.lguplus.smartotp" /&gt;
+  &lt;package android:name="com.lottemembers.android" /&gt;
+  &lt;package android:name="com.nhn.android.search" /&gt;
+  &lt;package android:name="com.nhnent.payapp" /&gt;
+  &lt;package android:name="com.samsung.android.spay" /&gt;
+  &lt;package android:name="com.shcard.smartpay" /&gt;
+  &lt;package android:name="com.shinhan.sbanking" /&gt;
+  &lt;package android:name="com.shinhan.smartcaremgr" /&gt;
+  &lt;package android:name="com.sktelecom.tauth" /&gt;
+  &lt;package android:name="com.tencent.mm" /&gt;
+  &lt;package android:name="com.wooribank.smart.npib" /&gt;
+  &lt;package android:name="com.wooricard.smartapp" /&gt;
+  &lt;package android:name="jp.naver.line.android" /&gt;
+  &lt;package android:name="kr.co.citibank.citimobile" /&gt;
+  &lt;package android:name="kr.co.samsungcard.mpocket" /&gt;
+  &lt;package android:name="kr.co.shiftworks.vguardweb" /&gt;
+  &lt;package android:name="kvp.jjy.MispAndroid320" /&gt;
+  &lt;package android:name="net.ib.android.smcard" /&gt;
+  &lt;package android:name="nh.smart.card" /&gt;
+  &lt;package android:name="nh.smart.nhallonepay" /&gt;
+  &lt;package android:name="viva.republica.toss" /&gt;
+&lt;/queries&gt;
+</code></pre>
+          <h4 id="ios-infoplist">iOS (<code>Info.plist</code>):</h4>
+          <p>Add required URL schemes for payments and deep linking:</p>
+          <pre
+            class="language-xml"
+          ><code class="language-xml">&lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
+&lt;array&gt;
+  &lt;!-- Include payment-related schemes you need --&gt;
+  &lt;string&gt;alipays&lt;/string&gt;
+  &lt;string&gt;ansimclickipcollect&lt;/string&gt;
+  &lt;string&gt;ansimclickscard&lt;/string&gt;
+  &lt;string&gt;chaipayment&lt;/string&gt;
+  &lt;string&gt;citicardappkr&lt;/string&gt;
+  &lt;string&gt;citimobileapp&lt;/string&gt;
+  &lt;string&gt;citispay&lt;/string&gt;
+  &lt;string&gt;cloudpay&lt;/string&gt;
+  &lt;string&gt;com.wooricard.wcard&lt;/string&gt;
+  &lt;string&gt;hanamopmoasign&lt;/string&gt;
+  &lt;string&gt;hanawalletmembers&lt;/string&gt;
+  &lt;string&gt;hdcardappcardansimclick&lt;/string&gt;
+  &lt;string&gt;hyundaicardappcardid&lt;/string&gt;
+  &lt;string&gt;ispmobile&lt;/string&gt;
+  &lt;string&gt;itms-apps&lt;/string&gt;
+  &lt;string&gt;kakaobank&lt;/string&gt;
+  &lt;string&gt;kakaokompassauth&lt;/string&gt;
+  &lt;string&gt;kakaolink&lt;/string&gt;
+  &lt;string&gt;kakaoplus&lt;/string&gt;
+  &lt;string&gt;kakaotalk&lt;/string&gt;
+  &lt;string&gt;kb-acp&lt;/string&gt;
+  &lt;string&gt;kb-auth&lt;/string&gt;
+  &lt;string&gt;kb-screen&lt;/string&gt;
+  &lt;string&gt;kbbank&lt;/string&gt;
+  &lt;string&gt;kftc-bankpay&lt;/string&gt;
+  &lt;string&gt;ktauthexternalcall&lt;/string&gt;
+  &lt;string&gt;lguthepay-xpay&lt;/string&gt;
+  &lt;string&gt;liivbank&lt;/string&gt;
+  &lt;string&gt;line&lt;/string&gt;
+  &lt;string&gt;lmslpay&lt;/string&gt;
+  &lt;string&gt;lotteappcard&lt;/string&gt;
+  &lt;string&gt;lottesmartpay&lt;/string&gt;
+  &lt;string&gt;lpayapp&lt;/string&gt;
+  &lt;string&gt;mailto&lt;/string&gt;
+  &lt;string&gt;monimopay&lt;/string&gt;
+  &lt;string&gt;monimopayauth&lt;/string&gt;
+  &lt;string&gt;mpocket.online.ansimclick&lt;/string&gt;
+  &lt;string&gt;naversearchthirdlogin&lt;/string&gt;
+  &lt;string&gt;newliiv&lt;/string&gt;
+  &lt;string&gt;newsmartpib&lt;/string&gt;
+  &lt;string&gt;NewSmartPib&lt;/string&gt;
+  &lt;string&gt;nhallonepayansimclick&lt;/string&gt;
+  &lt;string&gt;nhappcardansimclick&lt;/string&gt;
+  &lt;string&gt;nonghyupcardansimclick&lt;/string&gt;
+  &lt;string&gt;payco&lt;/string&gt;
+  &lt;string&gt;samsungpay&lt;/string&gt;
+  &lt;string&gt;scardcertiapp&lt;/string&gt;
+  &lt;string&gt;shinhan-sr-ansimclick-lpay&lt;/string&gt;
+  &lt;string&gt;shinhan-sr-ansimclick-mola&lt;/string&gt;
+  &lt;string&gt;shinhan-sr-ansimclick-naverpay&lt;/string&gt;
+  &lt;string&gt;shinhan-sr-ansimclick-payco&lt;/string&gt;
+  &lt;string&gt;shinhan-sr-ansimclick&lt;/string&gt;
+  &lt;string&gt;shinsegaeeasypayment&lt;/string&gt;
+  &lt;string&gt;smailapp&lt;/string&gt;
+  &lt;string&gt;smhyundaiansimclick&lt;/string&gt;
+  &lt;string&gt;sms&lt;/string&gt;
+  &lt;string&gt;smshinhanansimclick&lt;/string&gt;
+  &lt;string&gt;supertoss&lt;/string&gt;
+  &lt;string&gt;tauthlink&lt;/string&gt;
+  &lt;string&gt;ukbanksmartbanknonloginpay&lt;/string&gt;
+  &lt;string&gt;upluscorporation&lt;/string&gt;
+  &lt;string&gt;v3mobileplusweb&lt;/string&gt;
+  &lt;string&gt;vguardstart&lt;/string&gt;
+  &lt;string&gt;weixin&lt;/string&gt;
+  &lt;string&gt;wooripay&lt;/string&gt;
+&lt;/array&gt;
+
+&lt;key&gt;CFBundleURLTypes&lt;/key&gt;
+&lt;array&gt;
+  &lt;dict&gt;
+    &lt;key&gt;CFBundleTypeRole&lt;/key&gt;
+    &lt;string&gt;Editor&lt;/string&gt;
+    &lt;key&gt;CFBundleURLSchemes&lt;/key&gt;
+    &lt;array&gt;
+      &lt;!-- PaymentRequest.appScheme --&gt;
+      &lt;string&gt;yourappscheme&lt;/string&gt;
+    &lt;/array&gt;
+  &lt;/dict&gt;
+&lt;/array&gt;
+</code></pre>
+          <p>
+            Replace <code>yourappscheme</code> with your application's custom
+            scheme used for deep-linking.
+          </p>
+          <h2 id="-usage-example">🔧 Usage Example</h2>
+          <p>
+            Here’s a concise example demonstrating how to implement the payment
+            flow:
+          </p>
           <pre
             class="language-dart"
           ><code class="language-dart">import 'package:flutter/material.dart';
+
 import 'package:portone_flutter_v2/portone_flutter_v2.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
 class PaymentScreen extends StatelessWidget {
-  const PaymentScreen({super.key});
+  const PaymentScreen({super.key, required this.paymentId});
+  final String paymentId;
 
   @override
   Widget build(BuildContext context) {
-    // Create payment request
     final paymentRequest = PaymentRequest(
-      storeId: 'your_store_id',  // PortOne store ID
-      paymentId: 'order_12345',  // Your unique order ID
-      orderName: 'Premium Subscription',
+      storeId: 'store-00000000-0000-0000-0000-000000000000',
+      paymentId: paymentId,
+      orderName: 'Product Name',
       totalAmount: 10000,
-      currency: PaymentCurrency.krw,
+      currency: PaymentCurrency.KRW,
+      channelKey: 'channel-key-00000000-0000-0000-0000-000000000000',
       payMethod: PaymentPayMethod.card,
       appScheme: 'yourappscheme',  // Your app's URL scheme
     );
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Payment')),
+      appBar: AppBar(title: const Text('Make a Payment')),
       body: PortonePayment(
         data: paymentRequest,
         initialChild: const Center(child: CircularProgressIndicator()),
-        callback: (result) {
+        callback: (PaymentResponse result) {
           // Handle successful payment
-          print('Payment successful: ${result.toJson()}');
+          debugPrint('Payment Success: ${result.toJson()}');
           Navigator.pop(context, result);
         },
-        onError: (error) {
+        onError: (Object? error) {
           // Handle payment error
-          print('Payment error: $error');
+          debugPrint('Payment Error: $error');
           Navigator.pop(context, null);
         },
       ),
@@ -173,7 +339,7 @@ class PaymentScreen extends StatelessWidget {
 }
 
 </code></pre>
-          <h3 id="handling-payment-response">Handling Payment Response</h3>
+          <h3 id="handling-the-payment-result">Handling the Payment Result:</h3>
           <pre
             class="language-dart"
           ><code class="language-dart">// Navigate to payment screen and wait for result
@@ -183,64 +349,89 @@ final result = await Navigator.push(
 );
 
 if (result != null) {
-  // Payment was successful
+  // Payment succeeded
   final response = result as PaymentResponse;
-  // Process successful payment
+  debugPrint('Transaction successful: ${response.paymentId}');
 } else {
   // Payment failed or was cancelled
+  debugPrint('Payment was cancelled or encountered an error.');
 }
 
 </code></pre>
-          <h2 id="supported-payment-methods">Supported Payment Methods</h2>
+          <h2 id="-package-internal-logic">🔍 Package Internal Logic</h2>
+          <p>Internally, this package:</p>
+          <ul>
+            <li>
+              Uses <code>flutter_inappwebview</code> to embed PortOne's browser
+              SDK securely.
+            </li>
+            <li>
+              Dynamically constructs and loads the payment initiation HTML with
+              user-provided payment details.
+            </li>
+            <li>
+              Implements deep-link callbacks using custom URL schemes
+              (<code>appScheme</code>) via <code>app_links</code>.
+            </li>
+            <li>
+              Manages redirects and payment results by intercepting URL
+              navigations and intents, offering a streamlined mobile payment
+              experience.
+            </li>
+          </ul>
+          <h2 id="-supported-payment-methods">🧩 Supported Payment Methods</h2>
           <p>
-            This package supports various payment methods available through
-            PortOne, including:
+            The package supports multiple payment methods via PortOne's V2 SDK:
           </p>
           <ul>
-            <li>Credit/Debit Cards</li>
-            <li>Virtual Accounts</li>
-            <li>Mobile Payments</li>
-            <li>And more depending on your PortOne configuration</li>
+            <li>✅ Credit/Debit Cards</li>
+            <li>✅ Virtual Account Transfers</li>
+            <li>
+              ✅ Mobile Payment Platforms (e.g., Samsung Pay, KakaoPay, Toss,
+              etc.)
+            </li>
           </ul>
           <p>
-            Check the <code>PaymentPayMethod</code> enum for all supported
-            methods.
+            Check <code>PaymentPayMethod</code> enum in the package for detailed
+            options.
           </p>
-          <h2 id="example-project">Example Project</h2>
+          <h2 id="-example-app">📂 Example App</h2>
           <p>
-            See the <code>/example</code> folder for a complete implementation.
+            Check the <code>/example</code> directory for a fully-functional
+            integration demo with detailed implementation steps.
           </p>
-          <h2 id="contributing-">Contributing 🤝</h2>
+          <h2 id="-contributing">🤝 Contributing</h2>
           <p>
-            We welcome contributions from the community! This is an independent
-            open-source project and we're looking for developers interested in
-            making online payments in Flutter apps easier.
+            Your contributions can enhance this open-source project. You can
+            help by:
           </p>
-          <p>Ways to contribute:</p>
           <ul>
-            <li>Report bugs and suggest features</li>
-            <li>Improve documentation</li>
-            <li>Submit pull requests for bug fixes and new features</li>
-            <li>Spread the word and help others use this package</li>
+            <li>Reporting issues or suggesting enhancements.</li>
+            <li>Improving documentation and clarity.</li>
+            <li>
+              Submitting pull requests for bug fixes or additional features.
+            </li>
           </ul>
-          <p>Please read our contributing guidelines before submitting a PR.</p>
-          <h2 id="license">License</h2>
-          <p>
-            This project is licensed under the MIT License - see the
-            <a href="https://opensource.org/licenses/MIT">LICENSE</a> file for
-            details.
-          </p>
-          <hr />
-          <h2 id="running-tests-">Running Tests 🧪</h2>
-          <pre class="language-sh"><code class="language-sh">flutter test
-</code></pre>
-          <p>For code coverage:</p>
+          <p>See the contributing guidelines before opening pull requests.</p>
+          <h2 id="-testing--code-coverage">🧪 Testing &amp; Code Coverage</h2>
+          <p>Execute unit tests:</p>
           <pre
-            class="language-sh"
-          ><code class="language-sh">flutter test --coverage
+            class="language-bash"
+          ><code class="language-bash">flutter test --test-randomize-ordering-seed random
+</code></pre>
+          <p>For detailed coverage reports:</p>
+          <pre
+            class="language-bash"
+          ><code class="language-bash">flutter test --coverage --test-randomize-ordering-seed random
 genhtml coverage/lcov.info -o coverage/
 open coverage/index.html
 </code></pre>
+          <h2 id="-license">📜 License</h2>
+          <p>
+            MIT License - see
+            <a href="https://opensource.org/licenses/MIT">LICENSE</a>.
+          </p>
+          <hr />
         </section>
 
         <section class="summary">
@@ -292,7 +483,7 @@ open coverage/index.html
       ></div>
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.0.1 </span>
+      <span class="no-break"> portone_flutter_v2 1.0.2 </span>
     </footer>
 
     <script src="static-assets/highlight.pack.js?v1"></script>
