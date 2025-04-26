@@ -177,6 +177,16 @@
               </span>
             </li>
             <li>
+              <span class="parameter" id="-param-pg"
+                ><span class="type-annotation"
+                  ><a href="../../portone_flutter_v2/PGCompany.html"
+                    >PGCompany</a
+                  >?</span
+                >
+                <span class="parameter-name">pg</span>,
+              </span>
+            </li>
+            <li>
               <span class="parameter" id="-param-channelKey"
                 ><span class="type-annotation"
                   ><a
@@ -480,6 +490,7 @@
   required this.currency,
   required this.payMethod,
   required this.appScheme,
+  this.pg,
   this.channelKey,
   this.channelGroupId,
   this.taxFreeAmount,
@@ -504,7 +515,17 @@
   this.shippingAddress,
   this.promotionId,
   this.popup,
-});</code></pre>
+}) {
+  &#47;&#47; PG사가 지정되어 있으면, 해당 PG가 이 payMethod를 지원하는지 확인
+  if (pg != null &amp;&amp; !pg!.methods.contains(payMethod)) {
+    throw ArgumentError.value(
+      payMethod,
+      &#39;payMethod&#39;,
+      &#39;PG사 &quot;$pg&quot;에서 지원되지 않는 결제수단입니다. &#39;
+          &#39;지원 목록: ${pg!.methods.join(&quot;, &quot;)}&#39;,
+    );
+  }
+}</code></pre>
         </section>
       </div>
       <!-- /.main-content -->
@@ -544,7 +565,7 @@
       <!--/.sidebar-offcanvas-->
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.0.2 </span>
+      <span class="no-break"> portone_flutter_v2 1.0.3 </span>
     </footer>
 
     <script src="../../static-assets/highlight.pack.js?v1"></script>

@@ -9,11 +9,10 @@
     />
     <meta
       name="description"
-      content="API docs for the customer property from the PaymentRequest class, for the Dart programming language."
+      content="API docs for the pg property from the PaymentRequest class, for the Dart programming language."
     />
     <title>
-      customer property - PaymentRequest class - portone_flutter_v2 library -
-      Dart API
+      pg property - PaymentRequest class - portone_flutter_v2 library - Dart API
     </title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -53,9 +52,9 @@
             >PaymentRequest</a
           >
         </li>
-        <li class="self-crumb">customer property</li>
+        <li class="self-crumb">pg property</li>
       </ol>
-      <div class="self-name">customer</div>
+      <div class="self-name">pg</div>
       <form class="search navbar-right" role="search">
         <input
           type="text"
@@ -86,24 +85,36 @@
         data-below-sidebar=""
       >
         <div>
-          <h1><span class="kind-property">customer</span> property</h1>
+          <h1><span class="kind-property">pg</span> property</h1>
         </div>
 
         <section class="multi-line-signature">
-          <a href="../../portone_flutter_v2/Customer-class.html">Customer</a>?
-          <span class="name">customer</span>
+          <div>
+            <ol class="annotation-list">
+              <li>
+                @<a
+                  href="https://pub.dev/documentation/json_annotation/4.9.0/json_annotation/JsonKey-class.html"
+                  >JsonKey</a
+                >(includeToJson: false)
+              </li>
+            </ol>
+          </div>
+          <a href="../../portone_flutter_v2/PGCompany.html">PGCompany</a>?
+          <span class="name">pg</span>
           <div class="features"><span class="feature">final</span></div>
         </section>
 
         <section class="desc markdown">
-          <p>구매자 정보</p>
+          <p>PG사 구분 코드</p>
+          <p>PG사별 결제 처리 방식이 다르기 때문에 필요합니다.</p>
         </section>
 
         <section class="summary source-code" id="source">
           <h2><span>Implementation</span></h2>
           <pre
             class="language-dart"
-          ><code class="language-dart">final Customer? customer;</code></pre>
+          ><code class="language-dart">@JsonKey(includeToJson: false)
+final PGCompany? pg;</code></pre>
         </section>
       </div>
       <!-- /.main-content -->
@@ -129,7 +140,7 @@
               >PaymentRequest</a
             >
           </li>
-          <li class="self-crumb">customer property</li>
+          <li class="self-crumb">pg property</li>
         </ol>
 
         <h5>PaymentRequest class</h5>

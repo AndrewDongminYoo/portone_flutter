@@ -476,8 +476,10 @@ Widget build(BuildContext context) {
     paymentData[&#39;redirectUrl&#39;] = &#39;$appScheme:&#47;&#47;portone&#39;;
   }
 
-  &#47;&#47; Tosspayments를 통한 TossPay에서만 발생하는 오류 (https:&#47;&#47;docs-pay.toss.im&#47;reference&#47;billing&#47;create#요청-파라미터)
-  paymentData[&#39;retAppScheme&#39;] = &#39;$appScheme:&#47;&#47;portone&#39;;
+  if (widget.data.pg == PGCompany.tosspayments) {
+    &#47;&#47; https:&#47;&#47;docs-pay.toss.im&#47;reference&#47;billing&#47;create#요청-파라미터
+    paymentData[&#39;retAppScheme&#39;] = &#39;$appScheme:&#47;&#47;portone&#39;;
+  }
 
   final html = &#39;&#39;&#39;
 &lt;!doctype html&gt;
@@ -672,7 +674,7 @@ Widget build(BuildContext context) {
       <!--/.sidebar-offcanvas-->
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.0.2 </span>
+      <span class="no-break"> portone_flutter_v2 1.0.3 </span>
     </footer>
 
     <script src="../../static-assets/highlight.pack.js?v1"></script>

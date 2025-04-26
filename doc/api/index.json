@@ -3567,6 +3567,20 @@
     }
   },
   {
+    "name": "pg",
+    "qualifiedName": "portone_flutter_v2.PaymentRequest.pg",
+    "href": "portone_flutter_v2/PaymentRequest/pg.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "PG사 구분 코드",
+    "enclosedBy": {
+      "name": "PaymentRequest",
+      "kind": 3,
+      "href": "portone_flutter_v2/PaymentRequest-class.html"
+    }
+  },
+  {
     "name": "popup",
     "qualifiedName": "portone_flutter_v2.PaymentRequest.popup",
     "href": "portone_flutter_v2/PaymentRequest/popup.html",
