@@ -15,6 +15,7 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // 🌎 Project imports:
+import 'package:portone_flutter_v2/src/enums/pg_company.dart';
 import 'package:portone_flutter_v2/src/models/payment_request.dart';
 import 'package:portone_flutter_v2/src/models/payment_response.dart';
 
@@ -170,8 +171,10 @@ class PortonePaymentState extends State<PortonePayment> {
       paymentData['redirectUrl'] = '$appScheme://portone';
     }
 
-    // Tosspayments를 통한 TossPay에서만 발생하는 오류 (https://docs-pay.toss.im/reference/billing/create#요청-파라미터)
-    paymentData['retAppScheme'] = '$appScheme://portone';
+    if (widget.data.pg == PGCompany.tosspayments) {
+      // https://docs-pay.toss.im/reference/billing/create#요청-파라미터
+      paymentData['retAppScheme'] = '$appScheme://portone';
+    }
 
     final html = '''
 <!doctype html>

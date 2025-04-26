@@ -19,6 +19,7 @@ class PaymentRequest {
     required this.currency,
     required this.payMethod,
     required this.appScheme,
+    this.pg,
     this.channelKey,
     this.channelGroupId,
     this.taxFreeAmount,
@@ -47,6 +48,12 @@ class PaymentRequest {
 
   /// JSON에서 [PaymentRequest] 객체로 변환하는 팩토리 메서드
   factory PaymentRequest.fromJson(Map<String, dynamic> json) => _$PaymentRequestFromJson(json);
+
+  /// PG사 구분 코드
+  ///
+  /// PG사별 결제 처리 방식이 다르기 때문에 필요합니다.
+  @JsonKey(name: 'pg', includeToJson: false)
+  final PGCompany? pg;
 
   /// 상점 아이디
   ///

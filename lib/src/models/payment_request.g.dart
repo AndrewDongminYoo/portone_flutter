@@ -18,6 +18,7 @@ PaymentRequest _$PaymentRequestFromJson(Map<String, dynamic> json) => $checkedCr
           currency: $checkedConvert('currency', (v) => $enumDecode(_$PaymentCurrencyEnumMap, v)),
           payMethod: $checkedConvert('payMethod', (v) => $enumDecode(_$PaymentPayMethodEnumMap, v)),
           appScheme: $checkedConvert('appScheme', (v) => v! as String),
+          pg: $checkedConvert('pg', (v) => $enumDecodeNullable(_$PGCompanyEnumMap, v)),
           channelKey: $checkedConvert('channelKey', (v) => v as String?),
           channelGroupId: $checkedConvert('channelGroupId', (v) => v as String?),
           taxFreeAmount: $checkedConvert('taxFreeAmount', (v) => (v as num?)?.toInt()),
@@ -289,6 +290,25 @@ const _$PaymentPayMethodEnumMap = {
   PaymentPayMethod.giftCertificate: 'GIFT_CERTIFICATE',
   PaymentPayMethod.easyPay: 'EASY_PAY',
   PaymentPayMethod.convenienceStore: 'CONVENIENCE_STORE',
+};
+
+const _$PGCompanyEnumMap = {
+  PGCompany.eximbayV2: 'eximbay_v2',
+  PGCompany.hyphen: 'hyphen',
+  PGCompany.inicisJp: 'inicis_jp',
+  PGCompany.inicisV2: 'inicis_v2',
+  PGCompany.kakaopay: 'kakaopay_payment',
+  PGCompany.kcpV2: 'kcp_v2',
+  PGCompany.kpn: 'kpn',
+  PGCompany.ksnet: 'ksnet_payment',
+  PGCompany.naverpay: 'naverpay_payment',
+  PGCompany.niceV2: 'nice_v2_payment',
+  PGCompany.payletterGlobal: 'payletter_global',
+  PGCompany.smartroV2: 'smartro_v2_payment',
+  PGCompany.tossBrandpay: 'toss_brandpay_payment',
+  PGCompany.tosspayV2: 'tosspay_v2_payment',
+  PGCompany.tosspayments: 'tosspayments_payment',
+  PGCompany.welcome: 'welcome_payment',
 };
 
 const _$PaymentLocaleEnumMap = {
