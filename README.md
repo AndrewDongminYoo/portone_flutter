@@ -12,8 +12,11 @@ A robust Flutter package enabling seamless integration of the PortOne V2 payment
 - **Integrated Payment Flow:**
   Simplified embedding of PortOne's payment gateway via a customizable WebView interface.
 
-- **Flexible Payment Methods:**
-  Supports all major payment methods provided by PortOne (credit/debit cards, virtual accounts, mobile payments, etc.).
+- **Flexible Payment Gateway Selection:**
+  Choose your payment gateway (`PGCompany`) when constructing the `PaymentRequest` to tailor behavior and supported methods.
+
+- **PayMethod Validation:**
+  Ensures that the selected `payMethod` is supported by the chosen `PGCompany`, throwing a clear error if not.
 
 - **Deep-Link Handling:**
   Automatic deep-link handling for payment completion callbacks using custom app schemes.
@@ -92,7 +95,7 @@ Ensure your app requests internet permission and declares package visibility for
 
 #### iOS (`Info.plist`):
 
-Add required URL schemes for payments and deep linking:
+Declare URL schemes for deep linking and payment apps:
 
 ```xml
 <key>LSApplicationQueriesSchemes</key>
@@ -183,7 +186,7 @@ Replace `yourappscheme` with your application's custom scheme used for deep-link
 
 ## 🔧 Usage Example
 
-Here’s a concise example demonstrating how to implement the payment flow:
+Here’s how to create a `PaymentRequest` with a specific PG company and pay method:
 
 ```dart
 import 'package:flutter/material.dart';
@@ -199,12 +202,13 @@ class PaymentScreen extends StatelessWidget {
     final paymentRequest = PaymentRequest(
       storeId: 'store-00000000-0000-0000-0000-000000000000',
       paymentId: paymentId,
-      orderName: 'Product Name',
-      totalAmount: 10000,
+      orderName: 'Flutter Course',
+      totalAmount: 15000,
       currency: PaymentCurrency.KRW,
       channelKey: 'channel-key-00000000-0000-0000-0000-000000000000',
       payMethod: PaymentPayMethod.card,
       appScheme: 'yourappscheme',  // Your app's URL scheme
+      pg: PGCompany.niceV2, // specify PG company (Optional)
     );
 
     return Scaffold(
@@ -258,19 +262,59 @@ Internally, this package:
 - Implements deep-link callbacks using custom URL schemes (`appScheme`) via `app_links`.
 - Manages redirects and payment results by intercepting URL navigations and intents, offering a streamlined mobile payment experience.
 
-## 🧩 Supported Payment Methods
+## 🧩 Supported Payment Methods per PG Company
 
-The package supports multiple payment methods via PortOne's V2 SDK:
+If you try an unsupported combination, e.g., `PGCompany.niceV2` with `PaymentPayMethod.convenienceStore`, the constructor will throw an `ArgumentError`:
 
-- ✅ Credit/Debit Cards
-- ✅ Virtual Account Transfers
-- ✅ Mobile Payment Platforms (e.g., Samsung Pay, KakaoPay, Toss, etc.)
+```dart
+test('throws ArgumentError when pg does not support given payMethod', () {
+  expect(
+    () => PaymentRequest(
+      storeId: 'store-00000000-0000-0000-0000-000000000000',
+      paymentId: 'payment-unsupported',
+      orderName: 'Unsupported Method',
+      totalAmount: 500,
+      currency: PaymentCurrency.KRW,
+      payMethod: PaymentPayMethod.convenienceStore, // niceV2 에는 없음
+      appScheme: 'portoneTest',
+      pg: PGCompany.niceV2, // niceV2 의 methods 에 convenienceStore 가 없음
+    ),
+    throwsA(
+      isA<ArgumentError>()
+          .having(
+            (e) => e.name,
+            'error name',
+            'payMethod',
+          )
+          .having(
+            (e) => e.message,
+            'error message',
+            contains('지원되지 않는 결제수단입니다'),
+          ),
+    ),
+  );
+});
+```
 
-Check `PaymentPayMethod` enum in the package for detailed options.
+See [`PaymentSupportedMethods`](./lib/src/helpers/supported_methods.dart) extension for details. Example for `niceV2
 
-## 📂 Example App
+```dart
+...
+  List<PaymentPayMethod> get methods {
+    return switch (this) {
+      // https://developers.portone.io/opi/ko/integration/pg/v2/nice-v2?v=v2
+      PGCompany.niceV2 => <PaymentPayMethod>[
+          PaymentPayMethod.card,
+          PaymentPayMethod.transfer,
+          PaymentPayMethod.virtualAccount,
+          PaymentPayMethod.mobile,
+          PaymentPayMethod.easyPay,
+          PaymentPayMethod.giftCertificate,
+        ],
+...
+```
 
-Check the `/example` directory for a fully-functional integration demo with detailed implementation steps.
+Use this list to verify supported methods before creating a request, or rely on built-in validation.
 
 ## 🤝 Contributing
 
