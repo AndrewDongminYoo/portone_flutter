@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Updated the supported payment methods section in the README to reflect the new PG Company specific support.
+- Enable the Android plugin so that the app has the schema without modifying the manifest separately, and declare the external app schema (including \<queries\> for package visibility) in the plugin manifest.
 
 ## [1.0.3] - 2025-04-26
 
