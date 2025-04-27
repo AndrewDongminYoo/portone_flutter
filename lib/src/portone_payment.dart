@@ -256,11 +256,26 @@ class PortonePaymentState extends State<PortonePayment> {
                 },
                 onReceivedError:
                     (InAppWebViewController controller, WebResourceRequest request, WebResourceError error) {
-                  widget.onError(error);
+                  // 메인 프레임이 아니면 무시
+                  if (request.isForMainFrame ?? false) {
+                    widget.logger('onReceivedError (main frame): $error');
+                    widget.onError(error);
+                  } else {
+                    widget.logger('Ignored subresource error: ${request.url} → $error');
+                  }
                 },
                 onReceivedHttpError:
                     (InAppWebViewController controller, WebResourceRequest request, WebResourceResponse errorResponse) {
-                  widget.onError(errorResponse);
+                  // HTTP 상태 코드 에러도 메인 프레임에서만 처리
+                  if ((request.isForMainFrame ?? false) &&
+                      errorResponse.statusCode != null &&
+                      errorResponse.statusCode! >= 400) {
+                    widget.logger('onReceivedHttpError (main frame ${errorResponse.statusCode}): ${request.url}');
+                    widget.onError(Exception('HTTP ${errorResponse.statusCode}: ${errorResponse.reasonPhrase}'));
+                  } else {
+                    widget.logger('Ignored HTTP error on subresource or non-error status: '
+                        '${request.url} → ${errorResponse.statusCode}');
+                  }
                 },
                 shouldOverrideUrlLoading: (InAppWebViewController controller, NavigationAction navigateAction) async {
                   final url = navigateAction.request.url;
