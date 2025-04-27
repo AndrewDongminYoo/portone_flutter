@@ -1,0 +1,35 @@
+{
+  "$schema": "https://unpkg.com/release-it/schema/release-it.json",
+  "git": {
+    "commitMessage": "chore: 🔖 bump version to v${version}",
+    "tagAnnotation": "Release v${version}",
+    "tagName": "v${version}",
+    "push": true,
+    "commit": true,
+    "tag": true,
+    "requireCommits": false,
+    "requireCleanWorkingDir": false
+  },
+  "github": {
+    "release": true,
+    "draft": false,
+    "skipChecks": true
+  },
+  "npm": {
+    "publish": false,
+    "allowSameVersion": true
+  },
+  "plugins": {
+    "@release-it/bumper": {
+      "out": ["pubspec.yaml", "package.json"]
+    },
+    "@release-it/keep-a-changelog": {
+      "filename": "CHANGELOG.md",
+      "head": "main",
+      "addVersionUrl": true,
+      "versionUrlFormats": {
+        "repositoryUrl": "https://github.com/AndrewDongminYoo/portone_flutter"
+      }
+    }
+  }
+}
