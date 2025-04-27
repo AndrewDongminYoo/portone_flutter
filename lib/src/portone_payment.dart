@@ -15,7 +15,6 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // 🌎 Project imports:
-import 'package:portone_flutter_v2/src/enums/pg_company.dart';
 import 'package:portone_flutter_v2/src/models/payment_request.dart';
 import 'package:portone_flutter_v2/src/models/payment_response.dart';
 
@@ -164,16 +163,12 @@ class PortonePaymentState extends State<PortonePayment> {
   Widget build(BuildContext context) {
     widget.logger(jsonEncode(widget.data.toJson()));
     final appScheme = widget.data.appScheme;
-    final paymentData = widget.data.toJson();
+    final paymentData = Map<String, dynamic>.from(widget.data.toJson());
+    paymentData['appScheme'] = '$appScheme://';
 
     // redirectUrl 이 비어있으면 기본값 설정
     if (paymentData['redirectUrl'] == null) {
       paymentData['redirectUrl'] = '$appScheme://portone';
-    }
-
-    if (widget.data.pg == PGCompany.tosspayments) {
-      // https://docs-pay.toss.im/reference/billing/create#요청-파라미터
-      paymentData['retAppScheme'] = '$appScheme://portone';
     }
 
     final html = '''
