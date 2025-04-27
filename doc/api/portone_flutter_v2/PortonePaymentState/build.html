@@ -469,16 +469,12 @@ class MyButtonState extends State&lt;MyButton&gt; {
 Widget build(BuildContext context) {
   widget.logger(jsonEncode(widget.data.toJson()));
   final appScheme = widget.data.appScheme;
-  final paymentData = widget.data.toJson();
+  final paymentData = Map&lt;String, dynamic&gt;.from(widget.data.toJson());
+  paymentData[&#39;appScheme&#39;] = &#39;$appScheme:&#47;&#47;&#39;;
 
   &#47;&#47; redirectUrl 이 비어있으면 기본값 설정
   if (paymentData[&#39;redirectUrl&#39;] == null) {
     paymentData[&#39;redirectUrl&#39;] = &#39;$appScheme:&#47;&#47;portone&#39;;
-  }
-
-  if (widget.data.pg == PGCompany.tosspayments) {
-    &#47;&#47; https:&#47;&#47;docs-pay.toss.im&#47;reference&#47;billing&#47;create#요청-파라미터
-    paymentData[&#39;retAppScheme&#39;] = &#39;$appScheme:&#47;&#47;portone&#39;;
   }
 
   final html = &#39;&#39;&#39;
@@ -557,6 +553,29 @@ Widget build(BuildContext context) {
                   setState(() {
                     _stackIndex = 1;
                   });
+                }
+              },
+              onReceivedError:
+                  (InAppWebViewController controller, WebResourceRequest request, WebResourceError error) {
+                &#47;&#47; 메인 프레임이 아니면 무시
+                if (request.isForMainFrame ?? false) {
+                  widget.logger(&#39;onReceivedError (main frame): $error&#39;);
+                  widget.onError(error);
+                } else {
+                  widget.logger(&#39;Ignored subresource error: ${request.url} → $error&#39;);
+                }
+              },
+              onReceivedHttpError:
+                  (InAppWebViewController controller, WebResourceRequest request, WebResourceResponse errorResponse) {
+                &#47;&#47; HTTP 상태 코드 에러도 메인 프레임에서만 처리
+                if ((request.isForMainFrame ?? false) &amp;&amp;
+                    errorResponse.statusCode != null &amp;&amp;
+                    errorResponse.statusCode! &gt;= 400) {
+                  widget.logger(&#39;onReceivedHttpError (main frame ${errorResponse.statusCode}): ${request.url}&#39;);
+                  widget.onError(Exception(&#39;HTTP ${errorResponse.statusCode}: ${errorResponse.reasonPhrase}&#39;));
+                } else {
+                  widget.logger(&#39;Ignored HTTP error on subresource or non-error status: &#39;
+                      &#39;${request.url} → ${errorResponse.statusCode}&#39;);
                 }
               },
               shouldOverrideUrlLoading: (InAppWebViewController controller, NavigationAction navigateAction) async {
@@ -675,7 +694,7 @@ Widget build(BuildContext context) {
       <!--/.sidebar-offcanvas-->
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.0.5 </span>
+      <span class="no-break"> portone_flutter_v2 1.0.6 </span>
     </footer>
 
     <script src="../../static-assets/highlight.pack.js?v1"></script>

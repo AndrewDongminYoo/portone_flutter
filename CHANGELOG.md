@@ -5,12 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.6] - 2025-04-27
 
 ### Added
 
 - Added `onReceivedError` callback to capture and propagate `WebResourceError` objects via the `widget.onError` handler.
 - Added `onReceivedHttpError` callback to capture and propagate `WebResourceResponse` objects via the `widget.onError` handler.
+
+### Changed
+
+- Modified payment data processing to directly include the `appScheme` in the payment data map.
+- Removed the conditional logic for setting `retAppScheme` specifically for Toss Payments, as it's no longer required.
+- Updated paymentData to be a mutable map to allow modification.
 
 ## [1.0.5] - 2025-04-26
 
@@ -97,10 +103,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Modified field type in PaymentRequest model (changed `isEscrow` to nullable)
 - Changed `paypal` to `convenienceStore` in the `PaymentPayMethod` enumeration
 
-[Unreleased]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.5...HEAD
+[1.0.6]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.5...v1.0.6
 [1.0.5]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.4...1.0.5
 [1.0.4]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.3...1.0.4
 [1.0.3]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.2...1.0.3
 [1.0.2]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/AndrewDongminYoo/portone_flutter/releases/tag/v1.0.0
+[unreleased]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.6...main

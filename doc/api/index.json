@@ -7386,5 +7386,129 @@
       "kind": 9,
       "href": "portone_flutter_v2"
     }
+  },
+  {
+    "name": "portone_flutter_v2_method_channel",
+    "qualifiedName": "portone_flutter_v2_method_channel",
+    "href": "portone_flutter_v2_method_channel",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "MethodChannelPortoneFlutterV2",
+    "qualifiedName": "portone_flutter_v2_method_channel.MethodChannelPortoneFlutterV2",
+    "href": "portone_flutter_v2_method_channel/MethodChannelPortoneFlutterV2-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "An implementation of PortoneFlutterV2Platform that uses method channels.",
+    "enclosedBy": {
+      "name": "portone_flutter_v2_method_channel",
+      "kind": 9,
+      "href": "portone_flutter_v2_method_channel"
+    }
+  },
+  {
+    "name": "MethodChannelPortoneFlutterV2",
+    "qualifiedName": "portone_flutter_v2_method_channel.MethodChannelPortoneFlutterV2.MethodChannelPortoneFlutterV2",
+    "href": "portone_flutter_v2_method_channel/MethodChannelPortoneFlutterV2/MethodChannelPortoneFlutterV2.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MethodChannelPortoneFlutterV2",
+      "kind": 3,
+      "href": "portone_flutter_v2_method_channel/MethodChannelPortoneFlutterV2-class.html"
+    }
+  },
+  {
+    "name": "getPlatformVersion",
+    "qualifiedName": "portone_flutter_v2_method_channel.MethodChannelPortoneFlutterV2.getPlatformVersion",
+    "href": "portone_flutter_v2_method_channel/MethodChannelPortoneFlutterV2/getPlatformVersion.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Retrieves the current platform version.",
+    "enclosedBy": {
+      "name": "MethodChannelPortoneFlutterV2",
+      "kind": 3,
+      "href": "portone_flutter_v2_method_channel/MethodChannelPortoneFlutterV2-class.html"
+    }
+  },
+  {
+    "name": "methodChannel",
+    "qualifiedName": "portone_flutter_v2_method_channel.MethodChannelPortoneFlutterV2.methodChannel",
+    "href": "portone_flutter_v2_method_channel/MethodChannelPortoneFlutterV2/methodChannel.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "The method channel used to interact with the native platform.",
+    "enclosedBy": {
+      "name": "MethodChannelPortoneFlutterV2",
+      "kind": 3,
+      "href": "portone_flutter_v2_method_channel/MethodChannelPortoneFlutterV2-class.html"
+    }
+  },
+  {
+    "name": "portone_flutter_v2_platform_interface",
+    "qualifiedName": "portone_flutter_v2_platform_interface",
+    "href": "portone_flutter_v2_platform_interface",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "PortoneFlutterV2Platform",
+    "qualifiedName": "portone_flutter_v2_platform_interface.PortoneFlutterV2Platform",
+    "href": "portone_flutter_v2_platform_interface/PortoneFlutterV2Platform-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "An abstract platform interface for the PortoneFlutterV2 plugin.",
+    "enclosedBy": {
+      "name": "portone_flutter_v2_platform_interface",
+      "kind": 9,
+      "href": "portone_flutter_v2_platform_interface"
+    }
+  },
+  {
+    "name": "PortoneFlutterV2Platform",
+    "qualifiedName": "portone_flutter_v2_platform_interface.PortoneFlutterV2Platform.PortoneFlutterV2Platform",
+    "href": "portone_flutter_v2_platform_interface/PortoneFlutterV2Platform/PortoneFlutterV2Platform.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "Constructs a PortoneFlutterV2Platform.",
+    "enclosedBy": {
+      "name": "PortoneFlutterV2Platform",
+      "kind": 3,
+      "href": "portone_flutter_v2_platform_interface/PortoneFlutterV2Platform-class.html"
+    }
+  },
+  {
+    "name": "getPlatformVersion",
+    "qualifiedName": "portone_flutter_v2_platform_interface.PortoneFlutterV2Platform.getPlatformVersion",
+    "href": "portone_flutter_v2_platform_interface/PortoneFlutterV2Platform/getPlatformVersion.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "Retrieves the current platform version.",
+    "enclosedBy": {
+      "name": "PortoneFlutterV2Platform",
+      "kind": 3,
+      "href": "portone_flutter_v2_platform_interface/PortoneFlutterV2Platform-class.html"
+    }
+  },
+  {
+    "name": "instance",
+    "qualifiedName": "portone_flutter_v2_platform_interface.PortoneFlutterV2Platform.instance",
+    "href": "portone_flutter_v2_platform_interface/PortoneFlutterV2Platform/instance.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "The default instance of PortoneFlutterV2Platform to use.",
+    "enclosedBy": {
+      "name": "PortoneFlutterV2Platform",
+      "kind": 3,
+      "href": "portone_flutter_v2_platform_interface/PortoneFlutterV2Platform-class.html"
+    }
   }
 ]
