@@ -254,6 +254,14 @@ class PortonePaymentState extends State<PortonePayment> {
                     });
                   }
                 },
+                onReceivedError:
+                    (InAppWebViewController controller, WebResourceRequest request, WebResourceError error) {
+                  widget.onError(error);
+                },
+                onReceivedHttpError:
+                    (InAppWebViewController controller, WebResourceRequest request, WebResourceResponse errorResponse) {
+                  widget.onError(errorResponse);
+                },
                 shouldOverrideUrlLoading: (InAppWebViewController controller, NavigationAction navigateAction) async {
                   final url = navigateAction.request.url;
                   widget.logger('Navigation action request uri: ${url!.uriValue}');
