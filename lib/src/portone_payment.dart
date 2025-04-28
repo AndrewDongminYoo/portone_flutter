@@ -122,10 +122,19 @@ class PortonePaymentState extends State<PortonePayment> {
   /// Controller for managing the embedded [InAppWebView].
   InAppWebViewController? controller;
 
+  /// Current index of Stacked Widgets
   int _stackIndex = 0;
 
+  /// App links handler.
   late final AppLinks _appLinks;
+
+  /// Stream for receiving all incoming URI events as [Uri].
   StreamSubscription<Uri>? _appLinkSub;
+
+  /// Every time `shouldOverrideUrlLoading` is called, the URL is stored in [_redirectedUrls],
+  /// and when an actual error occurs, you can create a stack trace containing this URL history using
+  /// [StackTrace.fromString] and pass it on, allowing users to use it for debugging as is.
+  final List<Uri> _redirectedUrls = [];
 
   @override
   void initState() {
@@ -141,13 +150,13 @@ class PortonePaymentState extends State<PortonePayment> {
               widget.callback(paymentResponse);
             } catch (error, stackTrace) {
               widget.logger('Error processing app link', error: error, stackTrace: stackTrace);
-              widget.onError(error, stackTrace);
+              _handleError(error, stackTrace);
             }
           }
         },
         onError: (Object error, StackTrace stackTrace) {
-          widget.logger('AppLinks subscription error: $error');
-          widget.onError(error, stackTrace);
+          widget.logger('AppLinks subscription error', error: error, stackTrace: stackTrace);
+          _handleError(error, stackTrace);
         },
       );
     }
@@ -162,9 +171,10 @@ class PortonePaymentState extends State<PortonePayment> {
 
   @override
   Widget build(BuildContext context) {
-    widget.logger(jsonEncode(widget.data.toJson()));
-    final appScheme = widget.data.appScheme;
     final paymentData = Map<String, dynamic>.from(widget.data.toJson());
+    widget.logger(jsonEncode(paymentData));
+    final appScheme = widget.data.appScheme;
+
     paymentData['appScheme'] = '$appScheme://';
 
     // redirectUrl 이 비어있으면 기본값 설정
@@ -227,10 +237,10 @@ class PortonePaymentState extends State<PortonePayment> {
                         widget.logger('PortOne SDK ERROR: $arguments');
                         final portoneError = arguments.first;
                         widget.logger('PortOne SDK Error type: ${portoneError.runtimeType}');
-                        widget.onError(portoneError as Object?, StackTrace.current);
+                        _handleError(portoneError as Object?);
                       } catch (error, stackTrace) {
                         widget.logger('Error Occurred', error: error, stackTrace: stackTrace);
-                        widget.onError(error, stackTrace);
+                        _handleError(error, stackTrace);
                       }
                     },
                   );
@@ -254,10 +264,10 @@ class PortonePaymentState extends State<PortonePayment> {
                     (InAppWebViewController controller, WebResourceRequest request, WebResourceError error) {
                   // 메인 프레임이 아니면 무시
                   if (request.isForMainFrame ?? false) {
-                    widget.logger('onReceivedError (main frame): $error');
-                    widget.onError(error, StackTrace.current);
+                    widget.logger('onReceivedError (main frame)', error: error);
+                    _handleError(error);
                   } else {
-                    widget.logger('Ignored subresource error: ${request.url} → $error');
+                    widget.logger('Ignored subresource error: ${request.url}', error: error);
                   }
                 },
                 onReceivedHttpError:
@@ -268,7 +278,7 @@ class PortonePaymentState extends State<PortonePayment> {
                       errorResponse.statusCode! >= 400) {
                     widget.logger('onReceivedHttpError (main frame ${errorResponse.statusCode}): ${request.url}');
                     final exception = Exception('HTTP ${errorResponse.statusCode}: ${errorResponse.reasonPhrase}');
-                    widget.onError(exception, StackTrace.current);
+                    _handleError(exception);
                   } else {
                     widget.logger('Ignored HTTP error on subresource or non-error status: '
                         '${request.url} → ${errorResponse.statusCode}');
@@ -276,20 +286,24 @@ class PortonePaymentState extends State<PortonePayment> {
                 },
                 shouldOverrideUrlLoading: (InAppWebViewController controller, NavigationAction navigateAction) async {
                   final url = navigateAction.request.url;
-                  widget.logger('Navigation action request uri: ${url!.uriValue}');
+                  if (url == null) return NavigationActionPolicy.CANCEL;
 
-                  if (url.uriValue.scheme == 'http' || url.uriValue.scheme == 'https') {
+                  final uriValue = url.uriValue;
+                  _redirectedUrls.add(uriValue);
+                  widget.logger('Navigation action request uri: $uriValue');
+
+                  if (uriValue.scheme == 'http' || uriValue.scheme == 'https') {
                     return NavigationActionPolicy.ALLOW;
-                  } else if (url.uriValue.scheme == appScheme) {
+                  } else if (uriValue.scheme == appScheme) {
                     try {
                       final paymentResponse = PaymentResponse.fromJson(url.queryParameters);
                       widget.callback(paymentResponse);
                     } catch (exception, stackTrace) {
                       widget.logger('Error Occurred', error: exception, stackTrace: stackTrace);
-                      widget.onError(exception, stackTrace);
+                      _handleError(exception, stackTrace);
                     }
                     return NavigationActionPolicy.CANCEL;
-                  } else if (url.uriValue.scheme == 'intent') {
+                  } else if (uriValue.scheme == 'intent') {
                     try {
                       // Retrieve the raw URL string.
                       final rawUri = url.rawValue;
@@ -334,12 +348,12 @@ class PortonePaymentState extends State<PortonePayment> {
                       }
                     } catch (error, stackTrace) {
                       widget.logger('Intent URL parsing error', error: error, stackTrace: stackTrace);
-                      widget.onError(error, stackTrace);
+                      _handleError(error, stackTrace);
                     }
                     return NavigationActionPolicy.CANCEL;
                   } else {
-                    if (await canLaunchUrl(url.uriValue)) {
-                      await launchUrl(url.uriValue);
+                    if (await canLaunchUrl(uriValue)) {
+                      await launchUrl(uriValue);
                     }
                     return NavigationActionPolicy.CANCEL;
                   }
@@ -350,5 +364,10 @@ class PortonePaymentState extends State<PortonePayment> {
         ),
       ),
     );
+  }
+
+  /// Handle errors from the WebView.
+  void _handleError(Object? error, [StackTrace? stackTrace]) {
+    widget.onError(error, stackTrace ?? StackTrace.fromString(_redirectedUrls.join('\n\tthen ')));
   }
 }
