@@ -58,8 +58,8 @@ class PortoneErrorHandler {
   ///
   /// Always called with two parameters:
   /// - [error]: The error object (may be `null`).
-  /// - [st]: Optional [StackTrace], depending on availability.
+  /// - [stack]: Optional [StackTrace], depending on availability.
   ///
-  /// If the original callback only accepted one parameter, [st] is ignored.
-  void call(Object? error, [StackTrace? st]) => _handler(error, st);
+  /// If the original callback only accepted one parameter, [stack] is ignored.
+  void call(Object? error, [StackTrace? stack]) => _handler(error, stack);
 }

@@ -15,6 +15,7 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // 🌎 Project imports:
+import 'package:portone_flutter_v2/src/helpers/error_handler.dart';
 import 'package:portone_flutter_v2/src/models/payment_request.dart';
 import 'package:portone_flutter_v2/src/models/payment_response.dart';
 
@@ -43,16 +44,16 @@ class PortonePayment extends StatefulWidget {
   ///
   /// The [data] parameter must provide the necessary payment information.
   /// The [initialChild] is an optional widget displayed while the web view is loading.
-  const PortonePayment({
+  PortonePayment({
     required this.data,
     required this.callback,
-    required this.onError,
+    required Function onError,
     super.key,
     this.appBar,
     this.logger = _defaultLog,
     this.initialChild,
     this.gestureRecognizers,
-  });
+  }) : onError = PortoneErrorHandler(onError);
 
   /// Optional app bar to be displayed at the top of the widget.
   final PreferredSizeWidget? appBar;
@@ -61,7 +62,7 @@ class PortonePayment extends StatefulWidget {
   final PaymentRequest data;
 
   /// Error callback that is invoked when a JavaScript error occurs.
-  final void Function(Object? error) onError;
+  final PortoneErrorHandler onError;
 
   /// Callback invoked with the payment result parameters.
   final void Function(PaymentResponse result) callback;
@@ -140,13 +141,13 @@ class PortonePaymentState extends State<PortonePayment> {
               widget.callback(paymentResponse);
             } catch (error, stackTrace) {
               widget.logger('Error processing app link', error: error, stackTrace: stackTrace);
-              widget.onError(error);
+              widget.onError(error, stackTrace);
             }
           }
         },
-        onError: (Object? err) {
-          widget.logger('AppLinks subscription error: $err');
-          widget.onError(err);
+        onError: (Object error, StackTrace stackTrace) {
+          widget.logger('AppLinks subscription error: $error');
+          widget.onError(error, stackTrace);
         },
       );
     }
@@ -226,10 +227,10 @@ class PortonePaymentState extends State<PortonePayment> {
                         widget.logger('PortOne SDK ERROR: $arguments');
                         final portoneError = arguments.first;
                         widget.logger('PortOne SDK Error type: ${portoneError.runtimeType}');
-                        widget.onError(portoneError as Object?);
+                        widget.onError(portoneError as Object?, StackTrace.current);
                       } catch (error, stackTrace) {
                         widget.logger('Error Occurred', error: error, stackTrace: stackTrace);
-                        widget.onError(error);
+                        widget.onError(error, stackTrace);
                       }
                     },
                   );
@@ -254,7 +255,7 @@ class PortonePaymentState extends State<PortonePayment> {
                   // 메인 프레임이 아니면 무시
                   if (request.isForMainFrame ?? false) {
                     widget.logger('onReceivedError (main frame): $error');
-                    widget.onError(error);
+                    widget.onError(error, StackTrace.current);
                   } else {
                     widget.logger('Ignored subresource error: ${request.url} → $error');
                   }
@@ -266,7 +267,8 @@ class PortonePaymentState extends State<PortonePayment> {
                       errorResponse.statusCode != null &&
                       errorResponse.statusCode! >= 400) {
                     widget.logger('onReceivedHttpError (main frame ${errorResponse.statusCode}): ${request.url}');
-                    widget.onError(Exception('HTTP ${errorResponse.statusCode}: ${errorResponse.reasonPhrase}'));
+                    final exception = Exception('HTTP ${errorResponse.statusCode}: ${errorResponse.reasonPhrase}');
+                    widget.onError(exception, StackTrace.current);
                   } else {
                     widget.logger('Ignored HTTP error on subresource or non-error status: '
                         '${request.url} → ${errorResponse.statusCode}');
@@ -284,7 +286,7 @@ class PortonePaymentState extends State<PortonePayment> {
                       widget.callback(paymentResponse);
                     } catch (exception, stackTrace) {
                       widget.logger('Error Occurred', error: exception, stackTrace: stackTrace);
-                      widget.onError(exception);
+                      widget.onError(exception, stackTrace);
                     }
                     return NavigationActionPolicy.CANCEL;
                   } else if (url.uriValue.scheme == 'intent') {
@@ -332,7 +334,7 @@ class PortonePaymentState extends State<PortonePayment> {
                       }
                     } catch (error, stackTrace) {
                       widget.logger('Intent URL parsing error', error: error, stackTrace: stackTrace);
-                      widget.onError(error);
+                      widget.onError(error, stackTrace);
                     }
                     return NavigationActionPolicy.CANCEL;
                   } else {
