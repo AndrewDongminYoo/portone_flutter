@@ -48,7 +48,7 @@ flutter pub add portone_flutter_v2
 
 ### Platform Configuration
 
-#### Android (`AndroidManifest.xml`):
+#### Android (`AndroidManifest.xml`)
 
 > From version 1.1.0 onwards, the manifest-merger plugin for the Flutter plugin is used, so you don't need to add it manually.
 
@@ -124,7 +124,7 @@ Ensure your app requests internet permission and declares package visibility for
 
 </details>
 
-#### iOS (`Info.plist`):
+#### iOS (`Info.plist`)
 
 Declare URL schemes for deep linking and payment apps:
 
@@ -264,7 +264,7 @@ class PaymentScreen extends StatelessWidget {
 
 ```
 
-### Handling the Payment Result:
+### Handling the Payment Result
 
 ```dart
 // Navigate to payment screen and wait for result

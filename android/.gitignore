@@ -62,6 +62,8 @@ out/
 
 # Gradle files
 .gradle
+gradlew
+gradlew.bat
 
 # Signing files
 .signing/

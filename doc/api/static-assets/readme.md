@@ -12,9 +12,9 @@ check out the [`dart doc` documentation][].
 
 ## highlight.js
 
-Generated from https://highlightjs.org/download/ on 2021-07-13.
+Generated from [highlight.js](https://highlightjs.org/download) on 2021-07-13.
 
-**License:** https://github.com/highlightjs/highlight.js/blob/main/LICENSE
+**[License](https://github.com/highlightjs/highlight.js/blob/main/LICENSE)**
 
 **Included languages:**
 
@@ -30,7 +30,6 @@ Generated from https://highlightjs.org/download/ on 2021-07-13.
 - kotlin
 - markdown
 - objective-c
-- plaintext
 - shell
 - swift
 - yaml
