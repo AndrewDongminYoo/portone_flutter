@@ -34,6 +34,6 @@
   },
   "hooks": {
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}.",
-    "after:bump": "dart doc"
+    "after:bump": "npm run doc"
   }
 }

@@ -10,11 +10,13 @@
   },
   "devDependencies": {
     "@release-it/keep-a-changelog": "^7.0.0",
+    "@trunkio/launcher": "^1.3.4",
     "release-it": "^19.0.1"
   },
   "scripts": {
     "test": "flutter test --coverage --test-randomize-ordering-seed random",
-    "release": "release-it"
+    "release": "release-it",
+    "doc": "source ./dartdoc.sh"
   },
   "keywords": [],
   "author": "",
