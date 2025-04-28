@@ -4008,6 +4008,46 @@
     }
   },
   {
+    "name": "PortoneErrorHandler",
+    "qualifiedName": "portone_flutter_v2.PortoneErrorHandler",
+    "href": "portone_flutter_v2/PortoneErrorHandler-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "A callable class that wraps user-provided error callbacks, allowing them to\naccept either a single Object? error parameter or both Object? error and\nStackTrace? stackTrace. Internally, it normalizes the callback to\nvoid Function(Object? error, [StackTrace? stackTrace]).",
+    "enclosedBy": {
+      "name": "portone_flutter_v2",
+      "kind": 9,
+      "href": "portone_flutter_v2"
+    }
+  },
+  {
+    "name": "PortoneErrorHandler",
+    "qualifiedName": "portone_flutter_v2.PortoneErrorHandler.PortoneErrorHandler",
+    "href": "portone_flutter_v2/PortoneErrorHandler/PortoneErrorHandler.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "Creates a PortoneErrorHandler from a user-provided function.",
+    "enclosedBy": {
+      "name": "PortoneErrorHandler",
+      "kind": 3,
+      "href": "portone_flutter_v2/PortoneErrorHandler-class.html"
+    }
+  },
+  {
+    "name": "call",
+    "qualifiedName": "portone_flutter_v2.PortoneErrorHandler.call",
+    "href": "portone_flutter_v2/PortoneErrorHandler/call.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "Invokes the user-provided callback.",
+    "enclosedBy": {
+      "name": "PortoneErrorHandler",
+      "kind": 3,
+      "href": "portone_flutter_v2/PortoneErrorHandler-class.html"
+    }
+  },
+  {
     "name": "PortoneLocalizations",
     "qualifiedName": "portone_flutter_v2.PortoneLocalizations",
     "href": "portone_flutter_v2/PortoneLocalizations-class.html",

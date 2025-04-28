@@ -53,7 +53,7 @@
             >PortonePayment</a
           >
         </li>
-        <li class="self-crumb">PortonePayment const constructor</li>
+        <li class="self-crumb">PortonePayment constructor</li>
       </ol>
       <div class="self-name">PortonePayment</div>
       <form class="search navbar-right" role="search">
@@ -92,7 +92,6 @@
         </div>
 
         <section class="multi-line-signature">
-          const
           <span class="name">PortonePayment</span>(<wbr />{
           <ol class="parameter-list">
             <li>
@@ -130,22 +129,13 @@
             <li>
               <span class="parameter" id="-param-onError"
                 ><span>required</span>
-                <span class="type-annotation">void</span>
-                <span class="parameter-name">onError</span>(
-                <ol class="parameter-list single-line">
-                  <li>
-                    <span class="parameter" id="param-error"
-                      ><span class="type-annotation"
-                        ><a
-                          href="https://api.flutter.dev/flutter/dart-core/Object-class.html"
-                          >Object</a
-                        >?</span
-                      >
-                      <span class="parameter-name">error</span></span
-                    >
-                  </li>
-                </ol>
-                ),
+                <span class="type-annotation"
+                  ><a
+                    href="https://api.flutter.dev/flutter/dart-core/Function-class.html"
+                    >Function</a
+                  ></span
+                >
+                <span class="parameter-name">onError</span>,
               </span>
             </li>
             <li>
@@ -271,16 +261,16 @@
           <h2><span>Implementation</span></h2>
           <pre
             class="language-dart"
-          ><code class="language-dart">const PortonePayment({
+          ><code class="language-dart">PortonePayment({
   required this.data,
   required this.callback,
-  required this.onError,
+  required Function onError,
   super.key,
   this.appBar,
   this.logger = _defaultLog,
   this.initialChild,
   this.gestureRecognizers,
-});</code></pre>
+}) : onError = PortoneErrorHandler(onError);</code></pre>
         </section>
       </div>
       <!-- /.main-content -->
@@ -306,7 +296,7 @@
               >PortonePayment</a
             >
           </li>
-          <li class="self-crumb">PortonePayment const constructor</li>
+          <li class="self-crumb">PortonePayment constructor</li>
         </ol>
 
         <h5>PortonePayment class</h5>
@@ -320,7 +310,7 @@
       <!--/.sidebar-offcanvas-->
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.0.6 </span>
+      <span class="no-break"> portone_flutter_v2 1.0.7 </span>
     </footer>
 
     <script src="../../static-assets/highlight.pack.js?v1"></script>

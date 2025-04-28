@@ -467,9 +467,10 @@ class MyButtonState extends State&lt;MyButton&gt; {
           <h2><span>Implementation</span></h2>
           <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  widget.logger(jsonEncode(widget.data.toJson()));
-  final appScheme = widget.data.appScheme;
   final paymentData = Map&lt;String, dynamic&gt;.from(widget.data.toJson());
+  widget.logger(jsonEncode(paymentData));
+  final appScheme = widget.data.appScheme;
+
   paymentData[&#39;appScheme&#39;] = &#39;$appScheme:&#47;&#47;&#39;;
 
   &#47;&#47; redirectUrl 이 비어있으면 기본값 설정
@@ -532,10 +533,10 @@ Widget build(BuildContext context) {
                       widget.logger(&#39;PortOne SDK ERROR: $arguments&#39;);
                       final portoneError = arguments.first;
                       widget.logger(&#39;PortOne SDK Error type: ${portoneError.runtimeType}&#39;);
-                      widget.onError(portoneError as Object?);
+                      _handleError(portoneError as Object?);
                     } catch (error, stackTrace) {
                       widget.logger(&#39;Error Occurred&#39;, error: error, stackTrace: stackTrace);
-                      widget.onError(error);
+                      _handleError(error, stackTrace);
                     }
                   },
                 );
@@ -559,10 +560,10 @@ Widget build(BuildContext context) {
                   (InAppWebViewController controller, WebResourceRequest request, WebResourceError error) {
                 &#47;&#47; 메인 프레임이 아니면 무시
                 if (request.isForMainFrame ?? false) {
-                  widget.logger(&#39;onReceivedError (main frame): $error&#39;);
-                  widget.onError(error);
+                  widget.logger(&#39;onReceivedError (main frame)&#39;, error: error);
+                  _handleError(error);
                 } else {
-                  widget.logger(&#39;Ignored subresource error: ${request.url} → $error&#39;);
+                  widget.logger(&#39;Ignored subresource error: ${request.url}&#39;, error: error);
                 }
               },
               onReceivedHttpError:
@@ -572,7 +573,8 @@ Widget build(BuildContext context) {
                     errorResponse.statusCode != null &amp;&amp;
                     errorResponse.statusCode! &gt;= 400) {
                   widget.logger(&#39;onReceivedHttpError (main frame ${errorResponse.statusCode}): ${request.url}&#39;);
-                  widget.onError(Exception(&#39;HTTP ${errorResponse.statusCode}: ${errorResponse.reasonPhrase}&#39;));
+                  final exception = Exception(&#39;HTTP ${errorResponse.statusCode}: ${errorResponse.reasonPhrase}&#39;);
+                  _handleError(exception);
                 } else {
                   widget.logger(&#39;Ignored HTTP error on subresource or non-error status: &#39;
                       &#39;${request.url} → ${errorResponse.statusCode}&#39;);
@@ -580,20 +582,24 @@ Widget build(BuildContext context) {
               },
               shouldOverrideUrlLoading: (InAppWebViewController controller, NavigationAction navigateAction) async {
                 final url = navigateAction.request.url;
-                widget.logger(&#39;Navigation action request uri: ${url!.uriValue}&#39;);
+                if (url == null) return NavigationActionPolicy.CANCEL;
 
-                if (url.uriValue.scheme == &#39;http&#39; || url.uriValue.scheme == &#39;https&#39;) {
+                final uriValue = url.uriValue;
+                _redirectedUrls.add(uriValue);
+                widget.logger(&#39;Navigation action request uri: $uriValue&#39;);
+
+                if (uriValue.scheme == &#39;http&#39; || uriValue.scheme == &#39;https&#39;) {
                   return NavigationActionPolicy.ALLOW;
-                } else if (url.uriValue.scheme == appScheme) {
+                } else if (uriValue.scheme == appScheme) {
                   try {
                     final paymentResponse = PaymentResponse.fromJson(url.queryParameters);
                     widget.callback(paymentResponse);
                   } catch (exception, stackTrace) {
                     widget.logger(&#39;Error Occurred&#39;, error: exception, stackTrace: stackTrace);
-                    widget.onError(exception);
+                    _handleError(exception, stackTrace);
                   }
                   return NavigationActionPolicy.CANCEL;
-                } else if (url.uriValue.scheme == &#39;intent&#39;) {
+                } else if (uriValue.scheme == &#39;intent&#39;) {
                   try {
                     &#47;&#47; Retrieve the raw URL string.
                     final rawUri = url.rawValue;
@@ -638,12 +644,12 @@ Widget build(BuildContext context) {
                     }
                   } catch (error, stackTrace) {
                     widget.logger(&#39;Intent URL parsing error&#39;, error: error, stackTrace: stackTrace);
-                    widget.onError(error);
+                    _handleError(error, stackTrace);
                   }
                   return NavigationActionPolicy.CANCEL;
                 } else {
-                  if (await canLaunchUrl(url.uriValue)) {
-                    await launchUrl(url.uriValue);
+                  if (await canLaunchUrl(uriValue)) {
+                    await launchUrl(uriValue);
                   }
                   return NavigationActionPolicy.CANCEL;
                 }
@@ -694,7 +700,7 @@ Widget build(BuildContext context) {
       <!--/.sidebar-offcanvas-->
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.0.6 </span>
+      <span class="no-break"> portone_flutter_v2 1.0.7 </span>
     </footer>
 
     <script src="../../static-assets/highlight.pack.js?v1"></script>

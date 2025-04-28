@@ -222,13 +222,13 @@ void initState() {
             widget.callback(paymentResponse);
           } catch (error, stackTrace) {
             widget.logger(&#39;Error processing app link&#39;, error: error, stackTrace: stackTrace);
-            widget.onError(error);
+            _handleError(error, stackTrace);
           }
         }
       },
-      onError: (Object? err) {
-        widget.logger(&#39;AppLinks subscription error: $err&#39;);
-        widget.onError(err);
+      onError: (Object error, StackTrace stackTrace) {
+        widget.logger(&#39;AppLinks subscription error&#39;, error: error, stackTrace: stackTrace);
+        _handleError(error, stackTrace);
       },
     );
   }
@@ -272,7 +272,7 @@ void initState() {
       <!--/.sidebar-offcanvas-->
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.0.6 </span>
+      <span class="no-break"> portone_flutter_v2 1.0.7 </span>
     </footer>
 
     <script src="../../static-assets/highlight.pack.js?v1"></script>

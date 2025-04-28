@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.7] - 2025-04-28
+
+### Added
+
+- Introduces the `PortoneErrorHandler` class to provide a flexible way to handle error callbacks.
+- Added `_redirectedUrls` to track redirected URLs during WebView navigation. This list is used to generate a stack trace if an error occurs, providing a history of navigation events leading to the error.
+
+### Changed
+
+- Modified the `onError` parameter in the `PortonePayment` constructor to accept a `PortoneErrorHandler` instance.
+- Ensured that errors originating from the PortOne SDK, WebView errors, and navigation errors include stack traces when invoking the error callback.
+- Introduced the `_handleError` method to centralize error reporting, ensuring that both the error object and a stack trace (either the current stack trace or one generated from `_redirectedUrls`) are consistently passed to the `widget.onError` callback.
+- Added null safety check for url in `shouldOverrideUrlLoading` to prevent errors when the URL is null.
+
 ## [1.0.6] - 2025-04-27
 
 ### Added
@@ -103,6 +117,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Modified field type in PaymentRequest model (changed `isEscrow` to nullable)
 - Changed `paypal` to `convenienceStore` in the `PaymentPayMethod` enumeration
 
+[1.0.7]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.6...v1.0.7
 [1.0.6]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.5...v1.0.6
 [1.0.5]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.4...1.0.5
 [1.0.4]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.3...1.0.4
@@ -110,4 +125,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.0.2]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/AndrewDongminYoo/portone_flutter/releases/tag/v1.0.0
-[unreleased]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.6...main
+[unreleased]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.7...main
