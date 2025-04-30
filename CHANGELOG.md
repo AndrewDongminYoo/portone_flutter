@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.8] - 2025-04-30
+
+### Changed
+
+- Replaced the default `Container()` in the `IndexedStack` with a `Center` widget containing a `CircularProgressIndicator`. This ensures that a loading indicator is displayed to the user while the WebView is being initialized, providing visual feedback and preventing a perceived delay.
+
+- Introduced a new `_handleSuccess` method to encapsulate the logic for handling successful payment responses. This method calls the `widget.callback` with the `paymentResponse` and clears the `_redirectedUrls` list.
+- Replaced direct calls to `widget.callback` with calls to `_handleSuccess` in the app link and URL override handling logic.
+
+### Added
+
+- Added a null check for `errorResponse.statusCode` to prevent errors when the status code is not available. If the status code is null, the error is logged and ignored.
+- Added a check to ignore HTTP errors that occur on subresource requests (i.e., requests that are not for the main frame document). This prevents unnecessary error handling for resources like images or stylesheets that may fail to load. The URL and status code of the ignored error are logged.
+
+### Fixed
+
+- Improved logging messages to provide more context about the type of HTTP error being handled or ignored.
+- Ensured that `_redirectedUrls` is cleared in `_handleError` to prevent memory leaks and ensure a clean state for subsequent payment attempts.
+- Added a check to ignore errors that occur on subresource requests (i.e., requests that are not for the main frame document). This prevents unnecessary error handling for resources like images or stylesheets that may fail to load.
+- Added checks to ignore specific `WebResourceError` types:
+  - `UNKNOWN` errors with a description containing 'WebKitErrorDomain' are ignored, as these are often non-critical.
+  - `CANCELLED` errors with a description containing 'NSURLErrorDomain' are ignored, as these represent cancelled navigations.
+
 ## [1.0.7] - 2025-04-28
 
 ### Added
@@ -119,6 +142,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Modified field type in PaymentRequest model (changed `isEscrow` to nullable)
 - Changed `paypal` to `convenienceStore` in the `PaymentPayMethod` enumeration
 
+[1.0.8]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.7...v1.0.8
 [1.0.7]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.6...v1.0.7
 [1.0.6]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.5...v1.0.6
 [1.0.5]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.4...1.0.5
@@ -127,4 +151,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.0.2]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/AndrewDongminYoo/portone_flutter/releases/tag/v1.0.0
-[Unreleased]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.7...main
+[Unreleased]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.8...main
