@@ -1,0 +1,40 @@
+# Dart/Flutter 빌드 산출물
+.dart_tool/
+.packages
+build/
+pubspec.lock        # 라이브러리 패키지라면 체크인할 필요 없음
+coverage/
+*.log
+
+# Android 관련 (wrapper, IDE 설정, 빌드 폴더 등)
+android/gradlew
+android/gradlew.bat
+android/gradle/
+android/local.properties
+android/.idea/
+android/app/       # 예제 앱이 패키지에 포함될 필요가 없으면
+
+# iOS 관련
+ios/Pods/
+ios/Flutter/
+ios/Runner.xcworkspace/
+ios/Podfile.lock
+
+# Example 프로젝트
+example/
+
+# 문서 생성물
+doc/
+doc/api/
+coverage_badge.svg
+
+# CI 설정, 에디터/IDE 설정
+.github/
+.travis.yml
+.vscode/
+.idea/
+
+# 기타 노드·패키지 매니저
+node_modules/
+package-lock.json
+yarn.lock
