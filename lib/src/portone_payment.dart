@@ -147,7 +147,7 @@ class PortonePaymentState extends State<PortonePayment> {
             try {
               final paymentResponse = PaymentResponse.fromJson(uri.queryParameters);
               widget.logger('AppLinks callback received: $uri');
-              widget.callback(paymentResponse);
+              _handleSuccess(paymentResponse);
             } catch (error, stackTrace) {
               widget.logger('Error processing app link', error: error, stackTrace: stackTrace);
               _handleError(error, stackTrace);
@@ -297,7 +297,7 @@ class PortonePaymentState extends State<PortonePayment> {
                   } else if (uriValue.scheme == appScheme) {
                     try {
                       final paymentResponse = PaymentResponse.fromJson(url.queryParameters);
-                      widget.callback(paymentResponse);
+                      _handleSuccess(paymentResponse);
                     } catch (exception, stackTrace) {
                       widget.logger('Error Occurred', error: exception, stackTrace: stackTrace);
                       _handleError(exception, stackTrace);
@@ -369,5 +369,12 @@ class PortonePaymentState extends State<PortonePayment> {
   /// Handle errors from the WebView.
   void _handleError(Object? error, [StackTrace? stackTrace]) {
     widget.onError(error, stackTrace ?? StackTrace.fromString(_redirectedUrls.join('\n\tthen ')));
+    _redirectedUrls.clear();
+  }
+
+  /// Handle successful payment response.
+  void _handleSuccess(PaymentResponse paymentResponse) {
+    widget.callback(paymentResponse);
+    _redirectedUrls.clear();
   }
 }
