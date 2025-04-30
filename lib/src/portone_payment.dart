@@ -262,13 +262,25 @@ class PortonePaymentState extends State<PortonePayment> {
                 },
                 onReceivedError:
                     (InAppWebViewController controller, WebResourceRequest request, WebResourceError error) {
-                  // 메인 프레임이 아니면 무시
-                  if (request.isForMainFrame ?? false) {
-                    widget.logger('onReceivedError (main frame)', error: error);
-                    _handleError(error);
-                  } else {
+                  // 요청이 메인 프레임의 문서를 가져오기 위해 이루어진 것이 아니면 무시
+                  if (!(request.isForMainFrame ?? false)) {
                     widget.logger('Ignored subresource error: ${request.url}', error: error);
+                    return;
                   }
+
+                  // WebResourceError{description: domain=WebKitErrorDomain, code=102, 프레임 로드 중단됨, type: UNKNOWN}
+                  if (error.type == WebResourceErrorType.UNKNOWN && error.description.contains('WebKitErrorDomain')) {
+                    widget.logger('Ignored unknown error: ${error.description}');
+                  }
+
+                  // WebResourceError{description: 작업을 완료할 수 없습니다.(NSURLErrorDomain 오류 -999.), type: CANCELLED}
+                  if (error.type == WebResourceErrorType.CANCELLED && error.description.contains('NSURLErrorDomain')) {
+                    widget.logger('Ignored cancelled navigation: ${error.description}');
+                    return;
+                  }
+
+                  widget.logger('onReceivedError (main frame)', error: error);
+                  _handleError(error);
                 },
                 onReceivedHttpError:
                     (InAppWebViewController controller, WebResourceRequest request, WebResourceResponse errorResponse) {
