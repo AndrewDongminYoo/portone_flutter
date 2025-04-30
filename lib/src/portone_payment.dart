@@ -272,16 +272,22 @@ class PortonePaymentState extends State<PortonePayment> {
                 },
                 onReceivedHttpError:
                     (InAppWebViewController controller, WebResourceRequest request, WebResourceResponse errorResponse) {
-                  // HTTP 상태 코드 에러도 메인 프레임에서만 처리
-                  if ((request.isForMainFrame ?? false) &&
-                      errorResponse.statusCode != null &&
-                      errorResponse.statusCode! >= 400) {
-                    widget.logger('onReceivedHttpError (main frame ${errorResponse.statusCode}): ${request.url}');
-                    final exception = Exception('HTTP ${errorResponse.statusCode}: ${errorResponse.reasonPhrase}');
+                  final statusCode = errorResponse.statusCode;
+                  if (statusCode == null) {
+                    widget.logger('Ignored HTTP error unknown status code: ${request.url}');
+                    return;
+                  }
+
+                  // 요청이 메인 프레임의 문서를 가져오기 위해 이루어진 것이 아니면 무시
+                  if (!(request.isForMainFrame ?? false)) {
+                    widget.logger('Ignored HTTP error on subresource: ${request.url} → $statusCode');
+                    return;
+                  }
+
+                  if (statusCode >= 400) {
+                    widget.logger('onReceivedHttpError (main frame $statusCode): ${request.url}');
+                    final exception = Exception('HTTP $statusCode: ${errorResponse.reasonPhrase}');
                     _handleError(exception);
-                  } else {
-                    widget.logger('Ignored HTTP error on subresource or non-error status: '
-                        '${request.url} → ${errorResponse.statusCode}');
                   }
                 },
                 shouldOverrideUrlLoading: (InAppWebViewController controller, NavigationAction navigateAction) async {
