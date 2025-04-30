@@ -221,7 +221,7 @@ class PortonePaymentState extends State<PortonePayment> {
           child: IndexedStack(
             index: _stackIndex,
             children: [
-              widget.initialChild ?? Container(),
+              widget.initialChild ?? const Center(child: CircularProgressIndicator()),
               InAppWebView(
                 gestureRecognizers: widget.gestureRecognizers,
                 initialSettings: InAppWebViewSettings(
