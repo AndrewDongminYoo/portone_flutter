@@ -219,7 +219,7 @@ void initState() {
           try {
             final paymentResponse = PaymentResponse.fromJson(uri.queryParameters);
             widget.logger(&#39;AppLinks callback received: $uri&#39;);
-            widget.callback(paymentResponse);
+            _handleSuccess(paymentResponse);
           } catch (error, stackTrace) {
             widget.logger(&#39;Error processing app link&#39;, error: error, stackTrace: stackTrace);
             _handleError(error, stackTrace);
@@ -272,7 +272,7 @@ void initState() {
       <!--/.sidebar-offcanvas-->
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.0.7 </span>
+      <span class="no-break"> portone_flutter_v2 1.0.8 </span>
     </footer>
 
     <script src="../../static-assets/highlight.pack.js?v1"></script>

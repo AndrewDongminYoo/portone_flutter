@@ -517,7 +517,7 @@ Widget build(BuildContext context) {
         child: IndexedStack(
           index: _stackIndex,
           children: [
-            widget.initialChild ?? Container(),
+            widget.initialChild ?? const Center(child: CircularProgressIndicator()),
             InAppWebView(
               gestureRecognizers: widget.gestureRecognizers,
               initialSettings: InAppWebViewSettings(
@@ -558,26 +558,44 @@ Widget build(BuildContext context) {
               },
               onReceivedError:
                   (InAppWebViewController controller, WebResourceRequest request, WebResourceError error) {
-                &#47;&#47; 메인 프레임이 아니면 무시
-                if (request.isForMainFrame ?? false) {
-                  widget.logger(&#39;onReceivedError (main frame)&#39;, error: error);
-                  _handleError(error);
-                } else {
+                &#47;&#47; 요청이 메인 프레임의 문서를 가져오기 위해 이루어진 것이 아니면 무시
+                if (!(request.isForMainFrame ?? false)) {
                   widget.logger(&#39;Ignored subresource error: ${request.url}&#39;, error: error);
+                  return;
                 }
+
+                &#47;&#47; WebResourceError{description: domain=WebKitErrorDomain, code=102, 프레임 로드 중단됨, type: UNKNOWN}
+                if (error.type == WebResourceErrorType.UNKNOWN &amp;&amp; error.description.contains(&#39;WebKitErrorDomain&#39;)) {
+                  widget.logger(&#39;Ignored unknown error: ${error.description}&#39;);
+                }
+
+                &#47;&#47; WebResourceError{description: 작업을 완료할 수 없습니다.(NSURLErrorDomain 오류 -999.), type: CANCELLED}
+                if (error.type == WebResourceErrorType.CANCELLED &amp;&amp; error.description.contains(&#39;NSURLErrorDomain&#39;)) {
+                  widget.logger(&#39;Ignored cancelled navigation: ${error.description}&#39;);
+                  return;
+                }
+
+                widget.logger(&#39;onReceivedError (main frame)&#39;, error: error);
+                _handleError(error);
               },
               onReceivedHttpError:
                   (InAppWebViewController controller, WebResourceRequest request, WebResourceResponse errorResponse) {
-                &#47;&#47; HTTP 상태 코드 에러도 메인 프레임에서만 처리
-                if ((request.isForMainFrame ?? false) &amp;&amp;
-                    errorResponse.statusCode != null &amp;&amp;
-                    errorResponse.statusCode! &gt;= 400) {
-                  widget.logger(&#39;onReceivedHttpError (main frame ${errorResponse.statusCode}): ${request.url}&#39;);
-                  final exception = Exception(&#39;HTTP ${errorResponse.statusCode}: ${errorResponse.reasonPhrase}&#39;);
+                final statusCode = errorResponse.statusCode;
+                if (statusCode == null) {
+                  widget.logger(&#39;Ignored HTTP error unknown status code: ${request.url}&#39;);
+                  return;
+                }
+
+                &#47;&#47; 요청이 메인 프레임의 문서를 가져오기 위해 이루어진 것이 아니면 무시
+                if (!(request.isForMainFrame ?? false)) {
+                  widget.logger(&#39;Ignored HTTP error on subresource: ${request.url} → $statusCode&#39;);
+                  return;
+                }
+
+                if (statusCode &gt;= 400) {
+                  widget.logger(&#39;onReceivedHttpError (main frame $statusCode): ${request.url}&#39;);
+                  final exception = Exception(&#39;HTTP $statusCode: ${errorResponse.reasonPhrase}&#39;);
                   _handleError(exception);
-                } else {
-                  widget.logger(&#39;Ignored HTTP error on subresource or non-error status: &#39;
-                      &#39;${request.url} → ${errorResponse.statusCode}&#39;);
                 }
               },
               shouldOverrideUrlLoading: (InAppWebViewController controller, NavigationAction navigateAction) async {
@@ -593,7 +611,7 @@ Widget build(BuildContext context) {
                 } else if (uriValue.scheme == appScheme) {
                   try {
                     final paymentResponse = PaymentResponse.fromJson(url.queryParameters);
-                    widget.callback(paymentResponse);
+                    _handleSuccess(paymentResponse);
                   } catch (exception, stackTrace) {
                     widget.logger(&#39;Error Occurred&#39;, error: exception, stackTrace: stackTrace);
                     _handleError(exception, stackTrace);
@@ -700,7 +718,7 @@ Widget build(BuildContext context) {
       <!--/.sidebar-offcanvas-->
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.0.7 </span>
+      <span class="no-break"> portone_flutter_v2 1.0.8 </span>
     </footer>
 
     <script src="../../static-assets/highlight.pack.js?v1"></script>
