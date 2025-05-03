@@ -4,9 +4,7 @@ This directory includes static sources used by the Dart documentation generator
 through the `dart doc` command.
 
 To learn more about generating and viewing the generated documentation,
-check out the [`dart doc` documentation][].
-
-[`dart doc` documentation]: https://dart.dev/tools/dart-doc
+check out the [`dart doc` documentation](https://dart.dev/tools/dart-doc).
 
 ## Third-party resources
 

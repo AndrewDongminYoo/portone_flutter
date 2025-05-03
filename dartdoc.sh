@@ -14,6 +14,7 @@ mkdir -p doc/api
 # 4) rsync 로 복사하되 static-assets/ 와 __404error.html 은 제외
 rsync -av --delete \
 	--exclude='static-assets/' \
+	--filter='P __404error.html' \
 	tmp/api/ doc/api/
 
 # 5) 임시 디렉터리 정리
