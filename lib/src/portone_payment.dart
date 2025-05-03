@@ -271,6 +271,7 @@ class PortonePaymentState extends State<PortonePayment> {
                   // WebResourceError{description: domain=WebKitErrorDomain, code=102, 프레임 로드 중단됨, type: UNKNOWN}
                   if (error.type == WebResourceErrorType.UNKNOWN && error.description.contains('WebKitErrorDomain')) {
                     widget.logger('Ignored unknown error: ${error.description}');
+                    return;
                   }
 
                   // WebResourceError{description: 작업을 완료할 수 없습니다.(NSURLErrorDomain 오류 -999.), type: CANCELLED}
