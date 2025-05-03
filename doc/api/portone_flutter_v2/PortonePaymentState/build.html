@@ -567,6 +567,7 @@ Widget build(BuildContext context) {
                 &#47;&#47; WebResourceError{description: domain=WebKitErrorDomain, code=102, 프레임 로드 중단됨, type: UNKNOWN}
                 if (error.type == WebResourceErrorType.UNKNOWN &amp;&amp; error.description.contains(&#39;WebKitErrorDomain&#39;)) {
                   widget.logger(&#39;Ignored unknown error: ${error.description}&#39;);
+                  return;
                 }
 
                 &#47;&#47; WebResourceError{description: 작업을 완료할 수 없습니다.(NSURLErrorDomain 오류 -999.), type: CANCELLED}
@@ -718,7 +719,7 @@ Widget build(BuildContext context) {
       <!--/.sidebar-offcanvas-->
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.0.8 </span>
+      <span class="no-break"> portone_flutter_v2 1.0.9 </span>
     </footer>
 
     <script src="../../static-assets/highlight.pack.js?v1"></script>

@@ -1,6 +1,6 @@
 {
   "name": "portone_flutter_v2",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A robust Flutter package enabling seamless integration of the PortOne V2 payment gateway into Flutter applications",
   "directories": {
     "doc": "doc",
