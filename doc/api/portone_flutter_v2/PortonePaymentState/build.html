@@ -558,21 +558,8 @@ Widget build(BuildContext context) {
               },
               onReceivedError:
                   (InAppWebViewController controller, WebResourceRequest request, WebResourceError error) {
-                &#47;&#47; 요청이 메인 프레임의 문서를 가져오기 위해 이루어진 것이 아니면 무시
-                if (!(request.isForMainFrame ?? false)) {
-                  widget.logger(&#39;Ignored subresource error: ${request.url}&#39;, error: error);
-                  return;
-                }
-
-                &#47;&#47; WebResourceError{description: domain=WebKitErrorDomain, code=102, 프레임 로드 중단됨, type: UNKNOWN}
-                if (error.type == WebResourceErrorType.UNKNOWN &amp;&amp; error.description.contains(&#39;WebKitErrorDomain&#39;)) {
-                  widget.logger(&#39;Ignored unknown error: ${error.description}&#39;);
-                  return;
-                }
-
-                &#47;&#47; WebResourceError{description: 작업을 완료할 수 없습니다.(NSURLErrorDomain 오류 -999.), type: CANCELLED}
-                if (error.type == WebResourceErrorType.CANCELLED &amp;&amp; error.description.contains(&#39;NSURLErrorDomain&#39;)) {
-                  widget.logger(&#39;Ignored cancelled navigation: ${error.description}&#39;);
+                if (WebviewErrorUseCase.shouldIgnore(error, isMainFrame: request.isForMainFrame)) {
+                  widget.logger(&#39;Ignored WebView error: ${error.type} ${error.description}&#39;);
                   return;
                 }
 
@@ -719,7 +706,7 @@ Widget build(BuildContext context) {
       <!--/.sidebar-offcanvas-->
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.0.9 </span>
+      <span class="no-break"> portone_flutter_v2 1.0.10 </span>
     </footer>
 
     <script src="../../static-assets/highlight.pack.js?v1"></script>
