@@ -18,6 +18,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:portone_flutter_v2/src/helpers/error_handler.dart';
 import 'package:portone_flutter_v2/src/models/payment_request.dart';
 import 'package:portone_flutter_v2/src/models/payment_response.dart';
+import 'package:portone_flutter_v2/src/validators/webview_error_use_case.dart';
 
 /// Default logger function using [log].
 void _defaultLog(String message, {Object? error, StackTrace? stackTrace}) {
@@ -262,21 +263,8 @@ class PortonePaymentState extends State<PortonePayment> {
                 },
                 onReceivedError:
                     (InAppWebViewController controller, WebResourceRequest request, WebResourceError error) {
-                  // 요청이 메인 프레임의 문서를 가져오기 위해 이루어진 것이 아니면 무시
-                  if (!(request.isForMainFrame ?? false)) {
-                    widget.logger('Ignored subresource error: ${request.url}', error: error);
-                    return;
-                  }
-
-                  // WebResourceError{description: domain=WebKitErrorDomain, code=102, 프레임 로드 중단됨, type: UNKNOWN}
-                  if (error.type == WebResourceErrorType.UNKNOWN && error.description.contains('WebKitErrorDomain')) {
-                    widget.logger('Ignored unknown error: ${error.description}');
-                    return;
-                  }
-
-                  // WebResourceError{description: 작업을 완료할 수 없습니다.(NSURLErrorDomain 오류 -999.), type: CANCELLED}
-                  if (error.type == WebResourceErrorType.CANCELLED && error.description.contains('NSURLErrorDomain')) {
-                    widget.logger('Ignored cancelled navigation: ${error.description}');
+                  if (WebviewErrorUseCase.shouldIgnore(error, isMainFrame: request.isForMainFrame)) {
+                    widget.logger('Ignored WebView error: ${error.type} ${error.description}');
                     return;
                   }
 
