@@ -1,6 +1,6 @@
 name: portone_flutter_v2
 description: A module for integrating PortOne V2 payment service in Flutter App.
-version: 1.0.10
+version: 1.0.11
 repository: https://github.com/AndrewDongminYoo/portone_flutter
 environment:
   sdk: ^3.6.0

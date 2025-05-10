@@ -216,10 +216,27 @@ void initState() {
     _appLinkSub = _appLinks.uriLinkStream.listen(
       (Uri? uri) {
         if (uri != null &amp;&amp; uri.scheme == widget.data.appScheme) {
+          &#47;&#47; Copy original parameters
+          final params = Map&lt;String, String&gt;.from(uri.queryParameters);
+          &#47;&#47; Correct when returning Kakao Pay iOS and only &#39;tid&#39; is present but &#39;txId&#39; is not
+          if (params.containsKey(&#39;tid&#39;) &amp;&amp; !params.containsKey(&#39;txId&#39;)) {
+            params[&#39;txId&#39;] = params.remove(&#39;tid&#39;)!;
+          }
           try {
-            final paymentResponse = PaymentResponse.fromJson(uri.queryParameters);
+            final paymentResponse = PaymentResponse.fromJson(params);
             widget.logger(&#39;AppLinks callback received: $uri&#39;);
             _handleSuccess(paymentResponse);
+          } on CheckedFromJsonException catch (e, st) {
+            &#47;&#47; Debug logging: missing keys, full map, stack trace
+            widget.logger(
+              &#39;❌ PaymentResponse.fromJson failed!\n&#39;
+              &#39;  Incoming params: $params\n&#39;
+              &#39;  Error message: ${e.message}\n&#39;
+              &#39;  Missing key: txId or malformed value?&#39;,
+              error: e.innerError ?? e,
+              stackTrace: e.innerStack ?? st,
+            );
+            _handleError(e, st);
           } catch (error, stackTrace) {
             widget.logger(&#39;Error processing app link&#39;, error: error, stackTrace: stackTrace);
             _handleError(error, stackTrace);
@@ -272,7 +289,7 @@ void initState() {
       <!--/.sidebar-offcanvas-->
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.0.10 </span>
+      <span class="no-break"> portone_flutter_v2 1.0.11 </span>
     </footer>
 
     <script src="../../static-assets/highlight.pack.js?v1"></script>
