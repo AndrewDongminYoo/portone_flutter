@@ -12,6 +12,7 @@ import 'package:flutter/scheduler.dart';
 // 📦 Package imports:
 import 'package:app_links/app_links.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // 🌎 Project imports:
@@ -145,16 +146,27 @@ class PortonePaymentState extends State<PortonePayment> {
       _appLinkSub = _appLinks.uriLinkStream.listen(
         (Uri? uri) {
           if (uri != null && uri.scheme == widget.data.appScheme) {
+            // Copy original parameters
+            final params = Map<String, String>.from(uri.queryParameters);
+            // Correct when returning Kakao Pay iOS and only 'tid' is present but 'txId' is not
+            if (params.containsKey('tid') && !params.containsKey('txId')) {
+              params['txId'] = params['tid']!;
+            }
             try {
-              // Copy original parameters
-              final params = Map<String, String>.from(uri.queryParameters);
-              // Correct when returning Kakao Pay iOS and only 'tid' is present but 'txId' is not
-              if (params.containsKey('tid') && !params.containsKey('txId')) {
-                params['txId'] = params['tid']!;
-              }
               final paymentResponse = PaymentResponse.fromJson(params);
               widget.logger('AppLinks callback received: $uri');
               _handleSuccess(paymentResponse);
+            } on CheckedFromJsonException catch (e, st) {
+              // Debug logging: missing keys, full map, stack trace
+              widget.logger(
+                '❌ PaymentResponse.fromJson failed!\n'
+                '  Incoming params: $params\n'
+                '  Error message: ${e.message}\n'
+                '  Missing key: txId or malformed value?',
+                error: e.innerError ?? e,
+                stackTrace: e.innerStack ?? st,
+              );
+              _handleError(e, st);
             } catch (error, stackTrace) {
               widget.logger('Error processing app link', error: error, stackTrace: stackTrace);
               _handleError(error, stackTrace);
