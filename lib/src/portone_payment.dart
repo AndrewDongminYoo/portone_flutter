@@ -150,7 +150,7 @@ class PortonePaymentState extends State<PortonePayment> {
             final params = Map<String, String>.from(uri.queryParameters);
             // Correct when returning Kakao Pay iOS and only 'tid' is present but 'txId' is not
             if (params.containsKey('tid') && !params.containsKey('txId')) {
-              params['txId'] = params['tid']!;
+              params['txId'] = params.remove('tid')!;
             }
             try {
               final paymentResponse = PaymentResponse.fromJson(params);
