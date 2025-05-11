@@ -15,6 +15,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 // 🌎 Project imports:
 import 'package:portone_flutter_v2/src/helpers/error_handler.dart';
+import 'package:portone_flutter_v2/src/helpers/url_normalizer.dart';
 import 'package:portone_flutter_v2/src/models/payment_request.dart';
 import 'package:portone_flutter_v2/src/models/payment_response.dart';
 import 'package:portone_flutter_v2/src/validators/webview_error_use_case.dart';
@@ -138,10 +139,12 @@ class PortonePaymentState extends State<PortonePayment> {
   @override
   Widget build(BuildContext context) {
     final paymentData = Map<String, dynamic>.from(widget.data.toJson());
+    final NormalizedUrl(:appScheme, :redirectUrl) = NormalizedUrl(
+      appScheme: widget.data.appScheme,
+      redirectUrl: widget.data.redirectUrl,
+    );
+    paymentData['redirectUrl'] = redirectUrl;
     widget.logger(jsonEncode(paymentData));
-    final appScheme = widget.data.appScheme;
-
-    paymentData['appScheme'] = '$appScheme://';
 
     final html = '''
 <!doctype html>
@@ -191,7 +194,7 @@ class PortonePaymentState extends State<PortonePayment> {
                   useShouldOverrideUrlLoading: true,
                   useOnLoadResource: true,
                   useOnDownloadStart: true,
-                  resourceCustomSchemes: ['intent'],
+                  resourceCustomSchemes: ['intent', appScheme],
                   contentBlockers: [],
                 ),
                 onWebViewCreated: (InAppWebViewController created) async {
