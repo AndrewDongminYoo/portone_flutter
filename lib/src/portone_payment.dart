@@ -380,8 +380,10 @@ class PortonePaymentState extends State<PortonePayment> {
                     }
                     return NavigationActionPolicy.CANCEL;
                   } else {
-                    if (await canLaunchUrl(uriValue)) {
-                      await launchUrl(uriValue);
+                    try {
+                      await launchUrl(uriValue, mode: LaunchMode.externalApplication);
+                    } catch (error, stack) {
+                      widget.logger('Failed to launch external url: $uriValue', error: error, stackTrace: stack);
                     }
                     return NavigationActionPolicy.CANCEL;
                   }
