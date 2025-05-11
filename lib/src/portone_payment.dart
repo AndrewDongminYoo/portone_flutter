@@ -216,8 +216,7 @@ class PortonePaymentState extends State<PortonePayment> {
       body: PopScope(
         canPop: false,
         onPopInvokedWithResult: (bool didPop, Object? result) async {
-          if (!mounted) return;
-          if (controller != null && await controller!.canGoBack()) {
+          if (await controller?.canGoBack() ?? false) {
             await controller!.goBack();
           } else {
             SchedulerBinding.instance.addPostFrameCallback((_) {
