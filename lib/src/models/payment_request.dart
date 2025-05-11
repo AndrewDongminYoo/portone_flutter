@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 // 🌎 Project imports:
 import 'package:portone_flutter_v2/src/enums/enums.dart';
-import 'package:portone_flutter_v2/src/helpers/helpers.dart';
+import 'package:portone_flutter_v2/src/helpers/supported_methods.dart';
 import 'package:portone_flutter_v2/src/models/models.dart';
 
 part 'payment_request.g.dart';
