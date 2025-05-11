@@ -290,7 +290,6 @@ Internally, this package:
 
 - Uses `flutter_inappwebview` to embed PortOne's browser SDK securely.
 - Dynamically constructs and loads the payment initiation HTML with user-provided payment details.
-- Implements deep-link callbacks using custom URL schemes (`appScheme`) via `app_links`.
 - Manages redirects and payment results by intercepting URL navigations and intents, offering a streamlined mobile payment experience.
 
 ## 🧩 Supported Payment Methods per PG Company

@@ -1,5 +1,4 @@
 // 🎯 Dart imports:
-import 'dart:async';
 import 'dart:convert';
 import 'dart:developer' show log;
 
@@ -10,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 // 📦 Package imports:
-import 'package:app_links/app_links.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -100,7 +98,6 @@ class PortonePayment extends StatefulWidget {
 /// - Generating and loading HTML that invokes PortOne’s browser SDK for processing the payment.
 /// - Managing the [InAppWebView] lifecycle including loading events, JavaScript handlers,
 ///   and navigation actions.
-/// - Handling deep link callbacks using [AppLinks] when no explicit [PaymentRequest.redirectUrl] is provided.
 /// - Intercepting and processing URL navigations to capture payment responses or errors:
 ///   - Allowing normal HTTP/HTTPS navigations.
 ///   - Capturing the custom app scheme redirections to extract payment result parameters.
@@ -127,59 +124,13 @@ class PortonePaymentState extends State<PortonePayment> {
   /// Current index of Stacked Widgets
   int _stackIndex = 0;
 
-  /// App links handler.
-  late final AppLinks _appLinks;
-
-  /// Stream for receiving all incoming URI events as [Uri].
-  StreamSubscription<Uri>? _appLinkSub;
-
   /// Every time `shouldOverrideUrlLoading` is called, the URL is stored in [_redirectedUrls],
   /// and when an actual error occurs, you can create a stack trace containing this URL history using
   /// [StackTrace.fromString] and pass it on, allowing users to use it for debugging as is.
   final List<Uri> _redirectedUrls = [];
 
   @override
-  void initState() {
-    super.initState();
-    if (widget.data.redirectUrl == null) {
-      _appLinks = AppLinks();
-      _appLinkSub = _appLinks.uriLinkStream.listen(
-        (Uri? uri) {
-          if (uri != null && uri.scheme == widget.data.appScheme) {
-            // Copy original parameters
-            final params = Map<String, String>.from(uri.queryParameters);
-            try {
-              final paymentResponse = PaymentResponse.fromJson(params);
-              widget.logger('AppLinks callback received: $uri');
-              _handleSuccess(paymentResponse);
-            } on CheckedFromJsonException catch (e, st) {
-              // Debug logging: missing keys, full map, stack trace
-              widget.logger(
-                '❌ PaymentResponse.fromJson failed!\n'
-                '  Incoming params: $params\n'
-                '  Error message: ${e.message}\n'
-                '  Missing key: txId or malformed value?',
-                error: e.innerError ?? e,
-                stackTrace: e.innerStack ?? st,
-              );
-              _handleError(e, st);
-            } catch (error, stackTrace) {
-              widget.logger('Error processing app link', error: error, stackTrace: stackTrace);
-              _handleError(error, stackTrace);
-            }
-          }
-        },
-        onError: (Object error, StackTrace stackTrace) {
-          widget.logger('AppLinks subscription error', error: error, stackTrace: stackTrace);
-          _handleError(error, stackTrace);
-        },
-      );
-    }
-  }
-
-  @override
   void dispose() {
-    _appLinkSub?.cancel();
     controller?.dispose();
     super.dispose();
   }

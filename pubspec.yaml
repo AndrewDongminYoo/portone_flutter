@@ -6,7 +6,6 @@ environment:
   sdk: ^3.6.0
   flutter: ">=3.24.0"
 dependencies:
-  app_links: ^6.4.0
   flutter:
     sdk: flutter
   flutter_inappwebview: ^6.1.5
