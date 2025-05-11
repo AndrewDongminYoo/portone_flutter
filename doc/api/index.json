@@ -5116,20 +5116,6 @@
     }
   },
   {
-    "name": "initState",
-    "qualifiedName": "portone_flutter_v2.PortonePaymentState.initState",
-    "href": "portone_flutter_v2/PortonePaymentState/initState.html",
-    "kind": 10,
-    "overriddenDepth": 1,
-    "packageRank": 0,
-    "desc": "Called when this object is inserted into the tree.",
-    "enclosedBy": {
-      "name": "PortonePaymentState",
-      "kind": 3,
-      "href": "portone_flutter_v2/PortonePaymentState-class.html"
-    }
-  },
-  {
     "name": "ProductDetail",
     "qualifiedName": "portone_flutter_v2.ProductDetail",
     "href": "portone_flutter_v2/ProductDetail-class.html",

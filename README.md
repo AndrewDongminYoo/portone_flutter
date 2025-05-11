@@ -18,8 +18,8 @@ A robust Flutter package enabling seamless integration of the PortOne V2 payment
 - **PayMethod Validation:**
   Ensures that the selected `payMethod` is supported by the chosen `PGCompany`, throwing a clear error if not.
 
-- **Deep-Link Handling:**
-  Automatic deep-link handling for payment completion callbacks using custom app schemes.
+- **URL Normalization & Custom Scheme Support:**
+  Normalizes redirect URLs and custom app schemes for consistent deep-link behavior in `InAppWebView` (removed automatic deep-link handling via `app_links` dependency).
 
 - **Customizable UI:**
   Easily configure your loading state UI and customize the payment experience.
@@ -37,7 +37,7 @@ Add the dependency to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  portone_flutter_v2: ^1.0.5
+  portone_flutter_v2: ^1.1.0
 ```
 
 Or via command line:
@@ -126,7 +126,7 @@ Ensure your app requests internet permission and declares package visibility for
 
 #### iOS (`Info.plist`)
 
-Declare URL schemes for deep linking and payment apps:
+Declare URL schemes for your custom app scheme and payment apps:
 
 ```xml
 <key>LSApplicationQueriesSchemes</key>

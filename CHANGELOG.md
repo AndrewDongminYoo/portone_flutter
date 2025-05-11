@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-05-12
+
+### Added
+
+- Added `redirectUrl` property to the `PaymentRequest` model in both the example app and the tests.
+- Introduced a `NormalizedUrl` utility class for normalizing deep‐link redirect URLs and custom app schemes, preserving query parameters and fragments and handling null or whitespace inputs.
+- Integrated the `NormalizedUrl` utility into `PortonePayment` to generate a normalized `redirectUrl` and `appScheme` for the `InAppWebView`, passing the normalized `redirectUrl` to `paymentData` and adding `appScheme` to `resourceCustomSchemes`.
+
+### Changed
+
+- Removed unused export files (`helpers.dart` and `l10n.dart`); updated the import in `payment_request.dart` to directly import `supported_methods.dart`; and updated the exports in `portone_flutter_v2.dart` to export individual files.
+- Simplified the `PopScope` condition in `PortonePaymentState` by using a null‐aware `controller?.canGoBack() ?? false` check.
+- Removed the default assignment of `redirectUrl` within the `PortonePayment` widget; `redirectUrl` must now be provided explicitly.
+
+### Removed
+
+- Removed the `app_links` dependency and all associated deep‐link handling code from `PortonePayment` (including `AppLinks` instance, stream subscription, and related logic), updated `pubspec.yaml`, `README.md`, and `example/ios/Podfile.lock`.
+
+### Fixed
+
+- Handled potential `CheckedFromJsonException` in `PaymentResponse.fromJson` by adding a try‐catch, detailed logging (including incoming parameters, missing keys, and stack trace), improved scheme matching with a `case` pattern, and routed errors through `_handleError`.
+- Wrapped `launchUrl` calls in try‐catch, logged any errors, and enforced `LaunchMode.externalApplication` to ensure URLs open in an external application.
+- Prevented the `InAppWebView` from loading custom schemes by calling `controller.stopLoading()` and returning `null` in `onLoadResourceWithCustomScheme`.
+- Removed a redundant `txId` fix in the Kakao Pay iOS AppLinks callback and enhanced `InAppWebView` settings: enabled `javaScriptCanOpenWindowsAutomatically`, disabled `allowsLinkPreview`, enabled `allowsInlineMediaPlayback`, enabled `useOnLoadResource` and `useOnDownloadStart`, allowed the `intent` scheme, and cleared `contentBlockers`.
+
 ## [1.0.11] - 2025-05-10
 
 ### Changed
@@ -161,6 +186,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Modified field type in PaymentRequest model (changed `isEscrow` to nullable)
 - Changed `paypal` to `convenienceStore` in the `PaymentPayMethod` enumeration
 
+[1.1.0]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.11...v1.1.0
 [1.0.11]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.10...v1.0.11
 [1.0.10]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.9...v1.0.10
 [1.0.9]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.8...v1.0.9
@@ -173,4 +199,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.0.2]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/AndrewDongminYoo/portone_flutter/releases/tag/v1.0.0
-[unreleased]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.11...main
+[unreleased]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.1.0...main
