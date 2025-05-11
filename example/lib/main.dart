@@ -101,6 +101,7 @@ class PayNowScreen extends StatelessWidget {
               channelKey: 'channel-key-00000000-0000-0000-0000-000000000000',
               payMethod: PaymentPayMethod.card,
               appScheme: 'portone',
+              redirectUrl: 'portone://payments',
             );
             // Navigate to the PaymentScreen, passing the PaymentRequest as extra data.
             context.push('/payment', extra: payment);

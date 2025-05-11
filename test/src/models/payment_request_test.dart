@@ -14,7 +14,8 @@ void main() {
         totalAmount: 1000,
         currency: PaymentCurrency.USD,
         payMethod: PaymentPayMethod.card,
-        appScheme: 'portoneTest',
+        appScheme: 'pontone',
+        redirectUrl: 'pontone://payments',
       );
 
       expect(paymentRequest.storeId, equals('store-00000000-0000-0000-0000-000000000000'));
@@ -23,7 +24,7 @@ void main() {
       expect(paymentRequest.totalAmount, equals(1000));
       expect(paymentRequest.currency, equals(PaymentCurrency.USD));
       expect(paymentRequest.payMethod, equals(PaymentPayMethod.card));
-      expect(paymentRequest.appScheme, equals('portoneTest'));
+      expect(paymentRequest.appScheme, equals('pontone'));
     });
 
     test('should create PaymentRequest with optional fields', () {
@@ -34,7 +35,8 @@ void main() {
         totalAmount: 1000,
         currency: PaymentCurrency.USD,
         payMethod: PaymentPayMethod.card,
-        appScheme: 'portoneTest',
+        appScheme: 'pontone',
+        redirectUrl: 'pontone://payments',
         channelKey: 'channel-key-00000000-0000-0000-0000-000000000000',
         taxFreeAmount: 100,
         vatAmount: 90,
@@ -67,7 +69,8 @@ void main() {
         totalAmount: 1000,
         currency: PaymentCurrency.USD,
         payMethod: PaymentPayMethod.card,
-        appScheme: 'portoneTest',
+        appScheme: 'pontone',
+        redirectUrl: 'pontone://payments',
         noticeUrls: ['http://example.com/notice1', 'http://example.com/notice2'],
         products: [
           ProductDetail.fromJson({'id': '1', 'name': 'Product 1', 'amount': 500, 'quantity': 1}),
@@ -91,7 +94,7 @@ void main() {
         'totalAmount': 1000,
         'currency': 'CURRENCY_KRW', // PaymentCurrency enum에 맞는 값으로 변환되어야 함
         'payMethod': 'CARD', // PaymentPayMethod enum에 맞는 값으로 변환되어야 함
-        'appScheme': 'portoneTest',
+        'appScheme': 'pontone',
         // 선택적 필드는 테스트 상황에 맞게 null 또는 적당한 값을 지정할 수 있음
         'channelKey': 'channel-key-00000000-0000-0000-0000-000000000000',
         'channelGroupId': null,
@@ -153,7 +156,8 @@ void main() {
         totalAmount: 1000,
         currency: PaymentCurrency.USD,
         payMethod: PaymentPayMethod.card,
-        appScheme: 'portoneTest',
+        appScheme: 'pontone',
+        redirectUrl: 'pontone://payments',
         expiredTime: '2025-04-12 18:18:17',
       );
 
@@ -171,7 +175,8 @@ void main() {
           totalAmount: 500,
           currency: PaymentCurrency.KRW,
           payMethod: PaymentPayMethod.convenienceStore, // niceV2 에는 없음
-          appScheme: 'portoneTest',
+          appScheme: 'pontone',
+          redirectUrl: 'pontone://payments',
           pg: PGCompany.niceV2, // niceV2 의 methods 에 convenienceStore 가 없음
         ),
         throwsA(
@@ -200,7 +205,8 @@ void main() {
           totalAmount: 500,
           currency: PaymentCurrency.KRW,
           payMethod: PaymentPayMethod.card,
-          appScheme: 'portoneTest',
+          appScheme: 'pontone',
+          redirectUrl: 'pontone://payments',
           pg: PGCompany.niceV2,
         ),
         returnsNormally,
