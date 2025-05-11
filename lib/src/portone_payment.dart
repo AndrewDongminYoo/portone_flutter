@@ -192,11 +192,6 @@ class PortonePaymentState extends State<PortonePayment> {
 
     paymentData['appScheme'] = '$appScheme://';
 
-    // redirectUrl 이 비어있으면 기본값 설정
-    if (paymentData['redirectUrl'] == null) {
-      paymentData['redirectUrl'] = '$appScheme://portone';
-    }
-
     final html = '''
 <!doctype html>
 <html>
