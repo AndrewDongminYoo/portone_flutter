@@ -148,10 +148,6 @@ class PortonePaymentState extends State<PortonePayment> {
           if (uri != null && uri.scheme == widget.data.appScheme) {
             // Copy original parameters
             final params = Map<String, String>.from(uri.queryParameters);
-            // Correct when returning Kakao Pay iOS and only 'tid' is present but 'txId' is not
-            if (params.containsKey('tid') && !params.containsKey('txId')) {
-              params['txId'] = params.remove('tid')!;
-            }
             try {
               final paymentResponse = PaymentResponse.fromJson(params);
               widget.logger('AppLinks callback received: $uri');
@@ -244,8 +240,14 @@ class PortonePaymentState extends State<PortonePayment> {
               InAppWebView(
                 gestureRecognizers: widget.gestureRecognizers,
                 initialSettings: InAppWebViewSettings(
+                  javaScriptCanOpenWindowsAutomatically: true,
+                  allowsLinkPreview: false,
+                  allowsInlineMediaPlayback: true,
                   useShouldOverrideUrlLoading: true,
+                  useOnLoadResource: true,
+                  useOnDownloadStart: true,
                   resourceCustomSchemes: ['intent'],
+                  contentBlockers: [],
                 ),
                 onWebViewCreated: (InAppWebViewController created) async {
                   controller = created;
