@@ -314,18 +314,30 @@ class PortonePaymentState extends State<PortonePayment> {
                   _redirectedUrls.add(uriValue);
                   widget.logger('Navigation action request uri: $uriValue');
 
-                  if (uriValue.scheme == 'http' || uriValue.scheme == 'https') {
+                  if (uriValue.scheme case 'http' || 'https') {
                     return NavigationActionPolicy.ALLOW;
                   } else if (uriValue.scheme == appScheme) {
+                    final params = Map<String, dynamic>.from(url.queryParameters);
                     try {
-                      final paymentResponse = PaymentResponse.fromJson(url.queryParameters);
+                      final paymentResponse = PaymentResponse.fromJson(params);
                       _handleSuccess(paymentResponse);
+                    } on CheckedFromJsonException catch (e, st) {
+                      // Debug logging: missing keys, full map, stack trace
+                      widget.logger(
+                        '❌ PaymentResponse.fromJson failed!\n'
+                        '  Incoming params: $params\n'
+                        '  Error message: ${e.message}\n'
+                        '  Missing key: txId or malformed value?',
+                        error: e.innerError ?? e,
+                        stackTrace: e.innerStack ?? st,
+                      );
+                      _handleError(e, st);
                     } catch (exception, stackTrace) {
                       widget.logger('Error Occurred', error: exception, stackTrace: stackTrace);
                       _handleError(exception, stackTrace);
                     }
                     return NavigationActionPolicy.CANCEL;
-                  } else if (uriValue.scheme == 'intent') {
+                  } else if (uriValue.scheme case 'intent') {
                     try {
                       // Retrieve the raw URL string.
                       final rawUri = url.rawValue;
