@@ -272,7 +272,8 @@ class PortonePaymentState extends State<PortonePayment> {
                   );
                 },
                 onLoadResourceWithCustomScheme: (InAppWebViewController controller, WebResourceRequest resource) async {
-                  return CustomSchemeResponse(contentType: contentType, data: Uint8List(0));
+                  await controller.stopLoading();
+                  return null;
                 },
                 onLoadStop: (controller, Uri? url) async {
                   if (mounted) {
