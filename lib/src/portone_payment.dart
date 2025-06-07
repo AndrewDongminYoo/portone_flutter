@@ -1,3 +1,6 @@
+// ignore_for_file: avoid_catches_without_on_clauses not sure if this is a good idea
+// TODO(AndrewDongminYoo): remove all Avoid Catches Without on Clauses
+
 // 🎯 Dart imports:
 import 'dart:convert';
 import 'dart:developer' show log;
