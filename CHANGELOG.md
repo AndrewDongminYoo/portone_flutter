@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- Upgrade `very_good_analysis` for better error analyzing
+
 ## [1.1.0] - 2025-05-12
 
 ### Added
@@ -19,16 +25,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Simplified the `PopScope` condition in `PortonePaymentState` by using a null‐aware `controller?.canGoBack() ?? false` check.
 - Removed the default assignment of `redirectUrl` within the `PortonePayment` widget; `redirectUrl` must now be provided explicitly.
 
-### Removed
-
-- Removed the `app_links` dependency and all associated deep‐link handling code from `PortonePayment` (including `AppLinks` instance, stream subscription, and related logic), updated `pubspec.yaml`, `README.md`, and `example/ios/Podfile.lock`.
-
 ### Fixed
 
 - Handled potential `CheckedFromJsonException` in `PaymentResponse.fromJson` by adding a try‐catch, detailed logging (including incoming parameters, missing keys, and stack trace), improved scheme matching with a `case` pattern, and routed errors through `_handleError`.
 - Wrapped `launchUrl` calls in try‐catch, logged any errors, and enforced `LaunchMode.externalApplication` to ensure URLs open in an external application.
 - Prevented the `InAppWebView` from loading custom schemes by calling `controller.stopLoading()` and returning `null` in `onLoadResourceWithCustomScheme`.
 - Removed a redundant `txId` fix in the Kakao Pay iOS AppLinks callback and enhanced `InAppWebView` settings: enabled `javaScriptCanOpenWindowsAutomatically`, disabled `allowsLinkPreview`, enabled `allowsInlineMediaPlayback`, enabled `useOnLoadResource` and `useOnDownloadStart`, allowed the `intent` scheme, and cleared `contentBlockers`.
+
+### Removed
+
+- Removed the `app_links` dependency and all associated deep‐link handling code from `PortonePayment` (including `AppLinks` instance, stream subscription, and related logic), updated `pubspec.yaml`, `README.md`, and `example/ios/Podfile.lock`.
 
 ## [1.0.11] - 2025-05-10
 
@@ -53,17 +59,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.8] - 2025-04-30
 
+### Added
+
+- Added a null check for `errorResponse.statusCode` to prevent errors when the status code is not available. If the status code is null, the error is logged and ignored.
+- Added a check to ignore HTTP errors that occur on subresource requests (i.e., requests that are not for the main frame document). This prevents unnecessary error handling for resources like images or stylesheets that may fail to load. The URL and status code of the ignored error are logged.
+
 ### Changed
 
 - Replaced the default `Container()` in the `IndexedStack` with a `Center` widget containing a `CircularProgressIndicator`. This ensures that a loading indicator is displayed to the user while the WebView is being initialized, providing visual feedback and preventing a perceived delay.
 
 - Introduced a new `_handleSuccess` method to encapsulate the logic for handling successful payment responses. This method calls the `widget.callback` with the `paymentResponse` and clears the `_redirectedUrls` list.
+
 - Replaced direct calls to `widget.callback` with calls to `_handleSuccess` in the app link and URL override handling logic.
-
-### Added
-
-- Added a null check for `errorResponse.statusCode` to prevent errors when the status code is not available. If the status code is null, the error is logged and ignored.
-- Added a check to ignore HTTP errors that occur on subresource requests (i.e., requests that are not for the main frame document). This prevents unnecessary error handling for resources like images or stylesheets that may fail to load. The URL and status code of the ignored error are logged.
 
 ### Fixed
 
@@ -112,7 +119,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Updated the supported payment methods section in the README to reflect the new PG Company specific support.
-- Enable the Android plugin so that the app has the schema without modifying the manifest separately, and declare the external app schema (including \<queries\> for package visibility) in the plugin manifest.
+- Enable the Android plugin so that the app has the schema without modifying the manifest separately, and declare the external app schema (including <queries> for package visibility) in the plugin manifest.
 
 ## [1.0.3] - 2025-04-26
 
@@ -186,6 +193,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Modified field type in PaymentRequest model (changed `isEscrow` to nullable)
 - Changed `paypal` to `convenienceStore` in the `PaymentPayMethod` enumeration
 
+[Unreleased]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.1.0...HEAD
 [1.1.0]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.11...v1.1.0
 [1.0.11]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.10...v1.0.11
 [1.0.10]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.9...v1.0.10
@@ -199,4 +207,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.0.2]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/AndrewDongminYoo/portone_flutter/releases/tag/v1.0.0
-[unreleased]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.1.0...main
