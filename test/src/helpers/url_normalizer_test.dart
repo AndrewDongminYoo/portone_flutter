@@ -54,9 +54,9 @@ void main() {
 
     test('should handle null inputs gracefully', () {
       final result = NormalizedUrl(
-        // ignore: avoid_redundant_argument_values
+        // ignore: avoid_redundant_argument_values for testing
         appScheme: null,
-        // ignore: avoid_redundant_argument_values
+        // ignore: avoid_redundant_argument_values for testing
         redirectUrl: null,
       );
 
