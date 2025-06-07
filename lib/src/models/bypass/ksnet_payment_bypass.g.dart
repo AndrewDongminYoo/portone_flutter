@@ -23,7 +23,7 @@ Map<String, dynamic> _$KsnetPaymentBypassToJson(KsnetPaymentBypass instance) => 
       if (_$SndQpayTypeEnumMap[instance.sndQpayType] case final value?) 'sndQpayType': value,
     };
 
-const _$SndQpayTypeEnumMap = {
+const Map<SndQpayType, String> _$SndQpayTypeEnumMap = {
   SndQpayType.none: '0',
   SndQpayType.show: '1',
 };

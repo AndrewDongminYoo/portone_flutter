@@ -43,7 +43,7 @@ Map<String, dynamic> _$NiceV2PaymentBypassToJson(NiceV2PaymentBypass instance) =
       if (instance.samPayMallType case final value?) 'samPayMallType': value,
     };
 
-const _$NiceV2SkinTypeEnumMap = {
+const Map<NiceV2SkinType, String> _$NiceV2SkinTypeEnumMap = {
   NiceV2SkinType.red: 'red',
   NiceV2SkinType.green: 'green',
   NiceV2SkinType.purple: 'purple',

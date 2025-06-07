@@ -32,14 +32,14 @@ Map<String, dynamic> _$SmartroV2PaymentBypassToJson(SmartroV2PaymentBypass insta
       'OpenType': _$SmartroV2OpenTypeEnumMap[instance.openType],
     };
 
-const _$SmartroV2SkinColorEnumMap = {
+const Map<SmartroV2SkinColor, String> _$SmartroV2SkinColorEnumMap = {
   SmartroV2SkinColor.red: 'RED',
   SmartroV2SkinColor.green: 'GREEN',
   SmartroV2SkinColor.blue: 'BLUE',
   SmartroV2SkinColor.purple: 'PURPLE',
 };
 
-const _$SmartroV2OpenTypeEnumMap = {
+const Map<SmartroV2OpenType, String> _$SmartroV2OpenTypeEnumMap = {
   SmartroV2OpenType.kr: 'KR',
   SmartroV2OpenType.en: 'EN',
 };
