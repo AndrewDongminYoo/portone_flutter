@@ -1,5 +1,5 @@
 /// A module for integrating PortOne V2 payment service in Flutter App.
-library portone_flutter_v2;
+library;
 
 export 'src/enums/enums.dart';
 export 'src/helpers/error_handler.dart';

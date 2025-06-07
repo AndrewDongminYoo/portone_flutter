@@ -67,9 +67,10 @@ class NormalizedUrl {
     final trimmedRedirect = _rawRedirectUrl?.trim();
     if (trimmedRedirect != null && trimmedRedirect.isNotEmpty) {
       Uri uri;
-      try {
-        uri = Uri.parse(trimmedRedirect);
-      } catch (_) {
+      final url = Uri.tryParse(trimmedRedirect);
+      if (url != null) {
+        uri = url;
+      } else {
         // On parse error, fall back to custom or default
         _scheme = useCustom ? trimmedApp : 'portone';
         _url = '$_scheme://$defaultPath';
