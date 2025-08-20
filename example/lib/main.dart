@@ -22,31 +22,41 @@ import 'package:portone_flutter_v2/portone_flutter_v2.dart';
 /// - Navigation is handled using [GoRouter], allowing for deep linking and route management.
 void main() => runApp(const MyApp());
 
+enum AppRoutes {
+  home('/'),
+  payment('/payment'),
+  result('/result');
+
+  const AppRoutes(this.path);
+  final String path;
+}
+
 /// Global router configuration for the sample application.
 ///
 /// The route structure is defined as follows:
-/// - '/' maps to [PayNowScreen] (the home screen).
-/// - '/payment' maps to [PaymentScreen] and expects a [PaymentRequest] passed via extra data.
-/// - '/result' maps to [ResultScreen] and expects a [PaymentResponse] passed via extra data.
+/// - [AppRoutes.home] maps to [PayNowScreen] (the home screen).
+/// - [AppRoutes.payment] maps to [PaymentScreen] and expects a [PaymentRequest] passed via extra data.
+/// - [AppRoutes.result] maps to [ResultScreen] and expects a [PaymentResponse] passed via extra data.
 final GoRouter _router = GoRouter(
   routes: <RouteBase>[
     GoRoute(
-      path: '/',
+      path: AppRoutes.home.path,
+      name: AppRoutes.home.name,
       builder: (BuildContext context, GoRouterState state) {
         return const PayNowScreen();
       },
       routes: <RouteBase>[
         GoRoute(
-          path: 'payment',
-          name: 'payment',
+          path: AppRoutes.payment.path,
+          name: AppRoutes.payment.name,
           builder: (BuildContext context, GoRouterState state) {
             final paymentRequest = state.extra as PaymentRequest;
             return PaymentScreen(paymentRequest: paymentRequest);
           },
         ),
         GoRoute(
-          path: 'result',
-          name: 'result',
+          path: AppRoutes.result.path,
+          name: AppRoutes.result.name,
           builder: (BuildContext context, GoRouterState state) {
             final paymentResponse = state.extra as PaymentResponse;
             return ResultScreen(paymentResponse: paymentResponse);
@@ -101,10 +111,9 @@ class PayNowScreen extends StatelessWidget {
               channelKey: 'channel-key-00000000-0000-0000-0000-000000000000',
               payMethod: PaymentPayMethod.card,
               appScheme: 'portone',
-              redirectUrl: 'portone://payments',
             );
             // Navigate to the PaymentScreen, passing the PaymentRequest as extra data.
-            context.push('/payment', extra: payment);
+            context.push(AppRoutes.payment.path, extra: payment);
           },
           child: const Text('Go to the Payment screen'),
         ),
@@ -135,7 +144,7 @@ class PaymentScreen extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {
             // Allow users to cancel the payment process and go back to the home screen.
-            context.go('/');
+            context.go(AppRoutes.home.path);
           },
           child: const Text('Go Back'),
         ),
@@ -143,7 +152,7 @@ class PaymentScreen extends StatelessWidget {
       // The callback is invoked when a payment result is received.
       callback: (PaymentResponse response) async {
         // Navigate to the result screen with the payment response.
-        context.push('/result', extra: response);
+        context.push(AppRoutes.result.path, extra: response);
       },
       // Error handling: display a SnackBar in case of an error.
       onError: (Object? error) {
@@ -173,7 +182,7 @@ class ResultScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Payment Result'),
         automaticallyImplyLeading: false,
-        leading: IconButton(icon: const Icon(Icons.home), onPressed: () => context.go('/')),
+        leading: IconButton(icon: const Icon(Icons.home), onPressed: () => context.go(AppRoutes.home.path)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
