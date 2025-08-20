@@ -18,6 +18,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 // 🌎 Project imports:
 import 'package:portone_flutter_v2/src/helpers/error_handler.dart';
+import 'package:portone_flutter_v2/src/helpers/platform_utils.dart';
 import 'package:portone_flutter_v2/src/helpers/url_normalizer.dart';
 import 'package:portone_flutter_v2/src/models/payment_request.dart';
 import 'package:portone_flutter_v2/src/models/payment_response.dart';
@@ -137,6 +138,36 @@ class PortonePaymentState extends State<PortonePayment> {
   void dispose() {
     controller?.dispose();
     super.dispose();
+  }
+
+  /// Known app-market hosts that should be opened outside the WebView.
+  bool _isAppMarketHost(Uri uri) {
+    if (!PlatformUtil.isAndroid) {
+      return false;
+    }
+    final scheme = uri.scheme.toLowerCase();
+    if (scheme == 'market') {
+      return true;
+    } else if (scheme == 'http' || scheme == 'https') {
+      final host = uri.host.toLowerCase();
+      return host == 'play.google.com' || host == 'market.android.com' || host == 'play.app.goo.gl';
+    } else {
+      return false;
+    }
+  }
+
+  /// Opens the Play Store using the provided URI. (Android only)
+  Future<void> _openPlayStore(Uri uri) async {
+    if (!PlatformUtil.isAndroid) {
+      return;
+    }
+    try {
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(uri, mode: LaunchMode.externalApplication);
+      }
+    } catch (error, stack) {
+      widget.logger('Failed to launch Play Store externally: $uri', error: error, stackTrace: stack);
+    }
   }
 
   @override
@@ -275,7 +306,13 @@ class PortonePaymentState extends State<PortonePayment> {
                   _redirectedUrls.add(uriValue);
                   widget.logger('Navigation action request uri: $uriValue');
 
+                  if (_isAppMarketHost(uriValue)) {
+                    // Open Google Play (and legacy market.android.com) outside the WebView
+                    await _openPlayStore(uriValue);
+                    return NavigationActionPolicy.CANCEL;
+                  }
                   if (uriValue.isScheme('HTTP') || uriValue.isScheme('HTTPS')) {
+                    // Otherwise keep normal web navigation inside the WebView
                     return NavigationActionPolicy.ALLOW;
                   } else if (uriValue.scheme == appScheme) {
                     final params = Map<String, dynamic>.from(url.queryParameters);
@@ -366,9 +403,9 @@ class PortonePaymentState extends State<PortonePayment> {
                         final playStore = Uri.parse('https://play.google.com/store/apps/details?id=$package');
 
                         if (await canLaunchUrl(appMarket)) {
-                          await launchUrl(appMarket, mode: LaunchMode.externalApplication);
+                          await _openPlayStore(appMarket);
                         } else if (await canLaunchUrl(playStore)) {
-                          await launchUrl(playStore, mode: LaunchMode.externalApplication);
+                          await _openPlayStore(playStore);
                         } else {
                           widget.logger('No handler for package: $package and no market available.');
                         }
