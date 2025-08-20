@@ -11,7 +11,7 @@ KcpV2Bypass _$KcpV2BypassFromJson(Map<String, dynamic> json) => $checkedCreate(
   json,
   ($checkedConvert) {
     final val = KcpV2Bypass(
-      shopUserId: $checkedConvert('shop_user_id', (v) => v as String),
+      shopUserId: $checkedConvert('shop_user_id', (v) => v! as String),
       skinIndx: $checkedConvert('skin_indx', (v) => v as String?),
       siteLogo: $checkedConvert('site_logo', (v) => v as String?),
       kcpPayTitle: $checkedConvert('kcp_pay_title', (v) => v as String?),

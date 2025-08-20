@@ -23,4 +23,4 @@ Map<String, dynamic> _$KsnetPaymentBypassToJson(KsnetPaymentBypass instance) => 
   'sndQpayType': ?_$SndQpayTypeEnumMap[instance.sndQpayType],
 };
 
-const _$SndQpayTypeEnumMap = {SndQpayType.none: '0', SndQpayType.show: '1'};
+const Map<SndQpayType, String> _$SndQpayTypeEnumMap = {SndQpayType.none: '0', SndQpayType.show: '1'};

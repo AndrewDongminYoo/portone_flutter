@@ -75,13 +75,13 @@ Map<String, dynamic> _$TossBrandpayUIOptionsToJson(
   TossBrandpayUIOptions instance,
 ) => <String, dynamic>{
   'highlightColor': instance.highlightColor,
-  'buttonStyle': _$TossBrandpayButtonStyleEnumMap[instance.buttonStyle]!,
+  'buttonStyle': _$TossBrandpayButtonStyleEnumMap[instance.buttonStyle],
   'labels': ?instance.labels?.toJson(),
   'navigationBar': ?instance.navigationBar?.toJson(),
   'widgetOptions': ?instance.widgetOptions?.toJson(),
 };
 
-const _$TossBrandpayButtonStyleEnumMap = {
+const Map<TossBrandpayButtonStyle, String> _$TossBrandpayButtonStyleEnumMap = {
   TossBrandpayButtonStyle.$default: 'default',
   TossBrandpayButtonStyle.full: 'full',
 };
@@ -143,7 +143,7 @@ Map<String, dynamic> _$TossBrandpayWidgetOptionsToJson(
   'ui': ?instance.ui?.toJson(),
 };
 
-const _$TossBrandpayMethodTypeEnumMap = {
+const Map<TossBrandpayMethodType, String> _$TossBrandpayMethodTypeEnumMap = {
   TossBrandpayMethodType.card: '카드',
   TossBrandpayMethodType.account: '계좌',
 };

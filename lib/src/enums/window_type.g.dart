@@ -25,7 +25,7 @@ Map<String, dynamic> _$WindowTypesToJson(WindowTypes instance) => <String, dynam
   'pc': ?_$WindowTypeEnumMap[instance.pc],
 };
 
-const _$WindowTypeEnumMap = {
+const Map<WindowType, String> _$WindowTypeEnumMap = {
   WindowType.iframe: 'IFRAME',
   WindowType.popup: 'POPUP',
   WindowType.redirection: 'REDIRECTION',

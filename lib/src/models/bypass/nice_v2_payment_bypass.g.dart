@@ -45,7 +45,7 @@ Map<String, dynamic> _$NiceV2PaymentBypassToJson(
 ) => <String, dynamic>{
   'LogoImage': ?instance.logoImage,
   'NPDisableScroll': ?instance.npDisableScroll,
-  'SkinType': _$NiceV2SkinTypeEnumMap[instance.skinType]!,
+  'SkinType': _$NiceV2SkinTypeEnumMap[instance.skinType],
   'userCI': ?instance.userCI,
   'mallUserID': ?instance.mallUserID,
   'directCouponYN': ?instance.directCouponYN,
@@ -56,7 +56,7 @@ Map<String, dynamic> _$NiceV2PaymentBypassToJson(
   'samPayMallType': ?instance.samPayMallType,
 };
 
-const _$NiceV2SkinTypeEnumMap = {
+const Map<NiceV2SkinType, String> _$NiceV2SkinTypeEnumMap = {
   NiceV2SkinType.red: 'red',
   NiceV2SkinType.green: 'green',
   NiceV2SkinType.purple: 'purple',

@@ -10,10 +10,10 @@ PaymentRequest _$PaymentRequestFromJson(
   Map<String, dynamic> json,
 ) => $checkedCreate('PaymentRequest', json, ($checkedConvert) {
   final val = PaymentRequest(
-    storeId: $checkedConvert('storeId', (v) => v as String),
-    paymentId: $checkedConvert('paymentId', (v) => v as String),
-    orderName: $checkedConvert('orderName', (v) => v as String),
-    totalAmount: $checkedConvert('totalAmount', (v) => (v as num).toInt()),
+    storeId: $checkedConvert('storeId', (v) => v! as String),
+    paymentId: $checkedConvert('paymentId', (v) => v! as String),
+    orderName: $checkedConvert('orderName', (v) => v! as String),
+    totalAmount: $checkedConvert('totalAmount', (v) => (v! as num).toInt()),
     currency: $checkedConvert(
       'currency',
       (v) => $enumDecode(_$PaymentCurrencyEnumMap, v),
@@ -22,7 +22,7 @@ PaymentRequest _$PaymentRequestFromJson(
       'payMethod',
       (v) => $enumDecode(_$PaymentPayMethodEnumMap, v),
     ),
-    appScheme: $checkedConvert('appScheme', (v) => v as String),
+    appScheme: $checkedConvert('appScheme', (v) => v! as String),
     pg: $checkedConvert(
       'pg',
       (v) => $enumDecodeNullable(_$PGCompanyEnumMap, v),
@@ -105,8 +105,8 @@ Map<String, dynamic> _$PaymentRequestToJson(PaymentRequest instance) => <String,
   'paymentId': instance.paymentId,
   'orderName': instance.orderName,
   'totalAmount': instance.totalAmount,
-  'currency': _$PaymentCurrencyEnumMap[instance.currency]!,
-  'payMethod': _$PaymentPayMethodEnumMap[instance.payMethod]!,
+  'currency': _$PaymentCurrencyEnumMap[instance.currency],
+  'payMethod': _$PaymentPayMethodEnumMap[instance.payMethod],
   'channelKey': ?instance.channelKey,
   'channelGroupId': ?instance.channelGroupId,
   'taxFreeAmount': ?instance.taxFreeAmount,
@@ -134,7 +134,7 @@ Map<String, dynamic> _$PaymentRequestToJson(PaymentRequest instance) => <String,
   'popup': ?instance.popup?.toJson(),
 };
 
-const _$PaymentCurrencyEnumMap = {
+const Map<PaymentCurrency, String> _$PaymentCurrencyEnumMap = {
   PaymentCurrency.KRW: 'CURRENCY_KRW',
   PaymentCurrency.USD: 'CURRENCY_USD',
   PaymentCurrency.EUR: 'CURRENCY_EUR',
@@ -317,7 +317,7 @@ const _$PaymentCurrencyEnumMap = {
   PaymentCurrency.ZWL: 'CURRENCY_ZWL',
 };
 
-const _$PaymentPayMethodEnumMap = {
+const Map<PaymentPayMethod, String> _$PaymentPayMethodEnumMap = {
   PaymentPayMethod.card: 'CARD',
   PaymentPayMethod.virtualAccount: 'VIRTUAL_ACCOUNT',
   PaymentPayMethod.transfer: 'TRANSFER',
@@ -327,7 +327,7 @@ const _$PaymentPayMethodEnumMap = {
   PaymentPayMethod.convenienceStore: 'CONVENIENCE_STORE',
 };
 
-const _$PGCompanyEnumMap = {
+const Map<PGCompany, String> _$PGCompanyEnumMap = {
   PGCompany.eximbayV2: 'eximbay_v2',
   PGCompany.hyphen: 'hyphen',
   PGCompany.inicisJp: 'inicis_jp',
@@ -346,7 +346,7 @@ const _$PGCompanyEnumMap = {
   PGCompany.welcome: 'welcome_payment',
 };
 
-const _$PaymentLocaleEnumMap = {
+const Map<PaymentLocale, String> _$PaymentLocaleEnumMap = {
   PaymentLocale.koKr: 'KO_KR',
   PaymentLocale.enUs: 'EN_US',
   PaymentLocale.zhCn: 'ZH_CN',
@@ -357,7 +357,7 @@ const _$PaymentLocaleEnumMap = {
   PaymentLocale.viVn: 'VI_VN',
 };
 
-const _$CountryEnumMap = {
+const Map<Country, String> _$CountryEnumMap = {
   Country.AF: 'COUNTRY_AF',
   Country.AX: 'COUNTRY_AX',
   Country.AL: 'COUNTRY_AL',
@@ -609,12 +609,12 @@ const _$CountryEnumMap = {
   Country.ZW: 'COUNTRY_ZW',
 };
 
-const _$ProductTypeEnumMap = {
+const Map<ProductType, String> _$ProductTypeEnumMap = {
   ProductType.digital: 'PRODUCT_TYPE_DIGITAL',
   ProductType.real: 'PRODUCT_TYPE_REAL',
 };
 
-const _$CashReceiptTradeOptionEnumMap = {
+const Map<CashReceiptTradeOption, String> _$CashReceiptTradeOptionEnumMap = {
   CashReceiptTradeOption.culture: 'CULTURE',
   CashReceiptTradeOption.general: 'GENERAL',
   CashReceiptTradeOption.publicTp: 'PUBLIC_TP',

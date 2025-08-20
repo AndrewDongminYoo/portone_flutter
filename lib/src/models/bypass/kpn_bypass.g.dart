@@ -20,7 +20,7 @@ Map<String, dynamic> _$KpnBypassToJson(KpnBypass instance) => <String, dynamic>{
   'cardSelect': ?instance.cardSelect?.map((e) => _$KpnCardSelectEnumMap[e]!).toList(),
 };
 
-const _$KpnCardSelectEnumMap = {
+const Map<KpnCardSelect, String> _$KpnCardSelectEnumMap = {
   KpnCardSelect.global: 'GLOBAL',
   KpnCardSelect.elevenPay: '11PAY',
   KpnCardSelect.legacyAuth: 'LEGACY_AUTH',

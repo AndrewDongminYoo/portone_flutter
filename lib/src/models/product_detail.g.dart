@@ -9,10 +9,10 @@ part of 'product_detail.dart';
 ProductDetail _$ProductDetailFromJson(Map<String, dynamic> json) =>
     $checkedCreate('ProductDetail', json, ($checkedConvert) {
       final val = ProductDetail(
-        id: $checkedConvert('id', (v) => v as String),
-        name: $checkedConvert('name', (v) => v as String),
-        amount: $checkedConvert('amount', (v) => (v as num).toInt()),
-        quantity: $checkedConvert('quantity', (v) => (v as num).toInt()),
+        id: $checkedConvert('id', (v) => v! as String),
+        name: $checkedConvert('name', (v) => v! as String),
+        amount: $checkedConvert('amount', (v) => (v! as num).toInt()),
+        quantity: $checkedConvert('quantity', (v) => (v! as num).toInt()),
         code: $checkedConvert('code', (v) => v as String?),
         tag: $checkedConvert('tag', (v) => v as String?),
         link: $checkedConvert('link', (v) => v as String?),

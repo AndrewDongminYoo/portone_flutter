@@ -31,11 +31,11 @@ Map<String, dynamic> _$NaverpayPaymentBypassToJson(
 NaverpayProductItem _$NaverpayProductItemFromJson(Map<String, dynamic> json) =>
     $checkedCreate('NaverpayProductItem', json, ($checkedConvert) {
       final val = NaverpayProductItem(
-        categoryType: $checkedConvert('categoryType', (v) => v as String),
-        categoryId: $checkedConvert('categoryId', (v) => v as String),
-        uid: $checkedConvert('uid', (v) => v as String),
-        name: $checkedConvert('name', (v) => v as String),
-        count: $checkedConvert('count', (v) => (v as num).toInt()),
+        categoryType: $checkedConvert('categoryType', (v) => v! as String),
+        categoryId: $checkedConvert('categoryId', (v) => v! as String),
+        uid: $checkedConvert('uid', (v) => v! as String),
+        name: $checkedConvert('name', (v) => v! as String),
+        count: $checkedConvert('count', (v) => (v! as num).toInt()),
         payReferrer: $checkedConvert('payReferrer', (v) => v as String?),
         startDate: $checkedConvert('startDate', (v) => v as String?),
         endDate: $checkedConvert('endDate', (v) => v as String?),
@@ -67,20 +67,20 @@ NaverpaySubMerchantInfo _$NaverpaySubMerchantInfoFromJson(
   Map<String, dynamic> json,
 ) => $checkedCreate('NaverpaySubMerchantInfo', json, ($checkedConvert) {
   final val = NaverpaySubMerchantInfo(
-    subMerchantName: $checkedConvert('subMerchantName', (v) => v as String),
-    subMerchantId: $checkedConvert('subMerchantId', (v) => v as String),
+    subMerchantName: $checkedConvert('subMerchantName', (v) => v! as String),
+    subMerchantId: $checkedConvert('subMerchantId', (v) => v! as String),
     subMerchantBusinessNo: $checkedConvert(
       'subMerchantBusinessNo',
-      (v) => v as String,
+      (v) => v! as String,
     ),
-    subMerchantPayId: $checkedConvert('subMerchantPayId', (v) => v as String),
+    subMerchantPayId: $checkedConvert('subMerchantPayId', (v) => v! as String),
     subMerchantTelephoneNo: $checkedConvert(
       'subMerchantTelephoneNo',
-      (v) => v as String,
+      (v) => v! as String,
     ),
     subMerchantCustomerServiceUrl: $checkedConvert(
       'subMerchantCustomerServiceUrl',
-      (v) => v as String,
+      (v) => v! as String,
     ),
   );
   return val;

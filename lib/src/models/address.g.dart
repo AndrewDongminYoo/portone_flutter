@@ -30,7 +30,7 @@ Map<String, dynamic> _$AddressToJson(Address instance) => <String, dynamic>{
   'zipcode': ?instance.zipcode,
 };
 
-const _$CountryEnumMap = {
+const Map<Country, String> _$CountryEnumMap = {
   Country.AF: 'COUNTRY_AF',
   Country.AX: 'COUNTRY_AX',
   Country.AL: 'COUNTRY_AL',
