@@ -1,5 +1,4 @@
-// ignore_for_file: avoid_catches_without_on_clauses not sure if this is a good idea
-// TODO(AndrewDongminYoo): remove all Avoid Catches Without on Clauses
+// ignore_for_file: avoid_catches_without_on_clauses just ignore;
 
 // 🎯 Dart imports:
 import 'dart:convert';
@@ -10,6 +9,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 
 // 📦 Package imports:
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
@@ -210,8 +210,11 @@ class PortonePaymentState extends State<PortonePayment> {
                         final portoneError = arguments.first;
                         widget.logger('PortOne SDK Error type: ${portoneError.runtimeType}');
                         _handleError(portoneError as Object?);
-                      } catch (error, stackTrace) {
-                        widget.logger('Error Occurred', error: error, stackTrace: stackTrace);
+                      } on PlatformException catch (error, stackTrace) {
+                        widget.logger('Platform Exception Occurred', error: error, stackTrace: stackTrace);
+                        _handleError(error, stackTrace);
+                      } on Exception catch (error, stackTrace) {
+                        widget.logger('Exception Occurred', error: error, stackTrace: stackTrace);
                         _handleError(error, stackTrace);
                       }
                     },
@@ -222,7 +225,7 @@ class PortonePaymentState extends State<PortonePayment> {
                     baseUrl: WebUri('https://flutter-sdk-content.portone.io/'),
                   );
                 },
-                onLoadResourceWithCustomScheme: (InAppWebViewController controller, WebResourceRequest resource) async {
+                onLoadResourceWithCustomScheme: (controller, WebResourceRequest resource) async {
                   await controller.stopLoading();
                   return null;
                 },
@@ -233,8 +236,7 @@ class PortonePaymentState extends State<PortonePayment> {
                     });
                   }
                 },
-                onReceivedError:
-                    (InAppWebViewController controller, WebResourceRequest request, WebResourceError error) {
+                onReceivedError: (controller, WebResourceRequest request, WebResourceError error) {
                   if (WebviewErrorUseCase.shouldIgnore(error, isMainFrame: request.isForMainFrame)) {
                     widget.logger('Ignored WebView error: ${error.type} ${error.description}');
                     return;
@@ -243,15 +245,14 @@ class PortonePaymentState extends State<PortonePayment> {
                   widget.logger('onReceivedError (main frame)', error: error);
                   _handleError(error);
                 },
-                onReceivedHttpError:
-                    (InAppWebViewController controller, WebResourceRequest request, WebResourceResponse errorResponse) {
+                onReceivedHttpError: (controller, WebResourceRequest request, WebResourceResponse errorResponse) {
                   final statusCode = errorResponse.statusCode;
                   if (statusCode == null) {
                     widget.logger('Ignored HTTP error unknown status code: ${request.url}');
                     return;
                   }
 
-                  // 요청이 메인 프레임의 문서를 가져오기 위해 이루어진 것이 아니면 무시
+                  // Ignore if the request is not made to retrieve a document from the main frame
                   if (!(request.isForMainFrame ?? false)) {
                     widget.logger('Ignored HTTP error on subresource: ${request.url} → $statusCode');
                     return;
@@ -263,80 +264,118 @@ class PortonePaymentState extends State<PortonePayment> {
                     _handleError(exception);
                   }
                 },
-                shouldOverrideUrlLoading: (InAppWebViewController controller, NavigationAction navigateAction) async {
+                shouldOverrideUrlLoading: (controller, NavigationAction navigateAction) async {
                   final url = navigateAction.request.url;
                   if (url == null) return NavigationActionPolicy.CANCEL;
 
                   final uriValue = url.uriValue;
+                  if (!uriValue.hasScheme) return NavigationActionPolicy.CANCEL;
+
                   _redirectedUrls.add(uriValue);
                   widget.logger('Navigation action request uri: $uriValue');
 
-                  if (uriValue.scheme case 'http' || 'https') {
+                  if (uriValue.isScheme('HTTP') || uriValue.isScheme('HTTPS')) {
                     return NavigationActionPolicy.ALLOW;
                   } else if (uriValue.scheme == appScheme) {
                     final params = Map<String, dynamic>.from(url.queryParameters);
                     try {
                       final paymentResponse = PaymentResponse.fromJson(params);
                       _handleSuccess(paymentResponse);
-                    } on CheckedFromJsonException catch (e, st) {
+                    } on CheckedFromJsonException catch (exception, stackTrace) {
                       // Debug logging: missing keys, full map, stack trace
                       widget.logger(
                         '❌ PaymentResponse.fromJson failed!\n'
                         '  Incoming params: $params\n'
-                        '  Error message: ${e.message}\n'
+                        '  Error message: ${exception.message}\n'
                         '  Missing key: txId or malformed value?',
-                        error: e.innerError ?? e,
-                        stackTrace: e.innerStack ?? st,
+                        error: exception.innerError ?? exception,
+                        stackTrace: exception.innerStack ?? stackTrace,
                       );
-                      _handleError(e, st);
+                      _handleError(exception, stackTrace);
                     } catch (exception, stackTrace) {
                       widget.logger('Error Occurred', error: exception, stackTrace: stackTrace);
                       _handleError(exception, stackTrace);
                     }
                     return NavigationActionPolicy.CANCEL;
-                  } else if (uriValue.scheme case 'intent') {
+                  } else if (uriValue.scheme == 'intent') {
                     try {
-                      // Retrieve the raw URL string.
-                      final rawUri = url.rawValue;
-                      // Split the URL using '#' as the delimiter (e.g., "intent://..." and "Intent;scheme=...;end").
-                      final parts = rawUri.split('#');
-                      if (parts.length != 2) {
-                        throw const FormatException('Invalid intent URL format: missing fragment');
-                      }
-                      final baseUriStr = parts[0]; // e.g., "intent://some_path"
-                      final fragment = parts[1]; // e.g., "Intent;scheme=https;package=com.example;end"
+                      // 1) Secure the original string
+                      final raw = url.rawValue;
 
-                      // Remove the "Intent;" prefix if present.
-                      var fragmentContent = fragment;
+                      // 2) Separate fragment (#) (no error even if absent)
+                      final hashIndex = raw.indexOf('#');
+                      final urlOrigin = hashIndex >= 0 ? raw.substring(0, hashIndex) : raw;
+                      var fragment = hashIndex >= 0 ? raw.substring(hashIndex + 1) : '';
+
+                      // 3) Remove the “Intent;” prefix.
                       const intentPrefix = 'Intent;';
-                      if (fragmentContent.startsWith(intentPrefix)) {
-                        fragmentContent = fragmentContent.substring(intentPrefix.length);
+                      if (fragment.startsWith(intentPrefix)) {
+                        fragment = fragment.substring(intentPrefix.length);
                       }
 
-                      // Split each parameter using ';' as delimiter and create key-value pairs.
-                      final paramsList = fragmentContent.split(';');
+                      // 4) Parsing parameters leniently (key=value;key2=value2;... → values are URL-decoded, ‘=’ is allowed)
                       final params = <String, String>{};
-                      for (final param in paramsList) {
-                        if (param.isNotEmpty && param.contains('=')) {
-                          final keyValue = param.split('=');
-                          params[keyValue[0]] = keyValue[1];
+                      final regexp = RegExp(r'([A-Za-z0-9_.-]+)=(.*?)(?:;|$)');
+                      for (final match in regexp.allMatches(fragment)) {
+                        final key = match.group(1)!;
+                        final val = Uri.decodeComponent(match.group(2)!);
+                        params[key] = val;
+                      }
+
+                      final scheme = params['scheme'];
+                      final fallback = params['S.browser_fallback_url'];
+                      final package = params['package'];
+
+                      // 5) Scheme-based redirection (intent:// → {scheme}:// replacement)
+                      if (scheme != null) {
+                        // Both intent:// and intent: formats are supported.
+                        String replaced;
+                        if (urlOrigin.startsWith('intent://')) {
+                          replaced = urlOrigin.replaceFirst('intent://', '$scheme://');
+                        } else if (urlOrigin.startsWith('intent:')) {
+                          // Example: “intent:some/path” → “{scheme}:some/path”
+                          replaced = urlOrigin.replaceFirst('intent:', '$scheme:');
+                        } else {
+                          replaced = urlOrigin; // Exception case: Be as conservative as possible
                         }
+
+                        final redirectUri = Uri.parse(replaced);
+                        if (await canLaunchUrl(redirectUri)) {
+                          await launchUrl(redirectUri, mode: LaunchMode.externalApplication);
+                          return NavigationActionPolicy.CANCEL;
+                        }
+                        // If failure occurs, seamlessly transition to the fallback logic below
                       }
 
-                      // Extract the required 'scheme' parameter.
-                      final redirectScheme = params['scheme'];
-                      if (redirectScheme == null) {
-                        throw const FormatException('Scheme parameter not found in intent URL');
+                      // 6) Prioritize browser fallback URL processing
+                      if (fallback != null && fallback.isNotEmpty) {
+                        final fallbackUri = Uri.parse(fallback);
+                        if (await canLaunchUrl(fallbackUri)) {
+                          await launchUrl(fallbackUri, mode: LaunchMode.externalApplication);
+                        } else {
+                          // If external execution fails, attempt to load within the WebView
+                          await controller.loadUrl(urlRequest: URLRequest(url: WebUri(fallback)));
+                        }
+                        return NavigationActionPolicy.CANCEL;
                       }
 
-                      // Safely parse the base URI and replace its scheme.
-                      final baseUri = Uri.parse(baseUriStr);
-                      final redirectUri = baseUri.replace(scheme: redirectScheme);
+                      // 7) If only the package exists: Attempt to redirect to the app store
+                      if (package != null && package.isNotEmpty) {
+                        final appMarket = Uri.parse('market://details?id=$package');
+                        final playStore = Uri.parse('https://play.google.com/store/apps/details?id=$package');
 
-                      // Validate and launch the redirection URI.
-                      if (await canLaunchUrl(redirectUri)) {
-                        await launchUrl(redirectUri);
+                        if (await canLaunchUrl(appMarket)) {
+                          await launchUrl(appMarket, mode: LaunchMode.externalApplication);
+                        } else if (await canLaunchUrl(playStore)) {
+                          await launchUrl(playStore, mode: LaunchMode.externalApplication);
+                        } else {
+                          widget.logger('No handler for package: $package and no market available.');
+                        }
+                        return NavigationActionPolicy.CANCEL;
                       }
+
+                      // 8) If nothing is found: Quietly cancel (do not throw an error)
+                      widget.logger('Unsupported intent URL: $raw (no scheme/fallback/package)');
                     } catch (error, stackTrace) {
                       widget.logger('Intent URL parsing error', error: error, stackTrace: stackTrace);
                       _handleError(error, stackTrace);
@@ -345,7 +384,9 @@ class PortonePaymentState extends State<PortonePayment> {
                   } else {
                     try {
                       await launchUrl(uriValue, mode: LaunchMode.externalApplication);
-                    } catch (error, stack) {
+                    } on PlatformException catch (error, stack) {
+                      widget.logger('Failed to launch external url: $uriValue', error: error, stackTrace: stack);
+                    } on Exception catch (error, stack) {
                       widget.logger('Failed to launch external url: $uriValue', error: error, stackTrace: stack);
                     }
                     return NavigationActionPolicy.CANCEL;
