@@ -2,7 +2,7 @@
   {
     "name": "portone_flutter_v2",
     "qualifiedName": "portone_flutter_v2",
-    "href": "portone_flutter_v2",
+    "href": "portone_flutter_v2/",
     "kind": 9,
     "packageRank": 0,
     "desc": "A module for integrating PortOne V2 payment service in Flutter App."
@@ -17,20 +17,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "Address",
-    "qualifiedName": "portone_flutter_v2.Address.Address",
-    "href": "portone_flutter_v2/Address/Address.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "Address 생성자",
-    "enclosedBy": {
-      "name": "Address",
-      "kind": 3,
-      "href": "portone_flutter_v2/Address-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -40,6 +27,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 Address 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "Address",
+      "kind": 3,
+      "href": "portone_flutter_v2/Address-class.html"
+    }
+  },
+  {
+    "name": "Address.new",
+    "qualifiedName": "portone_flutter_v2.Address.Address.new",
+    "href": "portone_flutter_v2/Address/Address.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "Address 생성자",
     "enclosedBy": {
       "name": "Address",
       "kind": 3,
@@ -154,20 +154,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "AddressInfo",
-    "qualifiedName": "portone_flutter_v2.AddressInfo.AddressInfo",
-    "href": "portone_flutter_v2/AddressInfo/AddressInfo.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "AddressInfo 생성자",
-    "enclosedBy": {
-      "name": "AddressInfo",
-      "kind": 3,
-      "href": "portone_flutter_v2/AddressInfo-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -177,6 +164,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 AddressInfo 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "AddressInfo",
+      "kind": 3,
+      "href": "portone_flutter_v2/AddressInfo-class.html"
+    }
+  },
+  {
+    "name": "AddressInfo.new",
+    "qualifiedName": "portone_flutter_v2.AddressInfo.AddressInfo.new",
+    "href": "portone_flutter_v2/AddressInfo/AddressInfo.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "AddressInfo 생성자",
     "enclosedBy": {
       "name": "AddressInfo",
       "kind": 3,
@@ -319,7 +319,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -374,7 +374,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -429,20 +429,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "Customer",
-    "qualifiedName": "portone_flutter_v2.Customer.Customer",
-    "href": "portone_flutter_v2/Customer/Customer.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "Customer 생성자",
-    "enclosedBy": {
-      "name": "Customer",
-      "kind": 3,
-      "href": "portone_flutter_v2/Customer-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -452,6 +439,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 Customer 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "Customer",
+      "kind": 3,
+      "href": "portone_flutter_v2/Customer-class.html"
+    }
+  },
+  {
+    "name": "Customer.new",
+    "qualifiedName": "portone_flutter_v2.Customer.Customer.new",
+    "href": "portone_flutter_v2/Customer/Customer.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "Customer 생성자",
     "enclosedBy": {
       "name": "Customer",
       "kind": 3,
@@ -636,20 +636,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "EximbayV2Bypass",
-    "qualifiedName": "portone_flutter_v2.EximbayV2Bypass.EximbayV2Bypass",
-    "href": "portone_flutter_v2/EximbayV2Bypass/EximbayV2Bypass.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "EximbayV2Bypass 생성자",
-    "enclosedBy": {
-      "name": "EximbayV2Bypass",
-      "kind": 3,
-      "href": "portone_flutter_v2/EximbayV2Bypass-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -659,6 +646,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 EximbayV2Bypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "EximbayV2Bypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/EximbayV2Bypass-class.html"
+    }
+  },
+  {
+    "name": "EximbayV2Bypass.new",
+    "qualifiedName": "portone_flutter_v2.EximbayV2Bypass.EximbayV2Bypass.new",
+    "href": "portone_flutter_v2/EximbayV2Bypass/EximbayV2Bypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "EximbayV2Bypass 생성자",
     "enclosedBy": {
       "name": "EximbayV2Bypass",
       "kind": 3,
@@ -787,20 +787,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "HyphenBypass",
-    "qualifiedName": "portone_flutter_v2.HyphenBypass.HyphenBypass",
-    "href": "portone_flutter_v2/HyphenBypass/HyphenBypass.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "HyphenBypass 생성자",
-    "enclosedBy": {
-      "name": "HyphenBypass",
-      "kind": 3,
-      "href": "portone_flutter_v2/HyphenBypass-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -810,6 +797,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 HyphenBypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "HyphenBypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/HyphenBypass-class.html"
+    }
+  },
+  {
+    "name": "HyphenBypass.new",
+    "qualifiedName": "portone_flutter_v2.HyphenBypass.HyphenBypass.new",
+    "href": "portone_flutter_v2/HyphenBypass/HyphenBypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "HyphenBypass 생성자",
     "enclosedBy": {
       "name": "HyphenBypass",
       "kind": 3,
@@ -854,20 +854,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "InicisJpBypass",
-    "qualifiedName": "portone_flutter_v2.InicisJpBypass.InicisJpBypass",
-    "href": "portone_flutter_v2/InicisJpBypass/InicisJpBypass.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "InicisJpBypass 생성자",
-    "enclosedBy": {
-      "name": "InicisJpBypass",
-      "kind": 3,
-      "href": "portone_flutter_v2/InicisJpBypass-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -877,6 +864,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 InicisJpBypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "InicisJpBypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/InicisJpBypass-class.html"
+    }
+  },
+  {
+    "name": "InicisJpBypass.new",
+    "qualifiedName": "portone_flutter_v2.InicisJpBypass.InicisJpBypass.new",
+    "href": "portone_flutter_v2/InicisJpBypass/InicisJpBypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "InicisJpBypass 생성자",
     "enclosedBy": {
       "name": "InicisJpBypass",
       "kind": 3,
@@ -921,20 +921,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "InicisJpPaymentUI",
-    "qualifiedName": "portone_flutter_v2.InicisJpPaymentUI.InicisJpPaymentUI",
-    "href": "portone_flutter_v2/InicisJpPaymentUI/InicisJpPaymentUI.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "InicisJpPaymentUI 생성자",
-    "enclosedBy": {
-      "name": "InicisJpPaymentUI",
-      "kind": 3,
-      "href": "portone_flutter_v2/InicisJpPaymentUI-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -944,6 +931,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 InicisJpPaymentUI 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "InicisJpPaymentUI",
+      "kind": 3,
+      "href": "portone_flutter_v2/InicisJpPaymentUI-class.html"
+    }
+  },
+  {
+    "name": "InicisJpPaymentUI.new",
+    "qualifiedName": "portone_flutter_v2.InicisJpPaymentUI.InicisJpPaymentUI.new",
+    "href": "portone_flutter_v2/InicisJpPaymentUI/InicisJpPaymentUI.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "InicisJpPaymentUI 생성자",
     "enclosedBy": {
       "name": "InicisJpPaymentUI",
       "kind": 3,
@@ -1002,20 +1002,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "InicisV2Bypass",
-    "qualifiedName": "portone_flutter_v2.InicisV2Bypass.InicisV2Bypass",
-    "href": "portone_flutter_v2/InicisV2Bypass/InicisV2Bypass.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "InicisV2Bypass 생성자",
-    "enclosedBy": {
-      "name": "InicisV2Bypass",
-      "kind": 3,
-      "href": "portone_flutter_v2/InicisV2Bypass-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -1025,6 +1012,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 InicisV2Bypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "InicisV2Bypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/InicisV2Bypass-class.html"
+    }
+  },
+  {
+    "name": "InicisV2Bypass.new",
+    "qualifiedName": "portone_flutter_v2.InicisV2Bypass.InicisV2Bypass.new",
+    "href": "portone_flutter_v2/InicisV2Bypass/InicisV2Bypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "InicisV2Bypass 생성자",
     "enclosedBy": {
       "name": "InicisV2Bypass",
       "kind": 3,
@@ -1167,20 +1167,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "KakaopayPaymentBypass",
-    "qualifiedName": "portone_flutter_v2.KakaopayPaymentBypass.KakaopayPaymentBypass",
-    "href": "portone_flutter_v2/KakaopayPaymentBypass/KakaopayPaymentBypass.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "KakaopayPaymentBypass 생성자",
-    "enclosedBy": {
-      "name": "KakaopayPaymentBypass",
-      "kind": 3,
-      "href": "portone_flutter_v2/KakaopayPaymentBypass-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -1190,6 +1177,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 KakaopayPaymentBypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "KakaopayPaymentBypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/KakaopayPaymentBypass-class.html"
+    }
+  },
+  {
+    "name": "KakaopayPaymentBypass.new",
+    "qualifiedName": "portone_flutter_v2.KakaopayPaymentBypass.KakaopayPaymentBypass.new",
+    "href": "portone_flutter_v2/KakaopayPaymentBypass/KakaopayPaymentBypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "KakaopayPaymentBypass 생성자",
     "enclosedBy": {
       "name": "KakaopayPaymentBypass",
       "kind": 3,
@@ -1234,20 +1234,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "KcpV2Bypass",
-    "qualifiedName": "portone_flutter_v2.KcpV2Bypass.KcpV2Bypass",
-    "href": "portone_flutter_v2/KcpV2Bypass/KcpV2Bypass.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "KcpV2Bypass 생성자",
-    "enclosedBy": {
-      "name": "KcpV2Bypass",
-      "kind": 3,
-      "href": "portone_flutter_v2/KcpV2Bypass-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -1257,6 +1244,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 KcpV2Bypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "KcpV2Bypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/KcpV2Bypass-class.html"
+    }
+  },
+  {
+    "name": "KcpV2Bypass.new",
+    "qualifiedName": "portone_flutter_v2.KcpV2Bypass.KcpV2Bypass.new",
+    "href": "portone_flutter_v2/KcpV2Bypass/KcpV2Bypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "KcpV2Bypass 생성자",
     "enclosedBy": {
       "name": "KcpV2Bypass",
       "kind": 3,
@@ -1413,20 +1413,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "KpnBypass",
-    "qualifiedName": "portone_flutter_v2.KpnBypass.KpnBypass",
-    "href": "portone_flutter_v2/KpnBypass/KpnBypass.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "KpnBypass 생성자",
-    "enclosedBy": {
-      "name": "KpnBypass",
-      "kind": 3,
-      "href": "portone_flutter_v2/KpnBypass-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -1436,6 +1423,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 KpnBypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "KpnBypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/KpnBypass-class.html"
+    }
+  },
+  {
+    "name": "KpnBypass.new",
+    "qualifiedName": "portone_flutter_v2.KpnBypass.KpnBypass.new",
+    "href": "portone_flutter_v2/KpnBypass/KpnBypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "KpnBypass 생성자",
     "enclosedBy": {
       "name": "KpnBypass",
       "kind": 3,
@@ -1480,7 +1480,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -1507,20 +1507,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "KsnetPaymentBypass",
-    "qualifiedName": "portone_flutter_v2.KsnetPaymentBypass.KsnetPaymentBypass",
-    "href": "portone_flutter_v2/KsnetPaymentBypass/KsnetPaymentBypass.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "KsnetPaymentBypass 생성자",
-    "enclosedBy": {
-      "name": "KsnetPaymentBypass",
-      "kind": 3,
-      "href": "portone_flutter_v2/KsnetPaymentBypass-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -1530,6 +1517,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 KsnetPaymentBypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "KsnetPaymentBypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/KsnetPaymentBypass-class.html"
+    }
+  },
+  {
+    "name": "KsnetPaymentBypass.new",
+    "qualifiedName": "portone_flutter_v2.KsnetPaymentBypass.KsnetPaymentBypass.new",
+    "href": "portone_flutter_v2/KsnetPaymentBypass/KsnetPaymentBypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "KsnetPaymentBypass 생성자",
     "enclosedBy": {
       "name": "KsnetPaymentBypass",
       "kind": 3,
@@ -1588,20 +1588,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "MerchantInfo",
-    "qualifiedName": "portone_flutter_v2.MerchantInfo.MerchantInfo",
-    "href": "portone_flutter_v2/MerchantInfo/MerchantInfo.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "MerchantInfo 생성자",
-    "enclosedBy": {
-      "name": "MerchantInfo",
-      "kind": 3,
-      "href": "portone_flutter_v2/MerchantInfo-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -1611,6 +1598,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 MerchantInfo 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "MerchantInfo",
+      "kind": 3,
+      "href": "portone_flutter_v2/MerchantInfo-class.html"
+    }
+  },
+  {
+    "name": "MerchantInfo.new",
+    "qualifiedName": "portone_flutter_v2.MerchantInfo.MerchantInfo.new",
+    "href": "portone_flutter_v2/MerchantInfo/MerchantInfo.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "MerchantInfo 생성자",
     "enclosedBy": {
       "name": "MerchantInfo",
       "kind": 3,
@@ -1669,20 +1669,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "NaverpayPaymentBypass",
-    "qualifiedName": "portone_flutter_v2.NaverpayPaymentBypass.NaverpayPaymentBypass",
-    "href": "portone_flutter_v2/NaverpayPaymentBypass/NaverpayPaymentBypass.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "NaverpayPaymentBypass 생성자",
-    "enclosedBy": {
-      "name": "NaverpayPaymentBypass",
-      "kind": 3,
-      "href": "portone_flutter_v2/NaverpayPaymentBypass-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -1692,6 +1679,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 NaverpayPaymentBypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "NaverpayPaymentBypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/NaverpayPaymentBypass-class.html"
+    }
+  },
+  {
+    "name": "NaverpayPaymentBypass.new",
+    "qualifiedName": "portone_flutter_v2.NaverpayPaymentBypass.NaverpayPaymentBypass.new",
+    "href": "portone_flutter_v2/NaverpayPaymentBypass/NaverpayPaymentBypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "NaverpayPaymentBypass 생성자",
     "enclosedBy": {
       "name": "NaverpayPaymentBypass",
       "kind": 3,
@@ -1764,20 +1764,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "NaverpayProductItem",
-    "qualifiedName": "portone_flutter_v2.NaverpayProductItem.NaverpayProductItem",
-    "href": "portone_flutter_v2/NaverpayProductItem/NaverpayProductItem.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "NaverpayProductItem 생성자",
-    "enclosedBy": {
-      "name": "NaverpayProductItem",
-      "kind": 3,
-      "href": "portone_flutter_v2/NaverpayProductItem-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -1787,6 +1774,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 NaverpayProductItem 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "NaverpayProductItem",
+      "kind": 3,
+      "href": "portone_flutter_v2/NaverpayProductItem-class.html"
+    }
+  },
+  {
+    "name": "NaverpayProductItem.new",
+    "qualifiedName": "portone_flutter_v2.NaverpayProductItem.NaverpayProductItem.new",
+    "href": "portone_flutter_v2/NaverpayProductItem/NaverpayProductItem.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "NaverpayProductItem 생성자",
     "enclosedBy": {
       "name": "NaverpayProductItem",
       "kind": 3,
@@ -1957,20 +1957,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "NaverpaySubMerchantInfo",
-    "qualifiedName": "portone_flutter_v2.NaverpaySubMerchantInfo.NaverpaySubMerchantInfo",
-    "href": "portone_flutter_v2/NaverpaySubMerchantInfo/NaverpaySubMerchantInfo.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "NaverpaySubMerchantInfo 생성자",
-    "enclosedBy": {
-      "name": "NaverpaySubMerchantInfo",
-      "kind": 3,
-      "href": "portone_flutter_v2/NaverpaySubMerchantInfo-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -1980,6 +1967,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 NaverpaySubMerchantInfo 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "NaverpaySubMerchantInfo",
+      "kind": 3,
+      "href": "portone_flutter_v2/NaverpaySubMerchantInfo-class.html"
+    }
+  },
+  {
+    "name": "NaverpaySubMerchantInfo.new",
+    "qualifiedName": "portone_flutter_v2.NaverpaySubMerchantInfo.NaverpaySubMerchantInfo.new",
+    "href": "portone_flutter_v2/NaverpaySubMerchantInfo/NaverpaySubMerchantInfo.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "NaverpaySubMerchantInfo 생성자",
     "enclosedBy": {
       "name": "NaverpaySubMerchantInfo",
       "kind": 3,
@@ -2094,20 +2094,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "NiceV2PaymentBypass",
-    "qualifiedName": "portone_flutter_v2.NiceV2PaymentBypass.NiceV2PaymentBypass",
-    "href": "portone_flutter_v2/NiceV2PaymentBypass/NiceV2PaymentBypass.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "NiceV2PaymentBypass 생성자",
-    "enclosedBy": {
-      "name": "NiceV2PaymentBypass",
-      "kind": 3,
-      "href": "portone_flutter_v2/NiceV2PaymentBypass-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -2117,6 +2104,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 NiceV2PaymentBypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "NiceV2PaymentBypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/NiceV2PaymentBypass-class.html"
+    }
+  },
+  {
+    "name": "NiceV2PaymentBypass.new",
+    "qualifiedName": "portone_flutter_v2.NiceV2PaymentBypass.NiceV2PaymentBypass.new",
+    "href": "portone_flutter_v2/NiceV2PaymentBypass/NiceV2PaymentBypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "NiceV2PaymentBypass 생성자",
     "enclosedBy": {
       "name": "NiceV2PaymentBypass",
       "kind": 3,
@@ -2301,7 +2301,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -2356,20 +2356,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "OfferPeriod",
-    "qualifiedName": "portone_flutter_v2.OfferPeriod.OfferPeriod",
-    "href": "portone_flutter_v2/OfferPeriod/OfferPeriod.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "OfferPeriod 생성자",
-    "enclosedBy": {
-      "name": "OfferPeriod",
-      "kind": 3,
-      "href": "portone_flutter_v2/OfferPeriod-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -2379,6 +2366,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 OfferPeriod 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "OfferPeriod",
+      "kind": 3,
+      "href": "portone_flutter_v2/OfferPeriod-class.html"
+    }
+  },
+  {
+    "name": "OfferPeriod.new",
+    "qualifiedName": "portone_flutter_v2.OfferPeriod.OfferPeriod.new",
+    "href": "portone_flutter_v2/OfferPeriod/OfferPeriod.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "OfferPeriod 생성자",
     "enclosedBy": {
       "name": "OfferPeriod",
       "kind": 3,
@@ -2437,20 +2437,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "OfferRange",
-    "qualifiedName": "portone_flutter_v2.OfferRange.OfferRange",
-    "href": "portone_flutter_v2/OfferRange/OfferRange.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "OfferRange 생성자",
-    "enclosedBy": {
-      "name": "OfferRange",
-      "kind": 3,
-      "href": "portone_flutter_v2/OfferRange-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -2460,6 +2447,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 OfferRange 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "OfferRange",
+      "kind": 3,
+      "href": "portone_flutter_v2/OfferRange-class.html"
+    }
+  },
+  {
+    "name": "OfferRange.new",
+    "qualifiedName": "portone_flutter_v2.OfferRange.OfferRange.new",
+    "href": "portone_flutter_v2/OfferRange/OfferRange.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "OfferRange 생성자",
     "enclosedBy": {
       "name": "OfferRange",
       "kind": 3,
@@ -2518,20 +2518,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "OpeningHours",
-    "qualifiedName": "portone_flutter_v2.OpeningHours.OpeningHours",
-    "href": "portone_flutter_v2/OpeningHours/OpeningHours.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "기본 생성자",
-    "enclosedBy": {
-      "name": "OpeningHours",
-      "kind": 3,
-      "href": "portone_flutter_v2/OpeningHours-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -2541,6 +2528,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 OpeningHours 객체 생성\nJSON에서 OpeningHours 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "OpeningHours",
+      "kind": 3,
+      "href": "portone_flutter_v2/OpeningHours-class.html"
+    }
+  },
+  {
+    "name": "OpeningHours.new",
+    "qualifiedName": "portone_flutter_v2.OpeningHours.OpeningHours.new",
+    "href": "portone_flutter_v2/OpeningHours/OpeningHours.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "기본 생성자",
     "enclosedBy": {
       "name": "OpeningHours",
       "kind": 3,
@@ -2599,7 +2599,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -2654,7 +2654,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -2681,20 +2681,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "PayletterGlobalBypass",
-    "qualifiedName": "portone_flutter_v2.PayletterGlobalBypass.PayletterGlobalBypass",
-    "href": "portone_flutter_v2/PayletterGlobalBypass/PayletterGlobalBypass.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "PayletterGlobalBypass 생성자",
-    "enclosedBy": {
-      "name": "PayletterGlobalBypass",
-      "kind": 3,
-      "href": "portone_flutter_v2/PayletterGlobalBypass-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -2704,6 +2691,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 PayletterGlobalBypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "PayletterGlobalBypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/PayletterGlobalBypass-class.html"
+    }
+  },
+  {
+    "name": "PayletterGlobalBypass.new",
+    "qualifiedName": "portone_flutter_v2.PayletterGlobalBypass.PayletterGlobalBypass.new",
+    "href": "portone_flutter_v2/PayletterGlobalBypass/PayletterGlobalBypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "PayletterGlobalBypass 생성자",
     "enclosedBy": {
       "name": "PayletterGlobalBypass",
       "kind": 3,
@@ -2762,20 +2762,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "PaymentBypass",
-    "qualifiedName": "portone_flutter_v2.PaymentBypass.PaymentBypass",
-    "href": "portone_flutter_v2/PaymentBypass/PaymentBypass.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "PaymentBypass 생성자",
-    "enclosedBy": {
-      "name": "PaymentBypass",
-      "kind": 3,
-      "href": "portone_flutter_v2/PaymentBypass-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -2785,6 +2772,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 PaymentBypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "PaymentBypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/PaymentBypass-class.html"
+    }
+  },
+  {
+    "name": "PaymentBypass.new",
+    "qualifiedName": "portone_flutter_v2.PaymentBypass.PaymentBypass.new",
+    "href": "portone_flutter_v2/PaymentBypass/PaymentBypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "PaymentBypass 생성자",
     "enclosedBy": {
       "name": "PaymentBypass",
       "kind": 3,
@@ -3039,7 +3039,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -3080,20 +3080,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "PaymentInfo",
-    "qualifiedName": "portone_flutter_v2.PaymentInfo.PaymentInfo",
-    "href": "portone_flutter_v2/PaymentInfo/PaymentInfo.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "PaymentInfo 생성자",
-    "enclosedBy": {
-      "name": "PaymentInfo",
-      "kind": 3,
-      "href": "portone_flutter_v2/PaymentInfo-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -3103,6 +3090,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 PaymentInfo 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "PaymentInfo",
+      "kind": 3,
+      "href": "portone_flutter_v2/PaymentInfo-class.html"
+    }
+  },
+  {
+    "name": "PaymentInfo.new",
+    "qualifiedName": "portone_flutter_v2.PaymentInfo.PaymentInfo.new",
+    "href": "portone_flutter_v2/PaymentInfo/PaymentInfo.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "PaymentInfo 생성자",
     "enclosedBy": {
       "name": "PaymentInfo",
       "kind": 3,
@@ -3161,7 +3161,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -3216,7 +3216,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -3271,20 +3271,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "PaymentRequest",
-    "qualifiedName": "portone_flutter_v2.PaymentRequest.PaymentRequest",
-    "href": "portone_flutter_v2/PaymentRequest/PaymentRequest.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "PaymentRequest 생성자",
-    "enclosedBy": {
-      "name": "PaymentRequest",
-      "kind": 3,
-      "href": "portone_flutter_v2/PaymentRequest-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -3294,6 +3281,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 PaymentRequest 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "PaymentRequest",
+      "kind": 3,
+      "href": "portone_flutter_v2/PaymentRequest-class.html"
+    }
+  },
+  {
+    "name": "PaymentRequest.new",
+    "qualifiedName": "portone_flutter_v2.PaymentRequest.PaymentRequest.new",
+    "href": "portone_flutter_v2/PaymentRequest/PaymentRequest.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "PaymentRequest 생성자",
     "enclosedBy": {
       "name": "PaymentRequest",
       "kind": 3,
@@ -3772,20 +3772,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "PaymentResponse",
-    "qualifiedName": "portone_flutter_v2.PaymentResponse.PaymentResponse",
-    "href": "portone_flutter_v2/PaymentResponse/PaymentResponse.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "PaymentResponse 생성자",
-    "enclosedBy": {
-      "name": "PaymentResponse",
-      "kind": 3,
-      "href": "portone_flutter_v2/PaymentResponse-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -3795,6 +3782,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 PaymentResponse 객체로 변환하는 팩토리 메서드\nJSON에서 PaymentResponse 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "PaymentResponse",
+      "kind": 3,
+      "href": "portone_flutter_v2/PaymentResponse-class.html"
+    }
+  },
+  {
+    "name": "PaymentResponse.new",
+    "qualifiedName": "portone_flutter_v2.PaymentResponse.PaymentResponse.new",
+    "href": "portone_flutter_v2/PaymentResponse/PaymentResponse.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "PaymentResponse 생성자",
     "enclosedBy": {
       "name": "PaymentResponse",
       "kind": 3,
@@ -3923,7 +3923,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -3950,20 +3950,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "Popup",
-    "qualifiedName": "portone_flutter_v2.Popup.Popup",
-    "href": "portone_flutter_v2/Popup/Popup.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "Popup 생성자",
-    "enclosedBy": {
-      "name": "Popup",
-      "kind": 3,
-      "href": "portone_flutter_v2/Popup-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -3973,6 +3960,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 Popup 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "Popup",
+      "kind": 3,
+      "href": "portone_flutter_v2/Popup-class.html"
+    }
+  },
+  {
+    "name": "Popup.new",
+    "qualifiedName": "portone_flutter_v2.Popup.Popup.new",
+    "href": "portone_flutter_v2/Popup/Popup.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "Popup 생성자",
     "enclosedBy": {
       "name": "Popup",
       "kind": 3,
@@ -4017,12 +4017,12 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
-    "name": "PortoneErrorHandler",
-    "qualifiedName": "portone_flutter_v2.PortoneErrorHandler.PortoneErrorHandler",
+    "name": "PortoneErrorHandler.new",
+    "qualifiedName": "portone_flutter_v2.PortoneErrorHandler.PortoneErrorHandler.new",
     "href": "portone_flutter_v2/PortoneErrorHandler/PortoneErrorHandler.html",
     "kind": 2,
     "packageRank": 0,
@@ -4057,12 +4057,12 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
-    "name": "PortoneLocalizations",
-    "qualifiedName": "portone_flutter_v2.PortoneLocalizations.PortoneLocalizations",
+    "name": "PortoneLocalizations.new",
+    "qualifiedName": "portone_flutter_v2.PortoneLocalizations.PortoneLocalizations.new",
     "href": "portone_flutter_v2/PortoneLocalizations/PortoneLocalizations.html",
     "kind": 2,
     "packageRank": 0,
@@ -4363,12 +4363,12 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
-    "name": "PortoneLocalizationsEn",
-    "qualifiedName": "portone_flutter_v2.PortoneLocalizationsEn.PortoneLocalizationsEn",
+    "name": "PortoneLocalizationsEn.new",
+    "qualifiedName": "portone_flutter_v2.PortoneLocalizationsEn.PortoneLocalizationsEn.new",
     "href": "portone_flutter_v2/PortoneLocalizationsEn/PortoneLocalizationsEn.html",
     "kind": 2,
     "packageRank": 0,
@@ -4627,12 +4627,12 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
-    "name": "PortoneLocalizationsKo",
-    "qualifiedName": "portone_flutter_v2.PortoneLocalizationsKo.PortoneLocalizationsKo",
+    "name": "PortoneLocalizationsKo.new",
+    "qualifiedName": "portone_flutter_v2.PortoneLocalizationsKo.PortoneLocalizationsKo.new",
     "href": "portone_flutter_v2/PortoneLocalizationsKo/PortoneLocalizationsKo.html",
     "kind": 2,
     "packageRank": 0,
@@ -4891,12 +4891,12 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
-    "name": "PortonePayment",
-    "qualifiedName": "portone_flutter_v2.PortonePayment.PortonePayment",
+    "name": "PortonePayment.new",
+    "qualifiedName": "portone_flutter_v2.PortonePayment.PortonePayment.new",
     "href": "portone_flutter_v2/PortonePayment/PortonePayment.html",
     "kind": 2,
     "packageRank": 0,
@@ -5029,12 +5029,12 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
-    "name": "PortonePaymentState",
-    "qualifiedName": "portone_flutter_v2.PortonePaymentState.PortonePaymentState",
+    "name": "PortonePaymentState.new",
+    "qualifiedName": "portone_flutter_v2.PortonePaymentState.PortonePaymentState.new",
     "href": "portone_flutter_v2/PortonePaymentState/PortonePaymentState.html",
     "kind": 2,
     "packageRank": 0,
@@ -5125,20 +5125,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "ProductDetail",
-    "qualifiedName": "portone_flutter_v2.ProductDetail.ProductDetail",
-    "href": "portone_flutter_v2/ProductDetail/ProductDetail.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "ProductDetail 생성자",
-    "enclosedBy": {
-      "name": "ProductDetail",
-      "kind": 3,
-      "href": "portone_flutter_v2/ProductDetail-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -5148,6 +5135,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 ProductDetail 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "ProductDetail",
+      "kind": 3,
+      "href": "portone_flutter_v2/ProductDetail-class.html"
+    }
+  },
+  {
+    "name": "ProductDetail.new",
+    "qualifiedName": "portone_flutter_v2.ProductDetail.ProductDetail.new",
+    "href": "portone_flutter_v2/ProductDetail/ProductDetail.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "ProductDetail 생성자",
     "enclosedBy": {
       "name": "ProductDetail",
       "kind": 3,
@@ -5290,7 +5290,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -5345,20 +5345,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "SettingsInfo",
-    "qualifiedName": "portone_flutter_v2.SettingsInfo.SettingsInfo",
-    "href": "portone_flutter_v2/SettingsInfo/SettingsInfo.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "SettingsInfo 생성자",
-    "enclosedBy": {
-      "name": "SettingsInfo",
-      "kind": 3,
-      "href": "portone_flutter_v2/SettingsInfo-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -5368,6 +5355,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 SettingsInfo 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "SettingsInfo",
+      "kind": 3,
+      "href": "portone_flutter_v2/SettingsInfo-class.html"
+    }
+  },
+  {
+    "name": "SettingsInfo.new",
+    "qualifiedName": "portone_flutter_v2.SettingsInfo.SettingsInfo.new",
+    "href": "portone_flutter_v2/SettingsInfo/SettingsInfo.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "SettingsInfo 생성자",
     "enclosedBy": {
       "name": "SettingsInfo",
       "kind": 3,
@@ -5440,7 +5440,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -5495,20 +5495,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "SmartroV2PaymentBypass",
-    "qualifiedName": "portone_flutter_v2.SmartroV2PaymentBypass.SmartroV2PaymentBypass",
-    "href": "portone_flutter_v2/SmartroV2PaymentBypass/SmartroV2PaymentBypass.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "SmartroV2PaymentBypass 생성자",
-    "enclosedBy": {
-      "name": "SmartroV2PaymentBypass",
-      "kind": 3,
-      "href": "portone_flutter_v2/SmartroV2PaymentBypass-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -5518,6 +5505,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 SmartroV2PaymentBypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "SmartroV2PaymentBypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/SmartroV2PaymentBypass-class.html"
+    }
+  },
+  {
+    "name": "SmartroV2PaymentBypass.new",
+    "qualifiedName": "portone_flutter_v2.SmartroV2PaymentBypass.SmartroV2PaymentBypass.new",
+    "href": "portone_flutter_v2/SmartroV2PaymentBypass/SmartroV2PaymentBypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "SmartroV2PaymentBypass 생성자",
     "enclosedBy": {
       "name": "SmartroV2PaymentBypass",
       "kind": 3,
@@ -5590,7 +5590,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -5645,7 +5645,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -5700,20 +5700,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "StoreDetails",
-    "qualifiedName": "portone_flutter_v2.StoreDetails.StoreDetails",
-    "href": "portone_flutter_v2/StoreDetails/StoreDetails.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "기본 생성자",
-    "enclosedBy": {
-      "name": "StoreDetails",
-      "kind": 3,
-      "href": "portone_flutter_v2/StoreDetails-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -5723,6 +5710,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 StoreDetails 객체 생성\nJSON에서 StoreDetails 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "StoreDetails",
+      "kind": 3,
+      "href": "portone_flutter_v2/StoreDetails-class.html"
+    }
+  },
+  {
+    "name": "StoreDetails.new",
+    "qualifiedName": "portone_flutter_v2.StoreDetails.StoreDetails.new",
+    "href": "portone_flutter_v2/StoreDetails/StoreDetails.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "기본 생성자",
     "enclosedBy": {
       "name": "StoreDetails",
       "kind": 3,
@@ -5935,20 +5935,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "Surcharge",
-    "qualifiedName": "portone_flutter_v2.Surcharge.Surcharge",
-    "href": "portone_flutter_v2/Surcharge/Surcharge.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "Surcharge 생성자",
-    "enclosedBy": {
-      "name": "Surcharge",
-      "kind": 3,
-      "href": "portone_flutter_v2/Surcharge-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -5958,6 +5945,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 Surcharge 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "Surcharge",
+      "kind": 3,
+      "href": "portone_flutter_v2/Surcharge-class.html"
+    }
+  },
+  {
+    "name": "Surcharge.new",
+    "qualifiedName": "portone_flutter_v2.Surcharge.Surcharge.new",
+    "href": "portone_flutter_v2/Surcharge/Surcharge.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "Surcharge 생성자",
     "enclosedBy": {
       "name": "Surcharge",
       "kind": 3,
@@ -6030,20 +6030,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "TaxInfo",
-    "qualifiedName": "portone_flutter_v2.TaxInfo.TaxInfo",
-    "href": "portone_flutter_v2/TaxInfo/TaxInfo.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "TaxInfo 생성자",
-    "enclosedBy": {
-      "name": "TaxInfo",
-      "kind": 3,
-      "href": "portone_flutter_v2/TaxInfo-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -6053,6 +6040,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 TaxInfo 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "TaxInfo",
+      "kind": 3,
+      "href": "portone_flutter_v2/TaxInfo-class.html"
+    }
+  },
+  {
+    "name": "TaxInfo.new",
+    "qualifiedName": "portone_flutter_v2.TaxInfo.TaxInfo.new",
+    "href": "portone_flutter_v2/TaxInfo/TaxInfo.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "TaxInfo 생성자",
     "enclosedBy": {
       "name": "TaxInfo",
       "kind": 3,
@@ -6097,7 +6097,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -6124,20 +6124,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "TossBrandpayLabels",
-    "qualifiedName": "portone_flutter_v2.TossBrandpayLabels.TossBrandpayLabels",
-    "href": "portone_flutter_v2/TossBrandpayLabels/TossBrandpayLabels.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "TossBrandpayLabels 생성자",
-    "enclosedBy": {
-      "name": "TossBrandpayLabels",
-      "kind": 3,
-      "href": "portone_flutter_v2/TossBrandpayLabels-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -6147,6 +6134,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 TossBrandpayLabels 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "TossBrandpayLabels",
+      "kind": 3,
+      "href": "portone_flutter_v2/TossBrandpayLabels-class.html"
+    }
+  },
+  {
+    "name": "TossBrandpayLabels.new",
+    "qualifiedName": "portone_flutter_v2.TossBrandpayLabels.TossBrandpayLabels.new",
+    "href": "portone_flutter_v2/TossBrandpayLabels/TossBrandpayLabels.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "TossBrandpayLabels 생성자",
     "enclosedBy": {
       "name": "TossBrandpayLabels",
       "kind": 3,
@@ -6191,7 +6191,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -6218,20 +6218,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "TossBrandpayNavigationBar",
-    "qualifiedName": "portone_flutter_v2.TossBrandpayNavigationBar.TossBrandpayNavigationBar",
-    "href": "portone_flutter_v2/TossBrandpayNavigationBar/TossBrandpayNavigationBar.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "TossBrandpayNavigationBar 생성자",
-    "enclosedBy": {
-      "name": "TossBrandpayNavigationBar",
-      "kind": 3,
-      "href": "portone_flutter_v2/TossBrandpayNavigationBar-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -6241,6 +6228,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 TossBrandpayNavigationBar 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "TossBrandpayNavigationBar",
+      "kind": 3,
+      "href": "portone_flutter_v2/TossBrandpayNavigationBar-class.html"
+    }
+  },
+  {
+    "name": "TossBrandpayNavigationBar.new",
+    "qualifiedName": "portone_flutter_v2.TossBrandpayNavigationBar.TossBrandpayNavigationBar.new",
+    "href": "portone_flutter_v2/TossBrandpayNavigationBar/TossBrandpayNavigationBar.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "TossBrandpayNavigationBar 생성자",
     "enclosedBy": {
       "name": "TossBrandpayNavigationBar",
       "kind": 3,
@@ -6299,20 +6299,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "TossBrandpayOptions",
-    "qualifiedName": "portone_flutter_v2.TossBrandpayOptions.TossBrandpayOptions",
-    "href": "portone_flutter_v2/TossBrandpayOptions/TossBrandpayOptions.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "TossBrandpayOptions 생성자",
-    "enclosedBy": {
-      "name": "TossBrandpayOptions",
-      "kind": 3,
-      "href": "portone_flutter_v2/TossBrandpayOptions-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -6322,6 +6309,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 TossBrandpayOptions 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "TossBrandpayOptions",
+      "kind": 3,
+      "href": "portone_flutter_v2/TossBrandpayOptions-class.html"
+    }
+  },
+  {
+    "name": "TossBrandpayOptions.new",
+    "qualifiedName": "portone_flutter_v2.TossBrandpayOptions.TossBrandpayOptions.new",
+    "href": "portone_flutter_v2/TossBrandpayOptions/TossBrandpayOptions.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "TossBrandpayOptions 생성자",
     "enclosedBy": {
       "name": "TossBrandpayOptions",
       "kind": 3,
@@ -6366,20 +6366,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "TossBrandpayPaymentBypass",
-    "qualifiedName": "portone_flutter_v2.TossBrandpayPaymentBypass.TossBrandpayPaymentBypass",
-    "href": "portone_flutter_v2/TossBrandpayPaymentBypass/TossBrandpayPaymentBypass.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "TossBrandpayPaymentBypass 생성자",
-    "enclosedBy": {
-      "name": "TossBrandpayPaymentBypass",
-      "kind": 3,
-      "href": "portone_flutter_v2/TossBrandpayPaymentBypass-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -6389,6 +6376,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 TossBrandpayPaymentBypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "TossBrandpayPaymentBypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/TossBrandpayPaymentBypass-class.html"
+    }
+  },
+  {
+    "name": "TossBrandpayPaymentBypass.new",
+    "qualifiedName": "portone_flutter_v2.TossBrandpayPaymentBypass.TossBrandpayPaymentBypass.new",
+    "href": "portone_flutter_v2/TossBrandpayPaymentBypass/TossBrandpayPaymentBypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "TossBrandpayPaymentBypass 생성자",
     "enclosedBy": {
       "name": "TossBrandpayPaymentBypass",
       "kind": 3,
@@ -6461,20 +6461,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "TossBrandpayPromotionDescription",
-    "qualifiedName": "portone_flutter_v2.TossBrandpayPromotionDescription.TossBrandpayPromotionDescription",
-    "href": "portone_flutter_v2/TossBrandpayPromotionDescription/TossBrandpayPromotionDescription.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "TossBrandpayPromotionDescription 생성자",
-    "enclosedBy": {
-      "name": "TossBrandpayPromotionDescription",
-      "kind": 3,
-      "href": "portone_flutter_v2/TossBrandpayPromotionDescription-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -6484,6 +6471,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 TossBrandpayPromotionDescription 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "TossBrandpayPromotionDescription",
+      "kind": 3,
+      "href": "portone_flutter_v2/TossBrandpayPromotionDescription-class.html"
+    }
+  },
+  {
+    "name": "TossBrandpayPromotionDescription.new",
+    "qualifiedName": "portone_flutter_v2.TossBrandpayPromotionDescription.TossBrandpayPromotionDescription.new",
+    "href": "portone_flutter_v2/TossBrandpayPromotionDescription/TossBrandpayPromotionDescription.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "TossBrandpayPromotionDescription 생성자",
     "enclosedBy": {
       "name": "TossBrandpayPromotionDescription",
       "kind": 3,
@@ -6542,20 +6542,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "TossBrandpayPromotionSection",
-    "qualifiedName": "portone_flutter_v2.TossBrandpayPromotionSection.TossBrandpayPromotionSection",
-    "href": "portone_flutter_v2/TossBrandpayPromotionSection/TossBrandpayPromotionSection.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "TossBrandpayPromotionSection 생성자",
-    "enclosedBy": {
-      "name": "TossBrandpayPromotionSection",
-      "kind": 3,
-      "href": "portone_flutter_v2/TossBrandpayPromotionSection-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -6565,6 +6552,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 TossBrandpayPromotionSection 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "TossBrandpayPromotionSection",
+      "kind": 3,
+      "href": "portone_flutter_v2/TossBrandpayPromotionSection-class.html"
+    }
+  },
+  {
+    "name": "TossBrandpayPromotionSection.new",
+    "qualifiedName": "portone_flutter_v2.TossBrandpayPromotionSection.TossBrandpayPromotionSection.new",
+    "href": "portone_flutter_v2/TossBrandpayPromotionSection/TossBrandpayPromotionSection.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "TossBrandpayPromotionSection 생성자",
     "enclosedBy": {
       "name": "TossBrandpayPromotionSection",
       "kind": 3,
@@ -6623,20 +6623,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "TossBrandpayPromotionSummary",
-    "qualifiedName": "portone_flutter_v2.TossBrandpayPromotionSummary.TossBrandpayPromotionSummary",
-    "href": "portone_flutter_v2/TossBrandpayPromotionSummary/TossBrandpayPromotionSummary.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "TossBrandpayPromotionSummary 생성자",
-    "enclosedBy": {
-      "name": "TossBrandpayPromotionSummary",
-      "kind": 3,
-      "href": "portone_flutter_v2/TossBrandpayPromotionSummary-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -6646,6 +6633,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 TossBrandpayPromotionSummary 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "TossBrandpayPromotionSummary",
+      "kind": 3,
+      "href": "portone_flutter_v2/TossBrandpayPromotionSummary-class.html"
+    }
+  },
+  {
+    "name": "TossBrandpayPromotionSummary.new",
+    "qualifiedName": "portone_flutter_v2.TossBrandpayPromotionSummary.TossBrandpayPromotionSummary.new",
+    "href": "portone_flutter_v2/TossBrandpayPromotionSummary/TossBrandpayPromotionSummary.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "TossBrandpayPromotionSummary 생성자",
     "enclosedBy": {
       "name": "TossBrandpayPromotionSummary",
       "kind": 3,
@@ -6690,20 +6690,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "TossBrandpayUIOptions",
-    "qualifiedName": "portone_flutter_v2.TossBrandpayUIOptions.TossBrandpayUIOptions",
-    "href": "portone_flutter_v2/TossBrandpayUIOptions/TossBrandpayUIOptions.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "TossBrandpayUIOptions 생성자",
-    "enclosedBy": {
-      "name": "TossBrandpayUIOptions",
-      "kind": 3,
-      "href": "portone_flutter_v2/TossBrandpayUIOptions-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -6713,6 +6700,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 TossBrandpayUIOptions 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "TossBrandpayUIOptions",
+      "kind": 3,
+      "href": "portone_flutter_v2/TossBrandpayUIOptions-class.html"
+    }
+  },
+  {
+    "name": "TossBrandpayUIOptions.new",
+    "qualifiedName": "portone_flutter_v2.TossBrandpayUIOptions.TossBrandpayUIOptions.new",
+    "href": "portone_flutter_v2/TossBrandpayUIOptions/TossBrandpayUIOptions.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "TossBrandpayUIOptions 생성자",
     "enclosedBy": {
       "name": "TossBrandpayUIOptions",
       "kind": 3,
@@ -6813,20 +6813,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "TossBrandpayWidgetOptions",
-    "qualifiedName": "portone_flutter_v2.TossBrandpayWidgetOptions.TossBrandpayWidgetOptions",
-    "href": "portone_flutter_v2/TossBrandpayWidgetOptions/TossBrandpayWidgetOptions.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "TossBrandpayWidgetOptions 생성자",
-    "enclosedBy": {
-      "name": "TossBrandpayWidgetOptions",
-      "kind": 3,
-      "href": "portone_flutter_v2/TossBrandpayWidgetOptions-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -6836,6 +6823,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 TossBrandpayWidgetOptions 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "TossBrandpayWidgetOptions",
+      "kind": 3,
+      "href": "portone_flutter_v2/TossBrandpayWidgetOptions-class.html"
+    }
+  },
+  {
+    "name": "TossBrandpayWidgetOptions.new",
+    "qualifiedName": "portone_flutter_v2.TossBrandpayWidgetOptions.TossBrandpayWidgetOptions.new",
+    "href": "portone_flutter_v2/TossBrandpayWidgetOptions/TossBrandpayWidgetOptions.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "TossBrandpayWidgetOptions 생성자",
     "enclosedBy": {
       "name": "TossBrandpayWidgetOptions",
       "kind": 3,
@@ -6908,20 +6908,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "TossBrandpayWidgetUIOptions",
-    "qualifiedName": "portone_flutter_v2.TossBrandpayWidgetUIOptions.TossBrandpayWidgetUIOptions",
-    "href": "portone_flutter_v2/TossBrandpayWidgetUIOptions/TossBrandpayWidgetUIOptions.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "TossBrandpayWidgetUIOptions 생성자",
-    "enclosedBy": {
-      "name": "TossBrandpayWidgetUIOptions",
-      "kind": 3,
-      "href": "portone_flutter_v2/TossBrandpayWidgetUIOptions-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -6931,6 +6918,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 TossBrandpayWidgetUIOptions 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "TossBrandpayWidgetUIOptions",
+      "kind": 3,
+      "href": "portone_flutter_v2/TossBrandpayWidgetUIOptions-class.html"
+    }
+  },
+  {
+    "name": "TossBrandpayWidgetUIOptions.new",
+    "qualifiedName": "portone_flutter_v2.TossBrandpayWidgetUIOptions.TossBrandpayWidgetUIOptions.new",
+    "href": "portone_flutter_v2/TossBrandpayWidgetUIOptions/TossBrandpayWidgetUIOptions.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "TossBrandpayWidgetUIOptions 생성자",
     "enclosedBy": {
       "name": "TossBrandpayWidgetUIOptions",
       "kind": 3,
@@ -6975,20 +6975,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "TosspayV2PaymentBypass",
-    "qualifiedName": "portone_flutter_v2.TosspayV2PaymentBypass.TosspayV2PaymentBypass",
-    "href": "portone_flutter_v2/TosspayV2PaymentBypass/TosspayV2PaymentBypass.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "토스페이 (V2) bypass 파라미터 객체",
-    "enclosedBy": {
-      "name": "TosspayV2PaymentBypass",
-      "kind": 3,
-      "href": "portone_flutter_v2/TosspayV2PaymentBypass-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -6998,6 +6985,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 TosspayV2PaymentBypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "TosspayV2PaymentBypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/TosspayV2PaymentBypass-class.html"
+    }
+  },
+  {
+    "name": "TosspayV2PaymentBypass.new",
+    "qualifiedName": "portone_flutter_v2.TosspayV2PaymentBypass.TosspayV2PaymentBypass.new",
+    "href": "portone_flutter_v2/TosspayV2PaymentBypass/TosspayV2PaymentBypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "토스페이 (V2) bypass 파라미터 객체",
     "enclosedBy": {
       "name": "TosspayV2PaymentBypass",
       "kind": 3,
@@ -7056,20 +7056,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "TosspaymentsPaymentBypass",
-    "qualifiedName": "portone_flutter_v2.TosspaymentsPaymentBypass.TosspaymentsPaymentBypass",
-    "href": "portone_flutter_v2/TosspaymentsPaymentBypass/TosspaymentsPaymentBypass.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "TosspaymentsPaymentBypass 생성자",
-    "enclosedBy": {
-      "name": "TosspaymentsPaymentBypass",
-      "kind": 3,
-      "href": "portone_flutter_v2/TosspaymentsPaymentBypass-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -7079,6 +7066,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 TosspaymentsPaymentBypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "TosspaymentsPaymentBypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/TosspaymentsPaymentBypass-class.html"
+    }
+  },
+  {
+    "name": "TosspaymentsPaymentBypass.new",
+    "qualifiedName": "portone_flutter_v2.TosspaymentsPaymentBypass.TosspaymentsPaymentBypass.new",
+    "href": "portone_flutter_v2/TosspaymentsPaymentBypass/TosspaymentsPaymentBypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "TosspaymentsPaymentBypass 생성자",
     "enclosedBy": {
       "name": "TosspaymentsPaymentBypass",
       "kind": 3,
@@ -7137,20 +7137,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "WelcomePaymentBypass",
-    "qualifiedName": "portone_flutter_v2.WelcomePaymentBypass.WelcomePaymentBypass",
-    "href": "portone_flutter_v2/WelcomePaymentBypass/WelcomePaymentBypass.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "WelcomePaymentBypass 생성자",
-    "enclosedBy": {
-      "name": "WelcomePaymentBypass",
-      "kind": 3,
-      "href": "portone_flutter_v2/WelcomePaymentBypass-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -7160,6 +7147,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 WelcomePaymentBypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "WelcomePaymentBypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/WelcomePaymentBypass-class.html"
+    }
+  },
+  {
+    "name": "WelcomePaymentBypass.new",
+    "qualifiedName": "portone_flutter_v2.WelcomePaymentBypass.WelcomePaymentBypass.new",
+    "href": "portone_flutter_v2/WelcomePaymentBypass/WelcomePaymentBypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "WelcomePaymentBypass 생성자",
     "enclosedBy": {
       "name": "WelcomePaymentBypass",
       "kind": 3,
@@ -7274,7 +7274,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -7329,20 +7329,7 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
-    }
-  },
-  {
-    "name": "WindowTypes",
-    "qualifiedName": "portone_flutter_v2.WindowTypes.WindowTypes",
-    "href": "portone_flutter_v2/WindowTypes/WindowTypes.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "WindowTypes 생성자",
-    "enclosedBy": {
-      "name": "WindowTypes",
-      "kind": 3,
-      "href": "portone_flutter_v2/WindowTypes-class.html"
+      "href": "portone_flutter_v2/"
     }
   },
   {
@@ -7352,6 +7339,19 @@
     "kind": 2,
     "packageRank": 0,
     "desc": "JSON에서 WindowTypes 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "WindowTypes",
+      "kind": 3,
+      "href": "portone_flutter_v2/WindowTypes-class.html"
+    }
+  },
+  {
+    "name": "WindowTypes.new",
+    "qualifiedName": "portone_flutter_v2.WindowTypes.WindowTypes.new",
+    "href": "portone_flutter_v2/WindowTypes/WindowTypes.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "WindowTypes 생성자",
     "enclosedBy": {
       "name": "WindowTypes",
       "kind": 3,
@@ -7410,13 +7410,13 @@
     "enclosedBy": {
       "name": "portone_flutter_v2",
       "kind": 9,
-      "href": "portone_flutter_v2"
+      "href": "portone_flutter_v2/"
     }
   },
   {
     "name": "portone_flutter_v2_method_channel",
     "qualifiedName": "portone_flutter_v2_method_channel",
-    "href": "portone_flutter_v2_method_channel",
+    "href": "portone_flutter_v2_method_channel/",
     "kind": 9,
     "packageRank": 0,
     "desc": ""
@@ -7431,12 +7431,12 @@
     "enclosedBy": {
       "name": "portone_flutter_v2_method_channel",
       "kind": 9,
-      "href": "portone_flutter_v2_method_channel"
+      "href": "portone_flutter_v2_method_channel/"
     }
   },
   {
-    "name": "MethodChannelPortoneFlutterV2",
-    "qualifiedName": "portone_flutter_v2_method_channel.MethodChannelPortoneFlutterV2.MethodChannelPortoneFlutterV2",
+    "name": "MethodChannelPortoneFlutterV2.new",
+    "qualifiedName": "portone_flutter_v2_method_channel.MethodChannelPortoneFlutterV2.MethodChannelPortoneFlutterV2.new",
     "href": "portone_flutter_v2_method_channel/MethodChannelPortoneFlutterV2/MethodChannelPortoneFlutterV2.html",
     "kind": 2,
     "packageRank": 0,
@@ -7478,7 +7478,7 @@
   {
     "name": "portone_flutter_v2_platform_interface",
     "qualifiedName": "portone_flutter_v2_platform_interface",
-    "href": "portone_flutter_v2_platform_interface",
+    "href": "portone_flutter_v2_platform_interface/",
     "kind": 9,
     "packageRank": 0,
     "desc": ""
@@ -7493,12 +7493,12 @@
     "enclosedBy": {
       "name": "portone_flutter_v2_platform_interface",
       "kind": 9,
-      "href": "portone_flutter_v2_platform_interface"
+      "href": "portone_flutter_v2_platform_interface/"
     }
   },
   {
-    "name": "PortoneFlutterV2Platform",
-    "qualifiedName": "portone_flutter_v2_platform_interface.PortoneFlutterV2Platform.PortoneFlutterV2Platform",
+    "name": "PortoneFlutterV2Platform.new",
+    "qualifiedName": "portone_flutter_v2_platform_interface.PortoneFlutterV2Platform.PortoneFlutterV2Platform.new",
     "href": "portone_flutter_v2_platform_interface/PortoneFlutterV2Platform/PortoneFlutterV2Platform.html",
     "kind": 2,
     "packageRank": 0,

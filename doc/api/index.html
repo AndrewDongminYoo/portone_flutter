@@ -52,17 +52,27 @@
           placeholder="Loading search..."
         />
       </form>
-      <div class="toggle" id="theme-button" title="Toggle brightness">
-        <label for="theme">
-          <input type="checkbox" id="theme" value="light-theme" />
-          <span id="dark-theme-button" class="material-symbols-outlined">
-            dark_mode
-          </span>
-          <span id="light-theme-button" class="material-symbols-outlined">
-            light_mode
-          </span>
-        </label>
-      </div>
+      <button
+        class="toggle"
+        id="theme-button"
+        title="Toggle between light and dark mode"
+        aria-label="Light and dark mode toggle"
+      >
+        <span
+          id="dark-theme-button"
+          class="material-symbols-outlined"
+          aria-hidden="true"
+        >
+          dark_mode
+        </span>
+        <span
+          id="light-theme-button"
+          class="material-symbols-outlined"
+          aria-hidden="true"
+        >
+          light_mode
+        </span>
+      </button>
     </header>
     <main>
       <div id="dartdoc-main-content" class="main-content">
@@ -119,9 +129,11 @@
             </li>
             <li>
               <p>
-                <strong>Deep-Link Handling:</strong> Automatic deep-link
-                handling for payment completion callbacks using custom app
-                schemes.
+                <strong>URL Normalization &amp; Custom Scheme Support:</strong>
+                Normalizes redirect URLs and custom app schemes for consistent
+                deep-link behavior in <code>InAppWebView</code> (removed
+                automatic deep-link handling via
+                <code>app_links</code> dependency).
               </p>
             </li>
             <li>
@@ -151,7 +163,7 @@
           </p>
           <p>Add the dependency to your <code>pubspec.yaml</code>:</p>
           <pre class="language-yaml"><code class="language-yaml">dependencies:
-  portone_flutter_v2: ^1.0.5
+  portone_flutter_v2: ^1.1.0
 </code></pre>
           <p>Or via command line:</p>
           <pre
@@ -241,7 +253,9 @@
 </code></pre>
           </details>
           <h4 id="ios-infoplist">iOS (<code>Info.plist</code>)</h4>
-          <p>Declare URL schemes for deep linking and payment apps:</p>
+          <p>
+            Declare URL schemes for your custom app scheme and payment apps:
+          </p>
           <pre
             class="language-xml"
           ><code class="language-xml">&lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
@@ -520,7 +534,7 @@ open coverage/index.html
           <dl>
             <dt id="portone_flutter_v2">
               <span class="name"
-                ><a href="portone_flutter_v2">portone_flutter_v2</a></span
+                ><a href="portone_flutter_v2/">portone_flutter_v2</a></span
               >
             </dt>
             <dd>
@@ -530,7 +544,7 @@ open coverage/index.html
 
             <dt id="portone_flutter_v2_method_channel">
               <span class="name"
-                ><a href="portone_flutter_v2_method_channel"
+                ><a href="portone_flutter_v2_method_channel/"
                   >portone_flutter_v2_method_channel</a
                 ></span
               >
@@ -539,7 +553,7 @@ open coverage/index.html
 
             <dt id="portone_flutter_v2_platform_interface">
               <span class="name"
-                ><a href="portone_flutter_v2_platform_interface"
+                ><a href="portone_flutter_v2_platform_interface/"
                   >portone_flutter_v2_platform_interface</a
                 ></span
               >
@@ -573,14 +587,14 @@ open coverage/index.html
         </h5>
         <ol>
           <li class="section-title">Libraries</li>
-          <li><a href="portone_flutter_v2">portone_flutter_v2</a></li>
+          <li><a href="portone_flutter_v2/">portone_flutter_v2</a></li>
           <li>
-            <a href="portone_flutter_v2_method_channel"
+            <a href="portone_flutter_v2_method_channel/"
               >portone_flutter_v2_method_channel</a
             >
           </li>
           <li>
-            <a href="portone_flutter_v2_platform_interface"
+            <a href="portone_flutter_v2_platform_interface/"
               >portone_flutter_v2_platform_interface</a
             >
           </li>
@@ -592,7 +606,7 @@ open coverage/index.html
       ></div>
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.1.0 </span>
+      <span class="no-break"> portone_flutter_v2 1.2.0 </span>
     </footer>
 
     <script src="static-assets/highlight.pack.js?v1"></script>

@@ -47,7 +47,7 @@
       >
       <ol class="breadcrumbs gt-separated dark hidden-xs">
         <li><a href="../../index.html">portone_flutter_v2</a></li>
-        <li><a href="../../portone_flutter_v2">portone_flutter_v2.dart</a></li>
+        <li><a href="../../portone_flutter_v2/">portone_flutter_v2.dart</a></li>
         <li>
           <a href="../../portone_flutter_v2/PaymentSupportedMethods.html"
             >PaymentSupportedMethods</a
@@ -66,17 +66,27 @@
           placeholder="Loading search..."
         />
       </form>
-      <div class="toggle" id="theme-button" title="Toggle brightness">
-        <label for="theme">
-          <input type="checkbox" id="theme" value="light-theme" />
-          <span id="dark-theme-button" class="material-symbols-outlined">
-            dark_mode
-          </span>
-          <span id="light-theme-button" class="material-symbols-outlined">
-            light_mode
-          </span>
-        </label>
-      </div>
+      <button
+        class="toggle"
+        id="theme-button"
+        title="Toggle between light and dark mode"
+        aria-label="Light and dark mode toggle"
+      >
+        <span
+          id="dark-theme-button"
+          class="material-symbols-outlined"
+          aria-hidden="true"
+        >
+          dark_mode
+        </span>
+        <span
+          id="light-theme-button"
+          class="material-symbols-outlined"
+          aria-hidden="true"
+        >
+          light_mode
+        </span>
+      </button>
     </header>
     <main>
       <div
@@ -119,65 +129,65 @@
   return switch (this) {
     &#47;&#47; https:&#47;&#47;developers.portone.io&#47;opi&#47;ko&#47;integration&#47;pg&#47;v2&#47;nice-v2?v=v2
     PGCompany.niceV2 =&gt; &lt;PaymentPayMethod&gt;[
-        PaymentPayMethod.card,
-        PaymentPayMethod.transfer,
-        PaymentPayMethod.virtualAccount,
-        PaymentPayMethod.mobile,
-        PaymentPayMethod.easyPay,
-        PaymentPayMethod.giftCertificate,
-      ],
+      PaymentPayMethod.card,
+      PaymentPayMethod.transfer,
+      PaymentPayMethod.virtualAccount,
+      PaymentPayMethod.mobile,
+      PaymentPayMethod.easyPay,
+      PaymentPayMethod.giftCertificate,
+    ],
     &#47;&#47; https:&#47;&#47;developers.portone.io&#47;opi&#47;ko&#47;integration&#47;pg&#47;v2&#47;smartro-v2?v=v2
     PGCompany.smartroV2 =&gt; &lt;PaymentPayMethod&gt;[
-        PaymentPayMethod.card,
-        PaymentPayMethod.transfer,
-        PaymentPayMethod.virtualAccount,
-        PaymentPayMethod.mobile,
-        PaymentPayMethod.easyPay,
-      ],
+      PaymentPayMethod.card,
+      PaymentPayMethod.transfer,
+      PaymentPayMethod.virtualAccount,
+      PaymentPayMethod.mobile,
+      PaymentPayMethod.easyPay,
+    ],
     &#47;&#47; https:&#47;&#47;developers.portone.io&#47;opi&#47;ko&#47;integration&#47;pg&#47;v2&#47;tosspayments?v=v2
     PGCompany.tosspayments =&gt; &lt;PaymentPayMethod&gt;[
-        PaymentPayMethod.card,
-        PaymentPayMethod.transfer,
-        PaymentPayMethod.virtualAccount,
-        PaymentPayMethod.mobile,
-        PaymentPayMethod.easyPay,
-        PaymentPayMethod.giftCertificate,
-      ],
+      PaymentPayMethod.card,
+      PaymentPayMethod.transfer,
+      PaymentPayMethod.virtualAccount,
+      PaymentPayMethod.mobile,
+      PaymentPayMethod.easyPay,
+      PaymentPayMethod.giftCertificate,
+    ],
     &#47;&#47; https:&#47;&#47;developers.portone.io&#47;opi&#47;ko&#47;integration&#47;pg&#47;v2&#47;kpn?v=v2
     PGCompany.kpn =&gt; &lt;PaymentPayMethod&gt;[
-        PaymentPayMethod.card,
-        PaymentPayMethod.transfer,
-        PaymentPayMethod.virtualAccount,
-        PaymentPayMethod.mobile,
-        PaymentPayMethod.easyPay,
-      ],
+      PaymentPayMethod.card,
+      PaymentPayMethod.transfer,
+      PaymentPayMethod.virtualAccount,
+      PaymentPayMethod.mobile,
+      PaymentPayMethod.easyPay,
+    ],
     &#47;&#47; https:&#47;&#47;developers.portone.io&#47;opi&#47;ko&#47;integration&#47;pg&#47;v2&#47;inicis-v2?v=v2
     PGCompany.inicisV2 =&gt; &lt;PaymentPayMethod&gt;[
-        PaymentPayMethod.card,
-        PaymentPayMethod.mobile,
-      ],
+      PaymentPayMethod.card,
+      PaymentPayMethod.mobile,
+    ],
     &#47;&#47; https:&#47;&#47;developers.portone.io&#47;opi&#47;ko&#47;integration&#47;pg&#47;v2&#47;inicis-jp?v=v2
     PGCompany.inicisJp =&gt; &lt;PaymentPayMethod&gt;[
-        PaymentPayMethod.card,
-        PaymentPayMethod.convenienceStore,
-        PaymentPayMethod.easyPay,
-      ],
+      PaymentPayMethod.card,
+      PaymentPayMethod.convenienceStore,
+      PaymentPayMethod.easyPay,
+    ],
     &#47;&#47; https:&#47;&#47;developers.portone.io&#47;opi&#47;ko&#47;integration&#47;pg&#47;v2&#47;ksnet?v=v2
     PGCompany.ksnet =&gt; &lt;PaymentPayMethod&gt;[
-        PaymentPayMethod.card,
-        PaymentPayMethod.transfer,
-        PaymentPayMethod.virtualAccount,
-        PaymentPayMethod.mobile,
-        PaymentPayMethod.easyPay,
-      ],
+      PaymentPayMethod.card,
+      PaymentPayMethod.transfer,
+      PaymentPayMethod.virtualAccount,
+      PaymentPayMethod.mobile,
+      PaymentPayMethod.easyPay,
+    ],
     &#47;&#47; https:&#47;&#47;developers.portone.io&#47;opi&#47;ko&#47;integration&#47;pg&#47;v2&#47;kcp-v2?v=v2
     PGCompany.kcpV2 =&gt; &lt;PaymentPayMethod&gt;[
-        PaymentPayMethod.card,
-        PaymentPayMethod.transfer,
-        PaymentPayMethod.virtualAccount,
-        PaymentPayMethod.mobile,
-        PaymentPayMethod.easyPay,
-      ],
+      PaymentPayMethod.card,
+      PaymentPayMethod.transfer,
+      PaymentPayMethod.virtualAccount,
+      PaymentPayMethod.mobile,
+      PaymentPayMethod.easyPay,
+    ],
     &#47;&#47; https:&#47;&#47;developers.portone.io&#47;opi&#47;ko&#47;integration&#47;pg&#47;v2&#47;kakaopay?v=v2
     PGCompany.kakaopay =&gt; &lt;PaymentPayMethod&gt;[PaymentPayMethod.easyPay],
     &#47;&#47; https:&#47;&#47;developers.portone.io&#47;opi&#47;ko&#47;integration&#47;pg&#47;v2&#47;naverpay?v=v2
@@ -211,7 +221,7 @@
         </header>
         <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
           <li><a href="../../index.html">portone_flutter_v2</a></li>
-          <li><a href="../../portone_flutter_v2">portone_flutter_v2</a></li>
+          <li><a href="../../portone_flutter_v2/">portone_flutter_v2</a></li>
           <li>
             <a href="../../portone_flutter_v2/PaymentSupportedMethods.html"
               >PaymentSupportedMethods</a
@@ -234,7 +244,7 @@
       <!--/.sidebar-offcanvas-->
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.1.0 </span>
+      <span class="no-break"> portone_flutter_v2 1.2.0 </span>
     </footer>
 
     <script src="../../static-assets/highlight.pack.js?v1"></script>

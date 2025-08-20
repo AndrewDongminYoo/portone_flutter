@@ -47,7 +47,7 @@
       >
       <ol class="breadcrumbs gt-separated dark hidden-xs">
         <li><a href="../../index.html">portone_flutter_v2</a></li>
-        <li><a href="../../portone_flutter_v2">portone_flutter_v2.dart</a></li>
+        <li><a href="../../portone_flutter_v2/">portone_flutter_v2.dart</a></li>
         <li>
           <a href="../../portone_flutter_v2/PortonePaymentState-class.html"
             >PortonePaymentState</a
@@ -66,17 +66,27 @@
           placeholder="Loading search..."
         />
       </form>
-      <div class="toggle" id="theme-button" title="Toggle brightness">
-        <label for="theme">
-          <input type="checkbox" id="theme" value="light-theme" />
-          <span id="dark-theme-button" class="material-symbols-outlined">
-            dark_mode
-          </span>
-          <span id="light-theme-button" class="material-symbols-outlined">
-            light_mode
-          </span>
-        </label>
-      </div>
+      <button
+        class="toggle"
+        id="theme-button"
+        title="Toggle between light and dark mode"
+        aria-label="Light and dark mode toggle"
+      >
+        <span
+          id="dark-theme-button"
+          class="material-symbols-outlined"
+          aria-hidden="true"
+        >
+          dark_mode
+        </span>
+        <span
+          id="light-theme-button"
+          class="material-symbols-outlined"
+          aria-hidden="true"
+        >
+          light_mode
+        </span>
+      </button>
     </header>
     <main>
       <div
@@ -475,7 +485,8 @@ Widget build(BuildContext context) {
   paymentData[&#39;redirectUrl&#39;] = redirectUrl;
   widget.logger(jsonEncode(paymentData));
 
-  final html = &#39;&#39;&#39;
+  final html =
+      &#39;&#39;&#39;
 &lt;!doctype html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -536,8 +547,11 @@ Widget build(BuildContext context) {
                       final portoneError = arguments.first;
                       widget.logger(&#39;PortOne SDK Error type: ${portoneError.runtimeType}&#39;);
                       _handleError(portoneError as Object?);
-                    } catch (error, stackTrace) {
-                      widget.logger(&#39;Error Occurred&#39;, error: error, stackTrace: stackTrace);
+                    } on PlatformException catch (error, stackTrace) {
+                      widget.logger(&#39;Platform Exception Occurred&#39;, error: error, stackTrace: stackTrace);
+                      _handleError(error, stackTrace);
+                    } on Exception catch (error, stackTrace) {
+                      widget.logger(&#39;Exception Occurred&#39;, error: error, stackTrace: stackTrace);
                       _handleError(error, stackTrace);
                     }
                   },
@@ -548,7 +562,7 @@ Widget build(BuildContext context) {
                   baseUrl: WebUri(&#39;https:&#47;&#47;flutter-sdk-content.portone.io&#47;&#39;),
                 );
               },
-              onLoadResourceWithCustomScheme: (InAppWebViewController controller, WebResourceRequest resource) async {
+              onLoadResourceWithCustomScheme: (controller, WebResourceRequest resource) async {
                 await controller.stopLoading();
                 return null;
               },
@@ -559,8 +573,7 @@ Widget build(BuildContext context) {
                   });
                 }
               },
-              onReceivedError:
-                  (InAppWebViewController controller, WebResourceRequest request, WebResourceError error) {
+              onReceivedError: (controller, WebResourceRequest request, WebResourceError error) {
                 if (WebviewErrorUseCase.shouldIgnore(error, isMainFrame: request.isForMainFrame)) {
                   widget.logger(&#39;Ignored WebView error: ${error.type} ${error.description}&#39;);
                   return;
@@ -569,15 +582,14 @@ Widget build(BuildContext context) {
                 widget.logger(&#39;onReceivedError (main frame)&#39;, error: error);
                 _handleError(error);
               },
-              onReceivedHttpError:
-                  (InAppWebViewController controller, WebResourceRequest request, WebResourceResponse errorResponse) {
+              onReceivedHttpError: (controller, WebResourceRequest request, WebResourceResponse errorResponse) {
                 final statusCode = errorResponse.statusCode;
                 if (statusCode == null) {
                   widget.logger(&#39;Ignored HTTP error unknown status code: ${request.url}&#39;);
                   return;
                 }
 
-                &#47;&#47; 요청이 메인 프레임의 문서를 가져오기 위해 이루어진 것이 아니면 무시
+                &#47;&#47; Ignore if the request is not made to retrieve a document from the main frame
                 if (!(request.isForMainFrame ?? false)) {
                   widget.logger(&#39;Ignored HTTP error on subresource: ${request.url} → $statusCode&#39;);
                   return;
@@ -589,80 +601,124 @@ Widget build(BuildContext context) {
                   _handleError(exception);
                 }
               },
-              shouldOverrideUrlLoading: (InAppWebViewController controller, NavigationAction navigateAction) async {
+              shouldOverrideUrlLoading: (controller, NavigationAction navigateAction) async {
                 final url = navigateAction.request.url;
                 if (url == null) return NavigationActionPolicy.CANCEL;
 
                 final uriValue = url.uriValue;
+                if (!uriValue.hasScheme) return NavigationActionPolicy.CANCEL;
+
                 _redirectedUrls.add(uriValue);
                 widget.logger(&#39;Navigation action request uri: $uriValue&#39;);
 
-                if (uriValue.scheme case &#39;http&#39; || &#39;https&#39;) {
+                if (_isAppMarketHost(uriValue)) {
+                  &#47;&#47; Open Google Play (and legacy market.android.com) outside the WebView
+                  await _openPlayStore(uriValue);
+                  return NavigationActionPolicy.CANCEL;
+                }
+                if (uriValue.isScheme(&#39;HTTP&#39;) || uriValue.isScheme(&#39;HTTPS&#39;)) {
+                  &#47;&#47; Otherwise keep normal web navigation inside the WebView
                   return NavigationActionPolicy.ALLOW;
                 } else if (uriValue.scheme == appScheme) {
                   final params = Map&lt;String, dynamic&gt;.from(url.queryParameters);
                   try {
                     final paymentResponse = PaymentResponse.fromJson(params);
                     _handleSuccess(paymentResponse);
-                  } on CheckedFromJsonException catch (e, st) {
+                  } on CheckedFromJsonException catch (exception, stackTrace) {
                     &#47;&#47; Debug logging: missing keys, full map, stack trace
                     widget.logger(
                       &#39;❌ PaymentResponse.fromJson failed!\n&#39;
                       &#39;  Incoming params: $params\n&#39;
-                      &#39;  Error message: ${e.message}\n&#39;
+                      &#39;  Error message: ${exception.message}\n&#39;
                       &#39;  Missing key: txId or malformed value?&#39;,
-                      error: e.innerError ?? e,
-                      stackTrace: e.innerStack ?? st,
+                      error: exception.innerError ?? exception,
+                      stackTrace: exception.innerStack ?? stackTrace,
                     );
-                    _handleError(e, st);
+                    _handleError(exception, stackTrace);
                   } catch (exception, stackTrace) {
                     widget.logger(&#39;Error Occurred&#39;, error: exception, stackTrace: stackTrace);
                     _handleError(exception, stackTrace);
                   }
                   return NavigationActionPolicy.CANCEL;
-                } else if (uriValue.scheme case &#39;intent&#39;) {
+                } else if (uriValue.scheme == &#39;intent&#39;) {
                   try {
-                    &#47;&#47; Retrieve the raw URL string.
-                    final rawUri = url.rawValue;
-                    &#47;&#47; Split the URL using &#39;#&#39; as the delimiter (e.g., &quot;intent:&#47;&#47;...&quot; and &quot;Intent;scheme=...;end&quot;).
-                    final parts = rawUri.split(&#39;#&#39;);
-                    if (parts.length != 2) {
-                      throw const FormatException(&#39;Invalid intent URL format: missing fragment&#39;);
-                    }
-                    final baseUriStr = parts[0]; &#47;&#47; e.g., &quot;intent:&#47;&#47;some_path&quot;
-                    final fragment = parts[1]; &#47;&#47; e.g., &quot;Intent;scheme=https;package=com.example;end&quot;
+                    &#47;&#47; 1) Secure the original string
+                    final raw = url.rawValue;
 
-                    &#47;&#47; Remove the &quot;Intent;&quot; prefix if present.
-                    var fragmentContent = fragment;
+                    &#47;&#47; 2) Separate fragment (#) (no error even if absent)
+                    final hashIndex = raw.indexOf(&#39;#&#39;);
+                    final urlOrigin = hashIndex &gt;= 0 ? raw.substring(0, hashIndex) : raw;
+                    var fragment = hashIndex &gt;= 0 ? raw.substring(hashIndex + 1) : &#39;&#39;;
+
+                    &#47;&#47; 3) Remove the “Intent;” prefix.
                     const intentPrefix = &#39;Intent;&#39;;
-                    if (fragmentContent.startsWith(intentPrefix)) {
-                      fragmentContent = fragmentContent.substring(intentPrefix.length);
+                    if (fragment.startsWith(intentPrefix)) {
+                      fragment = fragment.substring(intentPrefix.length);
                     }
 
-                    &#47;&#47; Split each parameter using &#39;;&#39; as delimiter and create key-value pairs.
-                    final paramsList = fragmentContent.split(&#39;;&#39;);
+                    &#47;&#47; 4) Parsing parameters leniently (key=value;key2=value2;... → values are URL-decoded, ‘=’ is allowed)
                     final params = &lt;String, String&gt;{};
-                    for (final param in paramsList) {
-                      if (param.isNotEmpty &amp;&amp; param.contains(&#39;=&#39;)) {
-                        final keyValue = param.split(&#39;=&#39;);
-                        params[keyValue[0]] = keyValue[1];
+                    final regexp = RegExp(r&#39;([A-Za-z0-9_.-]+)=(.*?)(?:;|$)&#39;);
+                    for (final match in regexp.allMatches(fragment)) {
+                      final key = match.group(1)!;
+                      final val = Uri.decodeComponent(match.group(2)!);
+                      params[key] = val;
+                    }
+
+                    final scheme = params[&#39;scheme&#39;];
+                    final fallback = params[&#39;S.browser_fallback_url&#39;];
+                    final package = params[&#39;package&#39;];
+
+                    &#47;&#47; 5) Scheme-based redirection (intent:&#47;&#47; → {scheme}:&#47;&#47; replacement)
+                    if (scheme != null) {
+                      &#47;&#47; Both intent:&#47;&#47; and intent: formats are supported.
+                      String replaced;
+                      if (urlOrigin.startsWith(&#39;intent:&#47;&#47;&#39;)) {
+                        replaced = urlOrigin.replaceFirst(&#39;intent:&#47;&#47;&#39;, &#39;$scheme:&#47;&#47;&#39;);
+                      } else if (urlOrigin.startsWith(&#39;intent:&#39;)) {
+                        &#47;&#47; Example: “intent:some&#47;path” → “{scheme}:some&#47;path”
+                        replaced = urlOrigin.replaceFirst(&#39;intent:&#39;, &#39;$scheme:&#39;);
+                      } else {
+                        replaced = urlOrigin; &#47;&#47; Exception case: Be as conservative as possible
                       }
+
+                      final redirectUri = Uri.parse(replaced);
+                      if (await canLaunchUrl(redirectUri)) {
+                        await launchUrl(redirectUri, mode: LaunchMode.externalApplication);
+                        return NavigationActionPolicy.CANCEL;
+                      }
+                      &#47;&#47; If failure occurs, seamlessly transition to the fallback logic below
                     }
 
-                    &#47;&#47; Extract the required &#39;scheme&#39; parameter.
-                    final redirectScheme = params[&#39;scheme&#39;];
-                    if (redirectScheme == null) {
-                      throw const FormatException(&#39;Scheme parameter not found in intent URL&#39;);
+                    &#47;&#47; 6) Prioritize browser fallback URL processing
+                    if (fallback != null &amp;&amp; fallback.isNotEmpty) {
+                      final fallbackUri = Uri.parse(fallback);
+                      if (await canLaunchUrl(fallbackUri)) {
+                        await launchUrl(fallbackUri, mode: LaunchMode.externalApplication);
+                      } else {
+                        &#47;&#47; If external execution fails, attempt to load within the WebView
+                        await controller.loadUrl(urlRequest: URLRequest(url: WebUri(fallback)));
+                      }
+                      return NavigationActionPolicy.CANCEL;
                     }
 
-                    &#47;&#47; Safely parse the base URI and replace its scheme.
-                    final baseUri = Uri.parse(baseUriStr);
-                    final redirectUri = baseUri.replace(scheme: redirectScheme);
+                    &#47;&#47; 7) If only the package exists: Attempt to redirect to the app store
+                    if (package != null &amp;&amp; package.isNotEmpty) {
+                      final appMarket = Uri.parse(&#39;market:&#47;&#47;details?id=$package&#39;);
+                      final playStore = Uri.parse(&#39;https:&#47;&#47;play.google.com&#47;store&#47;apps&#47;details?id=$package&#39;);
 
-                    &#47;&#47; Validate and launch the redirection URI.
-                    if (await canLaunchUrl(redirectUri)) {
-                      await launchUrl(redirectUri);
+                      if (await canLaunchUrl(appMarket)) {
+                        await _openPlayStore(appMarket);
+                      } else if (await canLaunchUrl(playStore)) {
+                        await _openPlayStore(playStore);
+                      } else {
+                        widget.logger(&#39;No handler for package: $package and no market available.&#39;);
+                      }
+                      return NavigationActionPolicy.CANCEL;
                     }
+
+                    &#47;&#47; 8) If nothing is found: Quietly cancel (do not throw an error)
+                    widget.logger(&#39;Unsupported intent URL: $raw (no scheme&#47;fallback&#47;package)&#39;);
                   } catch (error, stackTrace) {
                     widget.logger(&#39;Intent URL parsing error&#39;, error: error, stackTrace: stackTrace);
                     _handleError(error, stackTrace);
@@ -671,7 +727,9 @@ Widget build(BuildContext context) {
                 } else {
                   try {
                     await launchUrl(uriValue, mode: LaunchMode.externalApplication);
-                  } catch (error, stack) {
+                  } on PlatformException catch (error, stack) {
+                    widget.logger(&#39;Failed to launch external url: $uriValue&#39;, error: error, stackTrace: stack);
+                  } on Exception catch (error, stack) {
                     widget.logger(&#39;Failed to launch external url: $uriValue&#39;, error: error, stackTrace: stack);
                   }
                   return NavigationActionPolicy.CANCEL;
@@ -703,7 +761,7 @@ Widget build(BuildContext context) {
         </header>
         <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
           <li><a href="../../index.html">portone_flutter_v2</a></li>
-          <li><a href="../../portone_flutter_v2">portone_flutter_v2</a></li>
+          <li><a href="../../portone_flutter_v2/">portone_flutter_v2</a></li>
           <li>
             <a href="../../portone_flutter_v2/PortonePaymentState-class.html"
               >PortonePaymentState</a
@@ -723,7 +781,7 @@ Widget build(BuildContext context) {
       <!--/.sidebar-offcanvas-->
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.1.0 </span>
+      <span class="no-break"> portone_flutter_v2 1.2.0 </span>
     </footer>
 
     <script src="../../static-assets/highlight.pack.js?v1"></script>

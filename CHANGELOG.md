@@ -5,10 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.2.0] - 2025-08-20
+
+### Added
+
+- Introduced a `PlatformUtil` class to provide utility methods for detecting the current target platform (Web, iOS, Android, Windows, macOS, Linux).
+
+### Changed
+
+- Reformatted all Dart files with the new Dart version (3.9.0) format rules.
+- Updated SDK (3.9.0) and Flutter version (3.35.1) constraints to reflect current compatibility requirements.
+- Updated example app iOS deployment target to iOS 13.
 
 ### Fixed
 
+- Improved intent URL handling and error management within the payment flow, adding robust error catching, parsing, and fallback support.
+- Ensured app market links (e.g., Google Play) are opened externally on Android for a better user experience.
 - Upgrade `very_good_analysis` for better error analyzing
 
 ## [1.1.0] - 2025-05-12
@@ -193,7 +205,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Modified field type in PaymentRequest model (changed `isEscrow` to nullable)
 - Changed `paypal` to `convenienceStore` in the `PaymentPayMethod` enumeration
 
-[Unreleased]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.1.0...HEAD
+[1.2.0]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.11...v1.1.0
 [1.0.11]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.10...v1.0.11
 [1.0.10]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.9...v1.0.10
@@ -207,3 +219,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.0.2]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/AndrewDongminYoo/portone_flutter/releases/tag/v1.0.0
+[unreleased]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.2.0...main
