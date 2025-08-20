@@ -59,8 +59,8 @@ class NormalizedUrl {
     String? appScheme,
     String? redirectUrl,
     this.defaultPath = 'complete',
-  })  : _rawAppScheme = appScheme,
-        _rawRedirectUrl = redirectUrl {
+  }) : _rawAppScheme = appScheme,
+       _rawRedirectUrl = redirectUrl {
     final trimmedApp = _rawAppScheme?.trim() ?? '';
     final useCustom = _isCustomScheme(trimmedApp);
 

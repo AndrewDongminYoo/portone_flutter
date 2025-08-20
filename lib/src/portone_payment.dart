@@ -149,7 +149,8 @@ class PortonePaymentState extends State<PortonePayment> {
     paymentData['redirectUrl'] = redirectUrl;
     widget.logger(jsonEncode(paymentData));
 
-    final html = '''
+    final html =
+        '''
 <!doctype html>
 <html>
   <head>

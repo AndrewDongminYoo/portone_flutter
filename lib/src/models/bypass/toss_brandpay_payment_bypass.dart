@@ -225,8 +225,7 @@ class TossBrandpayPromotionDescription {
   /// JSON에서 [TossBrandpayPromotionDescription] 객체로 변환하는 팩토리 메서드
   factory TossBrandpayPromotionDescription.fromJson(
     Map<String, dynamic> json,
-  ) =>
-      _$TossBrandpayPromotionDescriptionFromJson(json);
+  ) => _$TossBrandpayPromotionDescriptionFromJson(json);
 
   /// 결제 혜택 영역 표시 여부 (기본값: true)
   final bool visible;

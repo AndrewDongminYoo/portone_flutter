@@ -6,100 +6,135 @@ part of 'payment_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-PaymentRequest _$PaymentRequestFromJson(Map<String, dynamic> json) => $checkedCreate(
-      'PaymentRequest',
-      json,
-      ($checkedConvert) {
-        final val = PaymentRequest(
-          storeId: $checkedConvert('storeId', (v) => v! as String),
-          paymentId: $checkedConvert('paymentId', (v) => v! as String),
-          orderName: $checkedConvert('orderName', (v) => v! as String),
-          totalAmount: $checkedConvert('totalAmount', (v) => (v! as num).toInt()),
-          currency: $checkedConvert('currency', (v) => $enumDecode(_$PaymentCurrencyEnumMap, v)),
-          payMethod: $checkedConvert('payMethod', (v) => $enumDecode(_$PaymentPayMethodEnumMap, v)),
-          appScheme: $checkedConvert('appScheme', (v) => v! as String),
-          pg: $checkedConvert('pg', (v) => $enumDecodeNullable(_$PGCompanyEnumMap, v)),
-          channelKey: $checkedConvert('channelKey', (v) => v as String?),
-          channelGroupId: $checkedConvert('channelGroupId', (v) => v as String?),
-          taxFreeAmount: $checkedConvert('taxFreeAmount', (v) => (v as num?)?.toInt()),
-          vatAmount: $checkedConvert('vatAmount', (v) => (v as num?)?.toInt()),
-          customer: $checkedConvert('customer', (v) => v == null ? null : Customer.fromJson(v as Map<String, dynamic>)),
-          windowType:
-              $checkedConvert('windowType', (v) => v == null ? null : WindowTypes.fromJson(v as Map<String, dynamic>)),
-          redirectUrl: $checkedConvert('redirectUrl', (v) => v as String?),
-          noticeUrls: $checkedConvert('noticeUrls', (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
-          confirmUrl: $checkedConvert('confirmUrl', (v) => v as String?),
-          isEscrow: $checkedConvert('isEscrow', (v) => v as bool?),
-          products: $checkedConvert(
-            'products',
-            (v) => (v as List<dynamic>?)?.map((e) => ProductDetail.fromJson(e as Map<String, dynamic>)).toList(),
-          ),
-          locale: $checkedConvert('locale', (v) => $enumDecodeNullable(_$PaymentLocaleEnumMap, v)),
-          customData: $checkedConvert(
-            'customData',
-            (v) => (v as Map<String, dynamic>?)?.map(
-              (k, e) => MapEntry(k, e as String),
-            ),
-          ),
-          isCulturalExpense: $checkedConvert('isCulturalExpense', (v) => v as bool?),
-          bypass:
-              $checkedConvert('bypass', (v) => v == null ? null : PaymentBypass.fromJson(v as Map<String, dynamic>)),
-          country: $checkedConvert('country', (v) => $enumDecodeNullable(_$CountryEnumMap, v)),
-          productType: $checkedConvert('productType', (v) => $enumDecodeNullable(_$ProductTypeEnumMap, v)),
-          expiredTime: $checkedConvert('expiredTime', (v) => v as String?),
-          cashReceiptTradeOption:
-              $checkedConvert('cashReceiptTradeOption', (v) => $enumDecodeNullable(_$CashReceiptTradeOptionEnumMap, v)),
-          offerPeriod:
-              $checkedConvert('offerPeriod', (v) => v == null ? null : OfferPeriod.fromJson(v as Map<String, dynamic>)),
-          storeDetails: $checkedConvert(
-            'storeDetails',
-            (v) => v == null ? null : StoreDetails.fromJson(v as Map<String, dynamic>),
-          ),
-          shippingAddress:
-              $checkedConvert('shippingAddress', (v) => v == null ? null : Address.fromJson(v as Map<String, dynamic>)),
-          promotionId: $checkedConvert('promotionId', (v) => v as String?),
-          popup: $checkedConvert('popup', (v) => v == null ? null : Popup.fromJson(v as Map<String, dynamic>)),
-        );
-        return val;
-      },
-    );
+PaymentRequest _$PaymentRequestFromJson(
+  Map<String, dynamic> json,
+) => $checkedCreate('PaymentRequest', json, ($checkedConvert) {
+  final val = PaymentRequest(
+    storeId: $checkedConvert('storeId', (v) => v as String),
+    paymentId: $checkedConvert('paymentId', (v) => v as String),
+    orderName: $checkedConvert('orderName', (v) => v as String),
+    totalAmount: $checkedConvert('totalAmount', (v) => (v as num).toInt()),
+    currency: $checkedConvert(
+      'currency',
+      (v) => $enumDecode(_$PaymentCurrencyEnumMap, v),
+    ),
+    payMethod: $checkedConvert(
+      'payMethod',
+      (v) => $enumDecode(_$PaymentPayMethodEnumMap, v),
+    ),
+    appScheme: $checkedConvert('appScheme', (v) => v as String),
+    pg: $checkedConvert(
+      'pg',
+      (v) => $enumDecodeNullable(_$PGCompanyEnumMap, v),
+    ),
+    channelKey: $checkedConvert('channelKey', (v) => v as String?),
+    channelGroupId: $checkedConvert('channelGroupId', (v) => v as String?),
+    taxFreeAmount: $checkedConvert(
+      'taxFreeAmount',
+      (v) => (v as num?)?.toInt(),
+    ),
+    vatAmount: $checkedConvert('vatAmount', (v) => (v as num?)?.toInt()),
+    customer: $checkedConvert(
+      'customer',
+      (v) => v == null ? null : Customer.fromJson(v as Map<String, dynamic>),
+    ),
+    windowType: $checkedConvert(
+      'windowType',
+      (v) => v == null ? null : WindowTypes.fromJson(v as Map<String, dynamic>),
+    ),
+    redirectUrl: $checkedConvert('redirectUrl', (v) => v as String?),
+    noticeUrls: $checkedConvert(
+      'noticeUrls',
+      (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
+    ),
+    confirmUrl: $checkedConvert('confirmUrl', (v) => v as String?),
+    isEscrow: $checkedConvert('isEscrow', (v) => v as bool?),
+    products: $checkedConvert(
+      'products',
+      (v) => (v as List<dynamic>?)?.map((e) => ProductDetail.fromJson(e as Map<String, dynamic>)).toList(),
+    ),
+    locale: $checkedConvert(
+      'locale',
+      (v) => $enumDecodeNullable(_$PaymentLocaleEnumMap, v),
+    ),
+    customData: $checkedConvert(
+      'customData',
+      (v) => (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as String)),
+    ),
+    isCulturalExpense: $checkedConvert('isCulturalExpense', (v) => v as bool?),
+    bypass: $checkedConvert(
+      'bypass',
+      (v) => v == null ? null : PaymentBypass.fromJson(v as Map<String, dynamic>),
+    ),
+    country: $checkedConvert(
+      'country',
+      (v) => $enumDecodeNullable(_$CountryEnumMap, v),
+    ),
+    productType: $checkedConvert(
+      'productType',
+      (v) => $enumDecodeNullable(_$ProductTypeEnumMap, v),
+    ),
+    expiredTime: $checkedConvert('expiredTime', (v) => v as String?),
+    cashReceiptTradeOption: $checkedConvert(
+      'cashReceiptTradeOption',
+      (v) => $enumDecodeNullable(_$CashReceiptTradeOptionEnumMap, v),
+    ),
+    offerPeriod: $checkedConvert(
+      'offerPeriod',
+      (v) => v == null ? null : OfferPeriod.fromJson(v as Map<String, dynamic>),
+    ),
+    storeDetails: $checkedConvert(
+      'storeDetails',
+      (v) => v == null ? null : StoreDetails.fromJson(v as Map<String, dynamic>),
+    ),
+    shippingAddress: $checkedConvert(
+      'shippingAddress',
+      (v) => v == null ? null : Address.fromJson(v as Map<String, dynamic>),
+    ),
+    promotionId: $checkedConvert('promotionId', (v) => v as String?),
+    popup: $checkedConvert(
+      'popup',
+      (v) => v == null ? null : Popup.fromJson(v as Map<String, dynamic>),
+    ),
+  );
+  return val;
+});
 
 Map<String, dynamic> _$PaymentRequestToJson(PaymentRequest instance) => <String, dynamic>{
-      'storeId': instance.storeId,
-      'paymentId': instance.paymentId,
-      'orderName': instance.orderName,
-      'totalAmount': instance.totalAmount,
-      'currency': _$PaymentCurrencyEnumMap[instance.currency],
-      'payMethod': _$PaymentPayMethodEnumMap[instance.payMethod],
-      if (instance.channelKey case final value?) 'channelKey': value,
-      if (instance.channelGroupId case final value?) 'channelGroupId': value,
-      if (instance.taxFreeAmount case final value?) 'taxFreeAmount': value,
-      if (instance.vatAmount case final value?) 'vatAmount': value,
-      if (instance.customer?.toJson() case final value?) 'customer': value,
-      if (instance.windowType?.toJson() case final value?) 'windowType': value,
-      if (instance.redirectUrl case final value?) 'redirectUrl': value,
-      if (instance.noticeUrls case final value?) 'noticeUrls': value,
-      if (instance.confirmUrl case final value?) 'confirmUrl': value,
-      'appScheme': instance.appScheme,
-      if (instance.isEscrow case final value?) 'isEscrow': value,
-      if (instance.products?.map((e) => e.toJson()).toList() case final value?) 'products': value,
-      if (instance.isCulturalExpense case final value?) 'isCulturalExpense': value,
-      if (_$PaymentLocaleEnumMap[instance.locale] case final value?) 'locale': value,
-      if (instance.customData case final value?) 'customData': value,
-      if (instance.expiredTime case final value?) 'expiredTime': value,
-      if (instance.bypass?.toJson() case final value?) 'bypass': value,
-      if (_$CountryEnumMap[instance.country] case final value?) 'country': value,
-      if (_$ProductTypeEnumMap[instance.productType] case final value?) 'productType': value,
-      if (_$CashReceiptTradeOptionEnumMap[instance.cashReceiptTradeOption] case final value?)
-        'cashReceiptTradeOption': value,
-      if (instance.offerPeriod?.toJson() case final value?) 'offerPeriod': value,
-      if (instance.storeDetails?.toJson() case final value?) 'storeDetails': value,
-      if (instance.shippingAddress?.toJson() case final value?) 'shippingAddress': value,
-      if (instance.promotionId case final value?) 'promotionId': value,
-      if (instance.popup?.toJson() case final value?) 'popup': value,
-    };
+  'storeId': instance.storeId,
+  'paymentId': instance.paymentId,
+  'orderName': instance.orderName,
+  'totalAmount': instance.totalAmount,
+  'currency': _$PaymentCurrencyEnumMap[instance.currency]!,
+  'payMethod': _$PaymentPayMethodEnumMap[instance.payMethod]!,
+  'channelKey': ?instance.channelKey,
+  'channelGroupId': ?instance.channelGroupId,
+  'taxFreeAmount': ?instance.taxFreeAmount,
+  'vatAmount': ?instance.vatAmount,
+  'customer': ?instance.customer?.toJson(),
+  'windowType': ?instance.windowType?.toJson(),
+  'redirectUrl': ?instance.redirectUrl,
+  'noticeUrls': ?instance.noticeUrls,
+  'confirmUrl': ?instance.confirmUrl,
+  'appScheme': instance.appScheme,
+  'isEscrow': ?instance.isEscrow,
+  'products': ?instance.products?.map((e) => e.toJson()).toList(),
+  'isCulturalExpense': ?instance.isCulturalExpense,
+  'locale': ?_$PaymentLocaleEnumMap[instance.locale],
+  'customData': ?instance.customData,
+  'expiredTime': ?instance.expiredTime,
+  'bypass': ?instance.bypass?.toJson(),
+  'country': ?_$CountryEnumMap[instance.country],
+  'productType': ?_$ProductTypeEnumMap[instance.productType],
+  'cashReceiptTradeOption': ?_$CashReceiptTradeOptionEnumMap[instance.cashReceiptTradeOption],
+  'offerPeriod': ?instance.offerPeriod?.toJson(),
+  'storeDetails': ?instance.storeDetails?.toJson(),
+  'shippingAddress': ?instance.shippingAddress?.toJson(),
+  'promotionId': ?instance.promotionId,
+  'popup': ?instance.popup?.toJson(),
+};
 
-const Map<PaymentCurrency, String> _$PaymentCurrencyEnumMap = {
+const _$PaymentCurrencyEnumMap = {
   PaymentCurrency.KRW: 'CURRENCY_KRW',
   PaymentCurrency.USD: 'CURRENCY_USD',
   PaymentCurrency.EUR: 'CURRENCY_EUR',
@@ -282,7 +317,7 @@ const Map<PaymentCurrency, String> _$PaymentCurrencyEnumMap = {
   PaymentCurrency.ZWL: 'CURRENCY_ZWL',
 };
 
-const Map<PaymentPayMethod, String> _$PaymentPayMethodEnumMap = {
+const _$PaymentPayMethodEnumMap = {
   PaymentPayMethod.card: 'CARD',
   PaymentPayMethod.virtualAccount: 'VIRTUAL_ACCOUNT',
   PaymentPayMethod.transfer: 'TRANSFER',
@@ -292,7 +327,7 @@ const Map<PaymentPayMethod, String> _$PaymentPayMethodEnumMap = {
   PaymentPayMethod.convenienceStore: 'CONVENIENCE_STORE',
 };
 
-const Map<PGCompany, String> _$PGCompanyEnumMap = {
+const _$PGCompanyEnumMap = {
   PGCompany.eximbayV2: 'eximbay_v2',
   PGCompany.hyphen: 'hyphen',
   PGCompany.inicisJp: 'inicis_jp',
@@ -311,7 +346,7 @@ const Map<PGCompany, String> _$PGCompanyEnumMap = {
   PGCompany.welcome: 'welcome_payment',
 };
 
-const Map<PaymentLocale, String> _$PaymentLocaleEnumMap = {
+const _$PaymentLocaleEnumMap = {
   PaymentLocale.koKr: 'KO_KR',
   PaymentLocale.enUs: 'EN_US',
   PaymentLocale.zhCn: 'ZH_CN',
@@ -322,7 +357,7 @@ const Map<PaymentLocale, String> _$PaymentLocaleEnumMap = {
   PaymentLocale.viVn: 'VI_VN',
 };
 
-const Map<Country, String> _$CountryEnumMap = {
+const _$CountryEnumMap = {
   Country.AF: 'COUNTRY_AF',
   Country.AX: 'COUNTRY_AX',
   Country.AL: 'COUNTRY_AL',
@@ -574,12 +609,12 @@ const Map<Country, String> _$CountryEnumMap = {
   Country.ZW: 'COUNTRY_ZW',
 };
 
-const Map<ProductType, String> _$ProductTypeEnumMap = {
+const _$ProductTypeEnumMap = {
   ProductType.digital: 'PRODUCT_TYPE_DIGITAL',
   ProductType.real: 'PRODUCT_TYPE_REAL',
 };
 
-const Map<CashReceiptTradeOption, String> _$CashReceiptTradeOptionEnumMap = {
+const _$CashReceiptTradeOptionEnumMap = {
   CashReceiptTradeOption.culture: 'CULTURE',
   CashReceiptTradeOption.general: 'GENERAL',
   CashReceiptTradeOption.publicTp: 'PUBLIC_TP',
