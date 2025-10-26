@@ -11,16 +11,16 @@ This Flutter package was created to offer seamless integration for PortOne's V2 
 ### Build Commands
 
 - Run dev mode: `flutter run`
-- Format code: `dart run import_sorter:main -e && dart format --line-length 120 .`
+- Format code: `dart run import_sorter:main -e && dart format .`
 - Run tests: `flutter test`
 - Run single test: `flutter test test/path/to/test_file.dart`
 - Generate code: `dart run build_runner build --delete-conflicting-outputs`
-- Bootstrap project: `dart run build_runner build --delete-conflicting-outputs && dart format --line-length 120 . && dart run import_sorter:main -e`
+- Bootstrap project: `dart run build_runner build --delete-conflicting-outputs && dart format . && dart run import_sorter:main -e`
 - Fix code: `dart fix --apply`
 
 ### Style Guidelines
 
-- Line length: 120 characters
+- Line length: 80 characters (default line length)
 - Use strict-casts, strict-inference, and strict-raw-types
 - Import sorting: Use `import_sorter` with emojis (🐦 Flutter, 📦 Package, 🌎 Project)
 - Linting: Follows very_good_analysis (main) and flutter_lints (example)

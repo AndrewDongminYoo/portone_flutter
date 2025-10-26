@@ -26,7 +26,7 @@ lint:
       commands:
         - name: format
           output: rewrite
-          run: dart format --line-length 120 ${target}
+          run: dart format ${target}
           batch: true
           in_place: true
           formatter: true

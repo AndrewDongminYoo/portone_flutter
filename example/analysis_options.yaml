@@ -74,6 +74,5 @@ analyzer:
 
 # Formatter settings
 formatter:
-  # Specifies the line width for auto-formatting the code.
-  # https://codewithandrea.com/articles/new-formatting-style-dart-3-7
-  page_width: 120
+  page_width: 80
+  trailing_commas: preserve

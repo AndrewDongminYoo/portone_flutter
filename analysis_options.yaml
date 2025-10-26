@@ -6,5 +6,5 @@ analyzer:
     lines_longer_than_80_chars: ignore
 
 formatter:
-  page_width: 120
+  page_width: 80 # default
   trailing_commas: preserve
