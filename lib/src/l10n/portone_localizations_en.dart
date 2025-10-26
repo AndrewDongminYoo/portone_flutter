@@ -3,6 +3,9 @@ import 'package:portone_flutter_v2/src/l10n/portone_localizations.dart';
 
 /// English ('en') - 영어 로케일
 class PortoneLocalizationsEn implements PortoneLocalizations {
+  /// English ('en') - 영어 로케일
+  const PortoneLocalizationsEn();
+
   @override
   String get localeName => 'en';
 

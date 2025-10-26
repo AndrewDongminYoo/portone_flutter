@@ -95,7 +95,7 @@ class PortonePayment extends StatefulWidget {
   final Set<Factory<OneSequenceGestureRecognizer>>? gestureRecognizers;
 
   @override
-  PortonePaymentState createState() => PortonePaymentState();
+  State<PortonePayment> createState() => _PortonePaymentState();
 }
 
 /// State class for the [PortonePayment] widget that manages the payment process flow.
@@ -119,8 +119,7 @@ class PortonePayment extends StatefulWidget {
 /// See also:
 ///  - [PortonePayment]
 ///  - [InAppWebView] from the flutter_inappwebview package.
-@visibleForTesting
-class PortonePaymentState extends State<PortonePayment> {
+class _PortonePaymentState extends State<PortonePayment> {
   /// Callback function name for JavaScript error handling.
   final handlerName = 'portoneError';
 

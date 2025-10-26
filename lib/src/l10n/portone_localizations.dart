@@ -124,9 +124,9 @@ class _PortoneLocalizationsDelegate
 PortoneLocalizations lookupPortOneLocalizations(Locale locale) {
   switch (locale.languageCode) {
     case 'en':
-      return PortoneLocalizationsEn();
+      return const PortoneLocalizationsEn();
     case 'ko':
-      return PortoneLocalizationsKo();
+      return const PortoneLocalizationsKo();
   }
 
   if (kDebugMode) {
@@ -137,5 +137,5 @@ PortoneLocalizations lookupPortOneLocalizations(Locale locale) {
     );
   }
 
-  return PortoneLocalizationsKo();
+  return const PortoneLocalizationsKo();
 }

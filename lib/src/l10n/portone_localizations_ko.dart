@@ -3,6 +3,9 @@ import 'package:portone_flutter_v2/src/l10n/portone_localizations.dart';
 
 /// Korean('ko') - 한국어 로케일
 class PortoneLocalizationsKo implements PortoneLocalizations {
+  /// Korean ('ko') - 한국어 로케일
+  const PortoneLocalizationsKo();
+
   @override
   String get localeName => 'ko';
 
