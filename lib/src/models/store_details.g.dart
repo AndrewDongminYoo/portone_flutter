@@ -6,33 +6,23 @@ part of 'store_details.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-StoreDetails _$StoreDetailsFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('StoreDetails', json, ($checkedConvert) {
-      final val = StoreDetails(
-        ceoFullName: $checkedConvert('ceoFullName', (v) => v as String?),
-        phoneNumber: $checkedConvert('phoneNumber', (v) => v as String?),
-        address: $checkedConvert('address', (v) => v as String?),
-        zipcode: $checkedConvert('zipcode', (v) => v as String?),
-        email: $checkedConvert('email', (v) => v as String?),
-        businessName: $checkedConvert('businessName', (v) => v as String?),
-        businessRegistrationNumber: $checkedConvert(
-          'businessRegistrationNumber',
-          (v) => v as String?,
-        ),
-        storeName: $checkedConvert('storeName', (v) => v as String?),
-        storeNameShort: $checkedConvert('storeNameShort', (v) => v as String?),
-        storeNameEn: $checkedConvert('storeNameEn', (v) => v as String?),
-        storeNameKana: $checkedConvert('storeNameKana', (v) => v as String?),
-        openingHours: $checkedConvert(
-          'openingHours',
-          (v) => v == null
-              ? null
-              : OpeningHours.fromJson(v as Map<String, dynamic>),
-        ),
-        contactName: $checkedConvert('contactName', (v) => v as String?),
-      );
-      return val;
-    });
+StoreDetails _$StoreDetailsFromJson(Map<String, dynamic> json) => StoreDetails(
+  ceoFullName: json['ceoFullName'] as String?,
+  phoneNumber: json['phoneNumber'] as String?,
+  address: json['address'] as String?,
+  zipcode: json['zipcode'] as String?,
+  email: json['email'] as String?,
+  businessName: json['businessName'] as String?,
+  businessRegistrationNumber: json['businessRegistrationNumber'] as String?,
+  storeName: json['storeName'] as String?,
+  storeNameShort: json['storeNameShort'] as String?,
+  storeNameEn: json['storeNameEn'] as String?,
+  storeNameKana: json['storeNameKana'] as String?,
+  openingHours: json['openingHours'] == null
+      ? null
+      : OpeningHours.fromJson(json['openingHours'] as Map<String, dynamic>),
+  contactName: json['contactName'] as String?,
+);
 
 Map<String, dynamic> _$StoreDetailsToJson(StoreDetails instance) =>
     <String, dynamic>{
@@ -51,14 +41,10 @@ Map<String, dynamic> _$StoreDetailsToJson(StoreDetails instance) =>
       'contactName': ?instance.contactName,
     };
 
-OpeningHours _$OpeningHoursFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('OpeningHours', json, ($checkedConvert) {
-      final val = OpeningHours(
-        open: $checkedConvert('open', (v) => v as String?),
-        close: $checkedConvert('close', (v) => v as String?),
-      );
-      return val;
-    });
+OpeningHours _$OpeningHoursFromJson(Map<String, dynamic> json) => OpeningHours(
+  open: json['open'] as String?,
+  close: json['close'] as String?,
+);
 
 Map<String, dynamic> _$OpeningHoursToJson(OpeningHours instance) =>
     <String, dynamic>{'open': ?instance.open, 'close': ?instance.close};

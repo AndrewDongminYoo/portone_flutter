@@ -3,26 +3,17 @@ targets:
     builders:
       json_serializable:
         options:
-          # Options configure how source code is generated for every
-          # `@JsonSerializable`-annotated class in the package.
-          #
-          # The default value for each is listed.
-          any_map: false
-          # checked: true를 설정하면, JSON 디코딩 시에 추가적인 런타임 검사와 에러 핸들링 로직이 포함됩니다.
-          checked: true
-          constructor: ""
-          create_factory: true
-          create_field_map: false
-          create_json_keys: false
-          create_per_field_to_json: false
-          create_to_json: true
-          disallow_unrecognized_keys: false
-          # explicit_to_json: true이면 생성된 toJson 메서드가 중첩된 객체에서 명시적으로 toJson을 호출합니다.
-          explicit_to_json: true
-          field_rename: none
-          generic_argument_factories: false
-          ignore_unannotated: false
-          include_if_null: false
+          any_map: false # default: false
+          checked: false # default: false
+          constructor: "" # default: ""
+          create_factory: true # default: true
+          create_to_json: true # default: true
+          disallow_unrecognized_keys: false # default: false
+          explicit_to_json: true # default: false
+          field_rename: none # default: "none"
+          generic_argument_factories: false # default: false
+          ignore_unannotated: false # default: false
+          include_if_null: false # default: true
       mockito|mockBuilder:
         generate_for:
           - test/**.dart

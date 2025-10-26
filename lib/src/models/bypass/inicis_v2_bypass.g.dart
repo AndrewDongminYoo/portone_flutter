@@ -7,36 +7,19 @@ part of 'inicis_v2_bypass.dart';
 // **************************************************************************
 
 InicisV2Bypass _$InicisV2BypassFromJson(Map<String, dynamic> json) =>
-    $checkedCreate(
-      'InicisV2Bypass',
-      json,
-      ($checkedConvert) {
-        final val = InicisV2Bypass(
-          logoUrl: $checkedConvert('logo_url', (v) => v as String?),
-          logo2nd: $checkedConvert('logo_2nd', (v) => v as String?),
-          parentemail: $checkedConvert('parentemail', (v) => v as String?),
-          iniSsgpayMdn: $checkedConvert('Ini_SSGPAY_MDN', (v) => v as String?),
-          acceptmethod: $checkedConvert(
-            'acceptmethod',
-            (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
-          ),
-          pCardOption: $checkedConvert('P_CARD_OPTION', (v) => v as String?),
-          pMname: $checkedConvert('P_MNAME', (v) => v as String?),
-          pReserved: $checkedConvert(
-            'P_RESERVED',
-            (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
-          ),
-        );
-        return val;
-      },
-      fieldKeyMap: const {
-        'logoUrl': 'logo_url',
-        'logo2nd': 'logo_2nd',
-        'iniSsgpayMdn': 'Ini_SSGPAY_MDN',
-        'pCardOption': 'P_CARD_OPTION',
-        'pMname': 'P_MNAME',
-        'pReserved': 'P_RESERVED',
-      },
+    InicisV2Bypass(
+      logoUrl: json['logo_url'] as String?,
+      logo2nd: json['logo_2nd'] as String?,
+      parentemail: json['parentemail'] as String?,
+      iniSsgpayMdn: json['Ini_SSGPAY_MDN'] as String?,
+      acceptmethod: (json['acceptmethod'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      pCardOption: json['P_CARD_OPTION'] as String?,
+      pMname: json['P_MNAME'] as String?,
+      pReserved: (json['P_RESERVED'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$InicisV2BypassToJson(InicisV2Bypass instance) =>

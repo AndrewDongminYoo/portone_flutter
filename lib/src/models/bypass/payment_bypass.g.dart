@@ -8,117 +8,69 @@ part of 'payment_bypass.dart';
 
 PaymentBypass _$PaymentBypassFromJson(
   Map<String, dynamic> json,
-) => $checkedCreate(
-  'PaymentBypass',
-  json,
-  ($checkedConvert) {
-    final val = PaymentBypass(
-      tosspayments: $checkedConvert(
-        'tosspayments',
-        (v) => v == null
-            ? null
-            : TosspaymentsPaymentBypass.fromJson(v as Map<String, dynamic>),
-      ),
-      ksnet: $checkedConvert(
-        'ksnet',
-        (v) => v == null
-            ? null
-            : KsnetPaymentBypass.fromJson(v as Map<String, dynamic>),
-      ),
-      kakaopay: $checkedConvert(
-        'kakaopay',
-        (v) => v == null
-            ? null
-            : KakaopayPaymentBypass.fromJson(v as Map<String, dynamic>),
-      ),
-      smartroV2: $checkedConvert(
-        'smartro_v2',
-        (v) => v == null
-            ? null
-            : SmartroV2PaymentBypass.fromJson(v as Map<String, dynamic>),
-      ),
-      naverpay: $checkedConvert(
-        'naverpay',
-        (v) => v == null
-            ? null
-            : NaverpayPaymentBypass.fromJson(v as Map<String, dynamic>),
-      ),
-      niceV2: $checkedConvert(
-        'nice_v2',
-        (v) => v == null
-            ? null
-            : NiceV2PaymentBypass.fromJson(v as Map<String, dynamic>),
-      ),
-      tossBrandpay: $checkedConvert(
-        'toss_brandpay',
-        (v) => v == null
-            ? null
-            : TossBrandpayPaymentBypass.fromJson(v as Map<String, dynamic>),
-      ),
-      welcome: $checkedConvert(
-        'welcome',
-        (v) => v == null
-            ? null
-            : WelcomePaymentBypass.fromJson(v as Map<String, dynamic>),
-      ),
-      tosspayV2: $checkedConvert(
-        'tosspay_v2',
-        (v) => v == null
-            ? null
-            : TosspayV2PaymentBypass.fromJson(v as Map<String, dynamic>),
-      ),
-      inicisV2: $checkedConvert(
-        'inicis_v2',
-        (v) => v == null
-            ? null
-            : InicisV2Bypass.fromJson(v as Map<String, dynamic>),
-      ),
-      kpn: $checkedConvert(
-        'kpn',
-        (v) => v == null ? null : KpnBypass.fromJson(v as Map<String, dynamic>),
-      ),
-      kcpV2: $checkedConvert(
-        'kcp_v2',
-        (v) =>
-            v == null ? null : KcpV2Bypass.fromJson(v as Map<String, dynamic>),
-      ),
-      hyphen: $checkedConvert(
-        'hyphen',
-        (v) =>
-            v == null ? null : HyphenBypass.fromJson(v as Map<String, dynamic>),
-      ),
-      eximbayV2: $checkedConvert(
-        'eximbay_v2',
-        (v) => v == null
-            ? null
-            : EximbayV2Bypass.fromJson(v as Map<String, dynamic>),
-      ),
-      inicisJp: $checkedConvert(
-        'inicis_jp',
-        (v) => v == null
-            ? null
-            : InicisJpBypass.fromJson(v as Map<String, dynamic>),
-      ),
-      payletterGlobal: $checkedConvert(
-        'payletter_global',
-        (v) => v == null
-            ? null
-            : PayletterGlobalBypass.fromJson(v as Map<String, dynamic>),
-      ),
-    );
-    return val;
-  },
-  fieldKeyMap: const {
-    'smartroV2': 'smartro_v2',
-    'niceV2': 'nice_v2',
-    'tossBrandpay': 'toss_brandpay',
-    'tosspayV2': 'tosspay_v2',
-    'inicisV2': 'inicis_v2',
-    'kcpV2': 'kcp_v2',
-    'eximbayV2': 'eximbay_v2',
-    'inicisJp': 'inicis_jp',
-    'payletterGlobal': 'payletter_global',
-  },
+) => PaymentBypass(
+  tosspayments: json['tosspayments'] == null
+      ? null
+      : TosspaymentsPaymentBypass.fromJson(
+          json['tosspayments'] as Map<String, dynamic>,
+        ),
+  ksnet: json['ksnet'] == null
+      ? null
+      : KsnetPaymentBypass.fromJson(json['ksnet'] as Map<String, dynamic>),
+  kakaopay: json['kakaopay'] == null
+      ? null
+      : KakaopayPaymentBypass.fromJson(
+          json['kakaopay'] as Map<String, dynamic>,
+        ),
+  smartroV2: json['smartro_v2'] == null
+      ? null
+      : SmartroV2PaymentBypass.fromJson(
+          json['smartro_v2'] as Map<String, dynamic>,
+        ),
+  naverpay: json['naverpay'] == null
+      ? null
+      : NaverpayPaymentBypass.fromJson(
+          json['naverpay'] as Map<String, dynamic>,
+        ),
+  niceV2: json['nice_v2'] == null
+      ? null
+      : NiceV2PaymentBypass.fromJson(json['nice_v2'] as Map<String, dynamic>),
+  tossBrandpay: json['toss_brandpay'] == null
+      ? null
+      : TossBrandpayPaymentBypass.fromJson(
+          json['toss_brandpay'] as Map<String, dynamic>,
+        ),
+  welcome: json['welcome'] == null
+      ? null
+      : WelcomePaymentBypass.fromJson(json['welcome'] as Map<String, dynamic>),
+  tosspayV2: json['tosspay_v2'] == null
+      ? null
+      : TosspayV2PaymentBypass.fromJson(
+          json['tosspay_v2'] as Map<String, dynamic>,
+        ),
+  inicisV2: json['inicis_v2'] == null
+      ? null
+      : InicisV2Bypass.fromJson(json['inicis_v2'] as Map<String, dynamic>),
+  kpn: json['kpn'] == null
+      ? null
+      : KpnBypass.fromJson(json['kpn'] as Map<String, dynamic>),
+  kcpV2: json['kcp_v2'] == null
+      ? null
+      : KcpV2Bypass.fromJson(json['kcp_v2'] as Map<String, dynamic>),
+  hyphen: json['hyphen'] == null
+      ? null
+      : HyphenBypass.fromJson(json['hyphen'] as Map<String, dynamic>),
+  eximbayV2: json['eximbay_v2'] == null
+      ? null
+      : EximbayV2Bypass.fromJson(json['eximbay_v2'] as Map<String, dynamic>),
+  inicisJp: json['inicis_jp'] == null
+      ? null
+      : InicisJpBypass.fromJson(json['inicis_jp'] as Map<String, dynamic>),
+  payletterGlobal: json['payletter_global'] == null
+      ? null
+      : PayletterGlobalBypass.fromJson(
+          json['payletter_global'] as Map<String, dynamic>,
+        ),
 );
 
 Map<String, dynamic> _$PaymentBypassToJson(PaymentBypass instance) =>

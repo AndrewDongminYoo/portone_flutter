@@ -6,20 +6,10 @@ part of 'window_type.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-WindowTypes _$WindowTypesFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('WindowTypes', json, ($checkedConvert) {
-      final val = WindowTypes(
-        mobile: $checkedConvert(
-          'mobile',
-          (v) => $enumDecodeNullable(_$WindowTypeEnumMap, v),
-        ),
-        pc: $checkedConvert(
-          'pc',
-          (v) => $enumDecodeNullable(_$WindowTypeEnumMap, v),
-        ),
-      );
-      return val;
-    });
+WindowTypes _$WindowTypesFromJson(Map<String, dynamic> json) => WindowTypes(
+  mobile: $enumDecodeNullable(_$WindowTypeEnumMap, json['mobile']),
+  pc: $enumDecodeNullable(_$WindowTypeEnumMap, json['pc']),
+);
 
 Map<String, dynamic> _$WindowTypesToJson(WindowTypes instance) =>
     <String, dynamic>{

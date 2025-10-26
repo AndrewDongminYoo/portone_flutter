@@ -8,17 +8,7 @@ part of 'kakaopay_payment_bypass.dart';
 
 KakaopayPaymentBypass _$KakaopayPaymentBypassFromJson(
   Map<String, dynamic> json,
-) => $checkedCreate(
-  'KakaopayPaymentBypass',
-  json,
-  ($checkedConvert) {
-    final val = KakaopayPaymentBypass(
-      customMessage: $checkedConvert('custom_message', (v) => v as String?),
-    );
-    return val;
-  },
-  fieldKeyMap: const {'customMessage': 'custom_message'},
-);
+) => KakaopayPaymentBypass(customMessage: json['custom_message'] as String?);
 
 Map<String, dynamic> _$KakaopayPaymentBypassToJson(
   KakaopayPaymentBypass instance,

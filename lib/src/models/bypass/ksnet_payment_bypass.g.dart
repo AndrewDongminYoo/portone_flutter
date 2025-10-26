@@ -7,16 +7,13 @@ part of 'ksnet_payment_bypass.dart';
 // **************************************************************************
 
 KsnetPaymentBypass _$KsnetPaymentBypassFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('KsnetPaymentBypass', json, ($checkedConvert) {
-      final val = KsnetPaymentBypass(
-        easyPayDirect: $checkedConvert('easyPayDirect', (v) => v as bool?),
-        sndQpayType: $checkedConvert(
-          'sndQpayType',
-          (v) => $enumDecodeNullable(_$SndQpayTypeEnumMap, v),
-        ),
-      );
-      return val;
-    });
+    KsnetPaymentBypass(
+      easyPayDirect: json['easyPayDirect'] as bool?,
+      sndQpayType: $enumDecodeNullable(
+        _$SndQpayTypeEnumMap,
+        json['sndQpayType'],
+      ),
+    );
 
 Map<String, dynamic> _$KsnetPaymentBypassToJson(KsnetPaymentBypass instance) =>
     <String, dynamic>{

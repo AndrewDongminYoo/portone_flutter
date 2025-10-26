@@ -8,19 +8,13 @@ part of 'naverpay_payment_bypass.dart';
 
 NaverpayPaymentBypass _$NaverpayPaymentBypassFromJson(
   Map<String, dynamic> json,
-) => $checkedCreate('NaverpayPaymentBypass', json, ($checkedConvert) {
-  final val = NaverpayPaymentBypass(
-    useCfmYmdt: $checkedConvert('useCfmYmdt', (v) => v as String?),
-    productItems: $checkedConvert(
-      'productItems',
-      (v) => (v as List<dynamic>?)
-          ?.map((e) => NaverpayProductItem.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    ),
-    deliveryFee: $checkedConvert('deliveryFee', (v) => v as num?),
-  );
-  return val;
-});
+) => NaverpayPaymentBypass(
+  useCfmYmdt: json['useCfmYmdt'] as String?,
+  productItems: (json['productItems'] as List<dynamic>?)
+      ?.map((e) => NaverpayProductItem.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  deliveryFee: json['deliveryFee'] as num?,
+);
 
 Map<String, dynamic> _$NaverpayPaymentBypassToJson(
   NaverpayPaymentBypass instance,
@@ -31,26 +25,22 @@ Map<String, dynamic> _$NaverpayPaymentBypassToJson(
 };
 
 NaverpayProductItem _$NaverpayProductItemFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('NaverpayProductItem', json, ($checkedConvert) {
-      final val = NaverpayProductItem(
-        categoryType: $checkedConvert('categoryType', (v) => v! as String),
-        categoryId: $checkedConvert('categoryId', (v) => v! as String),
-        uid: $checkedConvert('uid', (v) => v! as String),
-        name: $checkedConvert('name', (v) => v! as String),
-        count: $checkedConvert('count', (v) => (v! as num).toInt()),
-        payReferrer: $checkedConvert('payReferrer', (v) => v as String?),
-        startDate: $checkedConvert('startDate', (v) => v as String?),
-        endDate: $checkedConvert('endDate', (v) => v as String?),
-        sellerId: $checkedConvert('sellerId', (v) => v as String?),
-        subMerchantInfo: $checkedConvert(
-          'subMerchantInfo',
-          (v) => v == null
-              ? null
-              : NaverpaySubMerchantInfo.fromJson(v as Map<String, dynamic>),
-        ),
-      );
-      return val;
-    });
+    NaverpayProductItem(
+      categoryType: json['categoryType'] as String,
+      categoryId: json['categoryId'] as String,
+      uid: json['uid'] as String,
+      name: json['name'] as String,
+      count: (json['count'] as num).toInt(),
+      payReferrer: json['payReferrer'] as String?,
+      startDate: json['startDate'] as String?,
+      endDate: json['endDate'] as String?,
+      sellerId: json['sellerId'] as String?,
+      subMerchantInfo: json['subMerchantInfo'] == null
+          ? null
+          : NaverpaySubMerchantInfo.fromJson(
+              json['subMerchantInfo'] as Map<String, dynamic>,
+            ),
+    );
 
 Map<String, dynamic> _$NaverpayProductItemToJson(
   NaverpayProductItem instance,
@@ -69,26 +59,15 @@ Map<String, dynamic> _$NaverpayProductItemToJson(
 
 NaverpaySubMerchantInfo _$NaverpaySubMerchantInfoFromJson(
   Map<String, dynamic> json,
-) => $checkedCreate('NaverpaySubMerchantInfo', json, ($checkedConvert) {
-  final val = NaverpaySubMerchantInfo(
-    subMerchantName: $checkedConvert('subMerchantName', (v) => v! as String),
-    subMerchantId: $checkedConvert('subMerchantId', (v) => v! as String),
-    subMerchantBusinessNo: $checkedConvert(
-      'subMerchantBusinessNo',
-      (v) => v! as String,
-    ),
-    subMerchantPayId: $checkedConvert('subMerchantPayId', (v) => v! as String),
-    subMerchantTelephoneNo: $checkedConvert(
-      'subMerchantTelephoneNo',
-      (v) => v! as String,
-    ),
-    subMerchantCustomerServiceUrl: $checkedConvert(
-      'subMerchantCustomerServiceUrl',
-      (v) => v! as String,
-    ),
-  );
-  return val;
-});
+) => NaverpaySubMerchantInfo(
+  subMerchantName: json['subMerchantName'] as String,
+  subMerchantId: json['subMerchantId'] as String,
+  subMerchantBusinessNo: json['subMerchantBusinessNo'] as String,
+  subMerchantPayId: json['subMerchantPayId'] as String,
+  subMerchantTelephoneNo: json['subMerchantTelephoneNo'] as String,
+  subMerchantCustomerServiceUrl:
+      json['subMerchantCustomerServiceUrl'] as String,
+);
 
 Map<String, dynamic> _$NaverpaySubMerchantInfoToJson(
   NaverpaySubMerchantInfo instance,

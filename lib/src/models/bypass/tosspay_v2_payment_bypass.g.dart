@@ -8,16 +8,10 @@ part of 'tosspay_v2_payment_bypass.dart';
 
 TosspayV2PaymentBypass _$TosspayV2PaymentBypassFromJson(
   Map<String, dynamic> json,
-) => $checkedCreate('TosspayV2PaymentBypass', json, ($checkedConvert) {
-  final val = TosspayV2PaymentBypass(
-    discountCode: $checkedConvert('discountCode', (v) => v as String?),
-    useInternationalCardOnly: $checkedConvert(
-      'useInternationalCardOnly',
-      (v) => v as bool?,
-    ),
-  );
-  return val;
-});
+) => TosspayV2PaymentBypass(
+  discountCode: json['discountCode'] as String?,
+  useInternationalCardOnly: json['useInternationalCardOnly'] as bool?,
+);
 
 Map<String, dynamic> _$TosspayV2PaymentBypassToJson(
   TosspayV2PaymentBypass instance,

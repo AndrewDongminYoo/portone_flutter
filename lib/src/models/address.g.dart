@@ -6,21 +6,14 @@ part of 'address.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Address _$AddressFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('Address', json, ($checkedConvert) {
-      final val = Address(
-        country: $checkedConvert(
-          'country',
-          (v) => $enumDecodeNullable(_$CountryEnumMap, v),
-        ),
-        addressLine1: $checkedConvert('addressLine1', (v) => v as String?),
-        addressLine2: $checkedConvert('addressLine2', (v) => v as String?),
-        city: $checkedConvert('city', (v) => v as String?),
-        province: $checkedConvert('province', (v) => v as String?),
-        zipcode: $checkedConvert('zipcode', (v) => v as String?),
-      );
-      return val;
-    });
+Address _$AddressFromJson(Map<String, dynamic> json) => Address(
+  country: $enumDecodeNullable(_$CountryEnumMap, json['country']),
+  addressLine1: json['addressLine1'] as String?,
+  addressLine2: json['addressLine2'] as String?,
+  city: json['city'] as String?,
+  province: json['province'] as String?,
+  zipcode: json['zipcode'] as String?,
+);
 
 Map<String, dynamic> _$AddressToJson(Address instance) => <String, dynamic>{
   'country': ?_$CountryEnumMap[instance.country],

@@ -6,18 +6,11 @@ part of 'kpn_bypass.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-KpnBypass _$KpnBypassFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('KpnBypass', json, ($checkedConvert) {
-      final val = KpnBypass(
-        cardSelect: $checkedConvert(
-          'cardSelect',
-          (v) => (v as List<dynamic>?)
-              ?.map((e) => $enumDecode(_$KpnCardSelectEnumMap, e))
-              .toList(),
-        ),
-      );
-      return val;
-    });
+KpnBypass _$KpnBypassFromJson(Map<String, dynamic> json) => KpnBypass(
+  cardSelect: (json['cardSelect'] as List<dynamic>?)
+      ?.map((e) => $enumDecode(_$KpnCardSelectEnumMap, e))
+      .toList(),
+);
 
 Map<String, dynamic> _$KpnBypassToJson(KpnBypass instance) => <String, dynamic>{
   'cardSelect': ?instance.cardSelect

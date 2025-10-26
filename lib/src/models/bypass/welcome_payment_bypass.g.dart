@@ -8,36 +8,17 @@ part of 'welcome_payment_bypass.dart';
 
 WelcomePaymentBypass _$WelcomePaymentBypassFromJson(
   Map<String, dynamic> json,
-) => $checkedCreate(
-  'WelcomePaymentBypass',
-  json,
-  ($checkedConvert) {
-    final val = WelcomePaymentBypass(
-      logoUrl: $checkedConvert('logo_url', (v) => v as String?),
-      logo2nd: $checkedConvert('logo_2nd', (v) => v as String?),
-      acceptmethod: $checkedConvert(
-        'acceptmethod',
-        (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
-      ),
-      pCardOption: $checkedConvert('P_CARD_OPTION', (v) => v as String?),
-      pOnlyEasypaycode: $checkedConvert(
-        'P_ONLY_EASYPAYCODE',
-        (v) => v as String?,
-      ),
-      pReserved: $checkedConvert(
-        'P_RESERVED',
-        (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
-      ),
-    );
-    return val;
-  },
-  fieldKeyMap: const {
-    'logoUrl': 'logo_url',
-    'logo2nd': 'logo_2nd',
-    'pCardOption': 'P_CARD_OPTION',
-    'pOnlyEasypaycode': 'P_ONLY_EASYPAYCODE',
-    'pReserved': 'P_RESERVED',
-  },
+) => WelcomePaymentBypass(
+  logoUrl: json['logo_url'] as String?,
+  logo2nd: json['logo_2nd'] as String?,
+  acceptmethod: (json['acceptmethod'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
+  pCardOption: json['P_CARD_OPTION'] as String?,
+  pOnlyEasypaycode: json['P_ONLY_EASYPAYCODE'] as String?,
+  pReserved: (json['P_RESERVED'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
 );
 
 Map<String, dynamic> _$WelcomePaymentBypassToJson(

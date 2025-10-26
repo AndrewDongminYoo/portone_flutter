@@ -6,26 +6,21 @@ part of 'customer.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Customer _$CustomerFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('Customer', json, ($checkedConvert) {
-      final val = Customer(
-        customerId: $checkedConvert('customerId', (v) => v as String?),
-        fullName: $checkedConvert('fullName', (v) => v as String?),
-        firstName: $checkedConvert('firstName', (v) => v as String?),
-        lastName: $checkedConvert('lastName', (v) => v as String?),
-        phoneNumber: $checkedConvert('phoneNumber', (v) => v as String?),
-        email: $checkedConvert('email', (v) => v as String?),
-        address: $checkedConvert(
-          'address',
-          (v) => v == null ? null : Address.fromJson(v as Map<String, dynamic>),
-        ),
-        gender: $checkedConvert('gender', (v) => v as String?),
-        birthYear: $checkedConvert('birthYear', (v) => v as String?),
-        birthMonth: $checkedConvert('birthMonth', (v) => v as String?),
-        birthDay: $checkedConvert('birthDay', (v) => v as String?),
-      );
-      return val;
-    });
+Customer _$CustomerFromJson(Map<String, dynamic> json) => Customer(
+  customerId: json['customerId'] as String?,
+  fullName: json['fullName'] as String?,
+  firstName: json['firstName'] as String?,
+  lastName: json['lastName'] as String?,
+  phoneNumber: json['phoneNumber'] as String?,
+  email: json['email'] as String?,
+  address: json['address'] == null
+      ? null
+      : Address.fromJson(json['address'] as Map<String, dynamic>),
+  gender: json['gender'] as String?,
+  birthYear: json['birthYear'] as String?,
+  birthMonth: json['birthMonth'] as String?,
+  birthDay: json['birthDay'] as String?,
+);
 
 Map<String, dynamic> _$CustomerToJson(Customer instance) => <String, dynamic>{
   'customerId': ?instance.customerId,

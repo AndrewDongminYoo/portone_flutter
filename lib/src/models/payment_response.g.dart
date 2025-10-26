@@ -7,21 +7,15 @@ part of 'payment_response.dart';
 // **************************************************************************
 
 PaymentResponse _$PaymentResponseFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('PaymentResponse', json, ($checkedConvert) {
-      final val = PaymentResponse(
-        transactionType: $checkedConvert(
-          'transactionType',
-          (v) => v as String? ?? 'PAYMENT',
-        ),
-        transactionId: $checkedConvert('txId', (v) => v! as String),
-        paymentId: $checkedConvert('paymentId', (v) => v! as String),
-        code: $checkedConvert('code', (v) => v as String?),
-        message: $checkedConvert('message', (v) => v as String?),
-        pgCode: $checkedConvert('pgCode', (v) => v as String?),
-        pgMessage: $checkedConvert('pgMessage', (v) => v as String?),
-      );
-      return val;
-    }, fieldKeyMap: const {'transactionId': 'txId'});
+    PaymentResponse(
+      transactionType: json['transactionType'] as String? ?? 'PAYMENT',
+      transactionId: json['txId'] as String,
+      paymentId: json['paymentId'] as String,
+      code: json['code'] as String?,
+      message: json['message'] as String?,
+      pgCode: json['pgCode'] as String?,
+      pgMessage: json['pgMessage'] as String?,
+    );
 
 Map<String, dynamic> _$PaymentResponseToJson(PaymentResponse instance) =>
     <String, dynamic>{

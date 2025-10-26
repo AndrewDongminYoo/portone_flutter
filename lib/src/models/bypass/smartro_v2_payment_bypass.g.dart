@@ -8,32 +8,14 @@ part of 'smartro_v2_payment_bypass.dart';
 
 SmartroV2PaymentBypass _$SmartroV2PaymentBypassFromJson(
   Map<String, dynamic> json,
-) => $checkedCreate(
-  'SmartroV2PaymentBypass',
-  json,
-  ($checkedConvert) {
-    final val = SmartroV2PaymentBypass(
-      goodsCnt: $checkedConvert('GoodsCnt', (v) => (v as num?)?.toInt()),
-      skinColor: $checkedConvert(
-        'SkinColor',
-        (v) =>
-            $enumDecodeNullable(_$SmartroV2SkinColorEnumMap, v) ??
-            SmartroV2SkinColor.red,
-      ),
-      openType: $checkedConvert(
-        'OpenType',
-        (v) =>
-            $enumDecodeNullable(_$SmartroV2OpenTypeEnumMap, v) ??
-            SmartroV2OpenType.kr,
-      ),
-    );
-    return val;
-  },
-  fieldKeyMap: const {
-    'goodsCnt': 'GoodsCnt',
-    'skinColor': 'SkinColor',
-    'openType': 'OpenType',
-  },
+) => SmartroV2PaymentBypass(
+  goodsCnt: (json['GoodsCnt'] as num?)?.toInt(),
+  skinColor:
+      $enumDecodeNullable(_$SmartroV2SkinColorEnumMap, json['SkinColor']) ??
+      SmartroV2SkinColor.red,
+  openType:
+      $enumDecodeNullable(_$SmartroV2OpenTypeEnumMap, json['OpenType']) ??
+      SmartroV2OpenType.kr,
 );
 
 Map<String, dynamic> _$SmartroV2PaymentBypassToJson(

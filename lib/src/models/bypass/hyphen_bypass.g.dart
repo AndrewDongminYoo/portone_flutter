@@ -7,12 +7,7 @@ part of 'hyphen_bypass.dart';
 // **************************************************************************
 
 HyphenBypass _$HyphenBypassFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('HyphenBypass', json, ($checkedConvert) {
-      final val = HyphenBypass(
-        designCd: $checkedConvert('designCd', (v) => v as String?),
-      );
-      return val;
-    });
+    HyphenBypass(designCd: json['designCd'] as String?);
 
 Map<String, dynamic> _$HyphenBypassToJson(HyphenBypass instance) =>
     <String, dynamic>{'designCd': ?instance.designCd};

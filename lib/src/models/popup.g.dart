@@ -7,10 +7,7 @@ part of 'popup.dart';
 // **************************************************************************
 
 Popup _$PopupFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('Popup', json, ($checkedConvert) {
-      final val = Popup(center: $checkedConvert('center', (v) => v as bool?));
-      return val;
-    });
+    Popup(center: json['center'] as bool?);
 
 Map<String, dynamic> _$PopupToJson(Popup instance) => <String, dynamic>{
   'center': ?instance.center,

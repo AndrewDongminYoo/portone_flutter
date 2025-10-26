@@ -6,45 +6,30 @@ part of 'eximbay_v2_bypass.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-EximbayV2Bypass _$EximbayV2BypassFromJson(
-  Map<String, dynamic> json,
-) => $checkedCreate('EximbayV2Bypass', json, ($checkedConvert) {
-  final val = EximbayV2Bypass(
-    payment: $checkedConvert(
-      'payment',
-      (v) => v == null ? null : PaymentInfo.fromJson(v as Map<String, dynamic>),
-    ),
-    merchant: $checkedConvert(
-      'merchant',
-      (v) =>
-          v == null ? null : MerchantInfo.fromJson(v as Map<String, dynamic>),
-    ),
-    tax: $checkedConvert(
-      'tax',
-      (v) => v == null ? null : TaxInfo.fromJson(v as Map<String, dynamic>),
-    ),
-    surcharge: $checkedConvert(
-      'surcharge',
-      (v) => (v as List<dynamic>?)
+EximbayV2Bypass _$EximbayV2BypassFromJson(Map<String, dynamic> json) =>
+    EximbayV2Bypass(
+      payment: json['payment'] == null
+          ? null
+          : PaymentInfo.fromJson(json['payment'] as Map<String, dynamic>),
+      merchant: json['merchant'] == null
+          ? null
+          : MerchantInfo.fromJson(json['merchant'] as Map<String, dynamic>),
+      tax: json['tax'] == null
+          ? null
+          : TaxInfo.fromJson(json['tax'] as Map<String, dynamic>),
+      surcharge: (json['surcharge'] as List<dynamic>?)
           ?.map((e) => Surcharge.fromJson(e as Map<String, dynamic>))
           .toList(),
-    ),
-    shipTo: $checkedConvert(
-      'ship_to',
-      (v) => v == null ? null : AddressInfo.fromJson(v as Map<String, dynamic>),
-    ),
-    billTo: $checkedConvert(
-      'bill_to',
-      (v) => v == null ? null : AddressInfo.fromJson(v as Map<String, dynamic>),
-    ),
-    settings: $checkedConvert(
-      'settings',
-      (v) =>
-          v == null ? null : SettingsInfo.fromJson(v as Map<String, dynamic>),
-    ),
-  );
-  return val;
-}, fieldKeyMap: const {'shipTo': 'ship_to', 'billTo': 'bill_to'});
+      shipTo: json['ship_to'] == null
+          ? null
+          : AddressInfo.fromJson(json['ship_to'] as Map<String, dynamic>),
+      billTo: json['bill_to'] == null
+          ? null
+          : AddressInfo.fromJson(json['bill_to'] as Map<String, dynamic>),
+      settings: json['settings'] == null
+          ? null
+          : SettingsInfo.fromJson(json['settings'] as Map<String, dynamic>),
+    );
 
 Map<String, dynamic> _$EximbayV2BypassToJson(EximbayV2Bypass instance) =>
     <String, dynamic>{
@@ -57,23 +42,11 @@ Map<String, dynamic> _$EximbayV2BypassToJson(EximbayV2Bypass instance) =>
       'settings': ?instance.settings?.toJson(),
     };
 
-PaymentInfo _$PaymentInfoFromJson(Map<String, dynamic> json) => $checkedCreate(
-  'PaymentInfo',
-  json,
-  ($checkedConvert) {
-    final val = PaymentInfo(
-      paymentMethod: $checkedConvert('payment_method', (v) => v as String?),
-      multiPaymentMethod: $checkedConvert(
-        'multi_payment_method',
-        (v) => (v as List<dynamic>?)?.map((e) => e as String).toList(),
-      ),
-    );
-    return val;
-  },
-  fieldKeyMap: const {
-    'paymentMethod': 'payment_method',
-    'multiPaymentMethod': 'multi_payment_method',
-  },
+PaymentInfo _$PaymentInfoFromJson(Map<String, dynamic> json) => PaymentInfo(
+  paymentMethod: json['payment_method'] as String?,
+  multiPaymentMethod: (json['multi_payment_method'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
 );
 
 Map<String, dynamic> _$PaymentInfoToJson(PaymentInfo instance) =>
@@ -82,14 +55,10 @@ Map<String, dynamic> _$PaymentInfoToJson(PaymentInfo instance) =>
       'multi_payment_method': ?instance.multiPaymentMethod,
     };
 
-MerchantInfo _$MerchantInfoFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('MerchantInfo', json, ($checkedConvert) {
-      final val = MerchantInfo(
-        shop: $checkedConvert('shop', (v) => v as String?),
-        partnerCode: $checkedConvert('partner_code', (v) => v as String?),
-      );
-      return val;
-    }, fieldKeyMap: const {'partnerCode': 'partner_code'});
+MerchantInfo _$MerchantInfoFromJson(Map<String, dynamic> json) => MerchantInfo(
+  shop: json['shop'] as String?,
+  partnerCode: json['partner_code'] as String?,
+);
 
 Map<String, dynamic> _$MerchantInfoToJson(MerchantInfo instance) =>
     <String, dynamic>{
@@ -98,26 +67,17 @@ Map<String, dynamic> _$MerchantInfoToJson(MerchantInfo instance) =>
     };
 
 TaxInfo _$TaxInfoFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('TaxInfo', json, ($checkedConvert) {
-      final val = TaxInfo(
-        receiptStatus: $checkedConvert('receipt_status', (v) => v as String?),
-      );
-      return val;
-    }, fieldKeyMap: const {'receiptStatus': 'receipt_status'});
+    TaxInfo(receiptStatus: json['receipt_status'] as String?);
 
 Map<String, dynamic> _$TaxInfoToJson(TaxInfo instance) => <String, dynamic>{
   'receipt_status': ?instance.receiptStatus,
 };
 
-Surcharge _$SurchargeFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('Surcharge', json, ($checkedConvert) {
-      final val = Surcharge(
-        name: $checkedConvert('name', (v) => v as String?),
-        quantity: $checkedConvert('quantity', (v) => v as String?),
-        unitPrice: $checkedConvert('unit_price', (v) => v as String?),
-      );
-      return val;
-    }, fieldKeyMap: const {'unitPrice': 'unit_price'});
+Surcharge _$SurchargeFromJson(Map<String, dynamic> json) => Surcharge(
+  name: json['name'] as String?,
+  quantity: json['quantity'] as String?,
+  unitPrice: json['unit_price'] as String?,
+);
 
 Map<String, dynamic> _$SurchargeToJson(Surcharge instance) => <String, dynamic>{
   'name': ?instance.name,
@@ -125,28 +85,15 @@ Map<String, dynamic> _$SurchargeToJson(Surcharge instance) => <String, dynamic>{
   'unit_price': ?instance.unitPrice,
 };
 
-AddressInfo _$AddressInfoFromJson(Map<String, dynamic> json) => $checkedCreate(
-  'AddressInfo',
-  json,
-  ($checkedConvert) {
-    final val = AddressInfo(
-      city: $checkedConvert('city', (v) => v as String?),
-      country: $checkedConvert('country', (v) => v as String?),
-      firstName: $checkedConvert('first_name', (v) => v as String?),
-      lastName: $checkedConvert('last_name', (v) => v as String?),
-      phoneNumber: $checkedConvert('phone_number', (v) => v as String?),
-      postalCode: $checkedConvert('postal_code', (v) => v as String?),
-      state: $checkedConvert('state', (v) => v as String?),
-      street1: $checkedConvert('street1', (v) => v as String?),
-    );
-    return val;
-  },
-  fieldKeyMap: const {
-    'firstName': 'first_name',
-    'lastName': 'last_name',
-    'phoneNumber': 'phone_number',
-    'postalCode': 'postal_code',
-  },
+AddressInfo _$AddressInfoFromJson(Map<String, dynamic> json) => AddressInfo(
+  city: json['city'] as String?,
+  country: json['country'] as String?,
+  firstName: json['first_name'] as String?,
+  lastName: json['last_name'] as String?,
+  phoneNumber: json['phone_number'] as String?,
+  postalCode: json['postal_code'] as String?,
+  state: json['state'] as String?,
+  street1: json['street1'] as String?,
 );
 
 Map<String, dynamic> _$AddressInfoToJson(AddressInfo instance) =>
@@ -161,27 +108,11 @@ Map<String, dynamic> _$AddressInfoToJson(AddressInfo instance) =>
       'street1': ?instance.street1,
     };
 
-SettingsInfo _$SettingsInfoFromJson(Map<String, dynamic> json) =>
-    $checkedCreate(
-      'SettingsInfo',
-      json,
-      ($checkedConvert) {
-        final val = SettingsInfo(
-          callFromApp: $checkedConvert('call_from_app', (v) => v as String?),
-          issuerCountry: $checkedConvert('issuer_country', (v) => v as String?),
-          virtualaccountExpiryDate: $checkedConvert(
-            'virtualaccount_expiry_date',
-            (v) => v as String?,
-          ),
-        );
-        return val;
-      },
-      fieldKeyMap: const {
-        'callFromApp': 'call_from_app',
-        'issuerCountry': 'issuer_country',
-        'virtualaccountExpiryDate': 'virtualaccount_expiry_date',
-      },
-    );
+SettingsInfo _$SettingsInfoFromJson(Map<String, dynamic> json) => SettingsInfo(
+  callFromApp: json['call_from_app'] as String?,
+  issuerCountry: json['issuer_country'] as String?,
+  virtualaccountExpiryDate: json['virtualaccount_expiry_date'] as String?,
+);
 
 Map<String, dynamic> _$SettingsInfoToJson(SettingsInfo instance) =>
     <String, dynamic>{
