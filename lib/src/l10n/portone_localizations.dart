@@ -31,16 +31,23 @@ abstract class PortoneLocalizations {
 
   /// 주어진 [BuildContext]에서 [PortoneLocalizations] 인스턴스를 가져옵니다.
   static PortoneLocalizations? of(BuildContext context) {
-    return Localizations.of<PortoneLocalizations>(context, PortoneLocalizations);
+    return Localizations.of<PortoneLocalizations>(
+      context,
+      PortoneLocalizations,
+    );
   }
 
   /// 로컬라이제이션 델리게이트.
   /// 앱에 반드시 등록하여 로케일별 [PortoneLocalizations]를 사용할 수 있도록 합니다.
-  static const LocalizationsDelegate<PortoneLocalizations> delegate = _PortoneLocalizationsDelegate();
+  static const LocalizationsDelegate<PortoneLocalizations> delegate =
+      _PortoneLocalizationsDelegate();
 
   /// 지원하는 로케일 목록.
   /// 추가 언어 지원 시 여기에 새로운 Locale을 추가하세요.
-  static const List<Locale> supportedLocales = <Locale>[Locale('en'), Locale('ko')];
+  static const List<Locale> supportedLocales = <Locale>[
+    Locale('en'),
+    Locale('ko'),
+  ];
 
   /// 엑심베이
   String get eximbayV2;
@@ -93,7 +100,8 @@ abstract class PortoneLocalizations {
 
 /// 로컬라이제이션 델리게이트로, 사용자가 선택한 Locale에 따라
 /// 올바른 [PortoneLocalizations] 인스턴스를 로드합니다.
-class _PortoneLocalizationsDelegate extends LocalizationsDelegate<PortoneLocalizations> {
+class _PortoneLocalizationsDelegate
+    extends LocalizationsDelegate<PortoneLocalizations> {
   const _PortoneLocalizationsDelegate();
 
   @override

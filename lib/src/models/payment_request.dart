@@ -58,7 +58,8 @@ class PaymentRequest {
   }
 
   /// JSON에서 [PaymentRequest] 객체로 변환하는 팩토리 메서드
-  factory PaymentRequest.fromJson(Map<String, dynamic> json) => _$PaymentRequestFromJson(json);
+  factory PaymentRequest.fromJson(Map<String, dynamic> json) =>
+      _$PaymentRequestFromJson(json);
 
   /// PG사 구분 코드
   ///

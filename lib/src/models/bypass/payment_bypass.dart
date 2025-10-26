@@ -30,7 +30,8 @@ class PaymentBypass {
   });
 
   /// JSON에서 [PaymentBypass] 객체로 변환하는 팩토리 메서드
-  factory PaymentBypass.fromJson(Map<String, dynamic> json) => _$PaymentBypassFromJson(json);
+  factory PaymentBypass.fromJson(Map<String, dynamic> json) =>
+      _$PaymentBypassFromJson(json);
 
   /// 토스페이먼츠 bypass 파라미터
   @JsonKey(name: 'tosspayments')

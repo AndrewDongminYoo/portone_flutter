@@ -14,4 +14,5 @@ HyphenBypass _$HyphenBypassFromJson(Map<String, dynamic> json) =>
       return val;
     });
 
-Map<String, dynamic> _$HyphenBypassToJson(HyphenBypass instance) => <String, dynamic>{'designCd': ?instance.designCd};
+Map<String, dynamic> _$HyphenBypassToJson(HyphenBypass instance) =>
+    <String, dynamic>{'designCd': ?instance.designCd};

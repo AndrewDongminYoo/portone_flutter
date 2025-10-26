@@ -51,7 +51,9 @@ PaymentRequest _$PaymentRequestFromJson(
     isEscrow: $checkedConvert('isEscrow', (v) => v as bool?),
     products: $checkedConvert(
       'products',
-      (v) => (v as List<dynamic>?)?.map((e) => ProductDetail.fromJson(e as Map<String, dynamic>)).toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => ProductDetail.fromJson(e as Map<String, dynamic>))
+          .toList(),
     ),
     locale: $checkedConvert(
       'locale',
@@ -59,12 +61,14 @@ PaymentRequest _$PaymentRequestFromJson(
     ),
     customData: $checkedConvert(
       'customData',
-      (v) => (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as String)),
+      (v) =>
+          (v as Map<String, dynamic>?)?.map((k, e) => MapEntry(k, e as String)),
     ),
     isCulturalExpense: $checkedConvert('isCulturalExpense', (v) => v as bool?),
     bypass: $checkedConvert(
       'bypass',
-      (v) => v == null ? null : PaymentBypass.fromJson(v as Map<String, dynamic>),
+      (v) =>
+          v == null ? null : PaymentBypass.fromJson(v as Map<String, dynamic>),
     ),
     country: $checkedConvert(
       'country',
@@ -85,7 +89,8 @@ PaymentRequest _$PaymentRequestFromJson(
     ),
     storeDetails: $checkedConvert(
       'storeDetails',
-      (v) => v == null ? null : StoreDetails.fromJson(v as Map<String, dynamic>),
+      (v) =>
+          v == null ? null : StoreDetails.fromJson(v as Map<String, dynamic>),
     ),
     shippingAddress: $checkedConvert(
       'shippingAddress',
@@ -100,39 +105,41 @@ PaymentRequest _$PaymentRequestFromJson(
   return val;
 });
 
-Map<String, dynamic> _$PaymentRequestToJson(PaymentRequest instance) => <String, dynamic>{
-  'storeId': instance.storeId,
-  'paymentId': instance.paymentId,
-  'orderName': instance.orderName,
-  'totalAmount': instance.totalAmount,
-  'currency': _$PaymentCurrencyEnumMap[instance.currency],
-  'payMethod': _$PaymentPayMethodEnumMap[instance.payMethod],
-  'channelKey': ?instance.channelKey,
-  'channelGroupId': ?instance.channelGroupId,
-  'taxFreeAmount': ?instance.taxFreeAmount,
-  'vatAmount': ?instance.vatAmount,
-  'customer': ?instance.customer?.toJson(),
-  'windowType': ?instance.windowType?.toJson(),
-  'redirectUrl': ?instance.redirectUrl,
-  'noticeUrls': ?instance.noticeUrls,
-  'confirmUrl': ?instance.confirmUrl,
-  'appScheme': instance.appScheme,
-  'isEscrow': ?instance.isEscrow,
-  'products': ?instance.products?.map((e) => e.toJson()).toList(),
-  'isCulturalExpense': ?instance.isCulturalExpense,
-  'locale': ?_$PaymentLocaleEnumMap[instance.locale],
-  'customData': ?instance.customData,
-  'expiredTime': ?instance.expiredTime,
-  'bypass': ?instance.bypass?.toJson(),
-  'country': ?_$CountryEnumMap[instance.country],
-  'productType': ?_$ProductTypeEnumMap[instance.productType],
-  'cashReceiptTradeOption': ?_$CashReceiptTradeOptionEnumMap[instance.cashReceiptTradeOption],
-  'offerPeriod': ?instance.offerPeriod?.toJson(),
-  'storeDetails': ?instance.storeDetails?.toJson(),
-  'shippingAddress': ?instance.shippingAddress?.toJson(),
-  'promotionId': ?instance.promotionId,
-  'popup': ?instance.popup?.toJson(),
-};
+Map<String, dynamic> _$PaymentRequestToJson(PaymentRequest instance) =>
+    <String, dynamic>{
+      'storeId': instance.storeId,
+      'paymentId': instance.paymentId,
+      'orderName': instance.orderName,
+      'totalAmount': instance.totalAmount,
+      'currency': _$PaymentCurrencyEnumMap[instance.currency],
+      'payMethod': _$PaymentPayMethodEnumMap[instance.payMethod],
+      'channelKey': ?instance.channelKey,
+      'channelGroupId': ?instance.channelGroupId,
+      'taxFreeAmount': ?instance.taxFreeAmount,
+      'vatAmount': ?instance.vatAmount,
+      'customer': ?instance.customer?.toJson(),
+      'windowType': ?instance.windowType?.toJson(),
+      'redirectUrl': ?instance.redirectUrl,
+      'noticeUrls': ?instance.noticeUrls,
+      'confirmUrl': ?instance.confirmUrl,
+      'appScheme': instance.appScheme,
+      'isEscrow': ?instance.isEscrow,
+      'products': ?instance.products?.map((e) => e.toJson()).toList(),
+      'isCulturalExpense': ?instance.isCulturalExpense,
+      'locale': ?_$PaymentLocaleEnumMap[instance.locale],
+      'customData': ?instance.customData,
+      'expiredTime': ?instance.expiredTime,
+      'bypass': ?instance.bypass?.toJson(),
+      'country': ?_$CountryEnumMap[instance.country],
+      'productType': ?_$ProductTypeEnumMap[instance.productType],
+      'cashReceiptTradeOption':
+          ?_$CashReceiptTradeOptionEnumMap[instance.cashReceiptTradeOption],
+      'offerPeriod': ?instance.offerPeriod?.toJson(),
+      'storeDetails': ?instance.storeDetails?.toJson(),
+      'shippingAddress': ?instance.shippingAddress?.toJson(),
+      'promotionId': ?instance.promotionId,
+      'popup': ?instance.popup?.toJson(),
+    };
 
 const Map<PaymentCurrency, String> _$PaymentCurrencyEnumMap = {
   PaymentCurrency.KRW: 'CURRENCY_KRW',

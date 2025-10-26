@@ -24,13 +24,14 @@ ProductDetail _$ProductDetailFromJson(Map<String, dynamic> json) =>
       return val;
     });
 
-Map<String, dynamic> _$ProductDetailToJson(ProductDetail instance) => <String, dynamic>{
-  'id': instance.id,
-  'name': instance.name,
-  'code': ?instance.code,
-  'amount': instance.amount,
-  'quantity': instance.quantity,
-  'tag': ?instance.tag,
-  'link': ?instance.link,
-  'isCulturalExpense': ?instance.isCulturalExpense,
-};
+Map<String, dynamic> _$ProductDetailToJson(ProductDetail instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'code': ?instance.code,
+      'amount': instance.amount,
+      'quantity': instance.quantity,
+      'tag': ?instance.tag,
+      'link': ?instance.link,
+      'isCulturalExpense': ?instance.isCulturalExpense,
+    };

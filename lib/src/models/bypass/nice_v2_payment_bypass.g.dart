@@ -17,7 +17,9 @@ NiceV2PaymentBypass _$NiceV2PaymentBypassFromJson(
       npDisableScroll: $checkedConvert('NPDisableScroll', (v) => v as String?),
       skinType: $checkedConvert(
         'SkinType',
-        (v) => $enumDecodeNullable(_$NiceV2SkinTypeEnumMap, v) ?? NiceV2SkinType.red,
+        (v) =>
+            $enumDecodeNullable(_$NiceV2SkinTypeEnumMap, v) ??
+            NiceV2SkinType.red,
       ),
       userCI: $checkedConvert('userCI', (v) => v as String?),
       mallUserID: $checkedConvert('mallUserID', (v) => v as String?),

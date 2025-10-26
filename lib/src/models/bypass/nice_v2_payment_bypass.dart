@@ -22,7 +22,8 @@ class NiceV2PaymentBypass {
   });
 
   /// JSON에서 [NiceV2PaymentBypass] 객체로 변환하는 팩토리 메서드
-  factory NiceV2PaymentBypass.fromJson(Map<String, dynamic> json) => _$NiceV2PaymentBypassFromJson(json);
+  factory NiceV2PaymentBypass.fromJson(Map<String, dynamic> json) =>
+      _$NiceV2PaymentBypassFromJson(json);
 
   /// 결제창 로고 이미지 URL
   @JsonKey(name: 'LogoImage')

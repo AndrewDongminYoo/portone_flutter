@@ -10,7 +10,8 @@ class NaverpayPaymentBypass {
   NaverpayPaymentBypass({this.useCfmYmdt, this.productItems, this.deliveryFee});
 
   /// JSON에서 [NaverpayPaymentBypass] 객체로 변환하는 팩토리 메서드
-  factory NaverpayPaymentBypass.fromJson(Map<String, dynamic> json) => _$NaverpayPaymentBypassFromJson(json);
+  factory NaverpayPaymentBypass.fromJson(Map<String, dynamic> json) =>
+      _$NaverpayPaymentBypassFromJson(json);
 
   /// 이용 완료일(YYYYMMDD)
   final String? useCfmYmdt;
@@ -43,7 +44,8 @@ class NaverpayProductItem {
   });
 
   /// JSON에서 [NaverpayProductItem] 객체로 변환하는 팩토리 메서드
-  factory NaverpayProductItem.fromJson(Map<String, dynamic> json) => _$NaverpayProductItemFromJson(json);
+  factory NaverpayProductItem.fromJson(Map<String, dynamic> json) =>
+      _$NaverpayProductItemFromJson(json);
 
   /// 결제 상품 유형
   final String categoryType;
@@ -93,7 +95,8 @@ class NaverpaySubMerchantInfo {
   });
 
   /// JSON에서 [NaverpaySubMerchantInfo] 객체로 변환하는 팩토리 메서드
-  factory NaverpaySubMerchantInfo.fromJson(Map<String, dynamic> json) => _$NaverpaySubMerchantInfoFromJson(json);
+  factory NaverpaySubMerchantInfo.fromJson(Map<String, dynamic> json) =>
+      _$NaverpaySubMerchantInfoFromJson(json);
 
   /// 하부 가맹점 명
   final String subMerchantName;

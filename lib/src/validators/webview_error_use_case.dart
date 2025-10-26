@@ -42,7 +42,8 @@ class WebviewErrorUseCase {
     WebResourceErrorType.NETWORK_CONNECTION_LOST: null,
 
     // iOS/macOS App Transport Security restrictions
-    WebResourceErrorType.APP_TRANSPORT_SECURITY_REQUIRES_SECURE_CONNECTION: null,
+    WebResourceErrorType.APP_TRANSPORT_SECURITY_REQUIRES_SECURE_CONNECTION:
+        null,
   };
 
   /// Determines whether a given [WebResourceError] can be ignored.
@@ -61,7 +62,10 @@ class WebviewErrorUseCase {
   ///
   /// See also:
   ///  - [WebResourceErrorType] in flutter_inappwebview package.
-  static bool shouldIgnore(WebResourceError error, {required bool? isMainFrame}) {
+  static bool shouldIgnore(
+    WebResourceError error, {
+    required bool? isMainFrame,
+  }) {
     // Ignore all sub-frame errors
     if (!(isMainFrame ?? false)) return true;
 

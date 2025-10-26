@@ -100,7 +100,8 @@ class PayNowScreen extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () async {
             // Generate a unique payment ID using the current timestamp.
-            final paymentId = 'payment_${DateTime.now().millisecondsSinceEpoch}';
+            final timestamp = DateTime.now().millisecondsSinceEpoch;
+            final paymentId = 'payment_$timestamp';
             // Create a PaymentRequest with example data.
             final payment = PaymentRequest(
               storeId: 'store-00000000-0000-0000-0000-000000000000',
@@ -156,7 +157,8 @@ class PaymentScreen extends StatelessWidget {
       },
       // Error handling: display a SnackBar in case of an error.
       onError: (Object? error) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error.toString())));
+        final content = Text(Error.safeToString(error));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: content));
       },
     );
   }
@@ -182,7 +184,10 @@ class ResultScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Payment Result'),
         automaticallyImplyLeading: false,
-        leading: IconButton(icon: const Icon(Icons.home), onPressed: () => context.go(AppRoutes.home.path)),
+        leading: IconButton(
+          icon: const Icon(Icons.home),
+          onPressed: () => context.go(AppRoutes.home.path),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -197,8 +202,13 @@ class ResultScreen extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('$key: ', style: const TextStyle(fontWeight: FontWeight.bold)),
-                  Expanded(child: Text(resultData[key].toString(), softWrap: true)),
+                  Text(
+                    '$key: ',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Text(resultData[key].toString(), softWrap: true),
+                  ),
                 ],
               ),
             );

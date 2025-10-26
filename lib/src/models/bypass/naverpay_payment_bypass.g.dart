@@ -13,7 +13,9 @@ NaverpayPaymentBypass _$NaverpayPaymentBypassFromJson(
     useCfmYmdt: $checkedConvert('useCfmYmdt', (v) => v as String?),
     productItems: $checkedConvert(
       'productItems',
-      (v) => (v as List<dynamic>?)?.map((e) => NaverpayProductItem.fromJson(e as Map<String, dynamic>)).toList(),
+      (v) => (v as List<dynamic>?)
+          ?.map((e) => NaverpayProductItem.fromJson(e as Map<String, dynamic>))
+          .toList(),
     ),
     deliveryFee: $checkedConvert('deliveryFee', (v) => v as num?),
   );
@@ -42,7 +44,9 @@ NaverpayProductItem _$NaverpayProductItemFromJson(Map<String, dynamic> json) =>
         sellerId: $checkedConvert('sellerId', (v) => v as String?),
         subMerchantInfo: $checkedConvert(
           'subMerchantInfo',
-          (v) => v == null ? null : NaverpaySubMerchantInfo.fromJson(v as Map<String, dynamic>),
+          (v) => v == null
+              ? null
+              : NaverpaySubMerchantInfo.fromJson(v as Map<String, dynamic>),
         ),
       );
       return val;

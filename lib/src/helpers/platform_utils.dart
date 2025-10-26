@@ -8,7 +8,8 @@ sealed class PlatformUtil {
   static TargetPlatform get current => defaultTargetPlatform;
 
   /// A a boolean which is true if the application is running on the web
-  static bool get isWeb => kIsWeb && !isIOS && !isAndroid && !isWindows && !isMacOS && !isLinux;
+  static bool get isWeb =>
+      kIsWeb && !isIOS && !isAndroid && !isWindows && !isMacOS && !isLinux;
 
   /// Whether the operating system is a version of [iOS](https://en.wikipedia.org/wiki/IOS).
   static bool get isIOS => current == TargetPlatform.iOS;

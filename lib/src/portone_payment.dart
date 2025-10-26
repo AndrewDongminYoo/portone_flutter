@@ -24,6 +24,10 @@ import 'package:portone_flutter_v2/src/models/payment_request.dart';
 import 'package:portone_flutter_v2/src/models/payment_response.dart';
 import 'package:portone_flutter_v2/src/validators/webview_error_use_case.dart';
 
+/// Default logger function interface.
+typedef DefaultLogger =
+    void Function(String message, {Object? error, StackTrace? stackTrace});
+
 /// Default logger function using [log].
 void _defaultLog(String message, {Object? error, StackTrace? stackTrace}) {
   log(message, error: error, stackTrace: stackTrace, name: 'portone');
@@ -73,7 +77,7 @@ class PortonePayment extends StatefulWidget {
   final void Function(PaymentResponse result) callback;
 
   /// Logger function for debugging purposes.
-  final void Function(String message, {Object? error, StackTrace? stackTrace}) logger;
+  final DefaultLogger logger;
 
   /// An optional widget displayed while the web content is loading.
   final Widget? initialChild;
@@ -150,7 +154,9 @@ class PortonePaymentState extends State<PortonePayment> {
       return true;
     } else if (scheme == 'http' || scheme == 'https') {
       final host = uri.host.toLowerCase();
-      return host == 'play.google.com' || host == 'market.android.com' || host == 'play.app.goo.gl';
+      return host == 'play.google.com' ||
+          host == 'market.android.com' ||
+          host == 'play.app.goo.gl';
     } else {
       return false;
     }
@@ -166,7 +172,11 @@ class PortonePaymentState extends State<PortonePayment> {
         await launchUrl(uri, mode: LaunchMode.externalApplication);
       }
     } catch (error, stack) {
-      widget.logger('Failed to launch Play Store externally: $uri', error: error, stackTrace: stack);
+      widget.logger(
+        'Failed to launch Play Store externally: $uri',
+        error: error,
+        stackTrace: stack,
+      );
     }
   }
 
@@ -200,6 +210,7 @@ class PortonePaymentState extends State<PortonePayment> {
 
 ''';
 
+    const loadingIndicator = Center(child: CircularProgressIndicator());
     return Scaffold(
       appBar: widget.appBar,
       body: PopScope(
@@ -219,7 +230,7 @@ class PortonePaymentState extends State<PortonePayment> {
           child: IndexedStack(
             index: _stackIndex,
             children: [
-              widget.initialChild ?? const Center(child: CircularProgressIndicator()),
+              widget.initialChild ?? loadingIndicator,
               InAppWebView(
                 gestureRecognizers: widget.gestureRecognizers,
                 initialSettings: InAppWebViewSettings(
@@ -240,13 +251,23 @@ class PortonePaymentState extends State<PortonePayment> {
                       try {
                         widget.logger('PortOne SDK ERROR: $arguments');
                         final portoneError = arguments.first;
-                        widget.logger('PortOne SDK Error type: ${portoneError.runtimeType}');
+                        widget.logger(
+                          'PortOne SDK Error type: ${portoneError.runtimeType}',
+                        );
                         _handleError(portoneError as Object?);
                       } on PlatformException catch (error, stackTrace) {
-                        widget.logger('Platform Exception Occurred', error: error, stackTrace: stackTrace);
+                        widget.logger(
+                          'Platform Exception Occurred',
+                          error: error,
+                          stackTrace: stackTrace,
+                        );
                         _handleError(error, stackTrace);
                       } on Exception catch (error, stackTrace) {
-                        widget.logger('Exception Occurred', error: error, stackTrace: stackTrace);
+                        widget.logger(
+                          'Exception Occurred',
+                          error: error,
+                          stackTrace: stackTrace,
+                        );
                         _handleError(error, stackTrace);
                       }
                     },
@@ -257,46 +278,62 @@ class PortonePaymentState extends State<PortonePayment> {
                     baseUrl: WebUri('https://flutter-sdk-content.portone.io/'),
                   );
                 },
-                onLoadResourceWithCustomScheme: (controller, WebResourceRequest resource) async {
+                onLoadResourceWithCustomScheme: (controller, resource) async {
                   await controller.stopLoading();
                   return null;
                 },
-                onLoadStop: (controller, Uri? url) async {
+                onLoadStop: (controller, url) async {
                   if (mounted) {
                     setState(() {
                       _stackIndex = 1;
                     });
                   }
                 },
-                onReceivedError: (controller, WebResourceRequest request, WebResourceError error) {
-                  if (WebviewErrorUseCase.shouldIgnore(error, isMainFrame: request.isForMainFrame)) {
-                    widget.logger('Ignored WebView error: ${error.type} ${error.description}');
+                onReceivedError: (controller, request, error) {
+                  if (WebviewErrorUseCase.shouldIgnore(
+                    error,
+                    isMainFrame: request.isForMainFrame,
+                  )) {
+                    widget.logger(
+                      'Ignored WebView error: ${error.type} ${error.description}',
+                    );
                     return;
                   }
 
-                  widget.logger('onReceivedError (main frame)', error: error);
+                  widget.logger(
+                    'onReceivedError (main frame)',
+                    error: error,
+                  );
                   _handleError(error);
                 },
-                onReceivedHttpError: (controller, WebResourceRequest request, WebResourceResponse errorResponse) {
+                onReceivedHttpError: (controller, request, errorResponse) {
                   final statusCode = errorResponse.statusCode;
                   if (statusCode == null) {
-                    widget.logger('Ignored HTTP error unknown status code: ${request.url}');
+                    widget.logger(
+                      'Ignored HTTP error unknown status code: ${request.url}',
+                    );
                     return;
                   }
 
                   // Ignore if the request is not made to retrieve a document from the main frame
                   if (!(request.isForMainFrame ?? false)) {
-                    widget.logger('Ignored HTTP error on subresource: ${request.url} → $statusCode');
+                    widget.logger(
+                      'Ignored HTTP error on subresource: ${request.url} → $statusCode',
+                    );
                     return;
                   }
 
                   if (statusCode >= 400) {
-                    widget.logger('onReceivedHttpError (main frame $statusCode): ${request.url}');
-                    final exception = Exception('HTTP $statusCode: ${errorResponse.reasonPhrase}');
+                    widget.logger(
+                      'onReceivedHttpError (main frame $statusCode): ${request.url}',
+                    );
+                    final exception = Exception(
+                      'HTTP $statusCode: ${errorResponse.reasonPhrase}',
+                    );
                     _handleError(exception);
                   }
                 },
-                shouldOverrideUrlLoading: (controller, NavigationAction navigateAction) async {
+                shouldOverrideUrlLoading: (controller, navigateAction) async {
                   final url = navigateAction.request.url;
                   if (url == null) return NavigationActionPolicy.CANCEL;
 
@@ -315,11 +352,16 @@ class PortonePaymentState extends State<PortonePayment> {
                     // Otherwise keep normal web navigation inside the WebView
                     return NavigationActionPolicy.ALLOW;
                   } else if (uriValue.scheme == appScheme) {
-                    final params = Map<String, dynamic>.from(url.queryParameters);
+                    final params = Map<String, dynamic>.from(
+                      url.queryParameters,
+                    );
                     try {
                       final paymentResponse = PaymentResponse.fromJson(params);
                       _handleSuccess(paymentResponse);
-                    } on CheckedFromJsonException catch (exception, stackTrace) {
+                    } on CheckedFromJsonException catch (
+                      exception,
+                      stackTrace
+                    ) {
                       // Debug logging: missing keys, full map, stack trace
                       widget.logger(
                         '❌ PaymentResponse.fromJson failed!\n'
@@ -331,7 +373,11 @@ class PortonePaymentState extends State<PortonePayment> {
                       );
                       _handleError(exception, stackTrace);
                     } catch (exception, stackTrace) {
-                      widget.logger('Error Occurred', error: exception, stackTrace: stackTrace);
+                      widget.logger(
+                        'Error Occurred',
+                        error: exception,
+                        stackTrace: stackTrace,
+                      );
                       _handleError(exception, stackTrace);
                     }
                     return NavigationActionPolicy.CANCEL;
@@ -342,8 +388,12 @@ class PortonePaymentState extends State<PortonePayment> {
 
                       // 2) Separate fragment (#) (no error even if absent)
                       final hashIndex = raw.indexOf('#');
-                      final urlOrigin = hashIndex >= 0 ? raw.substring(0, hashIndex) : raw;
-                      var fragment = hashIndex >= 0 ? raw.substring(hashIndex + 1) : '';
+                      final urlOrigin = hashIndex >= 0
+                          ? raw.substring(0, hashIndex)
+                          : raw;
+                      var fragment = hashIndex >= 0
+                          ? raw.substring(hashIndex + 1)
+                          : '';
 
                       // 3) Remove the “Intent;” prefix.
                       const intentPrefix = 'Intent;';
@@ -369,17 +419,27 @@ class PortonePaymentState extends State<PortonePayment> {
                         // Both intent:// and intent: formats are supported.
                         String replaced;
                         if (urlOrigin.startsWith('intent://')) {
-                          replaced = urlOrigin.replaceFirst('intent://', '$scheme://');
+                          replaced = urlOrigin.replaceFirst(
+                            'intent://',
+                            '$scheme://',
+                          );
                         } else if (urlOrigin.startsWith('intent:')) {
                           // Example: “intent:some/path” → “{scheme}:some/path”
-                          replaced = urlOrigin.replaceFirst('intent:', '$scheme:');
+                          replaced = urlOrigin.replaceFirst(
+                            'intent:',
+                            '$scheme:',
+                          );
                         } else {
-                          replaced = urlOrigin; // Exception case: Be as conservative as possible
+                          // Exception case: Be as conservative as possible
+                          replaced = urlOrigin;
                         }
 
                         final redirectUri = Uri.parse(replaced);
                         if (await canLaunchUrl(redirectUri)) {
-                          await launchUrl(redirectUri, mode: LaunchMode.externalApplication);
+                          await launchUrl(
+                            redirectUri,
+                            mode: LaunchMode.externalApplication,
+                          );
                           return NavigationActionPolicy.CANCEL;
                         }
                         // If failure occurs, seamlessly transition to the fallback logic below
@@ -389,43 +449,71 @@ class PortonePaymentState extends State<PortonePayment> {
                       if (fallback != null && fallback.isNotEmpty) {
                         final fallbackUri = Uri.parse(fallback);
                         if (await canLaunchUrl(fallbackUri)) {
-                          await launchUrl(fallbackUri, mode: LaunchMode.externalApplication);
+                          await launchUrl(
+                            fallbackUri,
+                            mode: LaunchMode.externalApplication,
+                          );
                         } else {
                           // If external execution fails, attempt to load within the WebView
-                          await controller.loadUrl(urlRequest: URLRequest(url: WebUri(fallback)));
+                          await controller.loadUrl(
+                            urlRequest: URLRequest(url: WebUri(fallback)),
+                          );
                         }
                         return NavigationActionPolicy.CANCEL;
                       }
 
                       // 7) If only the package exists: Attempt to redirect to the app store
                       if (package != null && package.isNotEmpty) {
-                        final appMarket = Uri.parse('market://details?id=$package');
-                        final playStore = Uri.parse('https://play.google.com/store/apps/details?id=$package');
+                        final appMarket = Uri.parse(
+                          'market://details?id=$package',
+                        );
+                        final playStore = Uri.parse(
+                          'https://play.google.com/store/apps/details?id=$package',
+                        );
 
                         if (await canLaunchUrl(appMarket)) {
                           await _openPlayStore(appMarket);
                         } else if (await canLaunchUrl(playStore)) {
                           await _openPlayStore(playStore);
                         } else {
-                          widget.logger('No handler for package: $package and no market available.');
+                          widget.logger(
+                            'No handler for package: $package and no market available.',
+                          );
                         }
                         return NavigationActionPolicy.CANCEL;
                       }
 
                       // 8) If nothing is found: Quietly cancel (do not throw an error)
-                      widget.logger('Unsupported intent URL: $raw (no scheme/fallback/package)');
+                      widget.logger(
+                        'Unsupported intent URL: $raw (no scheme/fallback/package)',
+                      );
                     } catch (error, stackTrace) {
-                      widget.logger('Intent URL parsing error', error: error, stackTrace: stackTrace);
+                      widget.logger(
+                        'Intent URL parsing error',
+                        error: error,
+                        stackTrace: stackTrace,
+                      );
                       _handleError(error, stackTrace);
                     }
                     return NavigationActionPolicy.CANCEL;
                   } else {
                     try {
-                      await launchUrl(uriValue, mode: LaunchMode.externalApplication);
+                      await launchUrl(
+                        uriValue,
+                        mode: LaunchMode.externalApplication,
+                      );
                     } on PlatformException catch (error, stack) {
-                      widget.logger('Failed to launch external url: $uriValue', error: error, stackTrace: stack);
+                      widget.logger(
+                        'Failed to launch external url: $uriValue',
+                        error: error,
+                        stackTrace: stack,
+                      );
                     } on Exception catch (error, stack) {
-                      widget.logger('Failed to launch external url: $uriValue', error: error, stackTrace: stack);
+                      widget.logger(
+                        'Failed to launch external url: $uriValue',
+                        error: error,
+                        stackTrace: stack,
+                      );
                     }
                     return NavigationActionPolicy.CANCEL;
                   }
@@ -440,7 +528,10 @@ class PortonePaymentState extends State<PortonePayment> {
 
   /// Handle errors from the WebView.
   void _handleError(Object? error, [StackTrace? stackTrace]) {
-    widget.onError(error, stackTrace ?? StackTrace.fromString(_redirectedUrls.join('\n\tthen ')));
+    widget.onError(
+      error,
+      stackTrace ?? StackTrace.fromString(_redirectedUrls.join('\n\tthen ')),
+    );
     _redirectedUrls.clear();
   }
 

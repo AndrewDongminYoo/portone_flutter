@@ -86,11 +86,14 @@ void main() {
       expect(json['pgMessage'], 'PG error occurred');
     });
 
-    test('should use default value for transactionType when not provided in JSON', () {
-      final json = {'txId': 'tx_123', 'paymentId': 'pay_456'};
+    test(
+      'should use default value for transactionType when not provided in JSON',
+      () {
+        final json = {'txId': 'tx_123', 'paymentId': 'pay_456'};
 
-      final response = PaymentResponse.fromJson(json);
-      expect(response.transactionType, 'PAYMENT');
-    });
+        final response = PaymentResponse.fromJson(json);
+        expect(response.transactionType, 'PAYMENT');
+      },
+    );
   });
 }

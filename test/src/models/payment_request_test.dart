@@ -18,8 +18,14 @@ void main() {
         redirectUrl: 'pontone://payments',
       );
 
-      expect(paymentRequest.storeId, equals('store-00000000-0000-0000-0000-000000000000'));
-      expect(paymentRequest.paymentId, equals('payment-00000000-0000-0000-0000-000000000000'));
+      expect(
+        paymentRequest.storeId,
+        equals('store-00000000-0000-0000-0000-000000000000'),
+      );
+      expect(
+        paymentRequest.paymentId,
+        equals('payment-00000000-0000-0000-0000-000000000000'),
+      );
       expect(paymentRequest.orderName, equals('Test Order'));
       expect(paymentRequest.totalAmount, equals(1000));
       expect(paymentRequest.currency, equals(PaymentCurrency.USD));
@@ -49,7 +55,10 @@ void main() {
         expiredTime: '2025-04-12 18:18:17',
       );
 
-      expect(paymentRequest.channelKey, equals('channel-key-00000000-0000-0000-0000-000000000000'));
+      expect(
+        paymentRequest.channelKey,
+        equals('channel-key-00000000-0000-0000-0000-000000000000'),
+      );
       expect(paymentRequest.taxFreeAmount, equals(100));
       expect(paymentRequest.vatAmount, equals(90));
       expect(paymentRequest.isEscrow, isTrue);
@@ -71,15 +80,31 @@ void main() {
         payMethod: PaymentPayMethod.card,
         appScheme: 'pontone',
         redirectUrl: 'pontone://payments',
-        noticeUrls: ['http://example.com/notice1', 'http://example.com/notice2'],
+        noticeUrls: [
+          'http://example.com/notice1',
+          'http://example.com/notice2',
+        ],
         products: [
-          ProductDetail.fromJson({'id': '1', 'name': 'Product 1', 'amount': 500, 'quantity': 1}),
-          ProductDetail.fromJson({'id': '2', 'name': 'Product 2', 'amount': 500, 'quantity': 1}),
+          ProductDetail.fromJson({
+            'id': '1',
+            'name': 'Product 1',
+            'amount': 500,
+            'quantity': 1,
+          }),
+          ProductDetail.fromJson({
+            'id': '2',
+            'name': 'Product 2',
+            'amount': 500,
+            'quantity': 1,
+          }),
         ],
       );
 
       expect(paymentRequest.noticeUrls, hasLength(2));
-      expect(paymentRequest.noticeUrls![0], equals('http://example.com/notice1'));
+      expect(
+        paymentRequest.noticeUrls![0],
+        equals('http://example.com/notice1'),
+      );
       expect(paymentRequest.products, hasLength(2));
       expect(paymentRequest.products![0].name, equals('Product 1'));
       expect(paymentRequest.products![1].amount, equals(500));

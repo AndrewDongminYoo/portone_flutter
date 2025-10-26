@@ -12,7 +12,9 @@ TossBrandpayPaymentBypass _$TossBrandpayPaymentBypassFromJson(
   final val = TossBrandpayPaymentBypass(
     brandpayOptions: $checkedConvert(
       'brandpayOptions',
-      (v) => v == null ? null : TossBrandpayOptions.fromJson(v as Map<String, dynamic>),
+      (v) => v == null
+          ? null
+          : TossBrandpayOptions.fromJson(v as Map<String, dynamic>),
     ),
     discountCode: $checkedConvert('discountCode', (v) => v as String?),
     methodId: $checkedConvert('methodId', (v) => v as String?),
@@ -33,7 +35,9 @@ TossBrandpayOptions _$TossBrandpayOptionsFromJson(Map<String, dynamic> json) =>
       final val = TossBrandpayOptions(
         ui: $checkedConvert(
           'ui',
-          (v) => v == null ? null : TossBrandpayUIOptions.fromJson(v as Map<String, dynamic>),
+          (v) => v == null
+              ? null
+              : TossBrandpayUIOptions.fromJson(v as Map<String, dynamic>),
         ),
       );
       return val;
@@ -53,19 +57,27 @@ TossBrandpayUIOptions _$TossBrandpayUIOptionsFromJson(
     ),
     buttonStyle: $checkedConvert(
       'buttonStyle',
-      (v) => $enumDecodeNullable(_$TossBrandpayButtonStyleEnumMap, v) ?? TossBrandpayButtonStyle.$default,
+      (v) =>
+          $enumDecodeNullable(_$TossBrandpayButtonStyleEnumMap, v) ??
+          TossBrandpayButtonStyle.$default,
     ),
     labels: $checkedConvert(
       'labels',
-      (v) => v == null ? null : TossBrandpayLabels.fromJson(v as Map<String, dynamic>),
+      (v) => v == null
+          ? null
+          : TossBrandpayLabels.fromJson(v as Map<String, dynamic>),
     ),
     navigationBar: $checkedConvert(
       'navigationBar',
-      (v) => v == null ? null : TossBrandpayNavigationBar.fromJson(v as Map<String, dynamic>),
+      (v) => v == null
+          ? null
+          : TossBrandpayNavigationBar.fromJson(v as Map<String, dynamic>),
     ),
     widgetOptions: $checkedConvert(
       'widgetOptions',
-      (v) => v == null ? null : TossBrandpayWidgetOptions.fromJson(v as Map<String, dynamic>),
+      (v) => v == null
+          ? null
+          : TossBrandpayWidgetOptions.fromJson(v as Map<String, dynamic>),
     ),
   );
   return val;
@@ -97,9 +109,8 @@ TossBrandpayLabels _$TossBrandpayLabelsFromJson(Map<String, dynamic> json) =>
       return val;
     });
 
-Map<String, dynamic> _$TossBrandpayLabelsToJson(TossBrandpayLabels instance) => <String, dynamic>{
-  'oneTouchPay': instance.oneTouchPay,
-};
+Map<String, dynamic> _$TossBrandpayLabelsToJson(TossBrandpayLabels instance) =>
+    <String, dynamic>{'oneTouchPay': instance.oneTouchPay};
 
 TossBrandpayNavigationBar _$TossBrandpayNavigationBarFromJson(
   Map<String, dynamic> json,
@@ -129,7 +140,9 @@ TossBrandpayWidgetOptions _$TossBrandpayWidgetOptionsFromJson(
     methodId: $checkedConvert('methodId', (v) => v as String?),
     ui: $checkedConvert(
       'ui',
-      (v) => v == null ? null : TossBrandpayWidgetUIOptions.fromJson(v as Map<String, dynamic>),
+      (v) => v == null
+          ? null
+          : TossBrandpayWidgetUIOptions.fromJson(v as Map<String, dynamic>),
     ),
   );
   return val;
@@ -154,7 +167,9 @@ TossBrandpayWidgetUIOptions _$TossBrandpayWidgetUIOptionsFromJson(
   final val = TossBrandpayWidgetUIOptions(
     promotionSection: $checkedConvert(
       'promotionSection',
-      (v) => v == null ? null : TossBrandpayPromotionSection.fromJson(v as Map<String, dynamic>),
+      (v) => v == null
+          ? null
+          : TossBrandpayPromotionSection.fromJson(v as Map<String, dynamic>),
     ),
   );
   return val;
@@ -172,7 +187,9 @@ TossBrandpayPromotionSection _$TossBrandpayPromotionSectionFromJson(
   final val = TossBrandpayPromotionSection(
     summary: $checkedConvert(
       'summary',
-      (v) => v == null ? null : TossBrandpayPromotionSummary.fromJson(v as Map<String, dynamic>),
+      (v) => v == null
+          ? null
+          : TossBrandpayPromotionSummary.fromJson(v as Map<String, dynamic>),
     ),
     description: $checkedConvert(
       'description',
@@ -208,13 +225,14 @@ Map<String, dynamic> _$TossBrandpayPromotionSummaryToJson(
 
 TossBrandpayPromotionDescription _$TossBrandpayPromotionDescriptionFromJson(
   Map<String, dynamic> json,
-) => $checkedCreate('TossBrandpayPromotionDescription', json, ($checkedConvert) {
-  final val = TossBrandpayPromotionDescription(
-    visible: $checkedConvert('visible', (v) => v as bool? ?? true),
-    defaultOpen: $checkedConvert('defaultOpen', (v) => v as bool? ?? false),
-  );
-  return val;
-});
+) =>
+    $checkedCreate('TossBrandpayPromotionDescription', json, ($checkedConvert) {
+      final val = TossBrandpayPromotionDescription(
+        visible: $checkedConvert('visible', (v) => v as bool? ?? true),
+        defaultOpen: $checkedConvert('defaultOpen', (v) => v as bool? ?? false),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$TossBrandpayPromotionDescriptionToJson(
   TossBrandpayPromotionDescription instance,

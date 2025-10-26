@@ -30,7 +30,8 @@ class StoreDetails {
 
   /// JSON에서 [StoreDetails] 객체 생성
   /// JSON에서 [StoreDetails] 객체로 변환하는 팩토리 메서드
-  factory StoreDetails.fromJson(Map<String, dynamic> json) => _$StoreDetailsFromJson(json);
+  factory StoreDetails.fromJson(Map<String, dynamic> json) =>
+      _$StoreDetailsFromJson(json);
 
   /// 상점 대표자 이름
   final String? ceoFullName;
@@ -84,7 +85,8 @@ class OpeningHours {
 
   /// JSON에서 [OpeningHours] 객체 생성
   /// JSON에서 [OpeningHours] 객체로 변환하는 팩토리 메서드
-  factory OpeningHours.fromJson(Map<String, dynamic> json) => _$OpeningHoursFromJson(json);
+  factory OpeningHours.fromJson(Map<String, dynamic> json) =>
+      _$OpeningHoursFromJson(json);
 
   /// 영업 시작 시간 (HH:mm)
   final String? open;

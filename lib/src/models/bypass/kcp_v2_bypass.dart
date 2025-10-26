@@ -20,7 +20,8 @@ class KcpV2Bypass {
   });
 
   /// JSON에서 [KcpV2Bypass] 객체로 변환하는 팩토리 메서드
-  factory KcpV2Bypass.fromJson(Map<String, dynamic> json) => _$KcpV2BypassFromJson(json);
+  factory KcpV2Bypass.fromJson(Map<String, dynamic> json) =>
+      _$KcpV2BypassFromJson(json);
 
   /// 카드 결제 시 skin index
   @JsonKey(name: 'skin_indx')

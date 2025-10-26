@@ -19,7 +19,8 @@ class InicisV2Bypass {
   });
 
   /// JSON에서 [InicisV2Bypass] 객체로 변환하는 팩토리 메서드
-  factory InicisV2Bypass.fromJson(Map<String, dynamic> json) => _$InicisV2BypassFromJson(json);
+  factory InicisV2Bypass.fromJson(Map<String, dynamic> json) =>
+      _$InicisV2BypassFromJson(json);
 
   /// PC용: 결제창에 삽입할 메인 로고 URL
   @JsonKey(name: 'logo_url')

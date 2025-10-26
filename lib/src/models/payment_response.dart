@@ -20,7 +20,8 @@ class PaymentResponse {
 
   /// JSON에서 PaymentResponse 객체로 변환하는 팩토리 메서드
   /// JSON에서 [PaymentResponse] 객체로 변환하는 팩토리 메서드
-  factory PaymentResponse.fromJson(Map<String, dynamic> json) => _$PaymentResponseFromJson(json);
+  factory PaymentResponse.fromJson(Map<String, dynamic> json) =>
+      _$PaymentResponseFromJson(json);
 
   /// 트랜잭션 유형
   /// 일반결제의 경우 무조건 "PAYMENT"로 전달됩니다.

@@ -16,11 +16,15 @@ SmartroV2PaymentBypass _$SmartroV2PaymentBypassFromJson(
       goodsCnt: $checkedConvert('GoodsCnt', (v) => (v as num?)?.toInt()),
       skinColor: $checkedConvert(
         'SkinColor',
-        (v) => $enumDecodeNullable(_$SmartroV2SkinColorEnumMap, v) ?? SmartroV2SkinColor.red,
+        (v) =>
+            $enumDecodeNullable(_$SmartroV2SkinColorEnumMap, v) ??
+            SmartroV2SkinColor.red,
       ),
       openType: $checkedConvert(
         'OpenType',
-        (v) => $enumDecodeNullable(_$SmartroV2OpenTypeEnumMap, v) ?? SmartroV2OpenType.kr,
+        (v) =>
+            $enumDecodeNullable(_$SmartroV2OpenTypeEnumMap, v) ??
+            SmartroV2OpenType.kr,
       ),
     );
     return val;

@@ -18,9 +18,13 @@ KsnetPaymentBypass _$KsnetPaymentBypassFromJson(Map<String, dynamic> json) =>
       return val;
     });
 
-Map<String, dynamic> _$KsnetPaymentBypassToJson(KsnetPaymentBypass instance) => <String, dynamic>{
-  'easyPayDirect': ?instance.easyPayDirect,
-  'sndQpayType': ?_$SndQpayTypeEnumMap[instance.sndQpayType],
-};
+Map<String, dynamic> _$KsnetPaymentBypassToJson(KsnetPaymentBypass instance) =>
+    <String, dynamic>{
+      'easyPayDirect': ?instance.easyPayDirect,
+      'sndQpayType': ?_$SndQpayTypeEnumMap[instance.sndQpayType],
+    };
 
-const Map<SndQpayType, String> _$SndQpayTypeEnumMap = {SndQpayType.none: '0', SndQpayType.show: '1'};
+const Map<SndQpayType, String> _$SndQpayTypeEnumMap = {
+  SndQpayType.none: '0',
+  SndQpayType.show: '1',
+};

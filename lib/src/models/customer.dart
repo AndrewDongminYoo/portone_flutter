@@ -25,7 +25,8 @@ class Customer {
   });
 
   /// JSON에서 [Customer] 객체로 변환하는 팩토리 메서드
-  factory Customer.fromJson(Map<String, dynamic> json) => _$CustomerFromJson(json);
+  factory Customer.fromJson(Map<String, dynamic> json) =>
+      _$CustomerFromJson(json);
 
   /// 구매자 고유 ID
   ///

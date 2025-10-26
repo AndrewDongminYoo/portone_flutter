@@ -70,7 +70,10 @@ void main() {
       );
 
       expect(result.appScheme, equals('https'));
-      expect(result.redirectUrl, equals('https://example.com/complete?param=value'));
+      expect(
+        result.redirectUrl,
+        equals('https://example.com/complete?param=value'),
+      );
     });
 
     test('should preserve fragments in redirectUrl', () {
@@ -79,7 +82,10 @@ void main() {
       );
 
       expect(result.appScheme, equals('https'));
-      expect(result.redirectUrl, equals('https://example.com/complete#fragment'));
+      expect(
+        result.redirectUrl,
+        equals('https://example.com/complete#fragment'),
+      );
     });
   });
 }

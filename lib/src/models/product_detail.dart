@@ -19,7 +19,8 @@ class ProductDetail {
   });
 
   /// JSON에서 [ProductDetail] 객체로 변환하는 팩토리 메서드
-  factory ProductDetail.fromJson(Map<String, dynamic> json) => _$ProductDetailFromJson(json);
+  factory ProductDetail.fromJson(Map<String, dynamic> json) =>
+      _$ProductDetailFromJson(json);
 
   /// 상품 ID
   final String id;

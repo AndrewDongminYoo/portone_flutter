@@ -10,7 +10,8 @@ class PayletterGlobalBypass {
   PayletterGlobalBypass({this.pginfo, this.servicename});
 
   /// JSON에서 [PayletterGlobalBypass] 객체로 변환하는 팩토리 메서드
-  factory PayletterGlobalBypass.fromJson(Map<String, dynamic> json) => _$PayletterGlobalBypassFromJson(json);
+  factory PayletterGlobalBypass.fromJson(Map<String, dynamic> json) =>
+      _$PayletterGlobalBypassFromJson(json);
 
   /// 결제수단 지정용 파라미터 (예: PLCreditCard, PLCreditCardMpi, 등)
   final String? pginfo;

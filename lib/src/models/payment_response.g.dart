@@ -23,12 +23,13 @@ PaymentResponse _$PaymentResponseFromJson(Map<String, dynamic> json) =>
       return val;
     }, fieldKeyMap: const {'transactionId': 'txId'});
 
-Map<String, dynamic> _$PaymentResponseToJson(PaymentResponse instance) => <String, dynamic>{
-  'transactionType': instance.transactionType,
-  'txId': instance.transactionId,
-  'paymentId': instance.paymentId,
-  'code': ?instance.code,
-  'message': ?instance.message,
-  'pgCode': ?instance.pgCode,
-  'pgMessage': ?instance.pgMessage,
-};
+Map<String, dynamic> _$PaymentResponseToJson(PaymentResponse instance) =>
+    <String, dynamic>{
+      'transactionType': instance.transactionType,
+      'txId': instance.transactionId,
+      'paymentId': instance.paymentId,
+      'code': ?instance.code,
+      'message': ?instance.message,
+      'pgCode': ?instance.pgCode,
+      'pgMessage': ?instance.pgMessage,
+    };

@@ -18,7 +18,8 @@ class EximbayV2Bypass {
   });
 
   /// JSON에서 [EximbayV2Bypass] 객체로 변환하는 팩토리 메서드
-  factory EximbayV2Bypass.fromJson(Map<String, dynamic> json) => _$EximbayV2BypassFromJson(json);
+  factory EximbayV2Bypass.fromJson(Map<String, dynamic> json) =>
+      _$EximbayV2BypassFromJson(json);
 
   /// 결제 정보
   final PaymentInfo? payment;
@@ -54,7 +55,8 @@ class PaymentInfo {
   PaymentInfo({this.paymentMethod, this.multiPaymentMethod});
 
   /// JSON에서 [PaymentInfo] 객체로 변환하는 팩토리 메서드
-  factory PaymentInfo.fromJson(Map<String, dynamic> json) => _$PaymentInfoFromJson(json);
+  factory PaymentInfo.fromJson(Map<String, dynamic> json) =>
+      _$PaymentInfoFromJson(json);
 
   /// 결제수단 다이렉트
   @JsonKey(name: 'payment_method')
@@ -75,7 +77,8 @@ class MerchantInfo {
   MerchantInfo({this.shop, this.partnerCode});
 
   /// JSON에서 [MerchantInfo] 객체로 변환하는 팩토리 메서드
-  factory MerchantInfo.fromJson(Map<String, dynamic> json) => _$MerchantInfoFromJson(json);
+  factory MerchantInfo.fromJson(Map<String, dynamic> json) =>
+      _$MerchantInfoFromJson(json);
 
   /// 상점명
   final String? shop;
@@ -95,7 +98,8 @@ class TaxInfo {
   TaxInfo({this.receiptStatus});
 
   /// JSON에서 [TaxInfo] 객체로 변환하는 팩토리 메서드
-  factory TaxInfo.fromJson(Map<String, dynamic> json) => _$TaxInfoFromJson(json);
+  factory TaxInfo.fromJson(Map<String, dynamic> json) =>
+      _$TaxInfoFromJson(json);
 
   /// 현금영수증 발급 여부 ("Y" 또는 "N")
   @JsonKey(name: 'receipt_status')
@@ -112,7 +116,8 @@ class Surcharge {
   Surcharge({this.name, this.quantity, this.unitPrice});
 
   /// JSON에서 [Surcharge] 객체로 변환하는 팩토리 메서드
-  factory Surcharge.fromJson(Map<String, dynamic> json) => _$SurchargeFromJson(json);
+  factory Surcharge.fromJson(Map<String, dynamic> json) =>
+      _$SurchargeFromJson(json);
 
   /// 항목명
   final String? name;
@@ -144,7 +149,8 @@ class AddressInfo {
   });
 
   /// JSON에서 [AddressInfo] 객체로 변환하는 팩토리 메서드
-  factory AddressInfo.fromJson(Map<String, dynamic> json) => _$AddressInfoFromJson(json);
+  factory AddressInfo.fromJson(Map<String, dynamic> json) =>
+      _$AddressInfoFromJson(json);
 
   /// 도시
   final String? city;
@@ -189,7 +195,8 @@ class SettingsInfo {
   });
 
   /// JSON에서 [SettingsInfo] 객체로 변환하는 팩토리 메서드
-  factory SettingsInfo.fromJson(Map<String, dynamic> json) => _$SettingsInfoFromJson(json);
+  factory SettingsInfo.fromJson(Map<String, dynamic> json) =>
+      _$SettingsInfoFromJson(json);
 
   /// 인앱 웹뷰 여부 ("Y" 또는 "N")
   @JsonKey(name: 'call_from_app')

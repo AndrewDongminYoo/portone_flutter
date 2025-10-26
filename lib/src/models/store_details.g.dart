@@ -25,28 +25,31 @@ StoreDetails _$StoreDetailsFromJson(Map<String, dynamic> json) =>
         storeNameKana: $checkedConvert('storeNameKana', (v) => v as String?),
         openingHours: $checkedConvert(
           'openingHours',
-          (v) => v == null ? null : OpeningHours.fromJson(v as Map<String, dynamic>),
+          (v) => v == null
+              ? null
+              : OpeningHours.fromJson(v as Map<String, dynamic>),
         ),
         contactName: $checkedConvert('contactName', (v) => v as String?),
       );
       return val;
     });
 
-Map<String, dynamic> _$StoreDetailsToJson(StoreDetails instance) => <String, dynamic>{
-  'ceoFullName': ?instance.ceoFullName,
-  'phoneNumber': ?instance.phoneNumber,
-  'address': ?instance.address,
-  'zipcode': ?instance.zipcode,
-  'email': ?instance.email,
-  'businessName': ?instance.businessName,
-  'businessRegistrationNumber': ?instance.businessRegistrationNumber,
-  'storeName': ?instance.storeName,
-  'storeNameShort': ?instance.storeNameShort,
-  'storeNameEn': ?instance.storeNameEn,
-  'storeNameKana': ?instance.storeNameKana,
-  'openingHours': ?instance.openingHours?.toJson(),
-  'contactName': ?instance.contactName,
-};
+Map<String, dynamic> _$StoreDetailsToJson(StoreDetails instance) =>
+    <String, dynamic>{
+      'ceoFullName': ?instance.ceoFullName,
+      'phoneNumber': ?instance.phoneNumber,
+      'address': ?instance.address,
+      'zipcode': ?instance.zipcode,
+      'email': ?instance.email,
+      'businessName': ?instance.businessName,
+      'businessRegistrationNumber': ?instance.businessRegistrationNumber,
+      'storeName': ?instance.storeName,
+      'storeNameShort': ?instance.storeNameShort,
+      'storeNameEn': ?instance.storeNameEn,
+      'storeNameKana': ?instance.storeNameKana,
+      'openingHours': ?instance.openingHours?.toJson(),
+      'contactName': ?instance.contactName,
+    };
 
 OpeningHours _$OpeningHoursFromJson(Map<String, dynamic> json) =>
     $checkedCreate('OpeningHours', json, ($checkedConvert) {
@@ -57,7 +60,5 @@ OpeningHours _$OpeningHoursFromJson(Map<String, dynamic> json) =>
       return val;
     });
 
-Map<String, dynamic> _$OpeningHoursToJson(OpeningHours instance) => <String, dynamic>{
-  'open': ?instance.open,
-  'close': ?instance.close,
-};
+Map<String, dynamic> _$OpeningHoursToJson(OpeningHours instance) =>
+    <String, dynamic>{'open': ?instance.open, 'close': ?instance.close};

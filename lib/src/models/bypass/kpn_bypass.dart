@@ -10,7 +10,8 @@ class KpnBypass {
   KpnBypass({this.cardSelect});
 
   /// JSON에서 [KpnBypass] 객체로 변환하는 팩토리 메서드
-  factory KpnBypass.fromJson(Map<String, dynamic> json) => _$KpnBypassFromJson(json);
+  factory KpnBypass.fromJson(Map<String, dynamic> json) =>
+      _$KpnBypassFromJson(json);
 
   /// 카드 선택 옵션 배열 (예: "GLOBAL", "11PAY", "LEGACY_AUTH", "KEY_IN")
   final List<KpnCardSelect>? cardSelect;

@@ -14,7 +14,8 @@ class SmartroV2PaymentBypass {
   });
 
   /// JSON에서 [SmartroV2PaymentBypass] 객체로 변환하는 팩토리 메서드
-  factory SmartroV2PaymentBypass.fromJson(Map<String, dynamic> json) => _$SmartroV2PaymentBypassFromJson(json);
+  factory SmartroV2PaymentBypass.fromJson(Map<String, dynamic> json) =>
+      _$SmartroV2PaymentBypassFromJson(json);
 
   /// 결제 상품 품목 개수
   @JsonKey(name: 'GoodsCnt')

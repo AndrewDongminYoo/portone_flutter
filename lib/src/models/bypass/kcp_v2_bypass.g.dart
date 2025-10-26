@@ -32,14 +32,15 @@ KcpV2Bypass _$KcpV2BypassFromJson(Map<String, dynamic> json) => $checkedCreate(
   },
 );
 
-Map<String, dynamic> _$KcpV2BypassToJson(KcpV2Bypass instance) => <String, dynamic>{
-  'skin_indx': ?instance.skinIndx,
-  'site_logo': ?instance.siteLogo,
-  'shop_user_id': instance.shopUserId,
-  'kcp_pay_title': ?instance.kcpPayTitle,
-  'complexPntYn': ?instance.complexPntYn,
-  'ptMemcorpCd': ?instance.ptMemcorpCd,
-  'dispTaxYn': ?instance.dispTaxYn,
-  'site_name': ?instance.siteName,
-  'deliTerm': ?instance.deliTerm,
-};
+Map<String, dynamic> _$KcpV2BypassToJson(KcpV2Bypass instance) =>
+    <String, dynamic>{
+      'skin_indx': ?instance.skinIndx,
+      'site_logo': ?instance.siteLogo,
+      'shop_user_id': instance.shopUserId,
+      'kcp_pay_title': ?instance.kcpPayTitle,
+      'complexPntYn': ?instance.complexPntYn,
+      'ptMemcorpCd': ?instance.ptMemcorpCd,
+      'dispTaxYn': ?instance.dispTaxYn,
+      'site_name': ?instance.siteName,
+      'deliTerm': ?instance.deliTerm,
+    };

@@ -17,7 +17,8 @@ class WelcomePaymentBypass {
   });
 
   /// JSON에서 [WelcomePaymentBypass] 객체로 변환하는 팩토리 메서드
-  factory WelcomePaymentBypass.fromJson(Map<String, dynamic> json) => _$WelcomePaymentBypassFromJson(json);
+  factory WelcomePaymentBypass.fromJson(Map<String, dynamic> json) =>
+      _$WelcomePaymentBypassFromJson(json);
 
   /// 메인 로고 URL (크기: 89x19)
   @JsonKey(name: 'logo_url')

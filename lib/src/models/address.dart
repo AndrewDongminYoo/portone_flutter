@@ -20,7 +20,8 @@ class Address {
   });
 
   /// JSON에서 [Address] 객체로 변환하는 팩토리 메서드
-  factory Address.fromJson(Map<String, dynamic> json) => _$AddressFromJson(json);
+  factory Address.fromJson(Map<String, dynamic> json) =>
+      _$AddressFromJson(json);
 
   /// ISO 3166-1 alpha-2 국가 코드
   ///

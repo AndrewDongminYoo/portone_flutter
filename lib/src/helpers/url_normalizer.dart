@@ -77,7 +77,9 @@ class NormalizedUrl {
         return;
       }
 
-      final resolvedPath = (uri.hasAbsolutePath && uri.path.trim().isNotEmpty) ? uri.path.trim() : '/$defaultPath';
+      final resolvedPath = (uri.hasAbsolutePath && uri.path.trim().isNotEmpty)
+          ? uri.path.trim()
+          : '/$defaultPath';
 
       final normalizedUri = uri.replace(path: resolvedPath);
       _url = normalizedUri.toString();

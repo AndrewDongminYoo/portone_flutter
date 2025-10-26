@@ -11,15 +11,16 @@ InicisJpBypass _$InicisJpBypassFromJson(Map<String, dynamic> json) =>
       final val = InicisJpBypass(
         paymentUI: $checkedConvert(
           'paymentUI',
-          (v) => v == null ? null : InicisJpPaymentUI.fromJson(v as Map<String, dynamic>),
+          (v) => v == null
+              ? null
+              : InicisJpPaymentUI.fromJson(v as Map<String, dynamic>),
         ),
       );
       return val;
     });
 
-Map<String, dynamic> _$InicisJpBypassToJson(InicisJpBypass instance) => <String, dynamic>{
-  'paymentUI': ?instance.paymentUI?.toJson(),
-};
+Map<String, dynamic> _$InicisJpBypassToJson(InicisJpBypass instance) =>
+    <String, dynamic>{'paymentUI': ?instance.paymentUI?.toJson()};
 
 InicisJpPaymentUI _$InicisJpPaymentUIFromJson(Map<String, dynamic> json) =>
     $checkedCreate('InicisJpPaymentUI', json, ($checkedConvert) {
@@ -30,7 +31,8 @@ InicisJpPaymentUI _$InicisJpPaymentUIFromJson(Map<String, dynamic> json) =>
       return val;
     });
 
-Map<String, dynamic> _$InicisJpPaymentUIToJson(InicisJpPaymentUI instance) => <String, dynamic>{
-  'colorTheme': ?instance.colorTheme,
-  'logoUrl': ?instance.logoUrl,
-};
+Map<String, dynamic> _$InicisJpPaymentUIToJson(InicisJpPaymentUI instance) =>
+    <String, dynamic>{
+      'colorTheme': ?instance.colorTheme,
+      'logoUrl': ?instance.logoUrl,
+    };
