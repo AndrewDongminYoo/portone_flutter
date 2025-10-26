@@ -149,9 +149,9 @@
           ><code class="language-dart">PortoneLocalizations lookupPortOneLocalizations(Locale locale) {
   switch (locale.languageCode) {
     case &#39;en&#39;:
-      return PortoneLocalizationsEn();
+      return const PortoneLocalizationsEn();
     case &#39;ko&#39;:
-      return PortoneLocalizationsKo();
+      return const PortoneLocalizationsKo();
   }
 
   if (kDebugMode) {
@@ -162,7 +162,7 @@
     );
   }
 
-  return PortoneLocalizationsKo();
+  return const PortoneLocalizationsKo();
 }</code></pre>
         </section>
       </div>
@@ -198,7 +198,7 @@
       <!--/.sidebar-offcanvas-->
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.2.0 </span>
+      <span class="no-break"> portone_flutter_v2 1.2.1 </span>
     </footer>
 
     <script src="../static-assets/highlight.pack.js?v1"></script>

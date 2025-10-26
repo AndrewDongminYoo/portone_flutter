@@ -627,6 +627,19 @@
     }
   },
   {
+    "name": "DefaultLogger",
+    "qualifiedName": "portone_flutter_v2.DefaultLogger",
+    "href": "portone_flutter_v2/DefaultLogger.html",
+    "kind": 21,
+    "packageRank": 0,
+    "desc": "Default logger function interface.",
+    "enclosedBy": {
+      "name": "portone_flutter_v2",
+      "kind": 9,
+      "href": "portone_flutter_v2/"
+    }
+  },
+  {
     "name": "EximbayV2Bypass",
     "qualifiedName": "portone_flutter_v2.EximbayV2Bypass",
     "href": "portone_flutter_v2/EximbayV2Bypass-class.html",
@@ -4372,7 +4385,7 @@
     "href": "portone_flutter_v2/PortoneLocalizationsEn/PortoneLocalizationsEn.html",
     "kind": 2,
     "packageRank": 0,
-    "desc": "",
+    "desc": "English ('en') - 영어 로케일",
     "enclosedBy": {
       "name": "PortoneLocalizationsEn",
       "kind": 3,
@@ -4636,7 +4649,7 @@
     "href": "portone_flutter_v2/PortoneLocalizationsKo/PortoneLocalizationsKo.html",
     "kind": 2,
     "packageRank": 0,
-    "desc": "",
+    "desc": "Korean ('ko') - 한국어 로케일",
     "enclosedBy": {
       "name": "PortoneLocalizationsKo",
       "kind": 3,
@@ -5017,102 +5030,6 @@
       "name": "PortonePayment",
       "kind": 3,
       "href": "portone_flutter_v2/PortonePayment-class.html"
-    }
-  },
-  {
-    "name": "PortonePaymentState",
-    "qualifiedName": "portone_flutter_v2.PortonePaymentState",
-    "href": "portone_flutter_v2/PortonePaymentState-class.html",
-    "kind": 3,
-    "packageRank": 0,
-    "desc": "State class for the PortonePayment widget that manages the payment process flow.",
-    "enclosedBy": {
-      "name": "portone_flutter_v2",
-      "kind": 9,
-      "href": "portone_flutter_v2/"
-    }
-  },
-  {
-    "name": "PortonePaymentState.new",
-    "qualifiedName": "portone_flutter_v2.PortonePaymentState.PortonePaymentState.new",
-    "href": "portone_flutter_v2/PortonePaymentState/PortonePaymentState.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "",
-    "enclosedBy": {
-      "name": "PortonePaymentState",
-      "kind": 3,
-      "href": "portone_flutter_v2/PortonePaymentState-class.html"
-    }
-  },
-  {
-    "name": "build",
-    "qualifiedName": "portone_flutter_v2.PortonePaymentState.build",
-    "href": "portone_flutter_v2/PortonePaymentState/build.html",
-    "kind": 10,
-    "overriddenDepth": 1,
-    "packageRank": 0,
-    "desc": "Describes the part of the user interface represented by this widget.",
-    "enclosedBy": {
-      "name": "PortonePaymentState",
-      "kind": 3,
-      "href": "portone_flutter_v2/PortonePaymentState-class.html"
-    }
-  },
-  {
-    "name": "contentType",
-    "qualifiedName": "portone_flutter_v2.PortonePaymentState.contentType",
-    "href": "portone_flutter_v2/PortonePaymentState/contentType.html",
-    "kind": 16,
-    "overriddenDepth": 0,
-    "packageRank": 0,
-    "desc": "MIME type for the HTML content loaded into the web view.",
-    "enclosedBy": {
-      "name": "PortonePaymentState",
-      "kind": 3,
-      "href": "portone_flutter_v2/PortonePaymentState-class.html"
-    }
-  },
-  {
-    "name": "controller",
-    "qualifiedName": "portone_flutter_v2.PortonePaymentState.controller",
-    "href": "portone_flutter_v2/PortonePaymentState/controller.html",
-    "kind": 16,
-    "overriddenDepth": 0,
-    "packageRank": 0,
-    "desc": "Controller for managing the embedded InAppWebView.",
-    "enclosedBy": {
-      "name": "PortonePaymentState",
-      "kind": 3,
-      "href": "portone_flutter_v2/PortonePaymentState-class.html"
-    }
-  },
-  {
-    "name": "dispose",
-    "qualifiedName": "portone_flutter_v2.PortonePaymentState.dispose",
-    "href": "portone_flutter_v2/PortonePaymentState/dispose.html",
-    "kind": 10,
-    "overriddenDepth": 1,
-    "packageRank": 0,
-    "desc": "Called when this object is removed from the tree permanently.",
-    "enclosedBy": {
-      "name": "PortonePaymentState",
-      "kind": 3,
-      "href": "portone_flutter_v2/PortonePaymentState-class.html"
-    }
-  },
-  {
-    "name": "handlerName",
-    "qualifiedName": "portone_flutter_v2.PortonePaymentState.handlerName",
-    "href": "portone_flutter_v2/PortonePaymentState/handlerName.html",
-    "kind": 16,
-    "overriddenDepth": 0,
-    "packageRank": 0,
-    "desc": "Callback function name for JavaScript error handling.",
-    "enclosedBy": {
-      "name": "PortonePaymentState",
-      "kind": 3,
-      "href": "portone_flutter_v2/PortonePaymentState-class.html"
     }
   },
   {
@@ -7411,130 +7328,6 @@
       "name": "portone_flutter_v2",
       "kind": 9,
       "href": "portone_flutter_v2/"
-    }
-  },
-  {
-    "name": "portone_flutter_v2_method_channel",
-    "qualifiedName": "portone_flutter_v2_method_channel",
-    "href": "portone_flutter_v2_method_channel/",
-    "kind": 9,
-    "packageRank": 0,
-    "desc": ""
-  },
-  {
-    "name": "MethodChannelPortoneFlutterV2",
-    "qualifiedName": "portone_flutter_v2_method_channel.MethodChannelPortoneFlutterV2",
-    "href": "portone_flutter_v2_method_channel/MethodChannelPortoneFlutterV2-class.html",
-    "kind": 3,
-    "packageRank": 0,
-    "desc": "An implementation of PortoneFlutterV2Platform that uses method channels.",
-    "enclosedBy": {
-      "name": "portone_flutter_v2_method_channel",
-      "kind": 9,
-      "href": "portone_flutter_v2_method_channel/"
-    }
-  },
-  {
-    "name": "MethodChannelPortoneFlutterV2.new",
-    "qualifiedName": "portone_flutter_v2_method_channel.MethodChannelPortoneFlutterV2.MethodChannelPortoneFlutterV2.new",
-    "href": "portone_flutter_v2_method_channel/MethodChannelPortoneFlutterV2/MethodChannelPortoneFlutterV2.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "",
-    "enclosedBy": {
-      "name": "MethodChannelPortoneFlutterV2",
-      "kind": 3,
-      "href": "portone_flutter_v2_method_channel/MethodChannelPortoneFlutterV2-class.html"
-    }
-  },
-  {
-    "name": "getPlatformVersion",
-    "qualifiedName": "portone_flutter_v2_method_channel.MethodChannelPortoneFlutterV2.getPlatformVersion",
-    "href": "portone_flutter_v2_method_channel/MethodChannelPortoneFlutterV2/getPlatformVersion.html",
-    "kind": 10,
-    "overriddenDepth": 1,
-    "packageRank": 0,
-    "desc": "Retrieves the current platform version.",
-    "enclosedBy": {
-      "name": "MethodChannelPortoneFlutterV2",
-      "kind": 3,
-      "href": "portone_flutter_v2_method_channel/MethodChannelPortoneFlutterV2-class.html"
-    }
-  },
-  {
-    "name": "methodChannel",
-    "qualifiedName": "portone_flutter_v2_method_channel.MethodChannelPortoneFlutterV2.methodChannel",
-    "href": "portone_flutter_v2_method_channel/MethodChannelPortoneFlutterV2/methodChannel.html",
-    "kind": 16,
-    "overriddenDepth": 0,
-    "packageRank": 0,
-    "desc": "The method channel used to interact with the native platform.",
-    "enclosedBy": {
-      "name": "MethodChannelPortoneFlutterV2",
-      "kind": 3,
-      "href": "portone_flutter_v2_method_channel/MethodChannelPortoneFlutterV2-class.html"
-    }
-  },
-  {
-    "name": "portone_flutter_v2_platform_interface",
-    "qualifiedName": "portone_flutter_v2_platform_interface",
-    "href": "portone_flutter_v2_platform_interface/",
-    "kind": 9,
-    "packageRank": 0,
-    "desc": ""
-  },
-  {
-    "name": "PortoneFlutterV2Platform",
-    "qualifiedName": "portone_flutter_v2_platform_interface.PortoneFlutterV2Platform",
-    "href": "portone_flutter_v2_platform_interface/PortoneFlutterV2Platform-class.html",
-    "kind": 3,
-    "packageRank": 0,
-    "desc": "An abstract platform interface for the PortoneFlutterV2 plugin.",
-    "enclosedBy": {
-      "name": "portone_flutter_v2_platform_interface",
-      "kind": 9,
-      "href": "portone_flutter_v2_platform_interface/"
-    }
-  },
-  {
-    "name": "PortoneFlutterV2Platform.new",
-    "qualifiedName": "portone_flutter_v2_platform_interface.PortoneFlutterV2Platform.PortoneFlutterV2Platform.new",
-    "href": "portone_flutter_v2_platform_interface/PortoneFlutterV2Platform/PortoneFlutterV2Platform.html",
-    "kind": 2,
-    "packageRank": 0,
-    "desc": "Constructs a PortoneFlutterV2Platform.",
-    "enclosedBy": {
-      "name": "PortoneFlutterV2Platform",
-      "kind": 3,
-      "href": "portone_flutter_v2_platform_interface/PortoneFlutterV2Platform-class.html"
-    }
-  },
-  {
-    "name": "getPlatformVersion",
-    "qualifiedName": "portone_flutter_v2_platform_interface.PortoneFlutterV2Platform.getPlatformVersion",
-    "href": "portone_flutter_v2_platform_interface/PortoneFlutterV2Platform/getPlatformVersion.html",
-    "kind": 10,
-    "overriddenDepth": 0,
-    "packageRank": 0,
-    "desc": "Retrieves the current platform version.",
-    "enclosedBy": {
-      "name": "PortoneFlutterV2Platform",
-      "kind": 3,
-      "href": "portone_flutter_v2_platform_interface/PortoneFlutterV2Platform-class.html"
-    }
-  },
-  {
-    "name": "instance",
-    "qualifiedName": "portone_flutter_v2_platform_interface.PortoneFlutterV2Platform.instance",
-    "href": "portone_flutter_v2_platform_interface/PortoneFlutterV2Platform/instance.html",
-    "kind": 16,
-    "overriddenDepth": 0,
-    "packageRank": 0,
-    "desc": "The default instance of PortoneFlutterV2Platform to use.",
-    "enclosedBy": {
-      "name": "PortoneFlutterV2Platform",
-      "kind": 3,
-      "href": "portone_flutter_v2_platform_interface/PortoneFlutterV2Platform-class.html"
     }
   }
 ]
