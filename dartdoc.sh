@@ -18,4 +18,4 @@ rsync -av --delete \
 	tmp/api/ doc/api/
 
 # 5) 임시 디렉터리 정리
-rm -rf tmp/api
+rm -rf tmp
