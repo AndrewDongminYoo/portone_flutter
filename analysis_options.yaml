@@ -1,6 +1,7 @@
-include: package:very_good_analysis/analysis_options.9.0.0.yaml
+include: package:very_good_analysis/analysis_options.yaml
 analyzer:
   errors:
+    avoid_types_on_closure_parameters: ignore
     constant_identifier_names: ignore
     directives_ordering: ignore
     lines_longer_than_80_chars: ignore
