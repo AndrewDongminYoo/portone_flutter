@@ -71,6 +71,12 @@ PaymentBypass _$PaymentBypassFromJson(
       : PayletterGlobalBypass.fromJson(
           json['payletter_global'] as Map<String, dynamic>,
         ),
+  paypalV2: json['paypal_v2'] == null
+      ? null
+      : PaypalV2Bypass.fromJson(json['paypal_v2'] as Map<String, dynamic>),
+  tripleA: json['triple_a'] == null
+      ? null
+      : TripleABypass.fromJson(json['triple_a'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$PaymentBypassToJson(PaymentBypass instance) =>
@@ -91,4 +97,6 @@ Map<String, dynamic> _$PaymentBypassToJson(PaymentBypass instance) =>
       'eximbay_v2': ?instance.eximbayV2?.toJson(),
       'inicis_jp': ?instance.inicisJp?.toJson(),
       'payletter_global': ?instance.payletterGlobal?.toJson(),
+      'paypal_v2': ?instance.paypalV2?.toJson(),
+      'triple_a': ?instance.tripleA?.toJson(),
     };

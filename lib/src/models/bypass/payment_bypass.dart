@@ -27,6 +27,8 @@ class PaymentBypass {
     this.eximbayV2,
     this.inicisJp,
     this.payletterGlobal,
+    this.paypalV2,
+    this.tripleA,
   });
 
   /// JSON에서 [PaymentBypass] 객체로 변환하는 팩토리 메서드
@@ -98,6 +100,14 @@ class PaymentBypass {
   /// 페이레터 해외결제 bypass 파라미터
   @JsonKey(name: 'payletter_global')
   final PayletterGlobalBypass? payletterGlobal;
+
+  /// PayPal V2 bypass 파라미터
+  @JsonKey(name: 'paypal_v2')
+  final PaypalV2Bypass? paypalV2;
+
+  /// Triple-A bypass 파라미터
+  @JsonKey(name: 'triple_a')
+  final TripleABypass? tripleA;
 
   /// [PaymentBypass] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$PaymentBypassToJson(this);
