@@ -63,7 +63,7 @@ actions:
     - id: dart-actions
       description: Run 'dart run import_sorter:main' whenever you run 'git commit'
       display_name: Dart Import Sorter Pre-Commit Hook
-      run: source ./dart_import_sorter.sh
+      run: bash ./dart_import_sorter.sh
       packages_file: pubspec.yaml
       triggers:
         - git_hooks: [pre-commit]
