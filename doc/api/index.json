@@ -858,6 +858,73 @@
     }
   },
   {
+    "name": "Iframe",
+    "qualifiedName": "portone_flutter_v2.Iframe",
+    "href": "portone_flutter_v2/Iframe-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "결제창이 iframe 방식일 경우 결제창에 적용할 속성",
+    "enclosedBy": {
+      "name": "portone_flutter_v2",
+      "kind": 9,
+      "href": "portone_flutter_v2/"
+    }
+  },
+  {
+    "name": "Iframe.fromJson",
+    "qualifiedName": "portone_flutter_v2.Iframe.Iframe.fromJson",
+    "href": "portone_flutter_v2/Iframe/Iframe.fromJson.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "JSON에서 Iframe 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "Iframe",
+      "kind": 3,
+      "href": "portone_flutter_v2/Iframe-class.html"
+    }
+  },
+  {
+    "name": "Iframe.new",
+    "qualifiedName": "portone_flutter_v2.Iframe.Iframe.new",
+    "href": "portone_flutter_v2/Iframe/Iframe.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "Iframe 생성자",
+    "enclosedBy": {
+      "name": "Iframe",
+      "kind": 3,
+      "href": "portone_flutter_v2/Iframe-class.html"
+    }
+  },
+  {
+    "name": "dim",
+    "qualifiedName": "portone_flutter_v2.Iframe.dim",
+    "href": "portone_flutter_v2/Iframe/dim.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "결제창 배경 dimmed 여부",
+    "enclosedBy": {
+      "name": "Iframe",
+      "kind": 3,
+      "href": "portone_flutter_v2/Iframe-class.html"
+    }
+  },
+  {
+    "name": "toJson",
+    "qualifiedName": "portone_flutter_v2.Iframe.toJson",
+    "href": "portone_flutter_v2/Iframe/toJson.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "Iframe 객체를 JSON으로 변환하는 메서드",
+    "enclosedBy": {
+      "name": "Iframe",
+      "kind": 3,
+      "href": "portone_flutter_v2/Iframe-class.html"
+    }
+  },
+  {
     "name": "InicisJpBypass",
     "qualifiedName": "portone_flutter_v2.InicisJpBypass",
     "href": "portone_flutter_v2/InicisJpBypass-class.html",
@@ -2959,6 +3026,20 @@
     }
   },
   {
+    "name": "paypalV2",
+    "qualifiedName": "portone_flutter_v2.PaymentBypass.paypalV2",
+    "href": "portone_flutter_v2/PaymentBypass/paypalV2.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "PayPal V2 bypass 파라미터",
+    "enclosedBy": {
+      "name": "PaymentBypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/PaymentBypass-class.html"
+    }
+  },
+  {
     "name": "smartroV2",
     "qualifiedName": "portone_flutter_v2.PaymentBypass.smartroV2",
     "href": "portone_flutter_v2/PaymentBypass/smartroV2.html",
@@ -3022,6 +3103,20 @@
     "overriddenDepth": 0,
     "packageRank": 0,
     "desc": "토스페이먼츠 bypass 파라미터",
+    "enclosedBy": {
+      "name": "PaymentBypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/PaymentBypass-class.html"
+    }
+  },
+  {
+    "name": "tripleA",
+    "qualifiedName": "portone_flutter_v2.PaymentBypass.tripleA",
+    "href": "portone_flutter_v2/PaymentBypass/tripleA.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "Triple-A bypass 파라미터",
     "enclosedBy": {
       "name": "PaymentBypass",
       "kind": 3,
@@ -3461,6 +3556,34 @@
     "overriddenDepth": 0,
     "packageRank": 0,
     "desc": "결제 만료 기한 (선택, \"yyyy-MM-dd HH:mm:ss\" 형식)",
+    "enclosedBy": {
+      "name": "PaymentRequest",
+      "kind": 3,
+      "href": "portone_flutter_v2/PaymentRequest-class.html"
+    }
+  },
+  {
+    "name": "forceRedirect",
+    "qualifiedName": "portone_flutter_v2.PaymentRequest.forceRedirect",
+    "href": "portone_flutter_v2/PaymentRequest/forceRedirect.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "결과 리턴 방식을 리디렉션으로 강제",
+    "enclosedBy": {
+      "name": "PaymentRequest",
+      "kind": 3,
+      "href": "portone_flutter_v2/PaymentRequest-class.html"
+    }
+  },
+  {
+    "name": "iframe",
+    "qualifiedName": "portone_flutter_v2.PaymentRequest.iframe",
+    "href": "portone_flutter_v2/PaymentRequest/iframe.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "결제창이 iframe 방식일 경우 결제창에 적용할 속성",
     "enclosedBy": {
       "name": "PaymentRequest",
       "kind": 3,
@@ -3954,6 +4077,115 @@
     }
   },
   {
+    "name": "PaypalV2Bypass",
+    "qualifiedName": "portone_flutter_v2.PaypalV2Bypass",
+    "href": "portone_flutter_v2/PaypalV2Bypass-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "PayPal V2 bypass 파라미터",
+    "enclosedBy": {
+      "name": "portone_flutter_v2",
+      "kind": 9,
+      "href": "portone_flutter_v2/"
+    }
+  },
+  {
+    "name": "PaypalV2Bypass.fromJson",
+    "qualifiedName": "portone_flutter_v2.PaypalV2Bypass.PaypalV2Bypass.fromJson",
+    "href": "portone_flutter_v2/PaypalV2Bypass/PaypalV2Bypass.fromJson.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "JSON에서 PaypalV2Bypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "PaypalV2Bypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/PaypalV2Bypass-class.html"
+    }
+  },
+  {
+    "name": "PaypalV2Bypass.new",
+    "qualifiedName": "portone_flutter_v2.PaypalV2Bypass.PaypalV2Bypass.new",
+    "href": "portone_flutter_v2/PaypalV2Bypass/PaypalV2Bypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "PaypalV2Bypass 생성자",
+    "enclosedBy": {
+      "name": "PaypalV2Bypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/PaypalV2Bypass-class.html"
+    }
+  },
+  {
+    "name": "additionalData",
+    "qualifiedName": "portone_flutter_v2.PaypalV2Bypass.additionalData",
+    "href": "portone_flutter_v2/PaypalV2Bypass/additionalData.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "STC 파라미터",
+    "enclosedBy": {
+      "name": "PaypalV2Bypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/PaypalV2Bypass-class.html"
+    }
+  },
+  {
+    "name": "payer",
+    "qualifiedName": "portone_flutter_v2.PaypalV2Bypass.payer",
+    "href": "portone_flutter_v2/PaypalV2Bypass/payer.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "PayPal payer 정보",
+    "enclosedBy": {
+      "name": "PaypalV2Bypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/PaypalV2Bypass-class.html"
+    }
+  },
+  {
+    "name": "paymentSource",
+    "qualifiedName": "portone_flutter_v2.PaypalV2Bypass.paymentSource",
+    "href": "portone_flutter_v2/PaypalV2Bypass/paymentSource.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "PayPal payment_source 정보",
+    "enclosedBy": {
+      "name": "PaypalV2Bypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/PaypalV2Bypass-class.html"
+    }
+  },
+  {
+    "name": "purchaseUnits",
+    "qualifiedName": "portone_flutter_v2.PaypalV2Bypass.purchaseUnits",
+    "href": "portone_flutter_v2/PaypalV2Bypass/purchaseUnits.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "create order API 호출에 필요한 파라미터",
+    "enclosedBy": {
+      "name": "PaypalV2Bypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/PaypalV2Bypass-class.html"
+    }
+  },
+  {
+    "name": "toJson",
+    "qualifiedName": "portone_flutter_v2.PaypalV2Bypass.toJson",
+    "href": "portone_flutter_v2/PaypalV2Bypass/toJson.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "PaypalV2Bypass 객체를 JSON으로 변환하는 메서드",
+    "enclosedBy": {
+      "name": "PaypalV2Bypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/PaypalV2Bypass-class.html"
+    }
+  },
+  {
     "name": "Popup",
     "qualifiedName": "portone_flutter_v2.Popup",
     "href": "portone_flutter_v2/Popup-class.html",
@@ -4353,6 +4585,20 @@
     }
   },
   {
+    "name": "tripleA",
+    "qualifiedName": "portone_flutter_v2.PortoneLocalizations.tripleA",
+    "href": "portone_flutter_v2/PortoneLocalizations/tripleA.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "Triple-A",
+    "enclosedBy": {
+      "name": "PortoneLocalizations",
+      "kind": 3,
+      "href": "portone_flutter_v2/PortoneLocalizations-class.html"
+    }
+  },
+  {
     "name": "welcome",
     "qualifiedName": "portone_flutter_v2.PortoneLocalizations.welcome",
     "href": "portone_flutter_v2/PortoneLocalizations/welcome.html",
@@ -4617,6 +4863,20 @@
     }
   },
   {
+    "name": "tripleA",
+    "qualifiedName": "portone_flutter_v2.PortoneLocalizationsEn.tripleA",
+    "href": "portone_flutter_v2/PortoneLocalizationsEn/tripleA.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "Triple-A",
+    "enclosedBy": {
+      "name": "PortoneLocalizationsEn",
+      "kind": 3,
+      "href": "portone_flutter_v2/PortoneLocalizationsEn-class.html"
+    }
+  },
+  {
     "name": "welcome",
     "qualifiedName": "portone_flutter_v2.PortoneLocalizationsEn.welcome",
     "href": "portone_flutter_v2/PortoneLocalizationsEn/welcome.html",
@@ -4874,6 +5134,20 @@
     "overriddenDepth": 0,
     "packageRank": 0,
     "desc": "토스페이먼츠",
+    "enclosedBy": {
+      "name": "PortoneLocalizationsKo",
+      "kind": 3,
+      "href": "portone_flutter_v2/PortoneLocalizationsKo-class.html"
+    }
+  },
+  {
+    "name": "tripleA",
+    "qualifiedName": "portone_flutter_v2.PortoneLocalizationsKo.tripleA",
+    "href": "portone_flutter_v2/PortoneLocalizationsKo/tripleA.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "Triple-A",
     "enclosedBy": {
       "name": "PortoneLocalizationsKo",
       "kind": 3,
@@ -7042,6 +7316,115 @@
       "name": "TosspaymentsPaymentBypass",
       "kind": 3,
       "href": "portone_flutter_v2/TosspaymentsPaymentBypass-class.html"
+    }
+  },
+  {
+    "name": "TripleABypass",
+    "qualifiedName": "portone_flutter_v2.TripleABypass",
+    "href": "portone_flutter_v2/TripleABypass-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "Triple-A bypass 파라미터",
+    "enclosedBy": {
+      "name": "portone_flutter_v2",
+      "kind": 9,
+      "href": "portone_flutter_v2/"
+    }
+  },
+  {
+    "name": "TripleABypass.fromJson",
+    "qualifiedName": "portone_flutter_v2.TripleABypass.TripleABypass.fromJson",
+    "href": "portone_flutter_v2/TripleABypass/TripleABypass.fromJson.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "JSON에서 TripleABypass 객체로 변환하는 팩토리 메서드",
+    "enclosedBy": {
+      "name": "TripleABypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/TripleABypass-class.html"
+    }
+  },
+  {
+    "name": "TripleABypass.new",
+    "qualifiedName": "portone_flutter_v2.TripleABypass.TripleABypass.new",
+    "href": "portone_flutter_v2/TripleABypass/TripleABypass.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "TripleABypass 생성자",
+    "enclosedBy": {
+      "name": "TripleABypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/TripleABypass-class.html"
+    }
+  },
+  {
+    "name": "payerPoi",
+    "qualifiedName": "portone_flutter_v2.TripleABypass.payerPoi",
+    "href": "portone_flutter_v2/TripleABypass/payerPoi.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "결제자 신원 증명 정보",
+    "enclosedBy": {
+      "name": "TripleABypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/TripleABypass-class.html"
+    }
+  },
+  {
+    "name": "shippingCost",
+    "qualifiedName": "portone_flutter_v2.TripleABypass.shippingCost",
+    "href": "portone_flutter_v2/TripleABypass/shippingCost.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "배송비",
+    "enclosedBy": {
+      "name": "TripleABypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/TripleABypass-class.html"
+    }
+  },
+  {
+    "name": "shippingDiscount",
+    "qualifiedName": "portone_flutter_v2.TripleABypass.shippingDiscount",
+    "href": "portone_flutter_v2/TripleABypass/shippingDiscount.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "배송비 할인 금액",
+    "enclosedBy": {
+      "name": "TripleABypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/TripleABypass-class.html"
+    }
+  },
+  {
+    "name": "taxCost",
+    "qualifiedName": "portone_flutter_v2.TripleABypass.taxCost",
+    "href": "portone_flutter_v2/TripleABypass/taxCost.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "세금",
+    "enclosedBy": {
+      "name": "TripleABypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/TripleABypass-class.html"
+    }
+  },
+  {
+    "name": "toJson",
+    "qualifiedName": "portone_flutter_v2.TripleABypass.toJson",
+    "href": "portone_flutter_v2/TripleABypass/toJson.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "TripleABypass 객체를 JSON으로 변환하는 메서드",
+    "enclosedBy": {
+      "name": "TripleABypass",
+      "kind": 3,
+      "href": "portone_flutter_v2/TripleABypass-class.html"
     }
   },
   {

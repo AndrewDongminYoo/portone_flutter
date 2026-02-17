@@ -119,12 +119,36 @@
                 <code>PaymentRequest</code> to tailor behavior and supported
                 methods.
               </p>
+              <ul>
+                <li>
+                  Supports all major Korean PG companies (NiceV2, Tosspayments,
+                  KCP, Inicis, etc.)
+                </li>
+                <li>
+                  International payment gateways (Triple-A for cryptocurrency,
+                  PayPal V2, Eximbay)
+                </li>
+              </ul>
             </li>
             <li>
               <p>
                 <strong>PayMethod Validation:</strong> Ensures that the selected
                 <code>payMethod</code> is supported by the chosen
                 <code>PGCompany</code>, throwing a clear error if not.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Advanced Bypass Parameters:</strong> PG-specific
+                customization via bypass models for advanced payment
+                configurations.
+              </p>
+            </li>
+            <li>
+              <p>
+                <strong>Iframe &amp; Popup Customization:</strong> Control
+                payment window appearance with iframe dim settings and popup
+                positioning.
               </p>
             </li>
             <li>
@@ -434,6 +458,31 @@ if (result != null) {
           <h2 id="-supported-payment-methods-per-pg-company">
             🧩 Supported Payment Methods per PG Company
           </h2>
+          <p>This package supports the following PG companies:</p>
+          <p><strong>Korean PG Companies:</strong></p>
+          <ul>
+            <li>NiceV2 (나이스페이먼츠)</li>
+            <li>Tosspayments (토스페이먼츠)</li>
+            <li>KCP V2 (NHN KCP)</li>
+            <li>Inicis V2 (KG이니시스)</li>
+            <li>Smartro V2 (스마트로)</li>
+            <li>KSNET</li>
+            <li>KPN (한국결제네트웍스)</li>
+            <li>Kakaopay (카카오페이)</li>
+            <li>Naverpay (네이버페이)</li>
+            <li>Tosspay V2 (토스페이)</li>
+            <li>Toss Brandpay (토스 브랜드페이)</li>
+            <li>Welcome Payments (웰컴페이먼츠)</li>
+            <li>Hyphen (하이픈)</li>
+          </ul>
+          <p><strong>International PG Companies:</strong></p>
+          <ul>
+            <li>Triple-A (cryptocurrency payments)</li>
+            <li>PayPal V2</li>
+            <li>Eximbay V2</li>
+            <li>Inicis JP (KG이니시스 일본)</li>
+            <li>Payletter Global (페이레터 해외결제)</li>
+          </ul>
           <p>
             If you try an unsupported combination, e.g.,
             <code>PGCompany.niceV2</code> with
@@ -472,7 +521,7 @@ if (result != null) {
 </code></pre>
           <p>
             See
-            <a href="./lib/src/helpers/supported_methods.dart"
+            <a href="lib/src/helpers/supported_methods.dart"
               ><code>PaymentSupportedMethods</code></a
             >
             extension for details. Example for `niceV2
@@ -578,7 +627,7 @@ open coverage/index.html
       ></div>
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.2.1 </span>
+      <span class="no-break"> portone_flutter_v2 1.3.0 </span>
     </footer>
 
     <script src="static-assets/highlight.pack.js?v1"></script>

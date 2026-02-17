@@ -98,7 +98,7 @@
               <ul class="annotation-list clazz-relationships">
                 <li>
                   @<a
-                    href="https://pub.dev/documentation/json_annotation/4.9.0/json_annotation/JsonSerializable-class.html"
+                    href="https://pub.dev/documentation/json_annotation/4.10.0/json_annotation/JsonSerializable/JsonSerializable.html"
                     >JsonSerializable</a
                   >()
                 </li>
@@ -114,7 +114,7 @@
               <span class="name"
                 ><a
                   href="../portone_flutter_v2/PaymentRequest/PaymentRequest.html"
-                  >PaymentRequest.new</a
+                  >PaymentRequest</a
                 ></span
               ><span class="signature"
                 >({<span class="parameter" id="-param-storeId"
@@ -238,6 +238,14 @@
                     >?</span
                   >
                   <span class="parameter-name">redirectUrl</span>, </span
+                ><span class="parameter" id="-param-forceRedirect"
+                  ><span class="type-annotation"
+                    ><a
+                      href="https://api.flutter.dev/flutter/dart-core/bool-class.html"
+                      >bool</a
+                    >?</span
+                  >
+                  <span class="parameter-name">forceRedirect</span>, </span
                 ><span class="parameter" id="-param-noticeUrls"
                   ><span class="type-annotation"
                     ><a
@@ -390,7 +398,13 @@
                     ><a href="../portone_flutter_v2/Popup-class.html">Popup</a
                     >?</span
                   >
-                  <span class="parameter-name">popup</span></span
+                  <span class="parameter-name">popup</span>, </span
+                ><span class="parameter" id="-param-iframe"
+                  ><span class="type-annotation"
+                    ><a href="../portone_flutter_v2/Iframe-class.html">Iframe</a
+                    >?</span
+                  >
+                  <span class="parameter-name">iframe</span></span
                 >})</span
               >
             </dt>
@@ -655,6 +669,26 @@
               <div class="features"><span class="feature">final</span></div>
             </dd>
 
+            <dt id="forceRedirect" class="property">
+              <span class="name"
+                ><a
+                  href="../portone_flutter_v2/PaymentRequest/forceRedirect.html"
+                  >forceRedirect</a
+                ></span
+              >
+              <span class="signature"
+                >&#8594;
+                <a
+                  href="https://api.flutter.dev/flutter/dart-core/bool-class.html"
+                  >bool</a
+                >?</span
+              >
+            </dt>
+            <dd>
+              결과 리턴 방식을 리디렉션으로 강제
+              <div class="features"><span class="feature">final</span></div>
+            </dd>
+
             <dt id="hashCode" class="property inherited">
               <span class="name"
                 ><a
@@ -676,6 +710,23 @@
                 <span class="feature">no setter</span
                 ><span class="feature">inherited</span>
               </div>
+            </dd>
+
+            <dt id="iframe" class="property">
+              <span class="name"
+                ><a href="../portone_flutter_v2/PaymentRequest/iframe.html"
+                  >iframe</a
+                ></span
+              >
+              <span class="signature"
+                >&#8594;
+                <a href="../portone_flutter_v2/Iframe-class.html">Iframe</a
+                >?</span
+              >
+            </dt>
+            <dd>
+              결제창이 iframe 방식일 경우 결제창에 적용할 속성
+              <div class="features"><span class="feature">final</span></div>
             </dd>
 
             <dt id="isCulturalExpense" class="property">
@@ -1257,7 +1308,7 @@
       <!--/.sidebar-offcanvas-->
     </main>
     <footer>
-      <span class="no-break"> portone_flutter_v2 1.2.1 </span>
+      <span class="no-break"> portone_flutter_v2 1.3.0 </span>
     </footer>
 
     <script src="../static-assets/highlight.pack.js?v1"></script>
