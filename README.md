@@ -14,9 +14,17 @@ A robust Flutter package enabling seamless integration of the PortOne V2 payment
 
 - **Flexible Payment Gateway Selection:**
   Choose your payment gateway (`PGCompany`) when constructing the `PaymentRequest` to tailor behavior and supported methods.
+  - Supports all major Korean PG companies (NiceV2, Tosspayments, KCP, Inicis, etc.)
+  - International payment gateways (Triple-A for cryptocurrency, PayPal V2, Eximbay)
 
 - **PayMethod Validation:**
   Ensures that the selected `payMethod` is supported by the chosen `PGCompany`, throwing a clear error if not.
+
+- **Advanced Bypass Parameters:**
+  PG-specific customization via bypass models for advanced payment configurations.
+
+- **Iframe & Popup Customization:**
+  Control payment window appearance with iframe dim settings and popup positioning.
 
 - **URL Normalization & Custom Scheme Support:**
   Normalizes redirect URLs and custom app schemes for consistent deep-link behavior in `InAppWebView` (removed automatic deep-link handling via `app_links` dependency).
@@ -293,6 +301,32 @@ Internally, this package:
 - Manages redirects and payment results by intercepting URL navigations and intents, offering a streamlined mobile payment experience.
 
 ## 🧩 Supported Payment Methods per PG Company
+
+This package supports the following PG companies:
+
+**Korean PG Companies:**
+
+- NiceV2 (나이스페이먼츠)
+- Tosspayments (토스페이먼츠)
+- KCP V2 (NHN KCP)
+- Inicis V2 (KG이니시스)
+- Smartro V2 (스마트로)
+- KSNET
+- KPN (한국결제네트웍스)
+- Kakaopay (카카오페이)
+- Naverpay (네이버페이)
+- Tosspay V2 (토스페이)
+- Toss Brandpay (토스 브랜드페이)
+- Welcome Payments (웰컴페이먼츠)
+- Hyphen (하이픈)
+
+**International PG Companies:**
+
+- Triple-A (cryptocurrency payments)
+- PayPal V2
+- Eximbay V2
+- Inicis JP (KG이니시스 일본)
+- Payletter Global (페이레터 해외결제)
 
 If you try an unsupported combination, e.g., `PGCompany.niceV2` with `PaymentPayMethod.convenienceStore`, the constructor will throw an `ArgumentError`:
 

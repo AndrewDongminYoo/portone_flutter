@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Added **Triple-A** PG company support for cryptocurrency payments
+  - New `PGCompany.tripleA` enum variant
+  - New `TripleABypass` model with support for payer proof of identity, shipping cost, shipping discount, and tax cost parameters
+  - Payment method mapping for Triple-A (supports card payments)
+  - Localization strings for Triple-A in English and Korean
+- Added `forceRedirect` field to `PaymentRequest` model
+  - Allows forcing redirect behavior even when the result would normally be resolved as a promise
+  - Useful for consistent payment completion handling in WebView environments
+- Added **PayPal V2** bypass support
+  - New `PaypalV2Bypass` model with flexible structure for purchase units, payer info, payment source, and additional data
+  - Uses `Map<String, dynamic>` for complex nested structures to maintain flexibility with PayPal API
+- Added **Iframe** configuration support
+  - New `Iframe` model for customizing iframe-based payment windows
+  - `dim` property to control payment window background transparency
+  - Integrated into `PaymentRequest` for iframe payment window customization
+
+### Changed
+
+- Updated `PaymentBypass` model to include `tripleA` and `paypalV2` fields
+- Enhanced documentation alignment with official PortOne V2 browser SDK specification
+
 ## [1.2.1] - 2025-10-26
 
 ### Changed
