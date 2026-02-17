@@ -27,6 +27,7 @@ PaymentRequest _$PaymentRequestFromJson(Map<String, dynamic> json) =>
           ? null
           : WindowTypes.fromJson(json['windowType'] as Map<String, dynamic>),
       redirectUrl: json['redirectUrl'] as String?,
+      forceRedirect: json['forceRedirect'] as bool?,
       noticeUrls: (json['noticeUrls'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
@@ -66,6 +67,9 @@ PaymentRequest _$PaymentRequestFromJson(Map<String, dynamic> json) =>
       popup: json['popup'] == null
           ? null
           : Popup.fromJson(json['popup'] as Map<String, dynamic>),
+      iframe: json['iframe'] == null
+          ? null
+          : Iframe.fromJson(json['iframe'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$PaymentRequestToJson(PaymentRequest instance) =>
@@ -83,6 +87,7 @@ Map<String, dynamic> _$PaymentRequestToJson(PaymentRequest instance) =>
       'customer': ?instance.customer?.toJson(),
       'windowType': ?instance.windowType?.toJson(),
       'redirectUrl': ?instance.redirectUrl,
+      'forceRedirect': ?instance.forceRedirect,
       'noticeUrls': ?instance.noticeUrls,
       'confirmUrl': ?instance.confirmUrl,
       'appScheme': instance.appScheme,
@@ -102,6 +107,7 @@ Map<String, dynamic> _$PaymentRequestToJson(PaymentRequest instance) =>
       'shippingAddress': ?instance.shippingAddress?.toJson(),
       'promotionId': ?instance.promotionId,
       'popup': ?instance.popup?.toJson(),
+      'iframe': ?instance.iframe?.toJson(),
     };
 
 const Map<PaymentCurrency, String> _$PaymentCurrencyEnumMap = {
@@ -313,6 +319,7 @@ const Map<PGCompany, String> _$PGCompanyEnumMap = {
   PGCompany.tossBrandpay: 'toss_brandpay_payment',
   PGCompany.tosspayV2: 'tosspay_v2_payment',
   PGCompany.tosspayments: 'tosspayments_payment',
+  PGCompany.tripleA: 'triple_a',
   PGCompany.welcome: 'welcome_payment',
 };
 

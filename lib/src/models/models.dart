@@ -1,6 +1,7 @@
 export 'address.dart';
 export 'bypass/bypass.dart';
 export 'customer.dart';
+export 'iframe.dart';
 export 'offer_period.dart';
 export 'payment_request.dart';
 export 'payment_response.dart';

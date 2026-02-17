@@ -28,6 +28,7 @@ class PaymentRequest {
     this.customer,
     this.windowType,
     this.redirectUrl,
+    this.forceRedirect,
     this.noticeUrls,
     this.confirmUrl,
     this.isEscrow,
@@ -45,6 +46,7 @@ class PaymentRequest {
     this.shippingAddress,
     this.promotionId,
     this.popup,
+    this.iframe,
   }) {
     // PG사가 지정되어 있으면, 해당 PG가 이 payMethod를 지원하는지 확인
     if (pg != null && !pg!.methods.contains(payMethod)) {
@@ -143,6 +145,15 @@ class PaymentRequest {
   /// [PaymentResponse] 값이 쿼리 파라미터에 추가되어 리다이렉트될 URL
   final String? redirectUrl;
 
+  /// 결과 리턴 방식을 리디렉션으로 강제
+  ///
+  /// `true`로 설정하면 원래 프로미스로 resolve 되었을 상황에서도
+  /// `redirectUrl`로 쿼리 파라미터와 함께 리디렉션합니다.
+  ///
+  /// - `redirectUrl`이 없으면 기존처럼 프로미스로 반환합니다.
+  /// - 결제 시작 전 발생하는 에러는 리디렉션하지 않습니다.
+  final bool? forceRedirect;
+
   /// 웹훅(Webhook) 수신 주소
   ///
   /// 유효한 형식의 문자열을 입력해주세요.
@@ -222,6 +233,9 @@ class PaymentRequest {
 
   /// 결제창이 팝업 방식일 경우 결제창에 적용할 속성
   final Popup? popup;
+
+  /// 결제창이 iframe 방식일 경우 결제창에 적용할 속성
+  final Iframe? iframe;
 
   /// [PaymentRequest] 객체를 JSON으로 변환하는 메서드
   Map<String, dynamic> toJson() => _$PaymentRequestToJson(this);
