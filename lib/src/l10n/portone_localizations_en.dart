@@ -56,4 +56,7 @@ class PortoneLocalizationsEn implements PortoneLocalizations {
 
   @override
   String get welcome => 'Welcome Payments';
+
+  @override
+  String get tripleA => 'Triple-A';
 }

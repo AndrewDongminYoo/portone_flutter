@@ -96,6 +96,9 @@ abstract class PortoneLocalizations {
 
   /// 웰컴페이먼츠
   String get welcome;
+
+  /// Triple-A
+  String get tripleA;
 }
 
 /// 로컬라이제이션 델리게이트로, 사용자가 선택한 Locale에 따라

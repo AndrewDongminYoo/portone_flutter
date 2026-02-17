@@ -56,4 +56,7 @@ class PortoneLocalizationsKo implements PortoneLocalizations {
 
   @override
   String get welcome => '웰컴페이먼츠';
+
+  @override
+  String get tripleA => 'Triple-A';
 }

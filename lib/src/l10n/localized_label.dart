@@ -69,6 +69,8 @@ extension PGCompanyLocalization on PGCompany {
         return localizations.tosspayments;
       case PGCompany.welcome:
         return localizations.welcome;
+      case PGCompany.tripleA:
+        return localizations.tripleA;
     }
   }
 }

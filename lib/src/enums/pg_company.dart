@@ -49,6 +49,9 @@ enum PGCompany {
   /// 토스페이먼츠
   tosspayments('tosspayments_payment'),
 
+  /// Triple-A
+  tripleA('triple_a'),
+
   /// 웰컴페이먼츠
   welcome('welcome_payment');
 

@@ -78,6 +78,8 @@ extension PaymentSupportedMethods on PGCompany? {
       PGCompany.hyphen => <PaymentPayMethod>[PaymentPayMethod.easyPay],
       // https://developers.portone.io/opi/ko/integration/pg/v2/eximbay-v2?v=v2
       PGCompany.eximbayV2 => <PaymentPayMethod>[PaymentPayMethod.card],
+      // https://developers.portone.io/opi/ko/integration/pg/v2/triple-a?v=v2
+      PGCompany.tripleA => <PaymentPayMethod>[PaymentPayMethod.card],
       _ => PaymentPayMethod.values,
     };
   }
