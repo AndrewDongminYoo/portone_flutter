@@ -39,6 +39,7 @@ lint:
       paths:
         - .github/ISSUE_TEMPLATE
         - .github/PULL_REQUEST_TEMPLATE.md
+        - doc/api/static-assets/readme.md
     - linters:
         - osv-scanner
       paths:

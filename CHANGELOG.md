@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.3.0] - 2026-02-18
 
 ### Added
 
@@ -40,13 +40,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated the primary and example dependencies to their latest stable releases (`url_launcher` 6.3.2, `go_router` 16.3.0, `build_runner` 2.10.1, `json_serializable` 6.11.1, `mockito` 5.5.1, `very_good_analysis` 10.0.0) and quieted the upgrade scripts to reduce noise during maintenance.
 - Expanded `.pubignore` so IDE metadata, documentation artifacts, helper scripts, and the platform-specific `example` folders are excluded from the published package, keeping the archive leaner.
 
-### Removed
-
-- Breaking: `PortonePayment`'s state class is now private (`_PortonePaymentState`), so consuming apps must interact with the widget exclusively through the public `PortonePayment` API and callbacks.
-
 ### Fixed
 
 - Removed the upper bound from the Flutter SDK constraint (`flutter: ">=3.35.1"`) to comply with `dart pub publish` validation and allow future Flutter releases without republishing.
+
+### Removed
+
+- Breaking: `PortonePayment`'s state class is now private (`_PortonePaymentState`), so consuming apps must interact with the widget exclusively through the public `PortonePayment` API and callbacks.
 
 ## [1.2.0] - 2025-08-20
 
@@ -248,6 +248,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Modified field type in PaymentRequest model (changed `isEscrow` to nullable)
 - Changed `paypal` to `convenienceStore` in the `PaymentPayMethod` enumeration
 
+[1.3.0]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.2.1...1.3.0
 [1.2.1]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.11...v1.1.0
@@ -263,4 +264,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.0.2]: https://github.com/AndrewDongminYoo/portone_flutter/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/AndrewDongminYoo/portone_flutter/releases/tag/v1.0.0
-[unreleased]: https://github.com/AndrewDongminYoo/portone_flutter/compare/v1.2.1...main
