@@ -30,7 +30,7 @@ flutter upgrade
 ```yaml
 # Before
 dependencies:
-  portone_flutter_v2: ^1.3.0
+  portone_flutter_v2: ^1.4.0
 
 # After
 dependencies:
@@ -102,27 +102,7 @@ PortonePayment(
 
 Most fields are identical. The breaking changes are:
 
-### 5a. `currency` type: `PaymentCurrency` → `Currency`
-
-The class was renamed. More importantly, `portone_flutter_v2` was serializing currency values
-as `"CURRENCY_KRW"` — a format the PortOne V2 API never accepted. The correct wire value has
-always been the plain ISO 4217 code (`"KRW"`, `"USD"`, etc.). The official package serializes
-correctly.
-
-```dart
-// Before — serialized to "CURRENCY_KRW" (incorrect wire format)
-currency: PaymentCurrency.KRW,
-
-// After — serializes to "KRW" (correct ISO 4217 code)
-currency: Currency.KRW,
-```
-
-> [!IMPORTANT]
-> If you were using this package with non-KRW currencies (USD, JPY, EUR, …), verify with your
-> PortOne dashboard that past transactions were processed correctly, as the malformed currency
-> code may have caused silent failures or unexpected behaviour on the PG side.
-
-### 5b. `pg` field removed — use `channelKey` only
+### 5a. `pg` field removed — use `channelKey` only
 
 ```dart
 // Before — PGCompany drove validation; channelKey was optional
@@ -155,7 +135,7 @@ PaymentRequest(
 validation (which this package performed in the `PaymentRequest` constructor) is not present
 in the official package.
 
-### 5c. `PaymentPayMethod` enum values: camelCase → SCREAMING_SNAKE_CASE
+### 5b. `PaymentPayMethod` enum values: camelCase → SCREAMING_SNAKE_CASE
 
 The enum name is the same, but the member names changed to match the PortOne JS SDK conventions.
 

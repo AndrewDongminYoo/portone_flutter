@@ -12,544 +12,544 @@ import 'package:json_annotation/json_annotation.dart';
 @JsonEnum(fieldRename: FieldRename.screamingSnake, valueField: 'value')
 enum PaymentCurrency {
   /// 대한민국 원 (South Korean Won)
-  KRW('CURRENCY_KRW'),
+  KRW('KRW'),
 
   /// 미국 달러 (US Dollar)
-  USD('CURRENCY_USD'),
+  USD('USD'),
 
   /// 유로 (Euro)
-  EUR('CURRENCY_EUR'),
+  EUR('EUR'),
 
   /// 일본 엔 (Japanese Yen)
-  JPY('CURRENCY_JPY'),
+  JPY('JPY'),
 
   /// 중국 위안 (Chinese Yuan)
-  CNY('CURRENCY_CNY'),
+  CNY('CNY'),
 
   /// 베트남 동 (Vietnamese Dong)
-  VND('CURRENCY_VND'),
+  VND('VND'),
 
   /// 태국 바트 (Thai Baht)
-  THB('CURRENCY_THB'),
+  THB('THB'),
 
   /// 싱가포르 달러 (Singapore Dollar)
-  SGD('CURRENCY_SGD'),
+  SGD('SGD'),
 
   /// 호주 달러 (Australian Dollar)
-  AUD('CURRENCY_AUD'),
+  AUD('AUD'),
 
   /// 홍콩 달러 (Hong Kong Dollar)
-  HKD('CURRENCY_HKD'),
+  HKD('HKD'),
 
   /// 아랍에미리트 디르함 (UAE Dirham)
-  AED('CURRENCY_AED'),
+  AED('AED'),
 
   /// 아프가니스탄 아프가니 (Afghan Afghani)
-  AFN('CURRENCY_AFN'),
+  AFN('AFN'),
 
   /// 알바니아 레크 (Albanian Lek)
-  ALL('CURRENCY_ALL'),
+  ALL('ALL'),
 
   /// 아르메니아 드람 (Armenian Dram)
-  AMD('CURRENCY_AMD'),
+  AMD('AMD'),
 
   /// 네덜란드령 안틸레스 길더 (Netherlands Antillean Guilder)
-  ANG('CURRENCY_ANG'),
+  ANG('ANG'),
 
   /// 앙골라 콴자 (Angolan Kwanza)
-  AOA('CURRENCY_AOA'),
+  AOA('AOA'),
 
   /// 아르헨티나 페소 (Argentine Peso)
-  ARS('CURRENCY_ARS'),
+  ARS('ARS'),
 
   /// 아루바 플로린 (Aruban Florin)
-  AWG('CURRENCY_AWG'),
+  AWG('AWG'),
 
   /// 아제르바이잔 마나트 (Azerbaijani Manat)
-  AZN('CURRENCY_AZN'),
+  AZN('AZN'),
 
   /// 보스니아-헤르체고비나 태환 마르크 (Bosnia and Herzegovina Convertible Mark)
-  BAM('CURRENCY_BAM'),
+  BAM('BAM'),
 
   /// 바베이도스 달러 (Barbados Dollar)
-  BBD('CURRENCY_BBD'),
+  BBD('BBD'),
 
   /// 방글라데시 타카 (Bangladeshi Taka)
-  BDT('CURRENCY_BDT'),
+  BDT('BDT'),
 
   /// 불가리아 레프 (Bulgarian Lev)
-  BGN('CURRENCY_BGN'),
+  BGN('BGN'),
 
   /// 바레인 디나르 (Bahraini Dinar)
-  BHD('CURRENCY_BHD'),
+  BHD('BHD'),
 
   /// 부룬디 프랑 (Burundian Franc)
-  BIF('CURRENCY_BIF'),
+  BIF('BIF'),
 
   /// 버뮤다 달러 (Bermudian Dollar)
-  BMD('CURRENCY_BMD'),
+  BMD('BMD'),
 
   /// 브루나이 달러 (Brunei Dollar)
-  BND('CURRENCY_BND'),
+  BND('BND'),
 
   /// 볼리비아노 (Bolivian Boliviano)
-  BOB('CURRENCY_BOB'),
+  BOB('BOB'),
 
   /// 볼리비아 MVDOL (Bolivian MVDOL)
-  BOV('CURRENCY_BOV'),
+  BOV('BOV'),
 
   /// 브라질 헤알 (Brazilian Real)
-  BRL('CURRENCY_BRL'),
+  BRL('BRL'),
 
   /// 바하마 달러 (Bahamian Dollar)
-  BSD('CURRENCY_BSD'),
+  BSD('BSD'),
 
   /// 부탄 눌트럼 (Bhutanese Ngultrum)
-  BTN('CURRENCY_BTN'),
+  BTN('BTN'),
 
   /// 보츠와나 풀라 (Botswana Pula)
-  BWP('CURRENCY_BWP'),
+  BWP('BWP'),
 
   /// 벨라루스 루블 (Belarusian Ruble)
-  BYN('CURRENCY_BYN'),
+  BYN('BYN'),
 
   /// 벨리즈 달러 (Belize Dollar)
-  BZD('CURRENCY_BZD'),
+  BZD('BZD'),
 
   /// 캐나다 달러 (Canadian Dollar)
-  CAD('CURRENCY_CAD'),
+  CAD('CAD'),
 
   /// 콩고 프랑 (Congolese Franc)
-  CDF('CURRENCY_CDF'),
+  CDF('CDF'),
 
   /// WIR 유로 (WIR Euro)
-  CHE('CURRENCY_CHE'),
+  CHE('CHE'),
 
   /// 스위스 프랑 (Swiss Franc)
-  CHF('CURRENCY_CHF'),
+  CHF('CHF'),
 
   /// WIR 프랑 (WIR Franc)
-  CHW('CURRENCY_CHW'),
+  CHW('CHW'),
 
   /// 칠레 단위 (Unidad de Fomento)
-  CLF('CURRENCY_CLF'),
+  CLF('CLF'),
 
   /// 칠레 페소 (Chilean Peso)
-  CLP('CURRENCY_CLP'),
+  CLP('CLP'),
 
   /// 콜롬비아 페소 (Colombian Peso)
-  COP('CURRENCY_COP'),
+  COP('COP'),
 
   /// 콜롬비아 단위 (Unidad de Valor Real)
-  COU('CURRENCY_COU'),
+  COU('COU'),
 
   /// 코스타리카 콜론 (Costa Rican Colón)
-  CRC('CURRENCY_CRC'),
+  CRC('CRC'),
 
   /// 쿠바 태환 페소 (Cuban Convertible Peso)
-  CUC('CURRENCY_CUC'),
+  CUC('CUC'),
 
   /// 쿠바 페소 (Cuban Peso)
-  CUP('CURRENCY_CUP'),
+  CUP('CUP'),
 
   /// 카보베르데 에스쿠도 (Cape Verdean Escudo)
-  CVE('CURRENCY_CVE'),
+  CVE('CVE'),
 
   /// 체코 코루나 (Czech Koruna)
-  CZK('CURRENCY_CZK'),
+  CZK('CZK'),
 
   /// 지부티 프랑 (Djiboutian Franc)
-  DJF('CURRENCY_DJF'),
+  DJF('DJF'),
 
   /// 덴마크 크로네 (Danish Krone)
-  DKK('CURRENCY_DKK'),
+  DKK('DKK'),
 
   /// 도미니카 페소 (Dominican Peso)
-  DOP('CURRENCY_DOP'),
+  DOP('DOP'),
 
   /// 알제리 디나르 (Algerian Dinar)
-  DZD('CURRENCY_DZD'),
+  DZD('DZD'),
 
   /// 이집트 파운드 (Egyptian Pound)
-  EGP('CURRENCY_EGP'),
+  EGP('EGP'),
 
   /// 에리트레아 낙파 (Eritrean Nakfa)
-  ERN('CURRENCY_ERN'),
+  ERN('ERN'),
 
   /// 에티오피아 비르 (Ethiopian Birr)
-  ETB('CURRENCY_ETB'),
+  ETB('ETB'),
 
   /// 피지 달러 (Fijian Dollar)
-  FJD('CURRENCY_FJD'),
+  FJD('FJD'),
 
   /// 포클랜드 제도 파운드 (Falkland Islands Pound)
-  FKP('CURRENCY_FKP'),
+  FKP('FKP'),
 
   /// 영국 파운드 스털링 (Pound Sterling)
-  GBP('CURRENCY_GBP'),
+  GBP('GBP'),
 
   /// 조지아 라리 (Georgian Lari)
-  GEL('CURRENCY_GEL'),
+  GEL('GEL'),
 
   /// 가나 세디 (Ghanaian Cedi)
-  GHS('CURRENCY_GHS'),
+  GHS('GHS'),
 
   /// 지브롤터 파운드 (Gibraltar Pound)
-  GIP('CURRENCY_GIP'),
+  GIP('GIP'),
 
   /// 감비아 달라시 (Gambian Dalasi)
-  GMD('CURRENCY_GMD'),
+  GMD('GMD'),
 
   /// 기니 프랑 (Guinean Franc)
-  GNF('CURRENCY_GNF'),
+  GNF('GNF'),
 
   /// 과테말라 케찰 (Guatemalan Quetzal)
-  GTQ('CURRENCY_GTQ'),
+  GTQ('GTQ'),
 
   /// 가이아나 달러 (Guyanese Dollar)
-  GYD('CURRENCY_GYD'),
+  GYD('GYD'),
 
   /// 온두라스 렘피라 (Honduran Lempira)
-  HNL('CURRENCY_HNL'),
+  HNL('HNL'),
 
   /// 크로아티아 쿠나 (Croatian Kuna)
-  HRK('CURRENCY_HRK'),
+  HRK('HRK'),
 
   /// 아이티 구르드 (Haitian Gourde)
-  HTG('CURRENCY_HTG'),
+  HTG('HTG'),
 
   /// 헝가리 포린트 (Hungarian Forint)
-  HUF('CURRENCY_HUF'),
+  HUF('HUF'),
 
   /// 인도네시아 루피아 (Indonesian Rupiah)
-  IDR('CURRENCY_IDR'),
+  IDR('IDR'),
 
   /// 이스라엘 신 셰켈 (Israeli New Shekel)
-  ILS('CURRENCY_ILS'),
+  ILS('ILS'),
 
   /// 인도 루피 (Indian Rupee)
-  INR('CURRENCY_INR'),
+  INR('INR'),
 
   /// 이라크 디나르 (Iraqi Dinar)
-  IQD('CURRENCY_IQD'),
+  IQD('IQD'),
 
   /// 이란 리얄 (Iranian Rial)
-  IRR('CURRENCY_IRR'),
+  IRR('IRR'),
 
   /// 아이슬란드 크로나 (Icelandic Króna)
-  ISK('CURRENCY_ISK'),
+  ISK('ISK'),
 
   /// 자메이카 달러 (Jamaican Dollar)
-  JMD('CURRENCY_JMD'),
+  JMD('JMD'),
 
   /// 요르단 디나르 (Jordanian Dinar)
-  JOD('CURRENCY_JOD'),
+  JOD('JOD'),
 
   /// 케냐 실링 (Kenyan Shilling)
-  KES('CURRENCY_KES'),
+  KES('KES'),
 
   /// 키르기스스탄 솜 (Kyrgyzstani Som)
-  KGS('CURRENCY_KGS'),
+  KGS('KGS'),
 
   /// 캄보디아 리엘 (Cambodian Riel)
-  KHR('CURRENCY_KHR'),
+  KHR('KHR'),
 
   /// 코모로 프랑 (Comorian Franc)
-  KMF('CURRENCY_KMF'),
+  KMF('KMF'),
 
   /// 북한 원 (North Korean Won)
-  KPW('CURRENCY_KPW'),
+  KPW('KPW'),
 
   /// 쿠웨이트 디나르 (Kuwaiti Dinar)
-  KWD('CURRENCY_KWD'),
+  KWD('KWD'),
 
   /// 케이맨 제도 달러 (Cayman Islands Dollar)
-  KYD('CURRENCY_KYD'),
+  KYD('KYD'),
 
   /// 카자흐스탄 텡게 (Kazakhstani Tenge)
-  KZT('CURRENCY_KZT'),
+  KZT('KZT'),
 
   /// 라오스 킵 (Lao Kip)
-  LAK('CURRENCY_LAK'),
+  LAK('LAK'),
 
   /// 레바논 파운드 (Lebanese Pound)
-  LBP('CURRENCY_LBP'),
+  LBP('LBP'),
 
   /// 스리랑카 루피 (Sri Lankan Rupee)
-  LKR('CURRENCY_LKR'),
+  LKR('LKR'),
 
   /// 라이베리아 달러 (Liberian Dollar)
-  LRD('CURRENCY_LRD'),
+  LRD('LRD'),
 
   /// 레소토 로티 (Lesotho Loti)
-  LSL('CURRENCY_LSL'),
+  LSL('LSL'),
 
   /// 리비아 디나르 (Libyan Dinar)
-  LYD('CURRENCY_LYD'),
+  LYD('LYD'),
 
   /// 모로코 디르함 (Moroccan Dirham)
-  MAD('CURRENCY_MAD'),
+  MAD('MAD'),
 
   /// 몰도바 레우 (Moldovan Leu)
-  MDL('CURRENCY_MDL'),
+  MDL('MDL'),
 
   /// 마다가스카르 아리아리 (Malagasy Ariary)
-  MGA('CURRENCY_MGA'),
+  MGA('MGA'),
 
   /// 북마케도니아 디나르 (Macedonian Denar)
-  MKD('CURRENCY_MKD'),
+  MKD('MKD'),
 
   /// 미얀마 짯 (Myanmar Kyat)
-  MMK('CURRENCY_MMK'),
+  MMK('MMK'),
 
   /// 몽골 투그릭 (Mongolian Tögrög)
-  MNT('CURRENCY_MNT'),
+  MNT('MNT'),
 
   /// 마카오 파타카 (Macanese Pataca)
-  MOP('CURRENCY_MOP'),
+  MOP('MOP'),
 
   /// 모리타니 우기야 (Mauritanian Ouguiya)
-  MRU('CURRENCY_MRU'),
+  MRU('MRU'),
 
   /// 모리셔스 루피 (Mauritian Rupee)
-  MUR('CURRENCY_MUR'),
+  MUR('MUR'),
 
   /// 몰디브 루피아 (Maldivian Rufiyaa)
-  MVR('CURRENCY_MVR'),
+  MVR('MVR'),
 
   /// 말라위 콰차 (Malawian Kwacha)
-  MWK('CURRENCY_MWK'),
+  MWK('MWK'),
 
   /// 멕시코 페소 (Mexican Peso)
-  MXN('CURRENCY_MXN'),
+  MXN('MXN'),
 
   /// 멕시코 투자 단위 (Mexican Unidad de Inversion)
-  MXV('CURRENCY_MXV'),
+  MXV('MXV'),
 
   /// 모잠비크 메티칼 (Mozambican Metical)
-  MZN('CURRENCY_MZN'),
+  MZN('MZN'),
 
   /// 나미비아 달러 (Namibian Dollar)
-  NAD('CURRENCY_NAD'),
+  NAD('NAD'),
 
   /// 나이지리아 나이라 (Nigerian Naira)
-  NGN('CURRENCY_NGN'),
+  NGN('NGN'),
 
   /// 니카라과 코르도바 (Nicaraguan Córdoba)
-  NIO('CURRENCY_NIO'),
+  NIO('NIO'),
 
   /// 노르웨이 크로네 (Norwegian Krone)
-  NOK('CURRENCY_NOK'),
+  NOK('NOK'),
 
   /// 네팔 루피 (Nepalese Rupee)
-  NPR('CURRENCY_NPR'),
+  NPR('NPR'),
 
   /// 뉴질랜드 달러 (New Zealand Dollar)
-  NZD('CURRENCY_NZD'),
+  NZD('NZD'),
 
   /// 오만 리얄 (Omani Rial)
-  OMR('CURRENCY_OMR'),
+  OMR('OMR'),
 
   /// 파나마 발보아 (Panamanian Balboa)
-  PAB('CURRENCY_PAB'),
+  PAB('PAB'),
 
   /// 페루 솔 (Peruvian Sol)
-  PEN('CURRENCY_PEN'),
+  PEN('PEN'),
 
   /// 파푸아뉴기니 키나 (Papua New Guinean Kina)
-  PGK('CURRENCY_PGK'),
+  PGK('PGK'),
 
   /// 필리핀 페소 (Philippine Peso)
-  PHP('CURRENCY_PHP'),
+  PHP('PHP'),
 
   /// 파키스탄 루피 (Pakistani Rupee)
-  PKR('CURRENCY_PKR'),
+  PKR('PKR'),
 
   /// 폴란드 즈워티 (Polish Zloty)
-  PLN('CURRENCY_PLN'),
+  PLN('PLN'),
 
   /// 파라과이 과라니 (Paraguayan Guarani)
-  PYG('CURRENCY_PYG'),
+  PYG('PYG'),
 
   /// 카타르 리얄 (Qatari Riyal)
-  QAR('CURRENCY_QAR'),
+  QAR('QAR'),
 
   /// 루마니아 레우 (Romanian Leu)
-  RON('CURRENCY_RON'),
+  RON('RON'),
 
   /// 세르비아 디나르 (Serbian Dinar)
-  RSD('CURRENCY_RSD'),
+  RSD('RSD'),
 
   /// 러시아 루블 (Russian Ruble)
-  RUB('CURRENCY_RUB'),
+  RUB('RUB'),
 
   /// 르완다 프랑 (Rwandan Franc)
-  RWF('CURRENCY_RWF'),
+  RWF('RWF'),
 
   /// 사우디 리얄 (Saudi Riyal)
-  SAR('CURRENCY_SAR'),
+  SAR('SAR'),
 
   /// 솔로몬 제도 달러 (Solomon Islands Dollar)
-  SBD('CURRENCY_SBD'),
+  SBD('SBD'),
 
   /// 세이셸 루피 (Seychellois Rupee)
-  SCR('CURRENCY_SCR'),
+  SCR('SCR'),
 
   /// 수단 파운드 (Sudanese Pound)
-  SDG('CURRENCY_SDG'),
+  SDG('SDG'),
 
   /// 스웨덴 크로나 (Swedish Krona)
-  SEK('CURRENCY_SEK'),
+  SEK('SEK'),
 
   /// 세인트헬레나 파운드 (Saint Helena Pound)
-  SHP('CURRENCY_SHP'),
+  SHP('SHP'),
 
   /// 시에라리온 리온 (Sierra Leonean Leone)
-  SLE('CURRENCY_SLE'),
+  SLE('SLE'),
 
   /// 구 시에라리온 리온 (Sierra Leonean Leone – Old)
-  SLL('CURRENCY_SLL'),
+  SLL('SLL'),
 
   /// 소말리아 실링 (Somali Shilling)
-  SOS('CURRENCY_SOS'),
+  SOS('SOS'),
 
   /// 수리남 달러 (Surinamese Dollar)
-  SRD('CURRENCY_SRD'),
+  SRD('SRD'),
 
   /// 남수단 파운드 (South Sudanese Pound)
-  SSP('CURRENCY_SSP'),
+  SSP('SSP'),
 
   /// 상투메 프린시페 도브라 (São Tomé and Príncipe Dobra)
-  STN('CURRENCY_STN'),
+  STN('STN'),
 
   /// 엘살바도르 콜론 (Salvadoran Colón)
-  SVC('CURRENCY_SVC'),
+  SVC('SVC'),
 
   /// 시리아 파운드 (Syrian Pound)
-  SYP('CURRENCY_SYP'),
+  SYP('SYP'),
 
   /// 에스와티니 릴랑게니 (Swazi Lilangeni)
-  SZL('CURRENCY_SZL'),
+  SZL('SZL'),
 
   /// 타지키스탄 소모니 (Tajikistani Somoni)
-  TJS('CURRENCY_TJS'),
+  TJS('TJS'),
 
   /// 투르크메니스탄 마나트 (Turkmenistani Manat)
-  TMT('CURRENCY_TMT'),
+  TMT('TMT'),
 
   /// 튀니지 디나르 (Tunisian Dinar)
-  TND('CURRENCY_TND'),
+  TND('TND'),
 
   /// 통가 파앙가 (Tongan Paʻanga)
-  TOP('CURRENCY_TOP'),
+  TOP('TOP'),
 
   /// 튀르키예 리라 (Turkish Lira)
-  TRY('CURRENCY_TRY'),
+  TRY('TRY'),
 
   /// 트리니다드 토바고 달러 (Trinidad and Tobago Dollar)
-  TTD('CURRENCY_TTD'),
+  TTD('TTD'),
 
   /// 신 타이완 달러 (New Taiwan Dollar)
-  TWD('CURRENCY_TWD'),
+  TWD('TWD'),
 
   /// 탄자니아 실링 (Tanzanian Shilling)
-  TZS('CURRENCY_TZS'),
+  TZS('TZS'),
 
   /// 우크라이나 흐리브냐 (Ukrainian Hryvnia)
-  UAH('CURRENCY_UAH'),
+  UAH('UAH'),
 
   /// 우간다 실링 (Ugandan Shilling)
-  UGX('CURRENCY_UGX'),
+  UGX('UGX'),
 
   /// 미국 달러 (다음날 결제용) (US Dollar – Next Day)
-  USN('CURRENCY_USN'),
+  USN('USN'),
 
   /// 우루과이 인플레이션 지수 연동 통화 (Uruguay Peso en Unidades Indexadas)
-  UYI('CURRENCY_UYI'),
+  UYI('UYI'),
 
   /// 우루과이 페소 (Uruguayan Peso)
-  UYU('CURRENCY_UYU'),
+  UYU('UYU'),
 
   /// 우루과이 노임 단위 (Uruguayan Nominal Wage Index Unit)
-  UYW('CURRENCY_UYW'),
+  UYW('UYW'),
 
   /// 우즈베키스탄 숨 (Uzbekistani Soʻm)
-  UZS('CURRENCY_UZS'),
+  UZS('UZS'),
 
   /// 베네수엘라 디지털 볼리바르 (Venezuelan Digital Bolívar)
-  VED('CURRENCY_VED'),
+  VED('VED'),
 
   /// 베네수엘라 소버린 볼리바르 (Venezuelan Sovereign Bolívar)
-  VES('CURRENCY_VES'),
+  VES('VES'),
 
   /// 바누아투 바투 (Vanuatu Vatu)
-  VUV('CURRENCY_VUV'),
+  VUV('VUV'),
 
   /// 사모아 탈라 (Samoan Tālā)
-  WST('CURRENCY_WST'),
+  WST('WST'),
 
   /// 중앙아프리카 CFA 프랑 (Central African CFA Franc)
-  XAF('CURRENCY_XAF'),
+  XAF('XAF'),
 
   /// 은 가격 단위 (Silver – troy ounce)
-  XAG('CURRENCY_XAG'),
+  XAG('XAG'),
 
   /// 금 가격 단위 (Gold – troy ounce)
-  XAU('CURRENCY_XAU'),
+  XAU('XAU'),
 
   /// 유럽 혼합 통화 단위 (European Composite Unit)
-  XBA('CURRENCY_XBA'),
+  XBA('XBA'),
 
   /// 유럽 통화 단위 (European Monetary Unit)
-  XBB('CURRENCY_XBB'),
+  XBB('XBB'),
 
   /// 유럽 회계 단위 1 (European Unit of Account 9)
-  XBC('CURRENCY_XBC'),
+  XBC('XBC'),
 
   /// 유럽 회계 단위 2 (European Unit of Account 17)
-  XBD('CURRENCY_XBD'),
+  XBD('XBD'),
 
   /// 동카리브 달러 (East Caribbean Dollar)
-  XCD('CURRENCY_XCD'),
+  XCD('XCD'),
 
   /// IMF 특별인출권 (Special Drawing Rights – SDR)
-  XDR('CURRENCY_XDR'),
+  XDR('XDR'),
 
   /// 서아프리카 CFA 프랑 (West African CFA Franc)
-  XOF('CURRENCY_XOF'),
+  XOF('XOF'),
 
   /// 팔라듐 (Palladium)
-  XPD('CURRENCY_XPD'),
+  XPD('XPD'),
 
   /// 프랑스령 태평양 프랑 (CFP Franc)
-  XPF('CURRENCY_XPF'),
+  XPF('XPF'),
 
   /// 백금 (Platinum)
-  XPT('CURRENCY_XPT'),
+  XPT('XPT'),
 
   /// SUCRE – ALBA 무역 단위 (SUCRE)
-  XSU('CURRENCY_XSU'),
+  XSU('XSU'),
 
   /// 테스트용 통화 코드 (Testing Currency Code)
-  XTS('CURRENCY_XTS'),
+  XTS('XTS'),
 
   /// 아프리카 개발은행 단위 (ADB Unit of Account)
-  XUA('CURRENCY_XUA'),
+  XUA('XUA'),
 
   /// 미지정 통화 (No Currency)
-  XXX('CURRENCY_XXX'),
+  XXX('XXX'),
 
   /// 예멘 리얄 (Yemeni Rial)
-  YER('CURRENCY_YER'),
+  YER('YER'),
 
   /// 남아프리카공화국 랜드 (South African Rand)
-  ZAR('CURRENCY_ZAR'),
+  ZAR('ZAR'),
 
   /// 잠비아 콰차 (Zambian Kwacha)
-  ZMW('CURRENCY_ZMW'),
+  ZMW('ZMW'),
 
   /// 짐바브웨 달러 (Zimbabwean Dollar)
-  ZWL('CURRENCY_ZWL');
+  ZWL('ZWL');
 
   /// [PaymentCurrency] 생성자입니다.
   const PaymentCurrency(this.value);

@@ -117,7 +117,7 @@ void main() {
         'paymentId': 'payment_001',
         'orderName': 'Test Order',
         'totalAmount': 1000,
-        'currency': 'CURRENCY_KRW', // PaymentCurrency enum에 맞는 값으로 변환되어야 함
+        'currency': 'KRW', // PaymentCurrency enum에 맞는 값으로 변환되어야 함
         'payMethod': 'CARD', // PaymentPayMethod enum에 맞는 값으로 변환되어야 함
         'appScheme': 'pontone',
         // 선택적 필드는 테스트 상황에 맞게 null 또는 적당한 값을 지정할 수 있음
