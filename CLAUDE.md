@@ -13,8 +13,8 @@ This Flutter package was created to offer seamless integration for PortOne's V2 
 - Run dev mode: `flutter run`
 - Format code: `dart run import_sorter:main -e && dart format .`
 - Fix code: `dart fix --apply`
-- Generate code: `dart run build_runner build --delete-conflicting-outputs`
-- Bootstrap project: `dart run build_runner build --delete-conflicting-outputs && dart format . && dart run import_sorter:main -e`
+- Generate code: `dart run build_runner build`
+- Bootstrap project: `dart run build_runner build && dart format . && dart run import_sorter:main -e`
 
 ### Testing
 
@@ -25,7 +25,7 @@ This Flutter package was created to offer seamless integration for PortOne's V2 
 
 ### Maintenance
 
-- Clean & reinstall: `flutter clean && flutter pub get && flutter pub get --directory example/ && dart run build_runner build --delete-conflicting-outputs`
+- Clean & reinstall: `flutter clean && flutter pub get && flutter pub get --directory example/ && dart run build_runner build`
 - Upgrade dependencies: `flutter upgrade --force && flutter pub upgrade --major-versions`
 
 ## Architecture
@@ -83,4 +83,4 @@ This Flutter package was created to offer seamless integration for PortOne's V2 
 - Uses `json_serializable` with `explicit_to_json: true` and `include_if_null: false`
 - Uses `mockito` for generating mocks in tests
 - Generated files have `.g.dart` extension and should not be edited manually
-- Run `dart run build_runner build --delete-conflicting-outputs` after modifying models
+- Run `dart run build_runner build` after modifying models
