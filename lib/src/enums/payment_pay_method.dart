@@ -5,25 +5,25 @@ import 'package:json_annotation/json_annotation.dart';
 @JsonEnum(fieldRename: FieldRename.screamingSnake, valueField: 'value')
 enum PaymentPayMethod {
   /// 카드
-  card('CARD'),
+  CARD('CARD'),
 
   /// 가상계좌
-  virtualAccount('VIRTUAL_ACCOUNT'),
+  VIRTUAL_ACCOUNT('VIRTUAL_ACCOUNT'),
 
   /// 계좌이체
-  transfer('TRANSFER'),
+  TRANSFER('TRANSFER'),
 
   /// 휴대폰 소액결제
-  mobile('MOBILE'),
+  MOBILE('MOBILE'),
 
   /// 상품권
-  giftCertificate('GIFT_CERTIFICATE'),
+  GIFT_CERTIFICATE('GIFT_CERTIFICATE'),
 
   /// 간편 결제
-  easyPay('EASY_PAY'),
+  EASY_PAY('EASY_PAY'),
 
   /// 편의점
-  convenienceStore('CONVENIENCE_STORE');
+  CONVENIENCE_STORE('CONVENIENCE_STORE');
 
   const PaymentPayMethod(this.value);
 

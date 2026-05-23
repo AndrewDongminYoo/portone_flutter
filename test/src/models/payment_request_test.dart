@@ -13,7 +13,7 @@ void main() {
         orderName: 'Test Order',
         totalAmount: 1000,
         currency: Currency.USD,
-        payMethod: PaymentPayMethod.card,
+        payMethod: PaymentPayMethod.CARD,
         appScheme: 'pontone',
         redirectUrl: 'pontone://payments',
       );
@@ -29,7 +29,7 @@ void main() {
       expect(paymentRequest.orderName, equals('Test Order'));
       expect(paymentRequest.totalAmount, equals(1000));
       expect(paymentRequest.currency, equals(Currency.USD));
-      expect(paymentRequest.payMethod, equals(PaymentPayMethod.card));
+      expect(paymentRequest.payMethod, equals(PaymentPayMethod.CARD));
       expect(paymentRequest.appScheme, equals('pontone'));
     });
 
@@ -40,7 +40,7 @@ void main() {
         orderName: 'Test Order',
         totalAmount: 1000,
         currency: Currency.USD,
-        payMethod: PaymentPayMethod.card,
+        payMethod: PaymentPayMethod.CARD,
         appScheme: 'pontone',
         redirectUrl: 'pontone://payments',
         channelKey: 'channel-key-00000000-0000-0000-0000-000000000000',
@@ -77,7 +77,7 @@ void main() {
         orderName: 'Test Order',
         totalAmount: 1000,
         currency: Currency.USD,
-        payMethod: PaymentPayMethod.card,
+        payMethod: PaymentPayMethod.CARD,
         appScheme: 'pontone',
         redirectUrl: 'pontone://payments',
         noticeUrls: [
@@ -180,7 +180,7 @@ void main() {
         orderName: 'Test Order',
         totalAmount: 1000,
         currency: Currency.USD,
-        payMethod: PaymentPayMethod.card,
+        payMethod: PaymentPayMethod.CARD,
         appScheme: 'pontone',
         redirectUrl: 'pontone://payments',
         expiredTime: '2025-04-12 18:18:17',
@@ -199,7 +199,7 @@ void main() {
           orderName: 'Unsupported Method',
           totalAmount: 500,
           currency: Currency.KRW,
-          payMethod: PaymentPayMethod.convenienceStore, // niceV2 에는 없음
+          payMethod: PaymentPayMethod.CONVENIENCE_STORE, // niceV2 에는 없음
           appScheme: 'pontone',
           redirectUrl: 'pontone://payments',
           pg: PGCompany.niceV2, // niceV2 의 methods 에 convenienceStore 가 없음
@@ -229,7 +229,7 @@ void main() {
           orderName: 'Supported Method',
           totalAmount: 500,
           currency: Currency.KRW,
-          payMethod: PaymentPayMethod.card,
+          payMethod: PaymentPayMethod.CARD,
           appScheme: 'pontone',
           redirectUrl: 'pontone://payments',
           pg: PGCompany.niceV2,

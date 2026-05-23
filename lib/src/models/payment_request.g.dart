@@ -294,13 +294,13 @@ const Map<Currency, String> _$CurrencyEnumMap = {
 };
 
 const Map<PaymentPayMethod, String> _$PaymentPayMethodEnumMap = {
-  PaymentPayMethod.card: 'CARD',
-  PaymentPayMethod.virtualAccount: 'VIRTUAL_ACCOUNT',
-  PaymentPayMethod.transfer: 'TRANSFER',
-  PaymentPayMethod.mobile: 'MOBILE',
-  PaymentPayMethod.giftCertificate: 'GIFT_CERTIFICATE',
-  PaymentPayMethod.easyPay: 'EASY_PAY',
-  PaymentPayMethod.convenienceStore: 'CONVENIENCE_STORE',
+  PaymentPayMethod.CARD: 'CARD',
+  PaymentPayMethod.VIRTUAL_ACCOUNT: 'VIRTUAL_ACCOUNT',
+  PaymentPayMethod.TRANSFER: 'TRANSFER',
+  PaymentPayMethod.MOBILE: 'MOBILE',
+  PaymentPayMethod.GIFT_CERTIFICATE: 'GIFT_CERTIFICATE',
+  PaymentPayMethod.EASY_PAY: 'EASY_PAY',
+  PaymentPayMethod.CONVENIENCE_STORE: 'CONVENIENCE_STORE',
 };
 
 const Map<PGCompany, String> _$PGCompanyEnumMap = {
