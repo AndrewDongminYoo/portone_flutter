@@ -1,5 +1,10 @@
 # PortOne Flutter V2
 
+> [!WARNING]
+> **This package is discontinued.** The official [`portone_flutter`](https://pub.dev/packages/portone_flutter) package now supports the V2 API. Migrate to the official package, which is actively maintained by PortOne.
+>
+> See the [**Migration Guide**](./MIGRATION.md) for step-by-step instructions.
+
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![License: MIT][license_badge]][license_link]
 
