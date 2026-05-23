@@ -3138,9 +3138,9 @@
     }
   },
   {
-    "name": "PaymentCurrency",
-    "qualifiedName": "portone_flutter_v2.PaymentCurrency",
-    "href": "portone_flutter_v2/PaymentCurrency.html",
+    "name": "Currency",
+    "qualifiedName": "portone_flutter_v2.Currency",
+    "href": "portone_flutter_v2/Currency.html",
     "kind": 5,
     "packageRank": 0,
     "desc": "ISO 4217 기반의 결제 통화 enum입니다.",
@@ -3152,30 +3152,30 @@
   },
   {
     "name": "value",
-    "qualifiedName": "portone_flutter_v2.PaymentCurrency.value",
-    "href": "portone_flutter_v2/PaymentCurrency/value.html",
+    "qualifiedName": "portone_flutter_v2.Currency.value",
+    "href": "portone_flutter_v2/Currency/value.html",
     "kind": 16,
     "overriddenDepth": 0,
     "packageRank": 0,
     "desc": "ISO 4217 기반 직렬화 값입니다.",
     "enclosedBy": {
-      "name": "PaymentCurrency",
+      "name": "Currency",
       "kind": 5,
-      "href": "portone_flutter_v2/PaymentCurrency.html"
+      "href": "portone_flutter_v2/Currency.html"
     }
   },
   {
     "name": "values",
-    "qualifiedName": "portone_flutter_v2.PaymentCurrency.values",
-    "href": "portone_flutter_v2/PaymentCurrency/values-constant.html",
+    "qualifiedName": "portone_flutter_v2.Currency.values",
+    "href": "portone_flutter_v2/Currency/values-constant.html",
     "kind": 1,
     "overriddenDepth": 0,
     "packageRank": 0,
     "desc": "A constant List of the values in this enum, in order of their declaration.",
     "enclosedBy": {
-      "name": "PaymentCurrency",
+      "name": "Currency",
       "kind": 5,
-      "href": "portone_flutter_v2/PaymentCurrency.html"
+      "href": "portone_flutter_v2/Currency.html"
     }
   },
   {

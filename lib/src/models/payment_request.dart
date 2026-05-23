@@ -94,7 +94,7 @@ class PaymentRequest {
   /// ISO 4217 통화 코드
   ///
   /// See: https://en.wikipedia.org/wiki/ISO_4217
-  final PaymentCurrency currency;
+  final Currency currency;
 
   /// 결제수단 구분코드
   ///

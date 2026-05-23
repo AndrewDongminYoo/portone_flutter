@@ -10,7 +10,7 @@ import 'package:json_annotation/json_annotation.dart';
 ///
 /// 참고: [ISO 4217 위키백과](https://en.wikipedia.org/wiki/ISO_4217)
 @JsonEnum(fieldRename: FieldRename.screamingSnake, valueField: 'value')
-enum PaymentCurrency {
+enum Currency {
   /// 대한민국 원 (South Korean Won)
   KRW('KRW'),
 
@@ -551,8 +551,8 @@ enum PaymentCurrency {
   /// 짐바브웨 달러 (Zimbabwean Dollar)
   ZWL('ZWL');
 
-  /// [PaymentCurrency] 생성자입니다.
-  const PaymentCurrency(this.value);
+  /// [Currency] 생성자입니다.
+  const Currency(this.value);
 
   /// ISO 4217 기반 직렬화 값입니다.
   final String value;

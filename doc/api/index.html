@@ -391,7 +391,7 @@ class PaymentScreen extends StatelessWidget {
       paymentId: paymentId,
       orderName: 'Flutter Course',
       totalAmount: 15000,
-      currency: PaymentCurrency.KRW,
+      currency: Currency.KRW,
       channelKey: 'channel-key-00000000-0000-0000-0000-000000000000',
       payMethod: PaymentPayMethod.card,
       appScheme: 'yourappscheme',  // Your app's URL scheme
@@ -498,7 +498,7 @@ if (result != null) {
       paymentId: 'payment-unsupported',
       orderName: 'Unsupported Method',
       totalAmount: 500,
-      currency: PaymentCurrency.KRW,
+      currency: Currency.KRW,
       payMethod: PaymentPayMethod.convenienceStore, // niceV2 에는 없음
       appScheme: 'portoneTest',
       pg: PGCompany.niceV2, // niceV2 의 methods 에 convenienceStore 가 없음

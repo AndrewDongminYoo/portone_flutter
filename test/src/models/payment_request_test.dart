@@ -12,7 +12,7 @@ void main() {
         paymentId: 'payment-00000000-0000-0000-0000-000000000000',
         orderName: 'Test Order',
         totalAmount: 1000,
-        currency: PaymentCurrency.USD,
+        currency: Currency.USD,
         payMethod: PaymentPayMethod.card,
         appScheme: 'pontone',
         redirectUrl: 'pontone://payments',
@@ -28,7 +28,7 @@ void main() {
       );
       expect(paymentRequest.orderName, equals('Test Order'));
       expect(paymentRequest.totalAmount, equals(1000));
-      expect(paymentRequest.currency, equals(PaymentCurrency.USD));
+      expect(paymentRequest.currency, equals(Currency.USD));
       expect(paymentRequest.payMethod, equals(PaymentPayMethod.card));
       expect(paymentRequest.appScheme, equals('pontone'));
     });
@@ -39,7 +39,7 @@ void main() {
         paymentId: 'payment-00000000-0000-0000-0000-000000000000',
         orderName: 'Test Order',
         totalAmount: 1000,
-        currency: PaymentCurrency.USD,
+        currency: Currency.USD,
         payMethod: PaymentPayMethod.card,
         appScheme: 'pontone',
         redirectUrl: 'pontone://payments',
@@ -76,7 +76,7 @@ void main() {
         paymentId: 'payment-00000000-0000-0000-0000-000000000000',
         orderName: 'Test Order',
         totalAmount: 1000,
-        currency: PaymentCurrency.USD,
+        currency: Currency.USD,
         payMethod: PaymentPayMethod.card,
         appScheme: 'pontone',
         redirectUrl: 'pontone://payments',
@@ -117,7 +117,7 @@ void main() {
         'paymentId': 'payment_001',
         'orderName': 'Test Order',
         'totalAmount': 1000,
-        'currency': 'KRW', // PaymentCurrency enum에 맞는 값으로 변환되어야 함
+        'currency': 'KRW', // Currency enum에 맞는 값으로 변환되어야 함
         'payMethod': 'CARD', // PaymentPayMethod enum에 맞는 값으로 변환되어야 함
         'appScheme': 'pontone',
         // 선택적 필드는 테스트 상황에 맞게 null 또는 적당한 값을 지정할 수 있음
@@ -179,7 +179,7 @@ void main() {
         paymentId: 'payment-00000000-0000-0000-0000-000000000000',
         orderName: 'Test Order',
         totalAmount: 1000,
-        currency: PaymentCurrency.USD,
+        currency: Currency.USD,
         payMethod: PaymentPayMethod.card,
         appScheme: 'pontone',
         redirectUrl: 'pontone://payments',
@@ -198,7 +198,7 @@ void main() {
           paymentId: 'payment-unsupported',
           orderName: 'Unsupported Method',
           totalAmount: 500,
-          currency: PaymentCurrency.KRW,
+          currency: Currency.KRW,
           payMethod: PaymentPayMethod.convenienceStore, // niceV2 에는 없음
           appScheme: 'pontone',
           redirectUrl: 'pontone://payments',
@@ -228,7 +228,7 @@ void main() {
           paymentId: 'payment-supported',
           orderName: 'Supported Method',
           totalAmount: 500,
-          currency: PaymentCurrency.KRW,
+          currency: Currency.KRW,
           payMethod: PaymentPayMethod.card,
           appScheme: 'pontone',
           redirectUrl: 'pontone://payments',

@@ -111,7 +111,7 @@ PaymentRequest(
   paymentId: paymentId,
   orderName: 'Flutter Course',
   totalAmount: 15000,
-  currency: PaymentCurrency.KRW,
+  currency: Currency.KRW,
   payMethod: PaymentPayMethod.card,
   appScheme: 'yourappscheme',
   pg: PGCompany.niceV2,           // ← removed

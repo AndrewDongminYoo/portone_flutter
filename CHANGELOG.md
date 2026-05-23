@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.4.0] - marked "discontinued"
 
-- Remove the “CURRENCY\_” prefix from the string values of the `PaymentCurrency` enumeration, in accordance with the PortOne official documentation
+- Remove the “CURRENCY\_” prefix from the string values of the `Currency` enumeration, in accordance with the PortOne official documentation
 
 ## [1.3.0] - 2026-02-18
 

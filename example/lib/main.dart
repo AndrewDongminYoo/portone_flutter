@@ -108,7 +108,7 @@ class PayNowScreen extends StatelessWidget {
               paymentId: paymentId,
               orderName: '주문명',
               totalAmount: 1000,
-              currency: PaymentCurrency.KRW,
+              currency: Currency.KRW,
               channelKey: 'channel-key-00000000-0000-0000-0000-000000000000',
               payMethod: PaymentPayMethod.card,
               appScheme: 'portone',
