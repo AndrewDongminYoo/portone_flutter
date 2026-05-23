@@ -10,6 +10,7 @@
   --main-footer-background: #111111;
   --main-h-text: black;
   --main-hyperlinks-color: #0175c2;
+  --search-icon-url: url("./search.svg");
   --main-inset-bgColor: #f5f5f7;
   --main-inset-borderColor: #dadce0;
   --main-code-bg: #f8f8f8;
@@ -41,6 +42,7 @@
   --main-search-bar: #454545;
   --main-footer-background: #27323a;
   --main-hyperlinks-color: #00d2fa;
+  --search-icon-url: url("./search_dark.svg");
   --main-inset-bgColor: #242b32;
   --main-inset-borderColor: #676f7e;
   --main-code-bg: #10161e;
@@ -753,7 +755,7 @@ nav .container {
   font-size: 15px;
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
-  background-image: url("./search.svg");
+  background-image: var(--search-icon-url);
   background-repeat: no-repeat;
   background-position: 2%;
   outline: 0;
