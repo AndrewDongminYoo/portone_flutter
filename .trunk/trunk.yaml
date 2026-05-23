@@ -7,7 +7,7 @@ cli:
 plugins:
   sources:
     - id: trunk
-      ref: v1.7.4
+      ref: v1.10.0
       uri: https://github.com/trunk-io/plugins
 # Many linters and tools depend on runtimes - configure them here. (https://docs.trunk.io/runtimes)
 runtimes:
@@ -15,7 +15,7 @@ runtimes:
     - go@1.21.0
     - java@13.0.11
     - node@22.16.0
-    - python@3.10.8
+    - python@3.14.4
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
   disabled:
@@ -45,18 +45,19 @@ lint:
       paths:
         - "**/Podfile.lock"
   enabled:
+    - actionlint@1.7.12
+    - checkov@3.2.529
+    - git-diff-check
+    - grype@0.110.0
+    - ktlint@1.8.0
+    - markdownlint@0.48.0
+    - osv-scanner@2.3.3
+    - oxipng@10.1.0
+    - prettier@3.8.3
     - shellcheck@0.11.0
     - shfmt@3.6.0
-    - osv-scanner@2.3.3
-    - ktlint@1.8.0
-    - oxipng@10.1.0
-    - actionlint@1.7.11
-    - checkov@3.2.506
-    - git-diff-check
-    - markdownlint@0.47.0
-    - prettier@3.8.1
-    - svgo@4.0.0
-    - trufflehog@3.93.5
+    - svgo@4.0.1
+    - trufflehog@3.95.3
     - yamllint@1.38.0
 actions:
   definitions:
